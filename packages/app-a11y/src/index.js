@@ -276,6 +276,77 @@ export async function scanConsumer(event) {
   }
 }
 
+/** A short, safe description of an unexpected event, for the logs. */
+function safeShape(value, depth = 0) {
+  if (value === null || value === undefined) return String(value);
+  if (depth > 2) return typeof value;
+  if (Array.isArray(value)) return `array(${value.length})`;
+  if (typeof value !== 'object') return typeof value;
+  return `{${Object.keys(value).slice(0, 8).map((k) => `${k}:${safeShape(value[k], depth + 1)}`).join(',')}}`;
+}
+
+/** Audits one page of pages, stores each result, and queues the next batch. */
+async function runScanBatch(spaceKey, spaceId, cursor) {
+  const settings = await getSettings(spaceKey);
+  const { pages, next } = await listSpacePages(spaceId, cursor);
+  const titles = pages.map((p) => p.title ?? '');
+  let scanned = 0;
+  for (const [index, page] of pages.entries()) {
+    // Every other page in the batch, but not this one: a page is not its own duplicate.
+    const siblings = titles.filter((_, i) => i !== index);
+    const result = await auditPage(page, settings, siblings);
+    if (!result) continue;
+    await savePageResult(spaceKey, page, result);
+    scanned++;
+  }
+  const progress = (await getScanProgress(spaceKey)) ?? { spaceKey, spaceId, scanned: 0 };
+  progress.scanned = (progress.scanned ?? 0) + scanned;
+  progress.cursor = next;
+  progress.done = !next;
+  progress.failed = false;
+  progress.updatedAt = new Date().toISOString();
+  await setScanProgress(spaceKey, progress);
+
+  if (next) {
+    await scanQueue.push({ body: { spaceKey, spaceId, cursor: next } });
+    return { continued: true, scanned };
+  }
+  await finaliseSpaceReport(spaceKey);
+  return { continued: false, scanned };
+}
+
+/** Rolls the stored page results up into the space report. */
+async function finaliseSpaceReport(spaceKey) {
+  const summaries = await listPageSummaries(spaceKey);
+  const asResults = summaries.map((s) => ({
+    pageId: s.pageId,
+    result: {
+      score: s.score,
+      conformant: s.conformant,
+      issues: Object.entries(s.ruleCounts ?? {}).flatMap(([ruleId, n]) =>
+        Array.from({ length: n }, () => ({
+          ruleId,
+          severity: RULES_BY_ID[ruleId]?.severity ?? 'moderate',
+          confidence: RULES_BY_ID[ruleId]?.confidence ?? 'certain',
+          path: [],
+          location: '',
+        })),
+      ),
+    },
+  }));
+  const report = rollUp(asResults);
+  const worst = [...summaries].sort((a, b) => a.score - b.score).slice(0, 20)
+    .map(({ pageId, title, score, counts }) => ({ pageId, title, score, counts }));
+  const criteria = mergeCriteria(summaries.map((s) => s.criteria ?? {}));
+  await saveSpaceReport(spaceKey, {
+    spaceKey,
+    ...report,
+    criteria,
+    worstPages: worst,
+    generatedAt: new Date().toISOString(),
+  });
+}
+
 /* ---------------------------------------------------------------------- */
 /* Weekly re-scan of every space that has been scanned at least once.      */
 /* ---------------------------------------------------------------------- */
