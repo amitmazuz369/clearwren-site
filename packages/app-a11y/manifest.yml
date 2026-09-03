@@ -66,15 +66,15 @@ modules:
       handler: index.handler
     - key: scan-consumer
       handler: index.scanConsumer
+      # Scanning a large space needs more than the default function timeout.
+      timeoutSeconds: 600
     - key: weekly-scan
       handler: index.weeklyScan
 
   consumer:
     - key: space-scan-queue
       queue: space-scan
-      resolver:
-        function: scan-consumer
-        method: scan-batch
+      function: scan-consumer
 
   scheduledTrigger:
     - key: weekly-rescan

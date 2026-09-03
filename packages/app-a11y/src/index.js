@@ -253,12 +253,14 @@ export const handler = resolver.getDefinitions();
 /* Queue consumer: walks a space one batch of pages at a time.             */
 /* ---------------------------------------------------------------------- */
 
-const consumer = new Resolver();
-
-consumer.define('scan-batch', async ({ payload }) => {
-  const { spaceKey, spaceId, cursor } = payload ?? {};
+/**
+ * Queue consumer. Receives the whole AsyncEvent; the data pushed with
+ * queue.push({ body }) arrives on event.body.
+ */
+export async function scanConsumer(event) {
+  const { spaceKey, spaceId, cursor } = event?.body ?? {};
   if (!spaceKey || !spaceId) {
-    console.error('scan-batch received no usable payload', JSON.stringify(payload));
+    console.error('scan-batch could not find its payload', safeShape(event));
     return { continued: false, scanned: 0, error: 'missing payload' };
   }
   try {
@@ -272,68 +274,7 @@ consumer.define('scan-batch', async ({ payload }) => {
     });
     return { continued: false, scanned: 0, error: message };
   }
-});
-
-async function runScanBatch(spaceKey, spaceId, cursor) {
-  const settings = await getSettings(spaceKey);
-  const { pages, next } = await listSpacePages(spaceId, cursor);
-  const titles = pages.map((p) => p.title ?? '');
-  let scanned = 0;
-  for (const [index, page] of pages.entries()) {
-    // Every other page in the batch, but not this one: a page is not its own duplicate.
-    const siblings = titles.filter((_, i) => i !== index);
-    const result = await auditPage(page, settings, siblings);
-    if (!result) continue;
-    await savePageResult(spaceKey, page, result);
-    scanned++;
-  }
-  const progress = (await getScanProgress(spaceKey)) ?? { spaceKey, spaceId, scanned: 0 };
-  progress.scanned = (progress.scanned ?? 0) + scanned;
-  progress.cursor = next;
-  progress.done = !next;
-  progress.updatedAt = new Date().toISOString();
-  await setScanProgress(spaceKey, progress);
-
-  if (next) {
-    await scanQueue.push({ body: { spaceKey, spaceId, cursor: next } });
-    return { continued: true, scanned };
-  }
-  await finaliseSpaceReport(spaceKey);
-  return { continued: false, scanned };
 }
-
-async function finaliseSpaceReport(spaceKey) {
-  const summaries = await listPageSummaries(spaceKey);
-  const asResults = summaries.map((s) => ({
-    pageId: s.pageId,
-    result: {
-      score: s.score,
-      conformant: s.conformant,
-      issues: Object.entries(s.ruleCounts ?? {}).flatMap(([ruleId, n]) =>
-        Array.from({ length: n }, () => ({
-          ruleId,
-          severity: RULES_BY_ID[ruleId]?.severity ?? 'moderate',
-          confidence: RULES_BY_ID[ruleId]?.confidence ?? 'certain',
-          path: [],
-          location: '',
-        })),
-      ),
-    },
-  }));
-  const report = rollUp(asResults);
-  const worst = [...summaries].sort((a, b) => a.score - b.score).slice(0, 20)
-    .map(({ pageId, title, score, counts }) => ({ pageId, title, score, counts }));
-  const criteria = mergeCriteria(summaries.map((s) => s.criteria ?? {}));
-  await saveSpaceReport(spaceKey, {
-    spaceKey,
-    ...report,
-    criteria,
-    worstPages: worst,
-    generatedAt: new Date().toISOString(),
-  });
-}
-
-export const scanConsumer = consumer.getDefinitions();
 
 /* ---------------------------------------------------------------------- */
 /* Weekly re-scan of every space that has been scanned at least once.      */
