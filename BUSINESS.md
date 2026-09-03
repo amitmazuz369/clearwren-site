@@ -108,6 +108,16 @@ the vendor's ranking, reviews and cross-sell:
 | 6 | Launch: marketplace SEO, docs content, community answers, review requests | agent |
 | 7 | Apps 2–5, one per cycle | agent |
 
+## Risks, and where each one stands
+
+| Risk | State |
+|---|---|
+| Israel not supported for partner payouts | **Cleared.** Methoda, of Raanana, is a Marketplace vendor with eleven listed apps. Atlassian publishes no country list, so this was verified through an existing partner. |
+| Atlassian ships its own Cloud checker and commoditises the wedge | Partly mitigated by scope: their Data Center checker is a single-page editor check. The durable value here is coverage and evidence — space scans, trends, and the dated conformance report — not the per-page check. |
+| Empty category means no demand rather than no supply | Countered by the legal deadlines, by Atlassian having built the Data Center checker at all, and by public sector and university use of Confluence. The free checker on the site is also a demand probe: traffic to it is a signal before a single install exists. |
+| Marketplace search volume for accessibility is thin | The site, the guides and the free checker exist precisely so acquisition is not solely marketplace search. |
+| App review rejection | Reduced by validating the manifest against Atlassian's own schema, by requesting only five scopes, and by making no outbound calls at all. |
+
 ## What is being tracked
 `research/` holds the raw catalogue and the analysis scripts, so every number above can be
 re-derived and re-run as the market moves.
