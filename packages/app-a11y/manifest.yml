@@ -38,30 +38,7 @@ modules:
       resolver:
         function: resolver
 
-  webtrigger:
-    # Development-only fixture seeder. Removed before the production submission.
-    - key: dev-seed
-      function: dev-seed-fn
-    - key: dev-scan
-      function: dev-scan-fn
-    - key: dev-queue-push
-      function: dev-queue-push-fn
-    - key: dev-queue-probe
-      function: dev-queue-probe-fn
-    - key: dev-queue-status
-      function: dev-queue-status-fn
-
   function:
-    - key: dev-seed-fn
-      handler: devSeed.devSeed
-    - key: dev-scan-fn
-      handler: devSeed.devScan
-    - key: dev-queue-push-fn
-      handler: devSeed.devQueuePush
-    - key: dev-queue-probe-fn
-      handler: devSeed.devQueueProbe
-    - key: dev-queue-status-fn
-      handler: devSeed.devQueueStatus
     - key: resolver
       handler: index.handler
     - key: scan-consumer
@@ -96,8 +73,6 @@ permissions:
     - read:page:confluence
     - write:page:confluence
     - read:space:confluence
-    # Development only, so the fixture seeder can create its own test space.
-    - write:space:confluence
     - read:content-details:confluence
     - storage:app
 

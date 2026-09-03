@@ -55,7 +55,7 @@ a recurring need for *evidence* — which is a subscription, not a one-off purch
 - Space-wide scan (async queue) and a site-wide roll-up.
 - A conformance report published as a Confluence page — the artefact an auditor asks for.
 - Weekly automatic re-scan and trend history.
-- 30 deterministic rules across images, headings, links, tables, contrast and content.
+- 32 deterministic rules across images, headings, links, tables, contrast and content.
 
 Runs entirely inside Forge with no outbound calls, which qualifies it for the
 **Runs on Atlassian** badge — the trust signal enterprise and public-sector buyers filter on.

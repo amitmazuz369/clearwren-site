@@ -74,7 +74,7 @@ findings mapped to WCAG success criteria and a plain statement of method.
 
 **Keeps it from drifting.** Scanned spaces re-check themselves every week.
 
-### 31 checks across 15 WCAG 2.2 success criteria
+### 32 checks across 15 WCAG 2.2 success criteria
 
 Images (1.1.1), headings and structure (1.3.1, 2.4.6), links (2.4.4, 2.4.9), tables
 (1.3.1), colour contrast measured against the real background including panels and coloured
