@@ -114,7 +114,10 @@ export const colourOnlyMeaning: Rule = {
   confidence: 'review',
   run(ctx): Issue[] {
     const out: Issue[] = [];
-    const rx = /\b(in|the|marked|highlighted|shown|coloured|colored)\s+(red|green|blue|yellow|orange|purple|grey|gray)\b|\b(red|green|blue|yellow|orange|purple)\s+(items?|rows?|cells?|entries|text|ones|boxes)\b/i;
+    // Deliberately narrow: "the items in red" is an instruction that depends on
+    // colour, while "the grey caption text" is just describing a colour and must
+    // not be reported.
+    const rx = /\b(?:in|marked in|highlighted in|shown in|coloured|colored)\s+(?:red|green|blue|yellow|orange|purple)\b|\b(?:red|green|blue|yellow|orange|purple)\s+(?:items?|rows?|cells?|entries|ones|boxes)\b/i;
     const runs: Array<{ node: AdfNode; path: number[]; ctx: Ctx }> = [];
     collectTextRuns(ctx.doc, { bg: CONFLUENCE_DEFAULT_BACKGROUND, fontPx: BODY_PX, bold: false }, [], runs);
     for (const r of runs) {

@@ -10,8 +10,10 @@ const out = join(root, 'site');
 
 const NAV = [
   ['/', 'Product'],
+  ['/checker.html', 'Free checker'],
   ['/checks.html', 'What it checks'],
   ['/pricing.html', 'Pricing'],
+  ['/guides.html', 'Guides'],
   ['/docs.html', 'Docs'],
   ['/security.html', 'Security'],
   ['/support.html', 'Support'],

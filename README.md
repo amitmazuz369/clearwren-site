@@ -24,3 +24,11 @@ node tools/validate.mjs                       # run the engine over saved real-w
 
 `BUSINESS.md` holds the plan and the numbers. `SETUP_REQUIRED.md` holds the accounts that
 have to exist before the app can be registered and listed.
+
+## Pre-flight checks that run without an Atlassian account
+
+```bash
+node tools/validate-manifest.mjs   # manifest.yml against the schema in @forge/manifest
+node tools/selfcheck.mjs           # our own site, checked by our own engine
+node tools/validate.mjs            # the engine against saved real-world pages
+```

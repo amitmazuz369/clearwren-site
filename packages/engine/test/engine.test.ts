@@ -218,3 +218,12 @@ test('roll-up aggregates pages and ranks rules by frequency', () => {
   assert.equal(r.byRule[0]!.ruleId, 'img-alt-missing');
   assert.equal(r.byRule[0]!.pages, 2);
 });
+
+test('colour-only wording is caught but colour descriptions are not', () => {
+  const flagged = audit(doc(p(t('Anything marked in red still needs approval.'))));
+  assert.ok(flagged.issues.some((i) => i.ruleId === 'colour-only-meaning'));
+  const rows = audit(doc(p(t('The red rows are blocked.'))));
+  assert.ok(rows.issues.some((i) => i.ruleId === 'colour-only-meaning'));
+  const describing = audit(doc(p(t('Whether the grey caption text has enough contrast.'))));
+  assert.equal(describing.issues.some((i) => i.ruleId === 'colour-only-meaning'), false);
+});

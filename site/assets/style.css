@@ -90,3 +90,35 @@ footer.site .spacer { margin-left: auto; }
 ul.checks { padding-left: 20px; }
 ul.checks li { margin-bottom: 6px; }
 code { background: var(--surface); padding: 2px 6px; border-radius: 5px; font-size: 0.9em; border: 1px solid var(--border); }
+
+/* --- public checker --- */
+.paste-area {
+  min-height: 190px; border: 2px dashed var(--border); border-radius: var(--radius);
+  padding: 18px; background: var(--surface); overflow: auto; max-height: 340px;
+}
+.paste-area:focus { outline: 2px solid var(--accent); outline-offset: 2px; border-style: solid; }
+.paste-area[data-empty="true"]::before {
+  content: attr(data-placeholder); color: var(--ink-soft); pointer-events: none; display: block;
+}
+.paste-area img { max-width: 100%; }
+.scorecard { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 26px 0 10px; }
+.score-num { font-size: 42px; font-weight: 680; letter-spacing: -0.02em; line-height: 1; }
+.pill { display: inline-block; padding: 4px 11px; border-radius: 999px; font-size: 13px; font-weight: 620; border: 1px solid var(--border); }
+.pill-pass { background: #e6f4ea; color: #14532d; border-color: #bfe3ca; }
+.pill-fail { background: #fdeceb; color: #7f1d1a; border-color: #f5c6c2; }
+@media (prefers-color-scheme: dark) {
+  .pill-pass { background: #12261a; color: #9ee2b4; border-color: #24503a; }
+  .pill-fail { background: #2a1514; color: #f5a9a3; border-color: #592a27; }
+}
+.finding { border: 1px solid var(--border); border-left-width: 4px; border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; background: var(--surface); }
+.finding.critical { border-left-color: var(--critical); }
+.finding.serious { border-left-color: var(--serious); }
+.finding.moderate { border-left-color: var(--moderate); }
+.finding.advisory { border-left-color: var(--advisory); }
+.finding h4 { margin: 0 0 4px; font-size: 16px; }
+.finding p { margin: 4px 0; font-size: 15px; }
+.finding .evidence { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 9px; display: inline-block; }
+.controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 16px 0 6px; }
+.hidden { display: none; }
+textarea.raw { width: 100%; min-height: 190px; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; background: var(--surface); color: var(--ink); }
+.card h2.card-title { font-size: 18px; margin: 0 0 8px; letter-spacing: -0.005em; }
