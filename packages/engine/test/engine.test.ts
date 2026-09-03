@@ -227,3 +227,18 @@ test('colour-only wording is caught but colour descriptions are not', () => {
   const describing = audit(doc(p(t('Whether the grey caption text has enough contrast.'))));
   assert.equal(describing.issues.some((i) => i.ruleId === 'colour-only-meaning'), false);
 });
+
+test('mergeCriteria takes the worst outcome across pages and counts them', async () => {
+  const { mergeCriteria } = await import('../src/index.js');
+  const merged = mergeCriteria([
+    { '1.1.1': 'pass', '1.4.3': 'not-applicable' },
+    { '1.1.1': 'fail', '1.4.3': 'review' },
+    { '1.1.1': 'fail', '1.4.3': 'pass' },
+  ]);
+  const nonText = merged.find((c) => c.criterion === '1.1.1');
+  assert.equal(nonText?.status, 'fail');
+  assert.equal(nonText?.issueCount, 2);
+  assert.equal(nonText?.name, 'Non-text Content');
+  const contrast = merged.find((c) => c.criterion === '1.4.3');
+  assert.equal(contrast?.status, 'review');
+});

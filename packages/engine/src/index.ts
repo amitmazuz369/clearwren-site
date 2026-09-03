@@ -223,3 +223,46 @@ export function rollUp(results: Array<{ pageId: string; result: Pick<AuditResult
     ),
   };
 }
+
+/** Worst-first ordering: one failing page fails the criterion for the space. */
+const CRITERION_RANK: Record<CriterionResult['status'], number> = {
+  fail: 3, review: 2, pass: 1, 'not-applicable': 0,
+};
+
+/**
+ * Merges the per-page criterion outcomes of a whole space into the single table
+ * a conformance report needs.
+ */
+export function mergeCriteria(pages: Array<Record<string, CriterionResult['status']>>): CriterionResult[] {
+  const worst = new Map<string, { status: CriterionResult['status']; pages: number }>();
+  for (const page of pages) {
+    for (const [criterion, status] of Object.entries(page)) {
+      const cur = worst.get(criterion);
+      const failing = status === 'fail' || status === 'review' ? 1 : 0;
+      if (!cur) worst.set(criterion, { status, pages: failing });
+      else {
+        worst.set(criterion, {
+          status: CRITERION_RANK[status] > CRITERION_RANK[cur.status] ? status : cur.status,
+          pages: cur.pages + failing,
+        });
+      }
+    }
+  }
+  return [...worst.entries()]
+    .map(([criterion, v]) => ({
+      criterion,
+      name: CRITERION_NAMES[criterion] ?? criterion,
+      level: CRITERION_LEVELS[criterion] ?? 'A',
+      status: v.status,
+      issueCount: v.pages,
+    }))
+    .sort((a, b) => compareCriteria(a.criterion, b.criterion));
+}
+
+/** Criterion names and levels, derived from the rules so they stay in step. */
+const CRITERION_NAMES: Record<string, string> = Object.fromEntries(
+  ALL_RULES.flatMap((r) => r.wcag.map((w) => [w.criterion, w.name])),
+);
+const CRITERION_LEVELS: Record<string, WcagLevel> = Object.fromEntries(
+  ALL_RULES.flatMap((r) => r.wcag.map((w) => [w.criterion, w.level])),
+);

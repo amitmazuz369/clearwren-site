@@ -138,6 +138,42 @@ const App = () => {
           </Stack>
 
           <Stack space="space.100">
+            <Heading as="h3">Conformance by success criterion</Heading>
+            <Text appearance="subtle">
+              Only the criteria this app evaluates are listed. Criteria that depend on human
+              judgement are marked for review rather than claimed either way.
+            </Text>
+            <DynamicTable
+              head={{ cells: [
+                { key: 'c', content: 'Success criterion' },
+                { key: 'level', content: 'Level' },
+                { key: 'status', content: 'Result' },
+                { key: 'pages', content: 'Pages affected' },
+              ] }}
+              rows={(report.criteria ?? []).map((c) => ({
+                key: c.criterion,
+                cells: [
+                  { key: 'c', content: <Text>{`${c.criterion} ${c.name}`}</Text> },
+                  { key: 'level', content: <Text>{c.level}</Text> },
+                  { key: 'status', content: (
+                    <Lozenge appearance={
+                      c.status === 'fail' ? 'removed'
+                        : c.status === 'review' ? 'moved'
+                          : c.status === 'pass' ? 'success' : 'default'
+                    }>
+                      {c.status === 'fail' ? 'Does not support'
+                        : c.status === 'review' ? 'Needs review'
+                          : c.status === 'pass' ? 'Supports' : 'Not applicable'}
+                    </Lozenge>
+                  ) },
+                  { key: 'pages', content: <Text>{String(c.issueCount ?? 0)}</Text> },
+                ],
+              }))}
+              rowsPerPage={15}
+            />
+          </Stack>
+
+          <Stack space="space.100">
             <Heading as="h3">Pages needing attention first</Heading>
             <DynamicTable
               head={{ cells: [

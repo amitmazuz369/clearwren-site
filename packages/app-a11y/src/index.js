@@ -1,6 +1,6 @@
 import Resolver from '@forge/resolver';
 import { Queue } from '@forge/events';
-import { audit, rollUp, ALL_RULES, RULES_BY_ID } from '@clearwren/a11y-engine';
+import { audit, rollUp, mergeCriteria, ALL_RULES, RULES_BY_ID } from '@clearwren/a11y-engine';
 import {
   getPage, getSpaceByKey, listSpaces, listSpacePages, parseAdf, updatePageAdf,
 } from './lib/confluence.js';
@@ -194,7 +194,23 @@ function cell(t, header) {
   return { type: header ? 'tableHeader' : 'tableCell', attrs: {}, content: [para(t)] };
 }
 
+function statusWords(status) {
+  switch (status) {
+    case 'pass': return 'Supports';
+    case 'fail': return 'Does not support';
+    case 'review': return 'Needs human review';
+    default: return 'Not applicable';
+  }
+}
+
 function buildReportAdf(report, level) {
+  const criteriaRows = [
+    { type: 'tableRow', content: [cell('Success criterion', true), cell('Level', true), cell('Result', true), cell('Pages affected', true)] },
+    ...(report.criteria ?? []).map((c) => ({
+      type: 'tableRow',
+      content: [cell(`${c.criterion} ${c.name}`), cell(c.level), cell(statusWords(c.status)), cell(c.issueCount || 0)],
+    })),
+  ];
   const rows = [
     { type: 'tableRow', content: [cell('Check', true), cell('Pages affected', true), cell('Occurrences', true), cell('Severity', true), cell('WCAG', true)] },
     ...report.byRule.map((r) => {
@@ -211,6 +227,9 @@ function buildReportAdf(report, level) {
       heading(2, 'Summary'),
       para(`${report.pages} pages checked. ${report.conformantPages} pages had no level A or AA failure. Average page score ${report.averageScore} out of 100.`),
       para(`Critical: ${report.counts.critical} · Serious: ${report.counts.serious} · Moderate: ${report.counts.moderate} · Advisory: ${report.counts.advisory}`),
+      heading(2, 'Conformance by success criterion'),
+      para('Only criteria this tool evaluates are listed. Criteria that depend on human judgement are marked for review rather than claimed either way.'),
+      { type: 'table', attrs: { isNumberColumnEnabled: false, layout: 'default' }, content: criteriaRows },
       heading(2, 'Findings by check'),
       { type: 'table', attrs: { isNumberColumnEnabled: false, layout: 'default' }, content: rows },
       heading(2, 'Method'),
@@ -275,9 +294,11 @@ async function finaliseSpaceReport(spaceKey) {
   const report = rollUp(asResults);
   const worst = [...summaries].sort((a, b) => a.score - b.score).slice(0, 20)
     .map(({ pageId, title, score, counts }) => ({ pageId, title, score, counts }));
+  const criteria = mergeCriteria(summaries.map((s) => s.criteria ?? {}));
   await saveSpaceReport(spaceKey, {
     spaceKey,
     ...report,
+    criteria,
     worstPages: worst,
     generatedAt: new Date().toISOString(),
   });

@@ -38,6 +38,10 @@ export async function savePageResult(spaceKey, page, result) {
   for (const issue of result.issues) {
     ruleCounts[issue.ruleId] = (ruleCounts[issue.ruleId] ?? 0) + 1;
   }
+  // A compact criterion map travels with the summary so the space report can be
+  // built without re-reading every page's full issue list.
+  const criteria = {};
+  for (const c of result.criteria) criteria[c.criterion] = c.status;
   const summary = {
     pageId: String(page.id),
     title: page.title ?? '',
@@ -46,6 +50,7 @@ export async function savePageResult(spaceKey, page, result) {
     conformant: result.conformant,
     counts: result.counts,
     ruleCounts,
+    criteria,
     stats: result.stats,
     scannedAt: new Date().toISOString(),
     engineVersion: result.engineVersion,
