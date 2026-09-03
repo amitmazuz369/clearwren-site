@@ -38,7 +38,14 @@ modules:
       resolver:
         function: resolver
 
+  webtrigger:
+    # Development-only fixture seeder. Removed before the production submission.
+    - key: dev-seed
+      function: dev-seed-fn
+
   function:
+    - key: dev-seed-fn
+      handler: devSeed.devSeed
     - key: resolver
       handler: index.handler
     - key: scan-consumer
@@ -73,13 +80,14 @@ permissions:
     - read:page:confluence
     - write:page:confluence
     - read:space:confluence
+    # Development only, so the fixture seeder can create its own test space.
+    - write:space:confluence
     - read:content-details:confluence
     - storage:app
 
 app:
   runtime:
     name: nodejs22.x
-  # Replaced by `forge register` at first setup.
-  id: ari:cloud:ecosystem::app/REPLACE-WITH-APP-ID
+  id: ari:cloud:ecosystem::app/9f665f10-483e-43d5-a6ec-7fcaa1743ad8
   licensing:
     enabled: true

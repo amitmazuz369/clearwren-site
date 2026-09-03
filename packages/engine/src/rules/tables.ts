@@ -91,26 +91,6 @@ export const tableMergedCells: Rule = {
   },
 };
 
-export const tableNested: Rule = {
-  id: 'table-nested',
-  title: 'Table nested inside another table',
-  why: 'Nested tables are very hard to navigate with a keyboard or screen reader, which usually announces them as one confusing grid.',
-  howToFix: 'Flatten the data into a single table, or move the inner table to its own section.',
-  wcag: [INFO_REL],
-  severity: 'moderate',
-  confidence: 'certain',
-  run(ctx): Issue[] {
-    const out: Issue[] = [];
-    for (const { node, path } of findAll(ctx.doc, 'table')) {
-      const inner = findAll(node, 'table').filter((h) => h.path.length > 0);
-      if (inner.length) {
-        out.push({ ruleId: 'table-nested', severity: 'moderate', confidence: 'certain', path, location: 'Table', data: { nested: inner.length } });
-      }
-    }
-    return out;
-  },
-};
-
 export const tableLayout: Rule = {
   id: 'table-layout',
   title: 'Table appears to be used for layout',
@@ -137,4 +117,7 @@ export const tableLayout: Rule = {
   },
 };
 
-export const tableRules: Rule[] = [tableNoHeader, tableEmptyHeader, tableMergedCells, tableNested, tableLayout];
+// tableNested was removed: the Atlassian Document Format does not permit a table
+// inside a table cell, so Confluence strips one on save and the check could never
+// fire on Cloud content.
+export const tableRules: Rule[] = [tableNoHeader, tableEmptyHeader, tableMergedCells, tableLayout];

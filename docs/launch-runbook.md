@@ -76,3 +76,29 @@ If after 90 days of approved listing there are fewer than 3 paying sites and few
 installs, the wedge is wrong rather than the execution. In that case the engine and the app
 shell are reused for the next app in `BUSINESS.md`, which is a two-week rebuild rather than
 a restart.
+
+---
+
+## Execution log
+
+**3 September 2026**
+
+| Step | Result |
+|---|---|
+| Domain, DNS, HTTPS | `clearwren.com` live on GitHub Pages, Let's Encrypt certificate, HTTP redirects to HTTPS |
+| Email | Zoho Mail on the domain; MX, SPF and DKIM all verified by Zoho |
+| Marketplace partner | Clearwren registered, logo uploaded, Israel accepted as the partner country |
+| Developer Space | `Clearwren` created |
+| App registered | `ari:cloud:ecosystem::app/9f665f10-483e-43d5-a6ec-7fcaa1743ad8` |
+| Runs on Atlassian | first deploy reported **eligible** |
+| Demo site | `one-atlas-enqi.atlassian.net`, app installed |
+| End-to-end fixtures | all six pages seeded and audited: **every expected finding present**, clean control page scored 100 |
+
+Scores observed on the fixtures: Onboarding 40, Release notes 76, Architecture 80,
+Style guide 100, Policy 93, Copy of Untitled 97.
+
+Two corrections came out of running against a real site rather than a unit test:
+
+- `table-nested` was removed. ADF forbids a table inside a table cell, so Confluence
+  strips one on save and the check could never fire on Cloud content.
+- The fixture seeder is idempotent, because a second run hit the duplicate-title rule.

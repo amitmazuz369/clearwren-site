@@ -1,4 +1,4 @@
-import { storage, startsWith } from '@forge/api';
+import kvs, { WhereConditions } from '@forge/kvs';
 
 /**
  * Forge storage is a flat key-value store, so keys carry the hierarchy:
@@ -20,16 +20,16 @@ export const DEFAULT_SETTINGS = {
 const MAX_STORED_ISSUES = 300;
 
 export async function getSettings(spaceKey) {
-  const global = (await storage.get('cfg:global')) ?? {};
-  const space = spaceKey ? (await storage.get(`cfg:space:${spaceKey}`)) ?? {} : {};
+  const global = (await kvs.get('cfg:global')) ?? {};
+  const space = spaceKey ? (await kvs.get(`cfg:space:${spaceKey}`)) ?? {} : {};
   return { ...DEFAULT_SETTINGS, ...global, ...space };
 }
 
 export async function saveSettings(settings, spaceKey) {
   const key = spaceKey ? `cfg:space:${spaceKey}` : 'cfg:global';
-  const current = (await storage.get(key)) ?? {};
+  const current = (await kvs.get(key)) ?? {};
   const next = { ...current, ...settings };
-  await storage.set(key, next);
+  await kvs.set(key, next);
   return next;
 }
 
@@ -55,8 +55,8 @@ export async function savePageResult(spaceKey, page, result) {
     scannedAt: new Date().toISOString(),
     engineVersion: result.engineVersion,
   };
-  await storage.set(`p:${spaceKey}:${page.id}`, summary);
-  await storage.set(`i:${page.id}`, {
+  await kvs.set(`p:${spaceKey}:${page.id}`, summary);
+  await kvs.set(`i:${page.id}`, {
     pageId: String(page.id),
     scannedAt: summary.scannedAt,
     issues: result.issues.slice(0, MAX_STORED_ISSUES),
@@ -68,8 +68,8 @@ export async function savePageResult(spaceKey, page, result) {
 
 export async function getPageResult(pageId, spaceKey) {
   const [summary, detail] = await Promise.all([
-    spaceKey ? storage.get(`p:${spaceKey}:${pageId}`) : null,
-    storage.get(`i:${pageId}`),
+    spaceKey ? kvs.get(`p:${spaceKey}:${pageId}`) : null,
+    kvs.get(`i:${pageId}`),
   ]);
   return { summary: summary ?? null, detail: detail ?? null };
 }
@@ -78,7 +78,7 @@ export async function listPageSummaries(spaceKey, limit = 500) {
   const out = [];
   let cursor;
   do {
-    const query = storage.query().where('key', startsWith(`p:${spaceKey}:`)).limit(20);
+    const query = kvs.query().where('key', WhereConditions.beginsWith(`p:${spaceKey}:`)).limit(20);
     const res = await (cursor ? query.cursor(cursor).getMany() : query.getMany());
     for (const item of res.results) out.push(item.value);
     cursor = res.nextCursor;
@@ -87,28 +87,28 @@ export async function listPageSummaries(spaceKey, limit = 500) {
 }
 
 export async function saveSpaceReport(spaceKey, report) {
-  await storage.set(`space:${spaceKey}`, report);
-  const index = (await storage.get('sites')) ?? { spaces: [] };
+  await kvs.set(`space:${spaceKey}`, report);
+  const index = (await kvs.get('sites')) ?? { spaces: [] };
   if (!index.spaces.includes(spaceKey)) {
     index.spaces = [...index.spaces, spaceKey].slice(0, 500);
-    await storage.set('sites', index);
+    await kvs.set('sites', index);
   }
 }
 
 export async function getSpaceReport(spaceKey) {
-  return (await storage.get(`space:${spaceKey}`)) ?? null;
+  return (await kvs.get(`space:${spaceKey}`)) ?? null;
 }
 
 export async function listScannedSpaces() {
-  const index = (await storage.get('sites')) ?? { spaces: [] };
+  const index = (await kvs.get('sites')) ?? { spaces: [] };
   return index.spaces;
 }
 
 export async function setScanProgress(spaceKey, progress) {
-  if (progress === null) await storage.delete(`scan:${spaceKey}`);
-  else await storage.set(`scan:${spaceKey}`, progress);
+  if (progress === null) await kvs.delete(`scan:${spaceKey}`);
+  else await kvs.set(`scan:${spaceKey}`, progress);
 }
 
 export async function getScanProgress(spaceKey) {
-  return (await storage.get(`scan:${spaceKey}`)) ?? null;
+  return (await kvs.get(`scan:${spaceKey}`)) ?? null;
 }

@@ -4,12 +4,13 @@
   "private": true,
   "license": "UNLICENSED",
   "dependencies": {
+    "@clearwren/a11y-engine": "file:../engine",
     "@forge/api": "^8.0.5",
     "@forge/bridge": "^6.3.1",
     "@forge/events": "^3.0.5",
+    "@forge/kvs": "^2.0.5",
     "@forge/react": "^12.1.3",
     "@forge/resolver": "^2.0.0",
-    "@clearwren/a11y-engine": "file:../engine",
     "react": "^18.3.1"
   }
 }
