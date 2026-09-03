@@ -44,12 +44,24 @@ modules:
       function: dev-seed-fn
     - key: dev-scan
       function: dev-scan-fn
+    - key: dev-queue-push
+      function: dev-queue-push-fn
+    - key: dev-queue-probe
+      function: dev-queue-probe-fn
+    - key: dev-queue-status
+      function: dev-queue-status-fn
 
   function:
     - key: dev-seed-fn
       handler: devSeed.devSeed
     - key: dev-scan-fn
       handler: devSeed.devScan
+    - key: dev-queue-push-fn
+      handler: devSeed.devQueuePush
+    - key: dev-queue-probe-fn
+      handler: devSeed.devQueueProbe
+    - key: dev-queue-status-fn
+      handler: devSeed.devQueueStatus
     - key: resolver
       handler: index.handler
     - key: scan-consumer

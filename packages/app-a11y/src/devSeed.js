@@ -9,7 +9,8 @@ import api, { route } from '@forge/api';
 import { audit } from '@clearwren/a11y-engine';
 import { getSpaceByKey, listSpaces, listSpacePages, parseAdf } from './lib/confluence.js';
 import { rollUp, mergeCriteria, RULES_BY_ID } from '@clearwren/a11y-engine';
-import { getSettings, savePageResult, listPageSummaries, saveSpaceReport } from './lib/store.js';
+import { getSettings, savePageResult, listPageSummaries, saveSpaceReport, setScanProgress, getScanProgress } from './lib/store.js';
+import { Queue } from '@forge/events';
 
 const text = (t, marks) => (marks ? { type: 'text', text: t, marks } : { type: 'text', text: t });
 const para = (...content) => ({ type: 'paragraph', content });
@@ -281,6 +282,8 @@ export async function devScan() {
     generatedAt: new Date().toISOString(),
   };
   await saveSpaceReport(target.key, report);
+  // clear any progress record a previous run left behind
+  await setScanProgress(target.key, null);
 
   return {
     statusCode: 200,
@@ -294,5 +297,71 @@ export async function devScan() {
       counts: report.counts,
       topRules: report.byRule.slice(0, 5),
     }, null, 2),
+  };
+}
+
+/** Development-only: tries several push shapes to find which the API accepts. */
+export async function devQueueProbe() {
+  const attempts = [];
+  const tryPush = async (label, queueKey, body) => {
+    try {
+      const r = await new Queue({ key: queueKey }).push({ body });
+      attempts.push({ label, queueKey, ok: true, jobId: r?.jobId ?? null });
+    } catch (err) {
+      attempts.push({ label, queueKey, ok: false, error: String(err?.message ?? err) });
+    }
+  };
+  await tryPush('manifest queue name, full body', 'space-scan', { spaceKey: 'CWTEST', spaceId: '557060', cursor: null });
+  await tryPush('manifest queue name, no null', 'space-scan', { spaceKey: 'CWTEST', spaceId: '557060' });
+  await tryPush('manifest queue name, minimal', 'space-scan', { ping: 1 });
+  await tryPush('module key instead', 'space-scan-queue', { ping: 1 });
+  return {
+    statusCode: 200,
+    headers: { 'Content-Type': ['application/json'] },
+    body: JSON.stringify({ attempts }, null, 2),
+  };
+}
+
+/** Development-only: pushes one real queue event and returns immediately. */
+export async function devQueuePush() {
+  const queue = new Queue({ key: 'space-scan' });
+  const { spaces } = await listSpaces();
+  const target = spaces.find((s) => s.key === 'CWTEST') ?? spaces[0];
+  await setScanProgress(target.key, {
+    spaceKey: target.key, spaceId: String(target.id),
+    startedAt: new Date().toISOString(), scanned: 0, cursor: null, done: false,
+  });
+  try {
+    const result = await queue.push({
+      body: { spaceKey: target.key, spaceId: String(target.id), cursor: null },
+    });
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': ['application/json'] },
+      body: JSON.stringify({ pushed: true, jobId: result?.jobId ?? null, spaceKey: target.key }),
+    };
+  } catch (err) {
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': ['application/json'] },
+      body: JSON.stringify({
+        pushed: false,
+        name: err?.name ?? null,
+        message: String(err?.message ?? err),
+        detail: JSON.stringify(err, Object.getOwnPropertyNames(err ?? {})).slice(0, 800),
+      }, null, 2),
+    };
+  }
+}
+
+/** Development-only: reports what the consumer has done so far. */
+export async function devQueueStatus() {
+  const { spaces } = await listSpaces();
+  const target = spaces.find((s) => s.key === 'CWTEST') ?? spaces[0];
+  const progress = await getScanProgress(target.key);
+  return {
+    statusCode: 200,
+    headers: { 'Content-Type': ['application/json'] },
+    body: JSON.stringify({ spaceKey: target.key, progress }, null, 2),
   };
 }

@@ -42,7 +42,7 @@ const App = () => {
       if (!res.started) {
         setNotice(res.reason === 'unlicensed'
           ? 'Scanning a whole space needs an active subscription. Single-page checks stay available.'
-          : 'The scan could not be started.');
+          : `The scan could not be started: ${res.error ?? 'unknown error'}`);
       } else {
         await load();
       }
@@ -60,7 +60,12 @@ const App = () => {
 
   const report = data.report;
   const progress = data.progress;
-  const scanning = progress && !progress.done;
+  // A scan that has not moved in ten minutes is stuck, not running. Saying so
+  // beats an "in progress" banner that never resolves.
+  const lastMoved = progress ? Date.parse(progress.updatedAt ?? progress.startedAt ?? 0) : 0;
+  const stalled = Boolean(progress) && !progress.done && Date.now() - lastMoved > 10 * 60 * 1000;
+  const scanning = Boolean(progress) && !progress.done && !stalled;
+  const failed = Boolean(progress?.failed) || stalled;
 
   return (
     <Stack space="space.300">
@@ -79,6 +84,16 @@ const App = () => {
       {scanning ? (
         <SectionMessage appearance="information" title="Scan in progress">
           <Text>{`${progress.scanned} pages checked so far. This page updates itself as the scan runs.`}</Text>
+        </SectionMessage>
+      ) : null}
+
+      {failed ? (
+        <SectionMessage appearance="warning" title="The last scan did not finish">
+          <Text>
+            {progress?.error
+              ? `It stopped after ${progress.scanned ?? 0} pages: ${progress.error}`
+              : `It stopped after ${progress?.scanned ?? 0} pages. Start it again, and tell us if it happens twice.`}
+          </Text>
         </SectionMessage>
       ) : null}
 
@@ -113,8 +128,8 @@ const App = () => {
               subtitle="Occurrences across the space"
               height={320}
               data={report.byRule.slice(0, 8).map((r) => ({ check: r.title, occurrences: r.issues }))}
-              xAccessor="occurrences"
-              yAccessor="check"
+              xAccessor="check"
+              yAccessor="occurrences"
             />
           </Stack>
 

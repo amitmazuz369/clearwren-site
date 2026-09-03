@@ -84,7 +84,16 @@ resolver.define('startSpaceScan', async ({ context, payload }) => {
     done: false,
   };
   await setScanProgress(spaceKey, progress);
-  await scanQueue.push({ spaceKey, spaceId: String(space.id), cursor: null });
+  try {
+    await scanQueue.push({ body: { spaceKey, spaceId: String(space.id), cursor: null } });
+  } catch (err) {
+    // Never leave a progress record behind that the dashboard would read as a
+    // scan that is still running.
+    const message = String(err?.message ?? err);
+    console.error(`could not queue the scan for ${spaceKey}`, message);
+    await setScanProgress(spaceKey, { ...progress, done: true, failed: true, error: message });
+    return { started: false, reason: 'queue-failed', error: message, license };
+  }
   return { started: true, progress, license };
 });
 
@@ -247,7 +256,25 @@ export const handler = resolver.getDefinitions();
 const consumer = new Resolver();
 
 consumer.define('scan-batch', async ({ payload }) => {
-  const { spaceKey, spaceId, cursor } = payload;
+  const { spaceKey, spaceId, cursor } = payload ?? {};
+  if (!spaceKey || !spaceId) {
+    console.error('scan-batch received no usable payload', JSON.stringify(payload));
+    return { continued: false, scanned: 0, error: 'missing payload' };
+  }
+  try {
+    return await runScanBatch(spaceKey, spaceId, cursor);
+  } catch (err) {
+    const message = String(err?.message ?? err);
+    console.error(`scan-batch failed for ${spaceKey}`, message);
+    const progress = (await getScanProgress(spaceKey)) ?? { spaceKey, spaceId, scanned: 0 };
+    await setScanProgress(spaceKey, {
+      ...progress, done: true, failed: true, error: message, updatedAt: new Date().toISOString(),
+    });
+    return { continued: false, scanned: 0, error: message };
+  }
+});
+
+async function runScanBatch(spaceKey, spaceId, cursor) {
   const settings = await getSettings(spaceKey);
   const { pages, next } = await listSpacePages(spaceId, cursor);
   const titles = pages.map((p) => p.title ?? '');
@@ -268,12 +295,12 @@ consumer.define('scan-batch', async ({ payload }) => {
   await setScanProgress(spaceKey, progress);
 
   if (next) {
-    await scanQueue.push({ spaceKey, spaceId, cursor: next });
+    await scanQueue.push({ body: { spaceKey, spaceId, cursor: next } });
     return { continued: true, scanned };
   }
   await finaliseSpaceReport(spaceKey);
   return { continued: false, scanned };
-});
+}
 
 async function finaliseSpaceReport(spaceKey) {
   const summaries = await listPageSummaries(spaceKey);
@@ -321,7 +348,7 @@ export async function weeklyScan() {
       await setScanProgress(spaceKey, {
         spaceKey, spaceId: String(space.id), startedAt: new Date().toISOString(), scanned: 0, cursor: null, done: false,
       });
-      await scanQueue.push({ spaceKey, spaceId: String(space.id), cursor: null });
+      await scanQueue.push({ body: { spaceKey, spaceId: String(space.id), cursor: null } });
     } catch (err) {
       console.error(`weekly rescan failed for ${spaceKey}`, err);
     }
