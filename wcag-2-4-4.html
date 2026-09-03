@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WCAG 2.4.4 Link Purpose (In Context) in Confluence — level A</title>
+<meta name="description" content="The purpose of a link has to be clear from its text, or from its immediate context. What it means for Confluence pages, and how to fix it.">
+<meta property="og:title" content="WCAG 2.4.4 Link Purpose (In Context) in Confluence — level A">
+<meta property="og:description" content="The purpose of a link has to be clear from its text, or from its immediate context. What it means for Confluence pages, and how to fix it.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 2.4.4</p>
+<h1>2.4.4 Link Purpose (In Context) <span class="muted">(level A)</span></h1>
+<p class="lede">The purpose of a link has to be clear from its text, or from its immediate context.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Screen-reader users often bring up a list of every link on a page and move through it. A page whose links read “click here”, “here”, “this page” and “more” produces a list with no information in it. Bare URLs are the other half of the problem: read out character by character, they are slow and tell the listener almost nothing.</p>
+
+  <h2>What to do about it</h2>
+  <p>Write the destination into the link text: “the 2026 onboarding checklist” rather than “click here”. Two links with the same text must not lead to different places.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Link text does not say where it goes</strong> — Screen-reader users often pull up a list of every link on the page; a list of "click here" entries is unusable.</li>
+    <li><strong>Bare URL used as link text</strong> — A screen reader reads a raw URL character by character, which is slow and tells the listener very little.</li>
+    <li><strong>Link has no readable text</strong> — A link with no text is announced only as its URL, or skipped entirely.</li>
+    <li><strong>Same link text points to different pages</strong> — Two links reading "guidelines" that lead to different pages are indistinguishable in a screen reader’s link list.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

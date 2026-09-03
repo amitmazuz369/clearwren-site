@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alt text in Confluence — how to add it and how to write it well</title>
+<meta name="description" content="The mechanics in the Confluence Cloud editor, what makes a description useful, and when empty alt text is the right answer.">
+<meta property="og:title" content="Alt text in Confluence — how to add it and how to write it well">
+<meta property="og:description" content="The mechanics in the Confluence Cloud editor, what makes a description useful, and when empty alt text is the right answer.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>Alt text in Confluence: how to add it, and how to write it well</h1>
+<p class="lede">
+  Pasting a screenshot into Confluence takes one second and never asks you for a
+  description. That is the whole reason this is the most common accessibility failure in
+  documentation.
+</p>
+
+<div class="prose">
+  <h2>Adding it in the Cloud editor</h2>
+  <ol>
+    <li>Click the image in the editor. The image toolbar appears above it.</li>
+    <li>Choose the <strong>Alt text</strong> option in that toolbar.</li>
+    <li>Type the description and confirm. Publish the page.</li>
+  </ol>
+  <p>
+    The alt text is stored on the image in the page body, so it travels with the page
+    through copies, exports and page moves. It is not stored on the attachment, which means
+    the same image used on two pages can carry two different descriptions — and it should,
+    because the right description depends on what the image is doing on <em>that</em> page.
+  </p>
+
+  <h2>What makes a description useful</h2>
+  <p>
+    The test is not “what is in the picture”. It is: <strong>if the image vanished, what
+    would the reader need in its place to keep going?</strong>
+  </p>
+  <table>
+    <thead><tr><th>Image</th><th>Weak</th><th>Useful</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Screenshot of a settings page with one field circled</td>
+        <td>“Settings screenshot”</td>
+        <td>“The Notifications settings page, with the Daily digest toggle highlighted”</td>
+      </tr>
+      <tr>
+        <td>Architecture diagram</td>
+        <td>“Diagram”</td>
+        <td>“Requests reach the API gateway, which calls the auth service before the orders service; both write to the shared Postgres cluster”</td>
+      </tr>
+      <tr>
+        <td>Chart of ticket volume</td>
+        <td>“Chart showing ticket data”</td>
+        <td>“Support tickets fell from about 900 a month in January to about 300 in June”</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Three habits carry most of the quality:
+  </p>
+  <ul class="checks">
+    <li><strong>Say the point, not the pixels.</strong> A chart's alt text should contain the finding, not a description of the axes.</li>
+    <li><strong>Do not start with “image of”.</strong> A screen reader already announces that it is an image. “Screenshot of…” is fine, though — that the content is a captured interface is real information.</li>
+    <li><strong>Keep it to a sentence or two.</strong> Alt text is read in one uninterrupted run. If the image needs a paragraph, put the paragraph on the page — where sighted readers get it too — and keep the alt text short.</li>
+  </ul>
+
+  <h2>Filenames are not descriptions</h2>
+  <p>
+    Some editors fill alt text with the filename by default, which produces
+    <code>Screen Shot 2026-01-04 at 10.11.12.png</code> read aloud, character by character.
+    That is worse than empty, because a checker sees alt text present and a listener gets
+    noise. Anything that looks like a filename, a hash, or the word “image” with a number
+    after it should be treated as missing.
+  </p>
+
+  <h2>When empty alt text is correct</h2>
+  <p>
+    Not every image carries information. A divider line, a repeated brand mark in a page
+    template, a decorative flourish beside a heading that already says the same thing — these
+    should be skipped by a screen reader rather than described. In HTML that is
+    <code>alt=""</code>. The judgement to make is simple: <em>if this image were removed,
+    would the reader lose anything?</em> If not, it is decorative.
+  </p>
+  <p>
+    The practical problem is that a checker cannot tell a decorative image from one whose
+    description was forgotten. That is why marking images as decorative needs to be a
+    deliberate act you record, not a silent omission.
+  </p>
+
+  <h2>Doing it across thousands of pages</h2>
+  <p>
+    One page at a time, this is easy. The reason alt text stays broken is that nobody knows
+    which pages are missing it, and the images were pasted by forty different people over
+    six years. The only approach that finishes is: measure the whole space, work the list
+    by owner, and put a check in front of the author while they are still writing.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Find the images missing alt text on a page</a></p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

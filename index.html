@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clearwren — accessibility checking for Confluence Cloud</title>
+<meta name="description" content="Check every Confluence page against WCAG 2.2 A and AA, fix issues in place, and publish the conformance report your auditor asks for. Runs entirely inside Atlassian.">
+<meta property="og:title" content="Clearwren — accessibility checking for Confluence Cloud">
+<meta property="og:description" content="Check every Confluence page against WCAG 2.2 A and AA, fix issues in place, and publish the conformance report your auditor asks for. Runs entirely inside Atlassian.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/" aria-current="page">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<section class="hero">
+  <h1>Your Confluence content, checked against WCAG 2.2</h1>
+  <p class="lede">
+    Clearwren checks every page in Confluence Cloud for the accessibility problems people
+    actually create — images without alt text, headings that skip levels, tables without
+    headers, low-contrast text, links that say “click here” — then shows the author how to
+    fix each one without leaving the page.
+  </p>
+  <div class="cta">
+    <a class="btn btn-primary" href="/pricing.html">See pricing</a>
+    <a class="btn btn-ghost" href="/checks.html">What it checks</a>
+  </div>
+  <p class="muted">Free for sites of 10 users or fewer. Billed by Atlassian on your existing invoice.</p>
+</section>
+
+<h2>The deadline is real, and it applies to your documentation</h2>
+<div class="prose">
+  <p>
+    Accessibility law has stopped being about public websites only. Under
+    <strong>ADA Title II</strong>, US state and local government content must meet WCAG 2.1
+    level AA by 26 April 2027 for populations of 50,000 or more, and by 26 April 2028 below
+    that. The <strong>European Accessibility Act</strong> has been in force since 28 June
+    2025. <strong>Section 508</strong> binds US federal agencies and the contractors who
+    supply them.
+  </p>
+  <p>
+    Public Confluence spaces, Jira Service Management help centres and Confluence-published
+    documentation all fall inside that scope. And the content that fails is rarely the
+    template — it is the thousands of pages your teams wrote by hand.
+  </p>
+</div>
+
+<h2>How it works</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Check a page as you write it</h3>
+    <p>An accessibility score sits in the page byline. Open it to see every issue, why it
+    matters to a real reader, and how to fix it. Missing alt text can be written straight
+    into the page from the panel.</p>
+  </div>
+  <div class="card">
+    <h3>Scan a whole space</h3>
+    <p>One click walks every current page in the space, ranks the worst offenders, and shows
+    which problems are the most common so you fix the pattern, not the page.</p>
+  </div>
+  <div class="card">
+    <h3>Report across the site</h3>
+    <p>Roll every scanned space into one view: pages checked, pages with no A or AA failure,
+    and where the remaining risk sits.</p>
+  </div>
+  <div class="card">
+    <h3>Publish the evidence</h3>
+    <p>Generate a conformance report as a Confluence page, dated and mapped to WCAG success
+    criteria — the artefact an auditor or procurement questionnaire asks for.</p>
+  </div>
+  <div class="card">
+    <h3>Keep it from drifting back</h3>
+    <p>Scanned spaces are re-checked automatically every week, so a clean space stays clean
+    and regressions surface on their own.</p>
+  </div>
+  <div class="card">
+    <h3>Tune it to your policy</h3>
+    <p>Target level A, AA or AAA. Switch off checks that do not fit your house style. Mark
+    genuinely decorative images so they stop being reported.</p>
+  </div>
+</div>
+
+<h2>Nothing leaves your Atlassian site</h2>
+<div class="note">
+  <p style="margin:0">
+    Every check runs inside Atlassian's own Forge platform. Page content is read, evaluated
+    in memory and discarded; only scores and issue locations are stored, and they are stored
+    in Forge storage inside your tenant. Clearwren operates no servers, and page content is
+    never sent anywhere — including to us.
+  </p>
+</div>
+
+<h2>What it does not claim</h2>
+<div class="prose">
+  <p>
+    No automated tool can certify accessibility. Roughly a third of WCAG success criteria
+    need a person to judge meaning, reading order or whether a media alternative is
+    adequate. Clearwren decides what can be decided from the content, marks the rest for
+    review, and says plainly which is which — in the app and in the report.
+  </p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

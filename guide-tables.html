@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tables in Confluence a screen reader can actually read</title>
+<meta name="description" content="Header rows, merged cells, layout tables, and how to restructure the table that has been growing sideways since 2021.">
+<meta property="og:title" content="Tables in Confluence a screen reader can actually read">
+<meta property="og:description" content="Header rows, merged cells, layout tables, and how to restructure the table that has been growing sideways since 2021.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>Tables a screen reader can actually read</h1>
+<p class="lede">
+  A table is a grid of relationships, and a screen reader has to rebuild those relationships
+  from the markup. When the markup does not carry them, the reader gets a stream of values
+  with nothing to attach them to.
+</p>
+
+<div class="prose">
+  <h2>The header row is not a style choice</h2>
+  <p>
+    In Confluence, making the first row a header does two separate things. Visually it turns
+    the row grey and bold. Structurally it marks those cells as headers, so that a screen
+    reader announces “Owner: IT” instead of just “IT” when the user moves through the grid.
+    Without it, a twelve-column release table becomes twelve unlabelled values per row.
+  </p>
+  <p>
+    To fix it: click into the table, open the table toolbar, and turn on the header row. Ten
+    seconds, and it is usually the single highest-value accessibility fix in a documentation
+    space.
+  </p>
+  <p>
+    Some tables also want a <strong>header column</strong> — where the first cell of each row
+    names the thing that row is about. A matrix of environments against regions needs both.
+  </p>
+
+  <h2>Merged cells break the grid</h2>
+  <p>
+    Merging cells is how a table stops being a grid. A screen reader pairs each value with
+    its headers by position; once a cell spans two columns or three rows, that position
+    arithmetic no longer describes what a sighted reader sees, and the announcements come out
+    wrong in ways that are hard to predict.
+  </p>
+  <p>Two reliable ways out:</p>
+  <ul class="checks">
+    <li><strong>Repeat the value instead of merging.</strong> A “Region” column that says “EMEA” three times is slightly uglier and completely unambiguous.</li>
+    <li><strong>Split into several simple tables.</strong> If the merged cell was acting as a section heading inside the table, it wanted to be a real heading with its own table underneath.</li>
+  </ul>
+
+  <h2>Tables used for layout</h2>
+  <p>
+    A two-column table holding a picture on the left and a paragraph on the right is not a
+    table of data; it is a layout, and announcing “table with one row and two columns” before
+    it just costs the listener time. Confluence has page layouts with real columns — use
+    those instead.
+  </p>
+  <p>
+    The tell is usually structural: no header row, one row or one column, or block content
+    like images, panels and headings sitting inside the cells.
+  </p>
+
+  <h2>The table that grew sideways</h2>
+  <p>
+    Most documentation has one: started with four columns in 2021, now has seventeen,
+    scrolls horizontally on every screen, and three of the headers are empty because nobody
+    knew what to call the new columns. It fails accessibility, and it also fails everybody
+    else.
+  </p>
+  <p>The usual repair, in order:</p>
+  <ol>
+    <li>Delete the columns nobody has filled in for a year.</li>
+    <li>Name every remaining header, including the ones holding icons or links — “Status”, “Actions”.</li>
+    <li>Split by the dimension that keeps repeating. One table per environment often beats one table with an environment column.</li>
+    <li>Move anything that is prose out of the cells and onto the page.</li>
+  </ol>
+
+  <h2>Captions and context</h2>
+  <p>
+    A sentence immediately before the table saying what it contains helps everyone, and gives
+    a screen-reader user the context they need before entering the grid. It costs one line
+    and is the cheapest thing on this page.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page with tables</a></p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

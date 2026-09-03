@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WCAG 1.3.1 Info and Relationships in Confluence — level A</title>
+<meta name="description" content="Structure that is conveyed visually has to be conveyed in the markup too, so it survives when the visual presentation is gone. What it means for Confluence pages, and how to fix it.">
+<meta property="og:title" content="WCAG 1.3.1 Info and Relationships in Confluence — level A">
+<meta property="og:description" content="Structure that is conveyed visually has to be conveyed in the markup too, so it survives when the visual presentation is gone. What it means for Confluence pages, and how to fix it.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 1.3.1</p>
+<h1>1.3.1 Info and Relationships <span class="muted">(level A)</span></h1>
+<p class="lede">Structure that is conveyed visually has to be conveyed in the markup too, so it survives when the visual presentation is gone.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>This is the criterion most documentation fails, and it fails in four familiar ways: bold text used as a heading, typed dashes used as a list, a table with no header row, and heading levels that skip. All four look right on screen and carry nothing underneath. A screen-reader user navigating a long page by headings simply never sees the sections that were bolded rather than marked up.</p>
+
+  <h2>What to do about it</h2>
+  <p>Apply real heading levels from the text style menu, real lists from the toolbar, and turn on the header row in tables. It takes seconds per page, and it is the single highest-value change available in most Confluence spaces.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Heading level is skipped</strong> — Screen-reader users navigate by heading level; a jump from H2 straight to H4 makes the page look like it has missing sections.</li>
+    <li><strong>Heading has no text</strong> — An empty heading is announced as a heading with nothing in it, which breaks navigation by headings.</li>
+    <li><strong>H1 used inside the page body</strong> — Confluence already renders the page title as the only H1, so a second H1 in the body gives the page two competing titles.</li>
+    <li><strong>Bold text used instead of a heading</strong> — Bold text looks like a heading but is not one, so it never appears in the heading list a screen-reader user navigates by.</li>
+    <li><strong>Dashes or numbers used instead of a list</strong> — A hand-typed list is read as loose sentences, so a screen-reader user never hears how many items there are or where the list ends.</li>
+    <li><strong>Table has no header row</strong> — Without header cells a screen reader reads a wall of values with no way to tell which column each one belongs to.</li>
+    <li><strong>Header cell is empty</strong> — An empty header leaves every cell in that column without a label when it is read out.</li>
+    <li><strong>Table uses merged cells</strong> — Merged cells break the grid a screen reader uses to pair each value with its header, so the reading order can come out scrambled.</li>
+    <li><strong>Table nested inside another table</strong> — Nested tables are very hard to navigate with a keyboard or screen reader, which usually announces them as one confusing grid.</li>
+    <li><strong>Table appears to be used for layout</strong> — A table announces rows and columns that carry no meaning here, which slows a screen-reader user down for no benefit.</li>
+    <li><strong>Blank lines used for spacing</strong> — A screen reader announces every empty line, so stacks of them are read out as meaningless pauses.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

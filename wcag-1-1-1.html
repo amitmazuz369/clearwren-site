@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WCAG 1.1.1 Non-text Content in Confluence — level A</title>
+<meta name="description" content="Anything that is not text — an image, a chart, an icon, a diagram — needs a text alternative that serves the same purpose. What it means for Confluence pages, and how to fix it.">
+<meta property="og:title" content="WCAG 1.1.1 Non-text Content in Confluence — level A">
+<meta property="og:description" content="Anything that is not text — an image, a chart, an icon, a diagram — needs a text alternative that serves the same purpose. What it means for Confluence pages, and how to fix it.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 1.1.1</p>
+<h1>1.1.1 Non-text Content <span class="muted">(level A)</span></h1>
+<p class="lede">Anything that is not text — an image, a chart, an icon, a diagram — needs a text alternative that serves the same purpose.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Confluence makes this easy to get wrong because pasting a screenshot never asks for a description. A page of numbered steps where each step is a screenshot is, to a screen-reader user, a page of numbered nothing. Diagrams are the harder case: the alternative has to carry the relationships the picture shows, not the fact that a picture exists.</p>
+
+  <h2>What to do about it</h2>
+  <p>Click the image, use the alt text option in the image toolbar, and write what a reader would lose if the image were removed. For a chart, that is the finding. For a screenshot, it is the state of the interface and what is highlighted. Genuinely decorative images — dividers, repeated brand marks — should be marked as decorative so they are skipped rather than described.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Image has no alternative text</strong> — Screen-reader users get nothing but the word "image" where this picture is, so any information it carries is lost.</li>
+    <li><strong>Alternative text does not describe the image</strong> — Alt text like "image1.png" or "screenshot" tells a screen-reader user nothing about what the image shows.</li>
+    <li><strong>Alternative text starts with "image of"</strong> — Screen readers already announce that the element is an image, so the prefix is read out twice.</li>
+    <li><strong>Alternative text is very long</strong> — A screen reader reads alt text in one uninterrupted run, so anything past roughly 150 characters is hard to follow.</li>
+    <li><strong>Status lozenge has no readable text</strong> — A lozenge is announced by its text; with none, its colour is the only thing carrying the meaning and a screen reader conveys nothing.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

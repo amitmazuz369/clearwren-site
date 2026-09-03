@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security — Clearwren</title>
+<meta name="description" content="How Clearwren handles your data: no egress, no external servers, everything inside Atlassian Forge.">
+<meta property="og:title" content="Security — Clearwren">
+<meta property="og:description" content="How Clearwren handles your data: no egress, no external servers, everything inside Atlassian Forge.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html" aria-current="page">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>Security</h1>
+<p class="lede">
+  Clearwren is built on Atlassian Forge and makes no outbound network calls. There is no
+  Clearwren server for your content to travel to.
+</p>
+
+<h2>Where the app runs</h2>
+<div class="prose">
+  <p>
+    All code executes inside Atlassian's Forge platform, in Atlassian's cloud, under
+    Atlassian's tenancy isolation. Page content is read through the Confluence REST API,
+    evaluated in memory, and discarded when the function returns.
+  </p>
+</div>
+
+<h2>What is stored, and where</h2>
+<div class="prose">
+  <p>Stored in Forge storage, inside your Atlassian tenant:</p>
+  <ul class="checks">
+    <li>Page identifiers and titles</li>
+    <li>Scores, issue counts and the position of each issue within the page</li>
+    <li>A short quoted fragment of the offending content, so the issue can be recognised — for example the alt text that needs replacing, or the link text that is too vague</li>
+    <li>Your settings: conformance target, disabled checks, images marked decorative</li>
+  </ul>
+  <p>Not stored anywhere: full page bodies, attachments, user personal data beyond what Confluence already holds.</p>
+</div>
+
+<h2>Permissions the app requests</h2>
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Scope</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td><code>read:page:confluence</code></td><td>Read page bodies in order to check them</td></tr>
+    <tr><td><code>read:space:confluence</code></td><td>List the pages in a space to scan it</td></tr>
+    <tr><td><code>read:content-details:confluence</code></td><td>Read page titles and version information</td></tr>
+    <tr><td><code>write:page:confluence</code></td><td>Only when you apply a fix or publish a report page, and always as you, not as the app</td></tr>
+    <tr><td><code>storage:app</code></td><td>Store results and settings in Forge storage</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Data residency and retention</h2>
+<div class="prose">
+  <p>
+    Forge storage follows your Atlassian site's data residency configuration. Uninstalling
+    the app removes its stored data with it. There is no separate export to request and no
+    separate account to close.
+  </p>
+</div>
+
+<h2>Reporting a vulnerability</h2>
+<div class="prose">
+  <p>
+    Write to <a href="mailto:security@clearwren.com">security@clearwren.com</a> with enough
+    detail to reproduce the issue. We acknowledge within two working days and will tell you
+    what we found and when it is fixed. Please do not test against sites you do not own.
+  </p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Confluence accessibility checker — WCAG 2.2</title>
+<meta name="description" content="Paste any Confluence page and see its WCAG 2.2 accessibility problems instantly. Runs entirely in your browser — nothing is uploaded.">
+<meta property="og:title" content="Free Confluence accessibility checker — WCAG 2.2">
+<meta property="og:description" content="Paste any Confluence page and see its WCAG 2.2 accessibility problems instantly. Runs entirely in your browser — nothing is uploaded.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html" aria-current="page">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>Free accessibility checker</h1>
+<p class="lede">
+  Open a Confluence page, select everything on it and copy, then paste it below. You get the
+  same checks the app runs, on this one page. Everything happens in your browser — the
+  content never leaves your computer and nothing is stored.
+</p>
+
+<div class="controls">
+  <button class="btn btn-ghost" id="mode-rich" aria-pressed="true">Paste a page</button>
+  <button class="btn btn-ghost" id="mode-html" aria-pressed="false">Paste HTML source</button>
+  <button class="btn btn-ghost" id="try-sample">Try a sample page</button>
+</div>
+
+<div id="rich-wrap">
+  <div class="paste-area" id="paste" contenteditable="true" role="textbox" aria-multiline="true"
+       aria-label="Paste your page content here"
+       data-empty="true"
+       data-placeholder="Paste here (Cmd/Ctrl+V). Keep the formatting — headings, tables and images are what get checked."></div>
+</div>
+<div id="html-wrap" class="hidden">
+  <textarea class="raw" id="raw" aria-label="Paste HTML source" placeholder="&lt;h2&gt;Paste HTML here&lt;/h2&gt;"></textarea>
+</div>
+
+<div class="controls">
+  <button class="btn btn-primary" id="run">Check it</button>
+  <button class="btn btn-ghost" id="clear">Clear</button>
+</div>
+
+<div id="results" aria-live="polite"></div>
+
+<h2>Checking one page is the demo. The app checks all of them.</h2>
+<div class="prose">
+  <p>
+    Clearwren for Confluence runs these checks across every page in a space, tracks the score
+    over time, re-checks weekly, and publishes the dated conformance report an auditor asks
+    for — without anyone copying and pasting anything.
+  </p>
+  <p><a class="btn btn-primary" href="/pricing.html">See pricing</a></p>
+</div>
+
+<script src="/assets/checker.js"></script>
+<script>
+(function () {
+  var paste = document.getElementById('paste');
+  var raw = document.getElementById('raw');
+  var results = document.getElementById('results');
+  var richWrap = document.getElementById('rich-wrap');
+  var htmlWrap = document.getElementById('html-wrap');
+  var mode = 'rich';
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function setMode(next) {
+    mode = next;
+    richWrap.classList.toggle('hidden', next !== 'rich');
+    htmlWrap.classList.toggle('hidden', next !== 'html');
+    document.getElementById('mode-rich').setAttribute('aria-pressed', String(next === 'rich'));
+    document.getElementById('mode-html').setAttribute('aria-pressed', String(next === 'html'));
+  }
+  document.getElementById('mode-rich').addEventListener('click', function () { setMode('rich'); });
+  document.getElementById('mode-html').addEventListener('click', function () { setMode('html'); });
+
+  paste.addEventListener('input', function () {
+    paste.dataset.empty = paste.textContent.trim() === '' && !paste.querySelector('img,table') ? 'true' : 'false';
+  });
+
+  document.getElementById('clear').addEventListener('click', function () {
+    paste.innerHTML = '';
+    paste.dataset.empty = 'true';
+    raw.value = '';
+    results.innerHTML = '';
+  });
+
+  document.getElementById('try-sample').addEventListener('click', function () {
+    setMode('rich');
+    paste.innerHTML = [
+      '<h1>Onboarding</h1>',
+      '<p><strong>Before your first day</strong></p>',
+      '<p>Read the handbook and <a href="https://example.com/forms/it">click here</a> to request a laptop.</p>',
+      '<p><img src="Screenshot 2026-01-04.png" alt="Screenshot 2026-01-04.png"></p>',
+      '<h3>Equipment</h3>',
+      '<table><tr><td>Item</td><td>Owner</td></tr><tr><td>Laptop</td><td>IT</td></tr></table>',
+      '<p><span style="color:#a5adba">Contact the people team with questions.</span></p>',
+      '<p>- badge</p><p>- parking pass</p><p>- desk key</p>'
+    ].join('');
+    paste.dataset.empty = 'false';
+    run();
+  });
+
+  function severityGroups(issues) {
+    var order = ['critical', 'serious', 'moderate', 'advisory'];
+    var groups = {};
+    order.forEach(function (s) { groups[s] = []; });
+    issues.forEach(function (i) { if (groups[i.severity]) groups[i.severity].push(i); });
+    return { order: order, groups: groups };
+  }
+
+  function render(out) {
+    var r = out.result;
+    var rules = out.rules;
+    var html = '';
+    html += '<div class="scorecard">';
+    html += '<div><div class="score-num">' + r.score + '<span style="font-size:20px;font-weight:500">/100</span></div></div>';
+    html += '<span class="pill ' + (r.conformant ? 'pill-pass' : 'pill-fail') + '">' +
+      (r.conformant ? 'No level A or AA failure found' : 'Fails WCAG 2.2 level AA') + '</span>';
+    html += '<span class="muted">' + r.stats.words + ' words · ' + r.stats.images + ' images · ' +
+      r.stats.tables + ' tables · ' + r.stats.links + ' links</span>';
+    html += '</div>';
+
+    var counts = r.counts;
+    html += '<p class="muted">Critical ' + counts.critical + ' · Serious ' + counts.serious +
+      ' · Moderate ' + counts.moderate + ' · Advisory ' + counts.advisory + '</p>';
+
+    if (!r.issues.length) {
+      html += '<div class="note"><p style="margin:0">Nothing failed the automated checks. ' +
+        'Criteria that depend on meaning — reading order, whether an image description is ' +
+        'actually adequate, media alternatives — still need a person.</p></div>';
+    } else {
+      var g = severityGroups(r.issues);
+      g.order.forEach(function (sev) {
+        var list = g.groups[sev];
+        if (!list.length) return;
+        html += '<h3>' + list.length + ' ' + sev + '</h3>';
+        list.forEach(function (issue) {
+          var rule = rules[issue.ruleId] || {};
+          html += '<div class="finding ' + sev + '">';
+          html += '<h4>' + esc(rule.title || issue.ruleId) + '</h4>';
+          if (issue.evidence) html += '<p><span class="evidence">' + esc(issue.evidence) + '</span></p>';
+          html += '<p>' + esc(rule.why || '') + '</p>';
+          html += '<p class="muted">Fix: ' + esc(rule.howToFix || '') + '</p>';
+          if (issue.data && issue.data.ratio) {
+            html += '<p class="muted">Measured ' + issue.data.ratio + ':1, needs ' + issue.data.required + ':1</p>';
+          }
+          html += '<p class="muted">' + (rule.wcag || []).map(function (w) {
+            return esc(w.criterion + ' ' + w.name + ' (' + w.level + ')');
+          }).join(' · ') + (issue.confidence === 'review' ? ' — needs a person to confirm' : '') + '</p>';
+          html += '</div>';
+        });
+      });
+    }
+    results.innerHTML = html;
+  }
+
+  function run() {
+    var html = mode === 'rich' ? paste.innerHTML : raw.value;
+    if (!html || !html.trim()) {
+      results.innerHTML = '<div class="note"><p style="margin:0">Paste a page first.</p></div>';
+      return;
+    }
+    try {
+      render(Clearwren.check(html, document.title));
+    } catch (err) {
+      results.innerHTML = '<div class="note"><p style="margin:0">That content could not be read: ' +
+        esc(err && err.message ? err.message : String(err)) + '</p></div>';
+    }
+  }
+
+  document.getElementById('run').addEventListener('click', run);
+  paste.addEventListener('paste', function () { setTimeout(run, 60); });
+})();
+</script>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

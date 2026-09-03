@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confluence and WCAG — what Atlassian covers, and what is yours</title>
+<meta name="description" content="Atlassian publishes a VPAT for Confluence Cloud. It covers the product interface, not the pages your teams write. Here is where the line sits.">
+<meta property="og:title" content="Confluence and WCAG — what Atlassian covers, and what is yours">
+<meta property="og:description" content="Atlassian publishes a VPAT for Confluence Cloud. It covers the product interface, not the pages your teams write. Here is where the line sits.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>Confluence and WCAG: what Atlassian covers, and what is yours</h1>
+<p class="lede">
+  When someone asks “is our Confluence accessible?”, they are usually asking two different
+  questions at once. Separating them is the first useful thing you can do.
+</p>
+
+<div class="prose">
+  <h2>Two different things get called “Confluence accessibility”</h2>
+  <p>
+    The first is <strong>the product</strong>: the editor, the navigation, the search box,
+    the dialogs. Whether a keyboard user can reach the page tree, whether the rich text
+    editor announces itself properly to a screen reader. That is Atlassian's engineering
+    work, tracked in their public accessibility backlog, and described in the VPAT they
+    publish for Confluence Cloud. You cannot fix it and you are not expected to.
+  </p>
+  <p>
+    The second is <strong>the content</strong>: the twelve thousand pages your teams wrote.
+    Whether the screenshots have alt text. Whether headings run H2, H3, H3 or jump to H5
+    because someone liked the font size. Whether the release table has a header row.
+    Whether the grey caption text has enough contrast. None of that is in Atlassian's VPAT,
+    because none of it is Atlassian's content.
+  </p>
+
+  <h2>Why the distinction decides who has a problem</h2>
+  <p>
+    A procurement questionnaire asks for a VPAT and you send Atlassian's. That answers the
+    product question. But an accessibility complaint, an audit, or a Title II compliance
+    review looks at what a person actually encounters — and what they encounter is a page.
+    If that page is a wall of images with no alt text, the conformance claim fails on the
+    content, regardless of how good the surrounding product is.
+  </p>
+  <p>
+    This is the uncomfortable part: the product half is improving on someone else's roadmap,
+    and the content half is entirely yours, entirely unmeasured, and growing every day.
+  </p>
+
+  <h2>What actually fails, in practice</h2>
+  <p>
+    Across real documentation, the same handful of failures account for most of the problem:
+  </p>
+  <ul class="checks">
+    <li><strong>Images with no alt text</strong> (WCAG 1.1.1, level A). Pasting a screenshot into Confluence does not prompt for a description, so almost nobody adds one.</li>
+    <li><strong>Bold text used as a heading</strong> (1.3.1, level A). It looks like a heading and is not one, so it never appears in the heading list a screen-reader user navigates by — which for a long page is the difference between usable and unusable.</li>
+    <li><strong>Skipped heading levels</strong> (1.3.1, level A). H2 to H4 reads as a missing section.</li>
+    <li><strong>Tables without a header row</strong> (1.3.1, level A). Every cell is then read without the column it belongs to.</li>
+    <li><strong>Link text that says “click here”</strong> (2.4.4, level A). Screen-reader users often pull up a list of every link on a page; a list of “click here” is useless.</li>
+    <li><strong>Low-contrast coloured text</strong> (1.4.3, level AA). Usually a grey chosen to look soft, at around 2.8:1 where 4.5:1 is required.</li>
+  </ul>
+  <p>
+    Every one of these is mechanical. They can be found by a machine and fixed by the person
+    who wrote the page in under a minute each. The difficulty is never the individual fix —
+    it is knowing which of your twelve thousand pages have them.
+  </p>
+
+  <h2>What a tool can and cannot decide</h2>
+  <p>
+    Be careful with any product that promises conformance. Automated checking settles the
+    mechanical criteria: is there alt text, does the heading sequence hold, does this colour
+    pair reach the required ratio. It cannot settle whether the alt text is a
+    <em>good description</em>, whether the reading order matches the meaning, or whether a
+    video's captions are accurate. Roughly a third of WCAG criteria need a person.
+  </p>
+  <p>
+    The honest framing is: automate the two thirds that are mechanical, so the human review
+    you pay for is spent on the third that actually needs judgement.
+  </p>
+
+  <h2>A reasonable order of work</h2>
+  <ol>
+    <li>Establish where you stand. Scan your largest public-facing space and get a number.</li>
+    <li>Fix by pattern, not by page. If 400 pages fail on alt text and 30 fail on contrast, the alt text campaign is the whole project.</li>
+    <li>Put a check in the authoring flow, so today's pages stop adding to tomorrow's backlog.</li>
+    <li>Re-measure on a schedule, and keep the dated evidence.</li>
+    <li>Send the remaining judgement calls to a human reviewer.</li>
+  </ol>
+  <p>
+    <a class="btn btn-primary" href="/checker.html">Check one of your pages free</a>
+  </p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>
