@@ -203,7 +203,86 @@ export const mixedLanguage: Rule = {
   },
 };
 
+
+
+/**
+ * Two headings with identical text give a screen-reader user two identical
+ * entries in the heading list, with nothing to choose between them.
+ */
+export const headingDuplicateText: Rule = {
+  id: 'heading-duplicate-text',
+  title: 'Two headings have the same text',
+  why: 'Screen-reader users navigate by jumping between headings; identical headings are impossible to tell apart in that list.',
+  howToFix: 'Make each heading say what distinguishes its section — “Setup on Windows” and “Setup on macOS” rather than “Setup” twice.',
+  wcag: [{ criterion: '2.4.6', name: 'Headings and Labels', level: 'AA' }],
+  severity: 'advisory',
+  confidence: 'certain',
+  run(ctx): Issue[] {
+    const seen = new Set<string>();
+    const out: Issue[] = [];
+    // Scoped to the enclosing section: repeating "Steps" under three different
+    // top-level headings is a normal documentation shape, while repeating it
+    // twice inside one section is the ambiguity this rule is about.
+    const ancestors: Array<{ level: number; text: string }> = [];
+    for (const { node, path } of findAll(ctx.doc, 'heading')) {
+      const level = Number(node.attrs?.['level'] ?? 1);
+      const text = trimmedText(node);
+      while (ancestors.length && ancestors[ancestors.length - 1]!.level >= level) ancestors.pop();
+      if (!text) { ancestors.push({ level, text }); continue; }
+      const key = `${ancestors.map((a) => a.text).join('>')}|${text.toLowerCase()}`;
+      if (seen.has(key)) {
+        out.push({
+          ruleId: 'heading-duplicate-text',
+          severity: 'advisory',
+          confidence: 'certain',
+          path,
+          location: 'Heading',
+          evidence: truncate(text, 60),
+        });
+      } else {
+        seen.add(key);
+      }
+      ancestors.push({ level, text });
+    }
+    return out;
+  },
+};
+
+/**
+ * A status lozenge carries meaning through its colour. When its text is empty or
+ * a bare symbol, the colour is the only cue there is.
+ */
+export const statusColourOnly: Rule = {
+  id: 'status-colour-only',
+  title: 'Status lozenge has no readable text',
+  why: 'A lozenge is announced by its text; with none, its colour is the only thing carrying the meaning and a screen reader conveys nothing.',
+  howToFix: 'Give the lozenge a word — “Done”, “Blocked”, “At risk” — so the meaning survives without the colour.',
+  wcag: [
+    { criterion: '1.4.1', name: 'Use of Color', level: 'A' },
+    { criterion: '1.1.1', name: 'Non-text Content', level: 'A' },
+  ],
+  severity: 'serious',
+  confidence: 'certain',
+  run(ctx): Issue[] {
+    const out: Issue[] = [];
+    for (const { node, path } of findAll(ctx.doc, 'status')) {
+      const text = String(node.attrs?.['text'] ?? '').trim();
+      if (text && /[\p{L}\p{N}]/u.test(text)) continue;
+      out.push({
+        ruleId: 'status-colour-only',
+        severity: 'serious',
+        confidence: 'certain',
+        path,
+        location: 'Status lozenge',
+        data: { colour: node.attrs?.['color'] ?? null },
+      });
+    }
+    return out;
+  },
+};
+
 export const contentRules: Rule[] = [
   pageTitleNondescriptive, pageTitleDuplicate, expandNoTitle, embedNoLabel,
   allCapsRun, justifiedText, emptyHardBreakSpacing, longParagraph, mixedLanguage,
+  headingDuplicateText, statusColourOnly,
 ];

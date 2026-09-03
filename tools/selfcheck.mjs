@@ -11,7 +11,12 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith('.html'))) {
   const html = readFileSync(join(dir, file), 'utf8');
   const r = audit(htmlToAdf(html), { meta: { title: titleOf(html) } });
   // Our own pages legitimately use one H1, which Confluence would supply itself.
-  const issues = r.issues.filter((i) => i.ruleId !== 'heading-h1-in-body');
+  // A guide may also quote a bad example on purpose; those pages declare which
+  // rule they expect to trip, so the exemption is visible in the source.
+  const allowed = new Set(
+    [...html.matchAll(/<!--\s*selfcheck-allow:\s*([a-z0-9-]+)\s*-->/g)].map((m) => m[1]),
+  );
+  const issues = r.issues.filter((i) => i.ruleId !== 'heading-h1-in-body' && !allowed.has(i.ruleId));
   const flag = issues.length ? 'ISSUES' : 'clean ';
   if (issues.length) failed++;
   console.log(`${flag} ${String(r.score).padStart(3)}  ${file}`);

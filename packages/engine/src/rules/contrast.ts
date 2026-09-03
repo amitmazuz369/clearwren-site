@@ -60,8 +60,12 @@ function evaluate(level: 'AA' | 'AAA', doc: AdfNode) {
     if (!text) continue;
     const fgMark = mark(run.node, 'textColor')?.attrs?.['color'];
     const bgMark = mark(run.node, 'backgroundColor')?.attrs?.['color'];
-    // Nothing to check when the author left both colours at the Confluence default.
-    if (!fgMark && !bgMark) continue;
+    // Default text on the default page background is Atlassian's own pairing and
+    // always passes, so there is nothing to measure. Default text on a coloured
+    // panel or table cell is a different matter: that combination is chosen by
+    // the author and is a common way to make text unreadable.
+    const inheritedBackground = run.ctx.bg !== CONFLUENCE_DEFAULT_BACKGROUND;
+    if (!fgMark && !bgMark && !inheritedBackground) continue;
     const fgHex = typeof fgMark === 'string' ? fgMark : CONFLUENCE_DEFAULT_TEXT;
     const bgHex = typeof bgMark === 'string' ? bgMark : run.ctx.bg;
     const fg = parseColor(fgHex);

@@ -130,6 +130,26 @@
     "confidence": "certain"
   },
   {
+    "id": "status-colour-only",
+    "title": "Status lozenge has no readable text",
+    "why": "A lozenge is announced by its text; with none, its colour is the only thing carrying the meaning and a screen reader conveys nothing.",
+    "howToFix": "Give the lozenge a word — “Done”, “Blocked”, “At risk” — so the meaning survives without the colour.",
+    "wcag": [
+      {
+        "criterion": "1.4.1",
+        "name": "Use of Color",
+        "level": "A"
+      },
+      {
+        "criterion": "1.1.1",
+        "name": "Non-text Content",
+        "level": "A"
+      }
+    ],
+    "severity": "serious",
+    "confidence": "certain"
+  },
+  {
     "id": "table-no-header",
     "title": "Table has no header row",
     "why": "Without header cells a screen reader reads a wall of values with no way to tell which column each one belongs to.",
@@ -373,6 +393,21 @@
     ],
     "severity": "advisory",
     "confidence": "review"
+  },
+  {
+    "id": "heading-duplicate-text",
+    "title": "Two headings have the same text",
+    "why": "Screen-reader users navigate by jumping between headings; identical headings are impossible to tell apart in that list.",
+    "howToFix": "Make each heading say what distinguishes its section — “Setup on Windows” and “Setup on macOS” rather than “Setup” twice.",
+    "wcag": [
+      {
+        "criterion": "2.4.6",
+        "name": "Headings and Labels",
+        "level": "AA"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "certain"
   },
   {
     "id": "heading-too-long",

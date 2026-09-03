@@ -242,3 +242,61 @@ test('mergeCriteria takes the worst outcome across pages and counts them', async
   const contrast = merged.find((c) => c.criterion === '1.4.3');
   assert.equal(contrast?.status, 'review');
 });
+
+test('default text on a standard info panel still passes', () => {
+  const panel = { type: 'panel', attrs: { panelType: 'info' }, content: [p(t('Remember to file the ticket.'))] };
+  const r = audit(doc(panel as never));
+  assert.equal(r.issues.some((i) => i.ruleId === 'contrast-minimum'), false, JSON.stringify(r.issues));
+});
+
+test('default text on a dark custom panel is caught', () => {
+  const panel = { type: 'panel', attrs: { panelType: 'custom', panelColor: '#253858' }, content: [p(t('Unreadable on this background.'))] };
+  const r = audit(doc(panel as never));
+  const issue = r.issues.find((i) => i.ruleId === 'contrast-minimum');
+  assert.ok(issue, 'expected a contrast failure for default text on a dark panel');
+  assert.ok((issue!.data!['ratio'] as number) < 4.5);
+});
+
+test('default text in a dark table cell is caught', () => {
+  const d = doc({
+    type: 'table',
+    content: [{
+      type: 'tableRow',
+      content: [{ type: 'tableCell', attrs: { background: '#403294' }, content: [p(t('Blocked'))] }],
+    }],
+  });
+  const r = audit(d);
+  assert.ok(r.issues.some((i) => i.ruleId === 'contrast-minimum'));
+});
+
+test('a pale table cell with default text passes', () => {
+  const d = doc({
+    type: 'table',
+    content: [{
+      type: 'tableRow',
+      content: [{ type: 'tableCell', attrs: { background: '#E3FCEF' }, content: [p(t('Done'))] }],
+    }],
+  });
+  const r = audit(d);
+  assert.equal(r.issues.some((i) => i.ruleId === 'contrast-minimum'), false);
+});
+
+test('a status lozenge without text relies on colour alone', () => {
+  const bare = doc(p({ type: 'status', attrs: { text: '', color: 'green' } }));
+  assert.ok(audit(bare).issues.some((i) => i.ruleId === 'status-colour-only'));
+  const labelled = doc(p({ type: 'status', attrs: { text: 'Done', color: 'green' } }));
+  assert.equal(audit(labelled).issues.some((i) => i.ruleId === 'status-colour-only'), false);
+});
+
+test('repeated heading text in the same section is reported once per repeat', () => {
+  const r = audit(doc(h(2, 'Setup'), p(t('a')), h(2, 'Setup'), p(t('b')), h(2, 'Setup')));
+  assert.equal(r.issues.filter((i) => i.ruleId === 'heading-duplicate-text').length, 2);
+});
+
+test('the same subheading under different sections is not a duplicate', () => {
+  const r = audit(doc(
+    h(2, 'Windows'), h(3, 'Steps'), p(t('a')),
+    h(2, 'macOS'), h(3, 'Steps'), p(t('b')),
+  ));
+  assert.equal(r.issues.some((i) => i.ruleId === 'heading-duplicate-text'), false);
+});
