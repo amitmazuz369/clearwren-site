@@ -1,0 +1,85 @@
+# Clearwren Accessibility for Confluence
+# Every check runs inside Forge against page content already in the tenant:
+# no egress, which is what keeps the app eligible for Runs on Atlassian.
+modules:
+  confluence:contentBylineItem:
+    - key: a11y-byline
+      title: Accessibility
+      tooltip: Check this page against WCAG 2.2
+      resource: page-panel
+      render: native
+      resolver:
+        function: resolver
+      viewportContainer: modal
+
+  confluence:spacePage:
+    - key: a11y-space-page
+      title: Accessibility
+      route: accessibility
+      resource: space-dashboard
+      render: native
+      resolver:
+        function: resolver
+
+  confluence:globalSettings:
+    - key: a11y-settings
+      title: Accessibility settings
+      resource: settings
+      render: native
+      resolver:
+        function: resolver
+
+  confluence:globalPage:
+    - key: a11y-site-report
+      title: Accessibility report
+      route: accessibility-report
+      resource: site-report
+      render: native
+      resolver:
+        function: resolver
+
+  function:
+    - key: resolver
+      handler: index.handler
+    - key: scan-consumer
+      handler: index.scanConsumer
+    - key: weekly-scan
+      handler: index.weeklyScan
+
+  consumer:
+    - key: space-scan-queue
+      queue: space-scan
+      resolver:
+        function: scan-consumer
+        method: scan-batch
+
+  scheduledTrigger:
+    - key: weekly-rescan
+      function: weekly-scan
+      interval: week
+
+resources:
+  - key: page-panel
+    path: src/frontend/pagePanel.jsx
+  - key: space-dashboard
+    path: src/frontend/spaceDashboard.jsx
+  - key: site-report
+    path: src/frontend/siteReport.jsx
+  - key: settings
+    path: src/frontend/settings.jsx
+
+permissions:
+  scopes:
+    - read:page:confluence
+    - write:page:confluence
+    - read:space:confluence
+    - read:content-details:confluence
+    - storage:app
+
+app:
+  runtime:
+    name: nodejs22.x
+  # Replaced by `forge register` at first setup.
+  id: ari:cloud:ecosystem::app/REPLACE-WITH-APP-ID
+  licensing:
+    enabled: true

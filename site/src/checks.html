@@ -1,0 +1,25 @@
+<!--
+title: What Clearwren checks — WCAG 2.2 coverage
+description: The full list of accessibility checks Clearwren runs on Confluence content, mapped to WCAG 2.2 success criteria.
+-->
+<h1>What it checks</h1>
+<p class="lede">
+  31 checks mapped to 15 WCAG 2.2 success criteria. Checks marked <em>flagged for review</em>
+  are ones no tool can decide alone — they are surfaced with the evidence, and a person
+  decides.
+</p>
+<div class="table-scroll">
+{{RULES_TABLE}}
+</div>
+
+<h2>Severity, and what it means for the score</h2>
+<div class="prose">
+  <p>
+    Every page gets a score out of 100. A <span class="sev sev-critical">critical</span>
+    issue costs 15 points, <span class="sev sev-serious">serious</span> 8,
+    <span class="sev sev-moderate">moderate</span> 3, and
+    <span class="sev sev-advisory">advisory</span> 1. A page is reported as conforming when
+    it has no critical or serious failure at your target level — advisory findings never
+    block a conformance claim.
+  </p>
+</div>

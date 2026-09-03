@@ -1,0 +1,62 @@
+<!--
+title: Security — Clearwren
+description: How Clearwren handles your data: no egress, no external servers, everything inside Atlassian Forge.
+-->
+<h1>Security</h1>
+<p class="lede">
+  Clearwren is built on Atlassian Forge and makes no outbound network calls. There is no
+  Clearwren server for your content to travel to.
+</p>
+
+<h2>Where the app runs</h2>
+<div class="prose">
+  <p>
+    All code executes inside Atlassian's Forge platform, in Atlassian's cloud, under
+    Atlassian's tenancy isolation. Page content is read through the Confluence REST API,
+    evaluated in memory, and discarded when the function returns.
+  </p>
+</div>
+
+<h2>What is stored, and where</h2>
+<div class="prose">
+  <p>Stored in Forge storage, inside your Atlassian tenant:</p>
+  <ul class="checks">
+    <li>Page identifiers and titles</li>
+    <li>Scores, issue counts and the position of each issue within the page</li>
+    <li>A short quoted fragment of the offending content, so the issue can be recognised — for example the alt text that needs replacing, or the link text that is too vague</li>
+    <li>Your settings: conformance target, disabled checks, images marked decorative</li>
+  </ul>
+  <p>Not stored anywhere: full page bodies, attachments, user personal data beyond what Confluence already holds.</p>
+</div>
+
+<h2>Permissions the app requests</h2>
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Scope</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td><code>read:page:confluence</code></td><td>Read page bodies in order to check them</td></tr>
+    <tr><td><code>read:space:confluence</code></td><td>List the pages in a space to scan it</td></tr>
+    <tr><td><code>read:content-details:confluence</code></td><td>Read page titles and version information</td></tr>
+    <tr><td><code>write:page:confluence</code></td><td>Only when you apply a fix or publish a report page, and always as you, not as the app</td></tr>
+    <tr><td><code>storage:app</code></td><td>Store results and settings in Forge storage</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Data residency and retention</h2>
+<div class="prose">
+  <p>
+    Forge storage follows your Atlassian site's data residency configuration. Uninstalling
+    the app removes its stored data with it. There is no separate export to request and no
+    separate account to close.
+  </p>
+</div>
+
+<h2>Reporting a vulnerability</h2>
+<div class="prose">
+  <p>
+    Write to <a href="mailto:security@clearwren.com">security@clearwren.com</a> with enough
+    detail to reproduce the issue. We acknowledge within two working days and will tell you
+    what we found and when it is fixed. Please do not test against sites you do not own.
+  </p>
+</div>

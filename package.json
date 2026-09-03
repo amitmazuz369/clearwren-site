@@ -1,0 +1,15 @@
+{
+  "name": "clearwren",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Clearwren — compliance and quality apps for the Atlassian Cloud ecosystem",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
