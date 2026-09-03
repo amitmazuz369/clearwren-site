@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import ForgeReconciler, {
-  BarChart, Box, Button, Heading, Inline, Lozenge, SectionMessage, Spinner, Stack, Text,
+  Box, Button, Heading, HorizontalBarChart, Inline, Lozenge, SectionMessage, Spinner, Stack, Text,
   DynamicTable, useProductContext,
 } from '@forge/react';
 import { invoke } from '@forge/bridge';
@@ -106,12 +106,15 @@ const App = () => {
           <CountsRow counts={report.counts} />
 
           <Stack space="space.100">
-            <Heading as="h3">Most common problems</Heading>
-            <BarChart
-              data={report.byRule.slice(0, 8).map((r) => [r.title, r.issues])}
-              xAccessor={0}
-              yAccessor={1}
-              colorAccessor={0}
+            {/* Horizontal, so the check names stay readable instead of being
+                truncated to "Text contrast is below th…". */}
+            <HorizontalBarChart
+              title="Most common problems"
+              subtitle="Occurrences across the space"
+              height={320}
+              data={report.byRule.slice(0, 8).map((r) => ({ check: r.title, occurrences: r.issues }))}
+              xAccessor="occurrences"
+              yAccessor="check"
             />
           </Stack>
 

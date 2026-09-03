@@ -64,7 +64,10 @@ export interface PageMeta {
   id?: string;
   title?: string;
   spaceKey?: string;
-  /** Titles of other pages in the same space, for duplicate-title detection. */
+  /**
+   * Titles of the OTHER pages in the same space, for duplicate-title detection.
+   * The page's own title must not appear here, or every page reports itself.
+   */
   siblingTitles?: string[];
 }
 

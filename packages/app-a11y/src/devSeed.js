@@ -7,7 +7,9 @@
  */
 import api, { route } from '@forge/api';
 import { audit } from '@clearwren/a11y-engine';
-import { getSpaceByKey, listSpaces, parseAdf } from './lib/confluence.js';
+import { getSpaceByKey, listSpaces, listSpacePages, parseAdf } from './lib/confluence.js';
+import { rollUp, mergeCriteria, RULES_BY_ID } from '@clearwren/a11y-engine';
+import { getSettings, savePageResult, listPageSummaries, saveSpaceReport } from './lib/store.js';
 
 const text = (t, marks) => (marks ? { type: 'text', text: t, marks } : { type: 'text', text: t });
 const para = (...content) => ({ type: 'paragraph', content });
@@ -213,6 +215,84 @@ export async function devSeed() {
       space: { id: target.id, key: target.key, name: target.name, created: ensured.created },
       allExpectedFound: results.every((r) => r.ok),
       results,
+    }, null, 2),
+  };
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* Development-only: run the whole space scan and publish the report page, */
+/* so the screenshots can be taken against finished state.                 */
+/* ---------------------------------------------------------------------- */
+
+export async function devScan() {
+  const { spaces } = await listSpaces();
+  const target = spaces.find((s) => s.key === 'CWTEST') ?? spaces[0];
+  if (!target) return { statusCode: 200, body: JSON.stringify({ error: 'no space' }) };
+
+  const settings = await getSettings(target.key);
+  let cursor = null;
+  let scanned = 0;
+  do {
+    const { pages, next } = await listSpacePages(target.id, cursor, 25);
+    const titles = pages.map((p) => p.title ?? '');
+    for (const [index, page] of pages.entries()) {
+      const adf = parseAdf(page);
+      if (!adf) continue;
+      const result = audit(adf, {
+        meta: {
+          id: String(page.id),
+          title: page.title,
+          siblingTitles: titles.filter((_, i) => i !== index),
+        },
+        decorativeMediaIds: settings.decorativeMediaIds,
+        disabledRules: settings.disabledRules,
+        targetLevel: settings.targetLevel,
+      });
+      await savePageResult(target.key, page, result);
+      scanned++;
+    }
+    cursor = next;
+  } while (cursor);
+
+  const summaries = await listPageSummaries(target.key);
+  const asResults = summaries.map((s) => ({
+    pageId: s.pageId,
+    result: {
+      score: s.score,
+      conformant: s.conformant,
+      issues: Object.entries(s.ruleCounts ?? {}).flatMap(([ruleId, n]) =>
+        Array.from({ length: n }, () => ({
+          ruleId,
+          severity: RULES_BY_ID[ruleId]?.severity ?? 'moderate',
+          confidence: RULES_BY_ID[ruleId]?.confidence ?? 'certain',
+          path: [],
+          location: '',
+        })),
+      ),
+    },
+  }));
+  const report = {
+    spaceKey: target.key,
+    ...rollUp(asResults),
+    criteria: mergeCriteria(summaries.map((s) => s.criteria ?? {})),
+    worstPages: [...summaries].sort((a, b) => a.score - b.score).slice(0, 20)
+      .map(({ pageId, title, score, counts }) => ({ pageId, title, score, counts })),
+    generatedAt: new Date().toISOString(),
+  };
+  await saveSpaceReport(target.key, report);
+
+  return {
+    statusCode: 200,
+    headers: { 'Content-Type': ['application/json'] },
+    body: JSON.stringify({
+      scanned,
+      spaceKey: target.key,
+      averageScore: report.averageScore,
+      pages: report.pages,
+      conformantPages: report.conformantPages,
+      counts: report.counts,
+      topRules: report.byRule.slice(0, 5),
     }, null, 2),
   };
 }

@@ -42,10 +42,14 @@ modules:
     # Development-only fixture seeder. Removed before the production submission.
     - key: dev-seed
       function: dev-seed-fn
+    - key: dev-scan
+      function: dev-scan-fn
 
   function:
     - key: dev-seed-fn
       handler: devSeed.devSeed
+    - key: dev-scan-fn
+      handler: devSeed.devScan
     - key: resolver
       handler: index.handler
     - key: scan-consumer

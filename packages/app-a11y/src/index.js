@@ -252,8 +252,10 @@ consumer.define('scan-batch', async ({ payload }) => {
   const { pages, next } = await listSpacePages(spaceId, cursor);
   const titles = pages.map((p) => p.title ?? '');
   let scanned = 0;
-  for (const page of pages) {
-    const result = await auditPage(page, settings, titles);
+  for (const [index, page] of pages.entries()) {
+    // Every other page in the batch, but not this one: a page is not its own duplicate.
+    const siblings = titles.filter((_, i) => i !== index);
+    const result = await auditPage(page, settings, siblings);
     if (!result) continue;
     await savePageResult(spaceKey, page, result);
     scanned++;

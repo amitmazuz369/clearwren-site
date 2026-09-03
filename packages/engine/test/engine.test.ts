@@ -300,3 +300,14 @@ test('the same subheading under different sections is not a duplicate', () => {
   ));
   assert.equal(r.issues.some((i) => i.ruleId === 'heading-duplicate-text'), false);
 });
+
+test('a page is never its own duplicate title', () => {
+  const own = audit(doc(p(t('content'))), {
+    meta: { title: 'Setup', siblingTitles: ['Onboarding', 'Policy'] },
+  });
+  assert.equal(own.issues.some((i) => i.ruleId === 'page-title-duplicate'), false);
+  const clash = audit(doc(p(t('content'))), {
+    meta: { title: 'Setup', siblingTitles: ['Onboarding', 'setup'] },
+  });
+  assert.ok(clash.issues.some((i) => i.ruleId === 'page-title-duplicate'));
+});
