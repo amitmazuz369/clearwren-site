@@ -1,0 +1,23 @@
+<!--
+title: WCAG 4.1.2 Name, Role, Value in Confluence — level A
+description: Interface components need a name, a role and a value that assistive technology can determine. What it means for Confluence pages, and how to fix it.
+-->
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 4.1.2</p>
+<h1>4.1.2 Name, Role, Value <span class="muted">(level A)</span></h1>
+<p class="lede">Interface components need a name, a role and a value that assistive technology can determine.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Most of this belongs to Atlassian. What an author controls is the naming of the components they insert: a collapsible section with no title is a button with no name, an embed with no title is a frame with no name, and a link wrapping an image with no alt text is a link with no name.</p>
+
+  <h2>What to do about it</h2>
+  <p>Name every expand, embed and image-only link. If you cannot say what it is in three words, that is usually a sign the component is doing too much.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Link has no readable text</strong> — A link with no text is announced only as its URL, or skipped entirely.</li>
+    <li><strong>Collapsible section has no label</strong> — An unlabelled expand is announced only as a button, so a keyboard user cannot tell what opening it will reveal.</li>
+    <li><strong>Embedded content has no accessible name</strong> — Embedded frames are announced by their title; without one, a screen-reader user hears only "frame".</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>

@@ -1,0 +1,31 @@
+<!--
+title: WCAG 1.3.1 Info and Relationships in Confluence — level A
+description: Structure that is conveyed visually has to be conveyed in the markup too, so it survives when the visual presentation is gone. What it means for Confluence pages, and how to fix it.
+-->
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 1.3.1</p>
+<h1>1.3.1 Info and Relationships <span class="muted">(level A)</span></h1>
+<p class="lede">Structure that is conveyed visually has to be conveyed in the markup too, so it survives when the visual presentation is gone.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>This is the criterion most documentation fails, and it fails in four familiar ways: bold text used as a heading, typed dashes used as a list, a table with no header row, and heading levels that skip. All four look right on screen and carry nothing underneath. A screen-reader user navigating a long page by headings simply never sees the sections that were bolded rather than marked up.</p>
+
+  <h2>What to do about it</h2>
+  <p>Apply real heading levels from the text style menu, real lists from the toolbar, and turn on the header row in tables. It takes seconds per page, and it is the single highest-value change available in most Confluence spaces.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Heading level is skipped</strong> — Screen-reader users navigate by heading level; a jump from H2 straight to H4 makes the page look like it has missing sections.</li>
+    <li><strong>Heading has no text</strong> — An empty heading is announced as a heading with nothing in it, which breaks navigation by headings.</li>
+    <li><strong>H1 used inside the page body</strong> — Confluence already renders the page title as the only H1, so a second H1 in the body gives the page two competing titles.</li>
+    <li><strong>Bold text used instead of a heading</strong> — Bold text looks like a heading but is not one, so it never appears in the heading list a screen-reader user navigates by.</li>
+    <li><strong>Dashes or numbers used instead of a list</strong> — A hand-typed list is read as loose sentences, so a screen-reader user never hears how many items there are or where the list ends.</li>
+    <li><strong>Table has no header row</strong> — Without header cells a screen reader reads a wall of values with no way to tell which column each one belongs to.</li>
+    <li><strong>Header cell is empty</strong> — An empty header leaves every cell in that column without a label when it is read out.</li>
+    <li><strong>Table uses merged cells</strong> — Merged cells break the grid a screen reader uses to pair each value with its header, so the reading order can come out scrambled.</li>
+    <li><strong>Table nested inside another table</strong> — Nested tables are very hard to navigate with a keyboard or screen reader, which usually announces them as one confusing grid.</li>
+    <li><strong>Table appears to be used for layout</strong> — A table announces rows and columns that carry no meaning here, which slows a screen-reader user down for no benefit.</li>
+    <li><strong>Blank lines used for spacing</strong> — A screen reader announces every empty line, so stacks of them are read out as meaningless pauses.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>

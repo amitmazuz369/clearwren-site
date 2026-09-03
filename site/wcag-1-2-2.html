@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support — Clearwren</title>
-<meta name="description" content="How to get help with Clearwren for Confluence.">
-<meta property="og:title" content="Support — Clearwren">
-<meta property="og:description" content="How to get help with Clearwren for Confluence.">
+<title>WCAG 1.2.2 Captions (Prerecorded) in Confluence — level A</title>
+<meta name="description" content="Pre-recorded video with audio needs captions. What it means for Confluence pages, and how to fix it.">
+<meta property="og:title" content="WCAG 1.2.2 Captions (Prerecorded) in Confluence — level A">
+<meta property="og:description" content="Pre-recorded video with audio needs captions. What it means for Confluence pages, and how to fix it.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
@@ -27,40 +27,28 @@
         <a href="/wcag.html">WCAG reference</a>
         <a href="/docs.html">Docs</a>
         <a href="/security.html">Security</a>
-        <a href="/support.html" aria-current="page">Support</a>
+        <a href="/support.html">Support</a>
     </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-<h1>Support</h1>
-<p class="lede">Write to <a href="mailto:support@clearwren.com">support@clearwren.com</a>.</p>
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 1.2.2</p>
+<h1>1.2.2 Captions (Prerecorded) <span class="muted">(level A)</span></h1>
+<p class="lede">Pre-recorded video with audio needs captions.</p>
 
-<h2>What to expect</h2>
 <div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>A recorded demo narrated by a colleague is the usual case. Auto-generated captions from the hosting platform are a reasonable start, but they need correcting for product names and jargon — which is exactly the vocabulary the viewer came for.</p>
+
+  <h2>What to do about it</h2>
+  <p>Enable and correct captions on the hosting platform, and link a transcript from the page. A checker can tell you a video is present; it cannot tell whether its captions are accurate, so this one always ends with a person.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
   <ul class="checks">
-    <li>First reply within one working day, Sunday to Thursday.</li>
-    <li>Bugs that block a scan or produce a wrong result are treated as urgent.</li>
-    <li>Support is in English or Hebrew.</li>
+    <li><strong>Video or audio may need captions or a transcript</strong> — Pre-recorded audio and video need captions and a text alternative, and a page cannot prove it has them on its own.</li>
   </ul>
-</div>
-
-<h2>What helps us answer quickly</h2>
-<div class="prose">
-  <ul class="checks">
-    <li>Your Atlassian site URL and the space key involved</li>
-    <li>The page where you saw the problem, and what you expected instead</li>
-    <li>For a wrong finding: which check fired, and the content it fired on</li>
-  </ul>
-</div>
-
-<h2>Reporting a false positive</h2>
-<div class="prose">
-  <p>
-    A check that fires on content which is genuinely fine is a bug in the check, and we want
-    to hear about it. Send the content and the check name. Rules are versioned, and
-    corrections ship to every site at once.
-  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
 </div>
 
   </div>

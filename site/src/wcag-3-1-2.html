@@ -1,0 +1,21 @@
+<!--
+title: WCAG 3.1.2 Language of Parts in Confluence — level AA
+description: Passages in a different language need to be marked as such. What it means for Confluence pages, and how to fix it.
+-->
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 3.1.2</p>
+<h1>3.1.2 Language of Parts <span class="muted">(level AA)</span></h1>
+<p class="lede">Passages in a different language need to be marked as such.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Confluence sets one language for the page, so a Hebrew paragraph inside an English page is announced by a screen reader using English pronunciation rules, which renders it unintelligible. Multilingual documentation sites hit this constantly.</p>
+
+  <h2>What to do about it</h2>
+  <p>Put substantial content in another language on its own page in that language, rather than mixing scripts within one page. Where a mixed page is unavoidable, say in the text which language the passage is in so a reader can switch tools.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Passage in a different script</strong> — A screen reader keeps using the page language, so text in another script is read with the wrong pronunciation rules.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>

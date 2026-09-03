@@ -1,0 +1,25 @@
+<!--
+title: WCAG 1.1.1 Non-text Content in Confluence — level A
+description: Anything that is not text — an image, a chart, an icon, a diagram — needs a text alternative that serves the same purpose. What it means for Confluence pages, and how to fix it.
+-->
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 1.1.1</p>
+<h1>1.1.1 Non-text Content <span class="muted">(level A)</span></h1>
+<p class="lede">Anything that is not text — an image, a chart, an icon, a diagram — needs a text alternative that serves the same purpose.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Confluence makes this easy to get wrong because pasting a screenshot never asks for a description. A page of numbered steps where each step is a screenshot is, to a screen-reader user, a page of numbered nothing. Diagrams are the harder case: the alternative has to carry the relationships the picture shows, not the fact that a picture exists.</p>
+
+  <h2>What to do about it</h2>
+  <p>Click the image, use the alt text option in the image toolbar, and write what a reader would lose if the image were removed. For a chart, that is the finding. For a screenshot, it is the state of the interface and what is highlighted. Genuinely decorative images — dividers, repeated brand marks — should be marked as decorative so they are skipped rather than described.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Image has no alternative text</strong> — Screen-reader users get nothing but the word "image" where this picture is, so any information it carries is lost.</li>
+    <li><strong>Alternative text does not describe the image</strong> — Alt text like "image1.png" or "screenshot" tells a screen-reader user nothing about what the image shows.</li>
+    <li><strong>Alternative text starts with "image of"</strong> — Screen readers already announce that the element is an image, so the prefix is read out twice.</li>
+    <li><strong>Alternative text is very long</strong> — A screen reader reads alt text in one uninterrupted run, so anything past roughly 150 characters is hard to follow.</li>
+    <li><strong>Status lozenge has no readable text</strong> — A lozenge is announced by its text; with none, its colour is the only thing carrying the meaning and a screen reader conveys nothing.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>

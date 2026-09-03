@@ -14,6 +14,7 @@ const NAV = [
   ['/checks.html', 'What it checks'],
   ['/pricing.html', 'Pricing'],
   ['/guides.html', 'Guides'],
+  ['/wcag.html', 'WCAG reference'],
   ['/docs.html', 'Docs'],
   ['/security.html', 'Security'],
   ['/support.html', 'Support'],

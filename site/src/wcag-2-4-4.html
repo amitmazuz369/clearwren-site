@@ -1,0 +1,24 @@
+<!--
+title: WCAG 2.4.4 Link Purpose (In Context) in Confluence — level A
+description: The purpose of a link has to be clear from its text, or from its immediate context. What it means for Confluence pages, and how to fix it.
+-->
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 2.4.4</p>
+<h1>2.4.4 Link Purpose (In Context) <span class="muted">(level A)</span></h1>
+<p class="lede">The purpose of a link has to be clear from its text, or from its immediate context.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Screen-reader users often bring up a list of every link on a page and move through it. A page whose links read “click here”, “here”, “this page” and “more” produces a list with no information in it. Bare URLs are the other half of the problem: read out character by character, they are slow and tell the listener almost nothing.</p>
+
+  <h2>What to do about it</h2>
+  <p>Write the destination into the link text: “the 2026 onboarding checklist” rather than “click here”. Two links with the same text must not lead to different places.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Link text does not say where it goes</strong> — Screen-reader users often pull up a list of every link on the page; a list of "click here" entries is unusable.</li>
+    <li><strong>Bare URL used as link text</strong> — A screen reader reads a raw URL character by character, which is slow and tells the listener very little.</li>
+    <li><strong>Link has no readable text</strong> — A link with no text is announced only as its URL, or skipped entirely.</li>
+    <li><strong>Same link text points to different pages</strong> — Two links reading "guidelines" that lead to different pages are indistinguishable in a screen reader’s link list.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>

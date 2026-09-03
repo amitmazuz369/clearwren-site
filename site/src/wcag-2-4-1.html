@@ -1,0 +1,21 @@
+<!--
+title: WCAG 2.4.1 Bypass Blocks in Confluence — level A
+description: There has to be a way to skip past blocks of content that repeat across pages. What it means for Confluence pages, and how to fix it.
+-->
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 2.4.1</p>
+<h1>2.4.1 Bypass Blocks <span class="muted">(level A)</span></h1>
+<p class="lede">There has to be a way to skip past blocks of content that repeat across pages.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Confluence provides the page furniture, so most of this criterion is Atlassian's responsibility. What lands on the author is embedded content: an unlabelled frame is a block a keyboard user has to enter to find out what it is.</p>
+
+  <h2>What to do about it</h2>
+  <p>Give embeds a title, or introduce them with a line of text saying what they contain.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Embedded content has no accessible name</strong> — Embedded frames are announced by their title; without one, a screen-reader user hears only "frame".</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support — Clearwren</title>
-<meta name="description" content="How to get help with Clearwren for Confluence.">
-<meta property="og:title" content="Support — Clearwren">
-<meta property="og:description" content="How to get help with Clearwren for Confluence.">
+<title>WCAG 1.4.8 Visual Presentation in Confluence — level AAA</title>
+<meta name="description" content="A set of presentation requirements for blocks of text, including that text is not justified. What it means for Confluence pages, and how to fix it.">
+<meta property="og:title" content="WCAG 1.4.8 Visual Presentation in Confluence — level AAA">
+<meta property="og:description" content="A set of presentation requirements for blocks of text, including that text is not justified. What it means for Confluence pages, and how to fix it.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
@@ -27,40 +27,28 @@
         <a href="/wcag.html">WCAG reference</a>
         <a href="/docs.html">Docs</a>
         <a href="/security.html">Security</a>
-        <a href="/support.html" aria-current="page">Support</a>
+        <a href="/support.html">Support</a>
     </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-<h1>Support</h1>
-<p class="lede">Write to <a href="mailto:support@clearwren.com">support@clearwren.com</a>.</p>
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 1.4.8</p>
+<h1>1.4.8 Visual Presentation <span class="muted">(level AAA)</span></h1>
+<p class="lede">A set of presentation requirements for blocks of text, including that text is not justified.</p>
 
-<h2>What to expect</h2>
 <div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Level AAA, so it is not part of a normal AA conformance claim, but justified text is worth avoiding anyway: the uneven word spacing creates vertical rivers of white space that readers with dyslexia find hard to track.</p>
+
+  <h2>What to do about it</h2>
+  <p>Set paragraph alignment back to the start of the line — left for left-to-right languages, right for Hebrew and Arabic.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
   <ul class="checks">
-    <li>First reply within one working day, Sunday to Thursday.</li>
-    <li>Bugs that block a scan or produce a wrong result are treated as urgent.</li>
-    <li>Support is in English or Hebrew.</li>
+    <li><strong>Text is justified</strong> — Justified text creates uneven rivers of white space that people with dyslexia find hard to track.</li>
   </ul>
-</div>
-
-<h2>What helps us answer quickly</h2>
-<div class="prose">
-  <ul class="checks">
-    <li>Your Atlassian site URL and the space key involved</li>
-    <li>The page where you saw the problem, and what you expected instead</li>
-    <li>For a wrong finding: which check fired, and the content it fired on</li>
-  </ul>
-</div>
-
-<h2>Reporting a false positive</h2>
-<div class="prose">
-  <p>
-    A check that fires on content which is genuinely fine is a bug in the check, and we want
-    to hear about it. Send the content and the check name. Rules are versioned, and
-    corrections ship to every site at once.
-  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
 </div>
 
   </div>

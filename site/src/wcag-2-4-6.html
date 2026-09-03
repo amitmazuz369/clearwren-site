@@ -1,0 +1,24 @@
+<!--
+title: WCAG 2.4.6 Headings and Labels in Confluence — level AA
+description: Headings and labels have to describe the topic or purpose of what they introduce. What it means for Confluence pages, and how to fix it.
+-->
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 2.4.6</p>
+<h1>2.4.6 Headings and Labels <span class="muted">(level AA)</span></h1>
+<p class="lede">Headings and labels have to describe the topic or purpose of what they introduce.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>An empty heading, a heading that runs to three lines, or a collapsible section with no title all fail here. Headings are a navigation surface, not decoration: they are read as a list, out of context, by people deciding where to jump.</p>
+
+  <h2>What to do about it</h2>
+  <p>Keep headings short and specific, give every collapsible section a label, and delete headings that exist only for spacing.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Heading has no text</strong> — An empty heading is announced as a heading with nothing in it, which breaks navigation by headings.</li>
+    <li><strong>Heading reads as a paragraph</strong> — Long headings are hard to scan in a screen reader’s heading list, which is how many users find their way around a page.</li>
+    <li><strong>Collapsible section has no label</strong> — An unlabelled expand is announced only as a button, so a keyboard user cannot tell what opening it will reveal.</li>
+    <li><strong>Two headings have the same text</strong> — Screen-reader users navigate by jumping between headings; identical headings are impossible to tell apart in that list.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>

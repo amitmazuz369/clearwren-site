@@ -1,0 +1,21 @@
+<!--
+title: WCAG 1.4.3 Contrast (Minimum) in Confluence — level AA
+description: Text needs a contrast ratio of at least 4.5:1 against its background, or 3:1 for large text. What it means for Confluence pages, and how to fix it.
+-->
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 1.4.3</p>
+<h1>1.4.3 Contrast (Minimum) <span class="muted">(level AA)</span></h1>
+<p class="lede">Text needs a contrast ratio of at least 4.5:1 against its background, or 3:1 for large text.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Two patterns cause almost all failures. The first is the soft grey people choose for captions and notes, which usually lands near 2.8:1. The second is invisible to the author: a coloured table cell or a custom panel colour behind text that was left at the default, which can easily fall below the threshold without anyone changing the text colour at all.</p>
+
+  <h2>What to do about it</h2>
+  <p>Darken the text or lighten the background until the pair clears 4.5:1. Large text — 24px, or 18.66px and bold — only needs 3:1, which in Confluence covers H1 headings. Measuring matters here: contrast is not something the eye judges reliably, particularly on a good monitor in a bright room.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Text contrast is below the WCAG AA minimum</strong> — Low-contrast text is unreadable for many people with low vision, and for anyone on a dim screen or in sunlight.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>

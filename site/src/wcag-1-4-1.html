@@ -1,0 +1,23 @@
+<!--
+title: WCAG 1.4.1 Use of Color in Confluence — level A
+description: Colour must never be the only way information is conveyed. What it means for Confluence pages, and how to fix it.
+-->
+<!-- selfcheck-allow: colour-only-meaning -->
+<p class="muted"><a href="/wcag.html">WCAG reference</a> → 1.4.1</p>
+<h1>1.4.1 Use of Color <span class="muted">(level A)</span></h1>
+<p class="lede">Colour must never be the only way information is conveyed.</p>
+
+<div class="prose">
+  <h2>How it shows up in Confluence</h2>
+  <p>Status tables are where this shows up: a green cell means done, a red cell means blocked, and nothing says so in words. Status lozenges with no text are the same problem in a smaller package. Prose like “the rows in red need approval” carries it into the writing itself.</p>
+
+  <h2>What to do about it</h2>
+  <p>Add a second cue that does not depend on sight — a word in the cell, a labelled lozenge, a column called Status. Then refer to that label in the surrounding text rather than to the colour.</p>
+
+  <h2>What Clearwren checks for this criterion</h2>
+  <ul class="checks">
+    <li><strong>Instructions rely on colour alone</strong> — A reader who cannot distinguish the colour, or who is using a screen reader, has no way to tell which items you mean.</li>
+    <li><strong>Status lozenge has no readable text</strong> — A lozenge is announced by its text; with none, its colour is the only thing carrying the meaning and a screen reader conveys nothing.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+</div>
