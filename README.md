@@ -28,7 +28,14 @@ have to exist before the app can be registered and listed.
 ## Pre-flight checks that run without an Atlassian account
 
 ```bash
+node tools/preflight.mjs           # everything below, plus the listing rules — run this first
 node tools/validate-manifest.mjs   # manifest.yml against the schema in @forge/manifest
 node tools/selfcheck.mjs           # our own site, checked by our own engine
 node tools/validate.mjs            # the engine against saved real-world pages
 ```
+
+`preflight.mjs` encodes the constraints of the systems we hand work to: image dimensions,
+character limits, Atlassian's `<App Name> for <Product>` naming rule, and whether any
+published claim has drifted from what the engine ships. Every rule in it is there because
+getting it wrong once cost a round trip. Listing copy lives in `docs/listing.json` so those
+limits can be checked rather than remembered.

@@ -7,7 +7,8 @@ this machine, and each step lists how it is verified.
 
 | Check | Command | State |
 |---|---|---|
-| Engine tests | `npm --workspace @clearwren/a11y-engine test` | 28 passing |
+| Listing and asset rules | `node tools/preflight.mjs` | 24 checks passing |
+| Engine tests | `npm --workspace @clearwren/a11y-engine test` | 36 passing |
 | Manifest schema | `node tools/validate-manifest.mjs` | valid |
 | Backend bundles | `npx esbuild src/index.js --bundle --platform=node` | clean |
 | All four UI entries bundle | esbuild per resource | clean |
@@ -40,7 +41,7 @@ engine's own expectations.
 
 ## Phase 3 — listing (days 5–8)
 
-1. Take the five screenshots listed in `docs/marketplace-listing.md`.
+1. Produce the four images at the sizes the form requires, listed in `docs/marketplace-listing.md`.
 2. Create the listing with the copy in that file; set the pricing tiers exactly as given.
 3. Point the required URLs at `clearwren.com`.
 4. Complete the security questionnaire — the app makes no egress calls, stores no personal

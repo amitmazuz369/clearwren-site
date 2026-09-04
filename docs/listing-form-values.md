@@ -12,7 +12,7 @@ Everything below is final copy. Nothing needs writing, only pasting.
 
 **Name**
 ```
-Accessibility Checker for Confluence — WCAG, ADA, 508
+WCAG & ADA Accessibility Checker for Confluence
 ```
 
 **Summary** (shown under the name in search results)
@@ -20,10 +20,9 @@ Accessibility Checker for Confluence — WCAG, ADA, 508
 Check every page against WCAG 2.2, fix issues in place, and publish the conformance report your auditor asks for.
 ```
 
-**Categories**
-1. Admin tools
-2. Documentation
-3. Reports
+**Categories** — the form allows two, from a taxonomy that replaced the one in `research/`.
+Read the options off the form. Prefer any compliance or governance category; otherwise
+`Content and communication` plus `Administrative tools`.
 
 **Logo** — `brand/clearwren-logo-512.png`
 

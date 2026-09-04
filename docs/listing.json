@@ -1,0 +1,39 @@
+{
+  "appName": "WCAG & ADA Accessibility Checker for Confluence",
+  "appKey": "com.clearwren.confluence.accessibility",
+  "productName": "Confluence",
+  "tagline": "Find and fix WCAG 2.2 failures across your Confluence pages, and publish the conformance report an auditor will accept",
+  "summary": "Check every page against WCAG 2.2, fix issues in place, and publish the conformance report your auditor asks for.",
+  "keywords": ["accessibility", "compliance", "documentation", "reporting"],
+  "hero": { "file": "brand/screenshots/hero-960x600.png", "width": 960, "height": 600 },
+  "highlights": [
+    {
+      "title": "See problems where the writing happens",
+      "description": "Every page carries a score in its byline. Each finding explains what a reader loses and how to fix it, and alt text can be written straight into the page from the panel.",
+      "caption": "The check panel open on a page, showing the measured contrast ratio and the field that writes alt text back into the page.",
+      "file": "brand/screenshots/highlight-1-page-panel.png"
+    },
+    {
+      "title": "Report against the standard, not a score",
+      "description": "A conformance table by WCAG success criterion, with criteria that need human judgement marked for review rather than claimed either way. Publish it as a dated Confluence page.",
+      "caption": "Conformance by success criterion across a space, with the number of pages affected by each.",
+      "file": "brand/screenshots/highlight-2-conformance.png"
+    },
+    {
+      "title": "Fix the pattern, not the page",
+      "description": "Findings ranked by severity across the whole space, so four hundred pages missing alt text become one campaign instead of four hundred separate tasks.",
+      "caption": "Findings by check across a scanned space, ordered by severity and showing how many pages each one affects.",
+      "file": "brand/screenshots/highlight-3-findings.png"
+    }
+  ],
+  "limits": {
+    "appName": 60,
+    "tagline": 130,
+    "summary": 250,
+    "highlightTitle": 50,
+    "highlightText": 220,
+    "highlightImage": [1840, 900],
+    "maxKeywords": 4,
+    "maxCategories": 2
+  }
+}

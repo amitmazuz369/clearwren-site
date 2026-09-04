@@ -4,21 +4,30 @@ Everything below is the copy to paste into the listing form. Character counts ar
 Atlassian limits at time of writing; re-check them in the form.
 
 ## App name (≤ 60)
-`Accessibility Checker for Confluence — WCAG, ADA, 508`
-(53 characters)
+`WCAG & ADA Accessibility Checker for Confluence`
+(47 characters)
 
-Reasoning: the name is the strongest ranking signal in Marketplace search, and it is also
-what shows in Google results for “confluence accessibility”. The three standards are the
-terms compliance buyers search for by name.
+Atlassian enforces a naming rule: when the name contains one of their product names it
+must read `<App Name> for <Product Name>`, with nothing after the product. An earlier
+version ending in "— WCAG, ADA, 508" was rejected by the form. The keywords therefore sit
+in front, which keeps the search terms and satisfies the rule.
 
 ## Summary / tagline (≤ 140)
 `Check every page against WCAG 2.2, fix issues in place, and publish the conformance report your auditor asks for.`
 (112 characters)
 
 ## Categories
-1. **Admin tools** — where site administrators browse.
-2. **Documentation** — where the content owners browse.
-3. **Reports** — the report is half the value.
+
+The form allows **two**, and uses a taxonomy that replaced the one in `research/`. Read the
+list off the form rather than trusting any category name written here. Choose, in order of
+preference:
+
+1. Anything naming compliance, governance, security or risk — that is the buyer's shelf.
+2. Otherwise `Content and communication` — the app works on content.
+3. Otherwise `Administrative tools` — the admin installs and pays.
+
+Not `Data and analytics`: it is for business data analysis, and the people browsing it are
+not looking for us.
 
 ## Highlights
 
