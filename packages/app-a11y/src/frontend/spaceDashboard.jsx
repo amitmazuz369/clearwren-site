@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import ForgeReconciler, {
-  Box, Button, Heading, HorizontalBarChart, Inline, Lozenge, SectionMessage, Spinner, Stack, Text,
+  Button, Heading, HorizontalBarChart, Inline, Lozenge, SectionMessage, Spinner, Stack, Text,
   DynamicTable, useProductContext,
-  CodeBlock, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, ModalTransition,
+  TextArea, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, ModalTransition,
   Tabs, TabList, Tab, TabPanel,
 } from '@forge/react';
 import { invoke } from '@forge/bridge';
@@ -113,7 +113,7 @@ const App = () => {
             <ModalBody>
               <Stack space="space.200">
                 <Text>
-                  {`${exportData.count} findings across ${exportData.pagesIncluded} pages. Select the text and copy it — CSV opens directly in Excel or Sheets.`}
+                  {`${exportData.count} findings across ${exportData.pagesIncluded} pages. Click in the box, select all, and copy — CSV opens directly in Excel or Sheets.`}
                 </Text>
                 {exportData.truncated ? (
                   <SectionMessage appearance="warning" title="Not every page is included">
@@ -128,14 +128,24 @@ const App = () => {
                     <Tab>JSON</Tab>
                   </TabList>
                   <TabPanel>
-                    <Box xcss={{ width: '100%' }}>
-                      <CodeBlock language="text" text={exportData.csv} showLineNumbers={false} />
-                    </Box>
+                    <TextArea
+                      label="CSV"
+                      value={exportData.csv}
+                      isReadOnly
+                      resize="vertical"
+                      rows={18}
+                      spellCheck={false}
+                    />
                   </TabPanel>
                   <TabPanel>
-                    <Box xcss={{ width: '100%' }}>
-                      <CodeBlock language="json" text={exportData.json} showLineNumbers={false} />
-                    </Box>
+                    <TextArea
+                      label="JSON"
+                      value={exportData.json}
+                      isReadOnly
+                      resize="vertical"
+                      rows={18}
+                      spellCheck={false}
+                    />
                   </TabPanel>
                 </Tabs>
               </Stack>
