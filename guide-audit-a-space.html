@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to audit a Confluence space for accessibility</title>
+<meta name="description" content="A practical order of work for measuring and fixing accessibility across thousands of Confluence pages, without touching them one at a time.">
+<meta property="og:title" content="How to audit a Confluence space for accessibility">
+<meta property="og:description" content="A practical order of work for measuring and fixing accessibility across thousands of Confluence pages, without touching them one at a time.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>How to audit a Confluence space for accessibility</h1>
+<p class="lede">
+  The instinct is to open the first page and start fixing. On a space of a few thousand
+  pages that is a year of work with no way to tell whether it is going well.
+</p>
+
+<div class="prose">
+  <h2>1. Decide what is in scope, and write it down</h2>
+  <p>
+    Not every space needs the same answer. Start by listing which spaces are reachable
+    without logging in, which feed a Jira Service Management help centre, and which are
+    published or embedded anywhere public. Those are the ones a regulator or a customer will
+    look at. Internal-only spaces still matter for the colleagues who use them, but they are
+    a second wave, not the first.
+  </p>
+
+  <h2>2. Measure the whole thing before touching anything</h2>
+  <p>
+    Scan every page and record the number. This matters for two reasons. It tells you the
+    size of the job in hours rather than in dread, and it is the baseline that later lets you
+    say "up from 41%" instead of "we've been working on it".
+  </p>
+  <p>
+    Sampling is the usual mistake. Ten pages tell you nothing about whether the problem is
+    concentrated in one team's twelve hundred pages or spread evenly.
+  </p>
+
+  <h2>3. Sort by check, not by page</h2>
+  <p>
+    This is the step that turns the project from impossible to routine. Look at the findings
+    grouped by which check failed, not by which page failed. Real spaces look like this:
+  </p>
+  <ul class="checks">
+    <li>420 images with no alt text, across 180 pages</li>
+    <li>96 tables with no header row, across 71 pages</li>
+    <li>38 instances of bold text used as a heading</li>
+    <li>22 low-contrast passages, almost all in pages copied from one template</li>
+  </ul>
+  <p>
+    That is not four hundred and twenty tasks. It is four campaigns, and the largest one is
+    a single instruction repeated: describe the picture.
+  </p>
+
+  <h2>4. Fix in order of what a reader loses</h2>
+  <ol>
+    <li><strong>Images with no alt text.</strong> The information is simply gone. Highest cost, cheapest fix.</li>
+    <li><strong>Tables with no header row.</strong> Ten seconds each, and it turns a wall of values back into data.</li>
+    <li><strong>Bold text used as a heading.</strong> Breaks the way screen-reader users navigate a long page.</li>
+    <li><strong>Link text that says "click here".</strong> Easy to sweep with a search.</li>
+    <li><strong>Low contrast.</strong> Usually one template or one habit; fix the source and it stops recurring.</li>
+  </ol>
+
+  <h2>5. Route the work to whoever wrote the page</h2>
+  <p>
+    A central team cannot write alt text for four hundred screenshots it has never seen —
+    only the author knows what the picture was meant to show. Give each owner the list for
+    their own pages. The work is minutes per person instead of weeks for one.
+  </p>
+
+  <h2>6. Stop the inflow</h2>
+  <p>
+    Everything above is remediation, and remediation without a check in the authoring flow
+    is a treadmill. Whatever you use, authors need to see the problem while they are still
+    on the page, not in a report three months later.
+  </p>
+
+  <h2>7. Re-measure on a schedule and keep the dated evidence</h2>
+  <p>
+    Monthly is enough. What you want at the end is not a perfect space — nobody has one —
+    but a chart that goes the right way and a dated report you can attach to a procurement
+    response or hand to a reviewer.
+  </p>
+
+  <h2>What this does not cover</h2>
+  <p>
+    Roughly a third of WCAG criteria cannot be settled by any tool: whether reading order
+    matches meaning, whether a description is genuinely adequate, whether a video's captions
+    are accurate. Automating the mechanical two thirds is what makes the human review
+    affordable, because the reviewer spends their time on the part that needs judgement.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Start with one page</a></p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>
