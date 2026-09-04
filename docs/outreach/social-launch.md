@@ -34,8 +34,14 @@ to paste, checked against LinkedIn's current field limits.
 | Industry | `Software Development` | — |
 | Company size | `1 employee` (`Myself only`) | — |
 | Company type | `Self-employed` | — |
-| Logo | `brand/logo-linkedin-300x300.png` | 300×300 |
-| Cover image | `brand/linkedin-cover-1128x191.png` | 1128×191 |
+| Logo | `brand/logo-linkedin-400x400.png` | 400×400 (min 268), PNG, ≤3 MB |
+| Cover image | `brand/linkedin-cover-1512x256.jpg` | 1512×256, JPEG, ≤3 MB |
+
+> Sizes read from LinkedIn's own help page on 2026-09-04, after a 1128×191 cover was
+> rejected on upload. That older figure is still repeated all over the web and is now
+> below LinkedIn's stated minimum; the aspect ratio (5.9:1) is unchanged. LinkedIn
+> advises a high-resolution JPEG rather than PNG for the cover, and crops the banner to
+> roughly the middle 900px on mobile — which is why the lockup is centred.
 | Tagline | `Accessibility checking for Confluence content — WCAG 2.2, ADA and EAA.` | 120 |
 
 **About (2,000 char limit):**
