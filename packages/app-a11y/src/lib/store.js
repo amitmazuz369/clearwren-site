@@ -74,6 +74,12 @@ export async function getPageResult(pageId, spaceKey) {
   return { summary: summary ?? null, detail: detail ?? null };
 }
 
+/** Just the stored issue list for one page. Export needs this without re-reading
+ *  the summary it already holds. */
+export async function getPageIssues(pageId) {
+  return (await kvs.get(`i:${pageId}`)) ?? null;
+}
+
 export async function listPageSummaries(spaceKey, limit = 500) {
   const out = [];
   let cursor;

@@ -5,7 +5,7 @@ import {
   getPage, getSpaceByKey, listSpaces, listSpacePages, parseAdf, updatePageAdf,
 } from './lib/confluence.js';
 import {
-  getSettings, saveSettings, savePageResult, getPageResult, listPageSummaries,
+  getSettings, saveSettings, savePageResult, getPageResult, getPageIssues, listPageSummaries,
   saveSpaceReport, getSpaceReport, listScannedSpaces, setScanProgress, getScanProgress,
 } from './lib/store.js';
 
@@ -171,6 +171,109 @@ function nodeAtPath(root, path) {
 }
 
 /** Publishes the conformance report as a Confluence page, for audit evidence. */
+/* --- Export ---------------------------------------------------------------
+ * The buyer's job is to hand evidence to a reviewer or a procurement officer, so
+ * export has to survive leaving the app. UI Kit runs in a sandboxed iframe with no
+ * DOM and no file download, so rather than pretend otherwise this returns the CSV
+ * as text for the clipboard, and the conformance report page carries the same
+ * findings into Confluence where its own PDF and Word export can take them further.
+ */
+const EXPORT_PAGE_CAP = 250;
+const EXPORT_CONCURRENCY = 10;
+
+function csvCell(v) {
+  const s = v === null || v === undefined ? '' : String(v);
+  // Excel and Sheets both need CRLF-safe quoting; a lone quote doubles.
+  return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+function csvRows(rows) {
+  return rows.map((r) => r.map(csvCell).join(',')).join('\r\n');
+}
+
+async function collectFindings(spaceKey) {
+  const summaries = await listPageSummaries(spaceKey);
+  // Worst pages first: whoever reads this list works down it in order.
+  summaries.sort((a, b) => a.score - b.score);
+  const pages = summaries.slice(0, EXPORT_PAGE_CAP);
+
+  // One storage read per page, run in a small pool. Sequentially this overruns the
+  // resolver timeout on any space big enough to need an export in the first place.
+  const details = new Array(pages.length);
+  let next = 0;
+  await Promise.all(
+    Array.from({ length: Math.min(EXPORT_CONCURRENCY, pages.length) }, async () => {
+      for (let i = next++; i < pages.length; i = next++) {
+        details[i] = await getPageIssues(pages[i].pageId);
+      }
+    }),
+  );
+
+  const findings = [];
+  for (let i = 0; i < pages.length; i++) {
+    const page = pages[i];
+    const detail = details[i];
+    for (const issue of detail?.issues ?? []) {
+      const rule = RULES_BY_ID[issue.ruleId];
+      findings.push({
+        pageId: page.pageId,
+        pageTitle: page.title,
+        score: page.score,
+        ruleId: issue.ruleId,
+        check: rule?.title ?? issue.ruleId,
+        severity: issue.severity,
+        confidence: issue.confidence,
+        wcag: rule ? rule.wcag.map((w) => w.criterion).join(' ') : '',
+        level: rule ? rule.wcag.map((w) => w.level).join(' ') : '',
+        section508: rule?.section508?.join(' ') ?? '',
+        location: issue.location,
+        evidence: issue.evidence ?? '',
+        howToFix: rule?.howToFix ?? '',
+      });
+    }
+  }
+  return { findings, pagesIncluded: pages.length, pagesTotal: summaries.length };
+}
+
+resolver.define('exportFindings', async ({ context, payload }) => {
+  const license = licenseState(context);
+  if (!license.active) return { ok: false, reason: 'unlicensed' };
+  const spaceKey = payload?.spaceKey ?? context?.extension?.space?.key;
+  const { findings, pagesIncluded, pagesTotal } = await collectFindings(spaceKey);
+
+  const header = [
+    'Page', 'Page ID', 'Page score', 'Check', 'Rule ID', 'Severity', 'Confidence',
+    'WCAG criteria', 'Level', 'Section 508', 'Location', 'Evidence', 'What to change',
+  ];
+  const rows = findings.map((f) => [
+    f.pageTitle, f.pageId, f.score, f.check, f.ruleId, f.severity, f.confidence,
+    f.wcag, f.level, f.section508, f.location, f.evidence, f.howToFix,
+  ]);
+
+  // Both formats come from one pass: collecting twice doubles the storage reads
+  // and the chance of hitting the resolver timeout on a large space.
+  return {
+    ok: true,
+    truncated: pagesIncluded < pagesTotal,
+    pagesIncluded,
+    pagesTotal,
+    count: findings.length,
+    csv: csvRows([header, ...rows]),
+    json: JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        spaceKey,
+        standard: 'WCAG 2.2',
+        pagesIncluded,
+        pagesTotal,
+        findings,
+      },
+      null,
+      2,
+    ),
+  };
+});
+
 resolver.define('publishReportPage', async ({ context, payload }) => {
   const license = licenseState(context);
   if (!license.active) return { ok: false, reason: 'unlicensed' };
@@ -178,7 +281,12 @@ resolver.define('publishReportPage', async ({ context, payload }) => {
   const report = await getSpaceReport(spaceKey);
   if (!report) return { ok: false, reason: 'no-report' };
   const space = await getSpaceByKey(spaceKey);
-  const adf = buildReportAdf(report, payload.targetLevel ?? 'AA');
+  const summaries = await listPageSummaries(spaceKey);
+  const worstPages = summaries
+    .filter((pg) => !pg.conformant)
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 20);
+  const adf = buildReportAdf(report, payload.targetLevel ?? 'AA', worstPages);
   const api = (await import('@forge/api')).default;
   const { route } = await import('@forge/api');
   const res = await api.asUser().requestConfluence(route`/wiki/api/v2/pages`, {
@@ -212,7 +320,7 @@ function statusWords(status) {
   }
 }
 
-function buildReportAdf(report, level) {
+function buildReportAdf(report, level, worstPages = []) {
   const criteriaRows = [
     { type: 'tableRow', content: [cell('Success criterion', true), cell('Level', true), cell('Result', true), cell('Pages affected', true)] },
     ...(report.criteria ?? []).map((c) => ({
@@ -241,8 +349,29 @@ function buildReportAdf(report, level) {
       { type: 'table', attrs: { isNumberColumnEnabled: false, layout: 'default' }, content: criteriaRows },
       heading(2, 'Findings by check'),
       { type: 'table', attrs: { isNumberColumnEnabled: false, layout: 'default' }, content: rows },
+      ...(worstPages.length
+        ? [
+            heading(2, 'Where to start'),
+            para(`The ${worstPages.length} pages carrying the most failures. Fixing these first moves the number furthest for the least work.`),
+            {
+              type: 'table',
+              attrs: { isNumberColumnEnabled: false, layout: 'default' },
+              content: [
+                { type: 'tableRow', content: [cell('Page', true), cell('Score', true), cell('Critical', true), cell('Serious', true), cell('Moderate', true)] },
+                ...worstPages.map((pg) => ({
+                  type: 'tableRow',
+                  content: [
+                    cell(pg.title), cell(pg.score),
+                    cell(pg.counts?.critical ?? 0), cell(pg.counts?.serious ?? 0), cell(pg.counts?.moderate ?? 0),
+                  ],
+                })),
+              ],
+            },
+          ]
+        : []),
       heading(2, 'Method'),
       para('Each page body was parsed and evaluated against deterministic rules mapped to WCAG 2.2 success criteria. Automated checking cannot confirm every criterion; items marked for review need a person to confirm them.'),
+      para('The full per-finding list, with the location and the fix for each one, is available as a CSV export from the space accessibility report.'),
     ],
   };
 }

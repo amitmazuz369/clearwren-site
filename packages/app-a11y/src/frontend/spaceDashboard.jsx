@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import ForgeReconciler, {
   Box, Button, Heading, HorizontalBarChart, Inline, Lozenge, SectionMessage, Spinner, Stack, Text,
   DynamicTable, useProductContext,
+  CodeBlock, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, ModalTransition,
+  Tabs, TabList, Tab, TabPanel,
 } from '@forge/react';
 import { invoke } from '@forge/bridge';
 import { CountsRow, SeverityTag, scoreAppearance } from './shared.jsx';
@@ -15,6 +17,8 @@ const App = () => {
   const [pages, setPages] = useState([]);
   const [starting, setStarting] = useState(false);
   const [notice, setNotice] = useState(null);
+  const [exportData, setExportData] = useState(null);
+  const [exporting, setExporting] = useState(false);
 
   const load = useCallback(async () => {
     const [report, pageList] = await Promise.all([
@@ -56,6 +60,22 @@ const App = () => {
     setNotice(res.ok ? 'The conformance report has been created as a page in this space.' : 'The report page could not be created.');
   }, [spaceKey]);
 
+  // UI Kit runs sandboxed with no file system, so export hands over the text itself
+  // rather than pretending to produce a download that would never arrive.
+  const runExport = useCallback(async () => {
+    setExporting(true);
+    try {
+      const res = await invoke('exportFindings', { spaceKey });
+      if (!res.ok) {
+        setNotice('The findings could not be exported.');
+        return;
+      }
+      setExportData(res);
+    } finally {
+      setExporting(false);
+    }
+  }, [spaceKey]);
+
   if (data.loading) return <Inline space="space.100" alignBlock="center"><Spinner /><Text>Loading…</Text></Inline>;
 
   const report = data.report;
@@ -76,10 +96,56 @@ const App = () => {
             {scanning ? 'Scanning…' : report ? 'Re-scan space' : 'Scan this space'}
           </Button>
           {report ? <Button onClick={publish}>Publish report page</Button> : null}
+          {report ? (
+            <Button onClick={runExport} isDisabled={exporting}>
+              {exporting ? 'Preparing…' : 'Export findings'}
+            </Button>
+          ) : null}
         </Inline>
       </Inline>
 
       {notice ? <SectionMessage appearance="information"><Text>{notice}</Text></SectionMessage> : null}
+
+      <ModalTransition>
+        {exportData ? (
+          <Modal onClose={() => setExportData(null)} width="x-large">
+            <ModalHeader><ModalTitle>Export findings</ModalTitle></ModalHeader>
+            <ModalBody>
+              <Stack space="space.200">
+                <Text>
+                  {`${exportData.count} findings across ${exportData.pagesIncluded} pages. Select the text and copy it — CSV opens directly in Excel or Sheets.`}
+                </Text>
+                {exportData.truncated ? (
+                  <SectionMessage appearance="warning" title="Not every page is included">
+                    <Text>
+                      {`The worst ${exportData.pagesIncluded} of ${exportData.pagesTotal} pages are listed, lowest score first. Fix these and export again for the next set.`}
+                    </Text>
+                  </SectionMessage>
+                ) : null}
+                <Tabs id="export-format">
+                  <TabList>
+                    <Tab>CSV</Tab>
+                    <Tab>JSON</Tab>
+                  </TabList>
+                  <TabPanel>
+                    <Box xcss={{ width: '100%' }}>
+                      <CodeBlock language="text" text={exportData.csv} showLineNumbers={false} />
+                    </Box>
+                  </TabPanel>
+                  <TabPanel>
+                    <Box xcss={{ width: '100%' }}>
+                      <CodeBlock language="json" text={exportData.json} showLineNumbers={false} />
+                    </Box>
+                  </TabPanel>
+                </Tabs>
+              </Stack>
+            </ModalBody>
+            <ModalFooter>
+              <Button appearance="primary" onClick={() => setExportData(null)}>Close</Button>
+            </ModalFooter>
+          </Modal>
+        ) : null}
+      </ModalTransition>
 
       {scanning ? (
         <SectionMessage appearance="information" title="Scan in progress">
