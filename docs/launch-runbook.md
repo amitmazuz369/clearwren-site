@@ -122,3 +122,21 @@ Two corrections came out of running against a real site rather than a unit test:
 - `table-nested` was removed. ADF forbids a table inside a table cell, so Confluence
   strips one on save and the check could never fire on Cloud content.
 - The fixture seeder is idempotent, because a second run hit the duplicate-title rule.
+
+### 2026-09-04 — export built, held for production
+
+`exportFindings` ships CSV and JSON of every finding, and the conformance report page
+now opens with the twenty worst pages. Deployed and running in **development** as
+v5.1.0, still reported eligible for Runs on Atlassian.
+
+**Deliberately not deployed to production.** Atlassian's docs permit it during review but
+say nothing about whether it disturbs one, and the review is the critical path. The
+deploy command runs the moment approval lands:
+
+    forge deploy -e production --approve MAJOR_VERSION_RULE
+
+One step is unverified: nobody has clicked the button on the test site, because the
+browser here is not signed in to Atlassian and I do not enter credentials. Statically
+verified instead — CSV quoting round-trips through a strict RFC 4180 parser, the
+concurrency pool fills every slot in order at n=0,1,7,10,11,250, both bundles compile,
+and the deploy succeeded.
