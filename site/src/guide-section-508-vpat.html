@@ -1,0 +1,88 @@
+<!--
+title: Section 508, VPATs and the procurement questionnaire
+description: What a VPAT is, who is really being asked for one, and what to say about content published from Confluence when the form lands on your desk.
+-->
+<h1>Section 508, VPATs and the procurement questionnaire</h1>
+<p class="lede">
+  Most people meet accessibility compliance for the first time as a row in a spreadsheet
+  someone in procurement sent them, with a deadline of Friday.
+</p>
+
+<div class="prose">
+  <h2>What is actually being asked</h2>
+  <p>
+    Section 508 of the US Rehabilitation Act requires federal agencies to buy information
+    technology that is accessible. It does not bind private companies directly — it binds
+    them through the purchase order. If you sell to a federal agency, or to a contractor
+    supplying one, the requirement arrives as a question in their procurement pack.
+  </p>
+  <p>
+    The usual form of the question is: <em>provide your VPAT</em>. A Voluntary Product
+    Accessibility Template is a standard document in which a supplier states, criterion by
+    criterion, whether their product supports the standard, partially supports it, or does
+    not. Filled in, it is called an Accessibility Conformance Report.
+  </p>
+
+  <h2>The three answers, and what they mean</h2>
+  <table>
+    <thead><tr><th>Term</th><th>What you are saying</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Supports</strong></td><td>The criterion is met throughout the scope you defined.</td></tr>
+      <tr><td><strong>Partially supports</strong></td><td>Met in some places and not others. You must describe where it fails.</td></tr>
+      <tr><td><strong>Does not support</strong></td><td>Not met. Also legitimate — an honest "does not support" with a remediation date beats a claim that collapses under checking.</td></tr>
+    </tbody>
+  </table>
+  <p>
+    The temptation is to write "supports" everywhere and move on. It is a bad trade. A VPAT
+    is a supplier representation: it can be tested, and being caught overstating is far more
+    damaging than a gap you disclosed and dated.
+  </p>
+
+  <h2>Where Confluence content lands in this</h2>
+  <p>
+    Two separate things get confused here, and separating them is most of the work.
+  </p>
+  <p>
+    <strong>The platform.</strong> Atlassian publishes its own VPAT for Confluence Cloud,
+    covering the editor, the navigation, the dialogs. If the question is about the product
+    you are using, that document is the answer, and you can attach it.
+  </p>
+  <p>
+    <strong>Your content.</strong> If you publish documentation, a help centre or a
+    knowledge base out of Confluence, the pages are yours. Atlassian's VPAT says nothing
+    about whether your screenshots have alt text or your tables have header rows. When the
+    buyer's question is about the service you are selling them, the content is in scope and
+    the platform's VPAT does not cover it.
+  </p>
+  <p>
+    Almost every uncomfortable conversation about accessibility in procurement comes from
+    answering the second question with a document that only addresses the first.
+  </p>
+
+  <h2>What a defensible answer looks like</h2>
+  <ol>
+    <li><strong>Define the scope precisely.</strong> "The customer-facing knowledge base at
+      docs.example.com, comprising 1,240 pages" is a scope. "Our documentation" is not.</li>
+    <li><strong>Measure it, do not estimate it.</strong> A number from a scan of every page
+      is evidence. A sample of ten pages is an anecdote.</li>
+    <li><strong>Separate the mechanical from the judgement.</strong> Alt text, heading
+      structure, table headers, contrast and link text can be decided from the content. Reading
+      order, whether a description is adequate, and whether captions are accurate need a
+      person. Say which is which.</li>
+    <li><strong>Date everything.</strong> A conformance statement without a date is not
+      evidence of anything; content changes daily.</li>
+    <li><strong>Show the trend.</strong> "1,240 pages, 68% with no level A or AA failure, up
+      from 41% in March, remaining failures concentrated in three checks" answers the
+      question behind the question — are these people managing this, or hoping.</li>
+  </ol>
+
+  <h2>The honest shortcut</h2>
+  <p>
+    You cannot produce that answer by hand for a few thousand pages, and you should not try.
+    What you can do is scan the whole space, fix the handful of mechanical failures that
+    account for most of it, book a human review for the rest, and keep the dated report the
+    scan produces. That is what the buyer is actually asking for: not perfection, but a
+    process with numbers attached.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page from the space in question</a></p>
+</div>
