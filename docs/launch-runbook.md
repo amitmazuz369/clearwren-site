@@ -7,7 +7,7 @@ this machine, and each step lists how it is verified.
 
 | Check | Command | State |
 |---|---|---|
-| Listing and asset rules | `node tools/preflight.mjs` | 24 checks passing |
+| Listing and asset rules | `node tools/preflight.mjs` | all passing |
 | Engine tests | `npm --workspace @clearwren/a11y-engine test` | 36 passing |
 | Manifest schema | `node tools/validate-manifest.mjs` | valid |
 | Backend bundles | `npx esbuild src/index.js --bundle --platform=node` | clean |
