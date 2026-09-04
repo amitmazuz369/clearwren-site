@@ -71,6 +71,18 @@ While in review:
 Target at day 90: **10–20 paying sites**. At the planned tiers that is roughly
 $800–$2,000/month, on the way to ₪10,000.
 
+## The daily watch
+
+`tools/watch.mjs` checks the things that fail silently and takes the site, the mail or the
+listing with them: the certificate, the four A records, the three MX records, exactly one
+SPF record, the Zoho verification and DKIM records, a nameserver change (which is what a
+domain hijack looks like), the domain expiry, whether the live site still matches the built
+source, and whether the app is public on the Marketplace.
+
+A scheduled task, `clearwren-daily-watch`, runs it every morning, fixes what it can on its
+own, and pushes to the owner's phone only when something is both broken and needs a person.
+A daily "all clear" is never sent.
+
 ## Kill criteria
 
 If after 90 days of approved listing there are fewer than 3 paying sites and fewer than 300
