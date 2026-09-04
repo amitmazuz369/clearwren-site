@@ -130,6 +130,23 @@ the vendor's ranking, reviews and cross-sell:
 | Marketplace search volume for accessibility is thin | The site, the guides and the free checker exist precisely so acquisition is not solely marketplace search. |
 | App review rejection | Reduced by validating the manifest against Atlassian's own schema, by requesting only five scopes, and by making no outbound calls at all. |
 
+### A direct competitor appeared during the approval wait (2026-09-04)
+
+**AccessLens for Confluence** (TechnofyStore) first shipped 2026-08-19 and is iterating
+daily — v4.3.0 the same day this was written. Cloud-only Forge app, Runs on Atlassian
+badge, zero installs, zero reviews, **$7.50 per user/month** against our $3.35, and no
+free tier where we are free to ten users.
+
+The category is therefore no longer empty, and the claim that it is must be struck from
+all copy. It is still a race between two apps with no traction rather than an entrenched
+incumbent, and we are less than half the price with a free tier and a conformance report
+they explicitly decline to offer.
+
+Consequence for the build queue: **CSV/JSON export of findings and of the conformance
+report is now the first item**, ahead of everything else. Selling evidence you cannot
+get out of the tool is not a position worth defending. Full analysis in
+`docs/competitor-accesslens.md`.
+
 ## What is being tracked
 `research/` holds the raw catalogue and the analysis scripts, so every number above can be
 re-derived and re-run as the market moves.

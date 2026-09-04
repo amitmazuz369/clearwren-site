@@ -62,6 +62,24 @@ if (listing.includes('"count"')) {
   report('ok', n > 0 ? `app is listed and searchable on the Marketplace (${n} result${n === 1 ? '' : 's'})` : 'app not yet public on the Marketplace (expected until approval)');
 }
 
+/* --- the competitor: tell me when they gain traction or move on price --- */
+const RIVAL = 'com.technofystore.accesslens.confluence';
+const rival = sh(`curl -s -m 25 'https://marketplace.atlassian.com/rest/2/addons/${RIVAL}/versions/latest'`);
+if (rival.startsWith('{')) {
+  const v = JSON.parse(rival);
+  const price = sh(`curl -s -m 25 'https://marketplace.atlassian.com/rest/2/addons/${RIVAL}/pricing/cloud/live'`);
+  let per = null;
+  try {
+    const items = JSON.parse(price).items ?? [];
+    const t = items.find(i => i.unitCount === 100);
+    if (t) per = t.amount / 100;
+  } catch { /* pricing shape can change; the version line still reports */ }
+  const moved = per !== null && Math.abs(per - 7.5) > 0.01;
+  report(moved ? 'bad' : 'ok',
+    `AccessLens at v${v.name} (${v.release?.date ?? 'undated'}), ` +
+    (per === null ? 'price unreadable' : `$${per.toFixed(2)}/user` + (moved ? ' — PRICE MOVED, ours is $3.35' : ' — unchanged')));
+} else report('bad', 'could not read the competitor listing');
+
 console.log('CLEARWREN DAILY CHECK — ' + new Date().toISOString().slice(0, 16).replace('T', ' '));
 for (const line of ok) console.log(`  ok    ${line}`);
 for (const line of findings) console.log(`  FAIL  ${line}`);
