@@ -107,6 +107,13 @@ a restart.
 | Demo site | `one-atlas-enqi.atlassian.net`, app installed |
 | End-to-end fixtures | all six pages seeded and audited: **every expected finding present**, clean control page scored 100 |
 
+**4 September 2026** — listing submitted for approval.
+
+The first submission was auto-rejected: "Not enough details on listing", because pricing had
+not been set. Pricing is a separate tab, outside the submission wizard, and a paid app
+without it is an incomplete record. Set, saved and resubmitted the same day. The app now
+reads "pending approval by Atlassian and cannot be edited".
+
 Scores observed on the fixtures: Onboarding 40, Release notes 76, Architecture 80,
 Style guide 100, Policy 93, Copy of Untitled 97.
 

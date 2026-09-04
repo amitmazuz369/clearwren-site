@@ -62,28 +62,40 @@ Runs entirely inside Forge with no outbound calls, which qualifies it for the
 
 ## Money
 
-Atlassian's cloud tiers: [1-10], [11-100], [101-250], [251-1000], [1001-10000], [10000+].
+Pricing follows Atlassian's own default table, which they derive as 50% of the Confluence
+seat price. Deviating downward was considered and rejected: the buyer here is driven by a
+legal deadline, not by price, and a compliance tool priced well under the market reads as a
+side project — the opposite of what someone staking a regulatory obligation on it needs.
 
-Planned pricing, per user per month, billed by Atlassian:
-
-| Users | Price/user | Example bill |
+| Users | Price/user/month | Example bill |
 |---|---|---|
-| 1–10 | free | $0 |
-| 11–100 | $1.60 | 50 users → $80/mo |
-| 101–250 | $0.90 | 200 users → $180/mo |
-| 251–1000 | $0.55 | 600 users → $330/mo |
-| 1001+ | $0.30 | 2,000 users → $600/mo |
+| 1–10 | **free** | $0 |
+| 11–100 | $3.35 | 50 users → $167.50/mo |
+| 101–250 | $2.55 | 200 users → $510/mo |
+| 251–1,000 | $1.90 | 600 users → $1,140/mo |
+| 1,001–2,500 | $1.75 | |
+| tapering to 250,000 | $0.57 | |
+
+The free tier up to ten users is the one deliberate departure from their template, which
+charged a $33.50 flat rate there. Early on the scarce resource is installs and reviews, not
+revenue from small teams: the ten-person team is not the buyer, but it is the one that
+installs, tries it, and writes the first review a university will read.
+
+Annual billing is computed automatically at ten times the monthly rate — two months free.
+Resale through Atlassian Solution Partners is enabled, because public-sector buyers are
+frequently required to purchase through an approved reseller rather than directly.
 
 Routes to ₪10,000/month (~$2,700):
 
-- 34 mid-size customers at ~$80/mo, **or**
-- 15 customers at ~$180/mo, **or**
-- 8 large customers at ~$330/mo, **or** any mix.
+- 16 customers of about 50 users, **or**
+- 5 customers of about 200 users, **or**
+- 2 to 3 customers of about 600 users, **or** any mix.
 
-For reference, from the same dataset: a small vendor with one good app sits at
-1,000–5,000 installs (p90 of the catalogue is 453 installs). Only a fraction of installs
-pay, but this target needs ~30 paying sites — well inside what a single well-ranked app
-in an empty category reaches.
+That is roughly half the customer count the earlier, cheaper model required.
+
+If installs are slow after 45 days, the lever is a time-boxed launch promotion through the
+Marketplace's own promotions mechanism — not a list-price cut. A promotion expires by
+itself; a price cut has to be undone in front of existing customers.
 
 ## Portfolio, not one app
 
