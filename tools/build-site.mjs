@@ -71,6 +71,35 @@ ${body}
 `;
 }
 
+
+/* --- Launch notice ------------------------------------------------------------
+ * The site was building an audience and keeping none of it: every guide reader and
+ * every checker user left without a trace, so the day approval lands there would be
+ * nobody to tell. A static host has no backend, so this is a prefilled mailto — it
+ * works today with no third-party account. Swapping in a real form endpoint means
+ * changing SIGNUP_ACTION and nothing else.
+ */
+const SIGNUP_TO = 'support@clearwren.com';
+const SIGNUP_SUBJECT = 'Tell me when Clearwren is available';
+const SIGNUP_BODY = [
+  'Please let me know when the Confluence accessibility checker is on the Marketplace.',
+  '',
+  'Organisation:',
+  'Roughly how many Confluence pages:',
+].join('\n');
+const SIGNUP_ACTION = `mailto:${SIGNUP_TO}?subject=${encodeURIComponent(SIGNUP_SUBJECT)}&body=${encodeURIComponent(SIGNUP_BODY)}`;
+
+const SIGNUP = `
+<aside class="signup">
+  <h2>Tell me when it is available</h2>
+  <p>Clearwren is with Atlassian for review. One email when it goes live, and nothing else.</p>
+  <p><a class="btn btn-primary" href="${SIGNUP_ACTION}">Ask to be told</a></p>
+</aside>`;
+
+/** Pages where a reader has just finished something and might want telling. */
+const wantsSignup = (file) =>
+  file.startsWith('guide-') || file === 'checker.html' || file === 'index.html' || file === 'checks.html';
+
 const rulesTable = existsSync(join(out, 'assets', 'rules.html'))
   ? readFileSync(join(out, 'assets', 'rules.html'), 'utf8')
   : '';
@@ -83,7 +112,8 @@ for (const file of readdirSync(src).filter((f) => f.endsWith('.html'))) {
     (meta?.[1] ?? '').split('\n').map((l) => l.split(':')).filter((p) => p.length >= 2)
       .map(([k, ...v]) => [k.trim(), v.join(':').trim()]),
   );
-  const body = raw.replace(/^<!--[\s\S]*?-->\s*/, '').replace('{{RULES_TABLE}}', rulesTable);
+  let body = raw.replace(/^<!--[\s\S]*?-->\s*/, '').replace('{{RULES_TABLE}}', rulesTable);
+  if (wantsSignup(file)) body += SIGNUP;
   const path = file === 'index.html' ? '/' : `/${file}`;
   writeFileSync(join(out, file), shell({
     title: fields.title ?? 'Clearwren',
