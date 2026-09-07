@@ -3,7 +3,19 @@
  * Atlassian. Each rule here exists because getting it wrong once cost a round
  * trip: sizes, character limits, naming rules, stale claims, clean margins.
  */
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+
+/** Every text file under a directory, recursively. A subdirectory used to crash this
+ *  script when it tried to read one as a file. */
+function walk(dir) {
+  const out = [];
+  for (const entry of readdirSync(dir)) {
+    const full = `${dir}/${entry}`;
+    if (statSync(full).isDirectory()) out.push(...walk(full));
+    else out.push(full);
+  }
+  return out;
+}
 import { execSync } from 'node:child_process';
 
 const listing = JSON.parse(readFileSync('docs/listing.json', 'utf8'));
@@ -47,9 +59,10 @@ const claimed = new Set();
 // counts, which are correct and are not claims about the total.
 const generated = (f) => f === 'wcag.html' || f.startsWith('wcag-') || f === 'checks.html';
 for (const dir of ['site/src', 'docs']) {
-  for (const f of readdirSync(dir)) {
+  for (const path of walk(dir)) {
+    const f = path.slice(dir.length + 1);
     if (dir === 'site/src' && generated(f)) continue;
-    const text = readFileSync(`${dir}/${f}`, 'utf8');
+    const text = readFileSync(path, 'utf8');
     for (const m of text.matchAll(/\b(\d{2}) (?:checks|deterministic rules|rules)\b/g)) claimed.add(Number(m[1]));
   }
 }
@@ -60,9 +73,9 @@ check(`every published rule count says ${ruleCount}`, wrong.length === 0, wrong.
 const rejected = 'Accessibility Checker for Confluence — WCAG';
 let stale = [];
 for (const dir of ['site/src', 'docs']) {
-  for (const f of readdirSync(dir)) {
-    const text = readFileSync(`${dir}/${f}`, 'utf8');
-    if (text.includes(rejected) && !text.includes('was rejected')) stale.push(`${dir}/${f}`);
+  for (const path of walk(dir)) {
+    const text = readFileSync(path, 'utf8');
+    if (text.includes(rejected) && !text.includes('was rejected')) stale.push(path);
   }
 }
 check('no document still presents the rejected app name', stale.length === 0, stale.join(', '));
