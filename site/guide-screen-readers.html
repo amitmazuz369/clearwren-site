@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a screen reader actually does with your documentation</title>
+<meta name="description" content="How a page written for the eye sounds to someone listening to it, and the five habits that decide whether it works.">
+<meta property="og:title" content="What a screen reader actually does with your documentation">
+<meta property="og:description" content="How a page written for the eye sounds to someone listening to it, and the five habits that decide whether it works.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>What a screen reader actually does with your documentation</h1>
+<p class="lede">
+  Most people writing documentation have never heard their own page read aloud. It is the
+  fastest way to understand why some of it works and some of it does not.
+</p>
+
+<div class="prose">
+  <h2>Listening is not reading</h2>
+  <p>
+    A sighted reader takes in a page all at once. They see that something is a heading
+    because it is large, that something is a table because it has lines, that a warning
+    matters because it is yellow. None of that survives being spoken.
+  </p>
+  <p>
+    Someone using a screen reader hears the page in one dimension, top to bottom, at speed
+    — experienced users often run at 300 words a minute or more. They cannot skim. What
+    they can do is jump: to the next heading, to the next table, to a list of every link.
+    Those jumps only work if the page was built with real structure rather than visual
+    imitations of it.
+  </p>
+
+  <h2>The five things that decide whether a page works</h2>
+
+  <h3>1. Headings that are headings</h3>
+  <p>
+    Navigating a long page by heading is the single most used feature. Bold text sized up
+    by hand looks identical and offers nothing to jump to. A page with no real headings is
+    a page that must be listened to from the start, every time.
+  </p>
+
+  <h3>2. Images that say something</h3>
+  <p>
+    An image with no alt text is announced as "image", or as its filename. If step four of
+    your instructions is a screenshot, step four is gone. This is the most common failure
+    in documentation and the cheapest to fix, because the author already knows what the
+    picture shows.
+  </p>
+
+  <h3>3. Tables with header cells</h3>
+  <p>
+    With a header row, each cell is announced with the column it belongs to: "Region:
+    North. Orders: 412." Without one, the same table is a stream of values with nothing to
+    attach them to. Bold text in the first row is not a header row; it only looks like one.
+  </p>
+
+  <h3>4. Links that name their destination</h3>
+  <p>
+    Pulling up a list of every link on the page is a standard way to navigate. On a page
+    written with "click here", that list is useless. Write the destination into the link
+    text and it becomes a table of contents.
+  </p>
+
+  <h3>5. An order that makes sense spoken</h3>
+  <p>
+    A caption to the side of a screenshot reads naturally when you can see the pairing.
+    Read aloud, it may arrive several paragraphs from the thing it describes. Layout
+    choices that work visually can scramble the sequence for someone listening.
+  </p>
+
+  <h2>Try it on your own page</h2>
+  <p>
+    Every major operating system ships a screen reader: VoiceOver on macOS and iOS,
+    Narrator on Windows, TalkBack on Android. NVDA on Windows is free and is what a great
+    many people actually use.
+  </p>
+  <p>
+    Turn one on, open the page you are most proud of, and close your eyes for two minutes.
+    You will learn more in those two minutes than from any checklist, including ours.
+  </p>
+
+  <h2>Why this is getting more urgent, not less</h2>
+  <p>
+    Content is increasingly consumed by ear rather than by eye — by people who are blind or
+    have low vision, by people with dyslexia, by anyone listening while doing something
+    else. At the same time, WebAIM's 2026 survey of a million home pages found accessibility
+    failures rising for the first time in seven years, with 95.9% of pages carrying
+    detectable errors.
+  </p>
+  <p>
+    The gap between how content is consumed and how it is written is widening. The five
+    habits above close most of it, and none of them takes longer than the sentence they
+    replace.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Check one of your pages</a></p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>
