@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The accessibility of documentation published in Confluence</title>
+<meta name="description" content="582 pages across seven public Confluence sites, measured against WCAG 2.2. 57% carried no level A or AA failure, and six checks accounted for 87% of everything found.">
+<meta property="og:title" content="The accessibility of documentation published in Confluence">
+<meta property="og:description" content="582 pages across seven public Confluence sites, measured against WCAG 2.2. 57% carried no level A or AA failure, and six checks accounted for 87% of everything found.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>The accessibility of documentation published in Confluence</h1>
+<p class="lede">
+  A great deal is known about the accessibility of home pages. Almost nothing is known
+  about the documentation organisations actually publish. This is a first measurement.
+</p>
+
+<div class="prose">
+  <p>
+    <strong>Published 7 September 2026.</strong> 582 pages, seven public Confluence Cloud
+    sites, measured against WCAG 2.2 by the Clearwren rule engine.
+  </p>
+
+  <h2>What we found</h2>
+  <table>
+    <thead><tr><th>Measure</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Pages measured</td><td><strong>582</strong></td></tr>
+      <tr><td>Sites measured</td><td><strong>7</strong></td></tr>
+      <tr><td>Pages with no level A or AA failure</td><td><strong>57%</strong></td></tr>
+      <tr><td>Average page score</td><td><strong>74 / 100</strong></td></tr>
+      <tr><td>Distinct issues detected</td><td><strong>2,508</strong></td></tr>
+      <tr><td>Of those, rated critical</td><td><strong>1,381</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Six checks account for 87% of everything</h2>
+  <p>
+    This is the finding that matters, because it says the problem is smaller than it looks.
+  </p>
+  <table>
+    <thead><tr><th>Check</th><th>Issues</th><th>Share</th><th>Pages</th><th>Sites</th></tr></thead>
+    <tbody>
+      <tr><td>Image has no alternative text</td><td>1,050</td><td>42%</td><td>181</td><td>6 of 7</td></tr>
+      <tr><td>Text contrast below the AA minimum</td><td>329</td><td>13%</td><td>45</td><td>6 of 7</td></tr>
+      <tr><td>Bare URL used as link text</td><td>244</td><td>10%</td><td>94</td><td>7 of 7</td></tr>
+      <tr><td>H1 used inside the page body</td><td>219</td><td>9%</td><td>71</td><td>6 of 7</td></tr>
+      <tr><td>Alternative text does not describe the image</td><td>216</td><td>9%</td><td>46</td><td>6 of 7</td></tr>
+      <tr><td>Bold text used instead of a heading</td><td>116</td><td>5%</td><td>37</td><td>5 of 7</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Every one of these is mechanical. None needs a specialist to find, and none needs a
+    redesign to fix. A documentation estate failing on all six is not badly built; it is
+    unmeasured.
+  </p>
+
+  <h2>The alt text problem is not the one people think</h2>
+  <p>
+    Missing alt text is the largest single category, at 42% of everything detected, on 181
+    of the 582 pages. That is the expected result.
+  </p>
+  <p>
+    The unexpected one sits below it: 216 further issues where alt text <em>was</em>
+    written and does not describe the image. Filenames, the word "image", a caption
+    repeated from the paragraph above. Somebody filled the field in and the information is
+    still gone.
+  </p>
+  <p>
+    That distinction matters for how you fix it. The first group needs a policy. The second
+    needs the authors to understand what the field is for, which is a different and slower
+    piece of work.
+  </p>
+
+  <h2>No site was clean, and the range was wide</h2>
+  <p>
+    Per-site conformance ran from <strong>31% to 68%</strong>. The best-performing site in
+    the sample still had roughly a third of its pages carrying a level A or AA failure, and
+    the weakest had over two thirds.
+  </p>
+  <p>
+    Two rules appeared on all seven sites: bare URLs used as link text, and skipped heading
+    levels. Both come from the same habit — writing for how a page looks rather than how it
+    is structured.
+  </p>
+
+  <h2>Method</h2>
+  <ol>
+    <li><strong>Site selection.</strong> Seven publicly readable Confluence Cloud sites,
+      found through ordinary web search. All serve their content to anonymous visitors by
+      their own configuration.</li>
+    <li><strong>Page selection.</strong> The full public page list was enumerated for each
+      site, then a random sample drawn from it. This matters more than it sounds: an
+      earlier run took the first pages of each space and reported 90% clean. Those are
+      landing pages — short, no images, no tables. Sampling from the top of a documentation
+      tree measures the part with the least content in it.</li>
+    <li><strong>Measurement.</strong> Page bodies were read in Atlassian Document Format,
+      the same input the product uses, and evaluated by the same 32 rules across 15 WCAG
+      2.2 success criteria. No conversion step, so no fidelity lost.</li>
+    <li><strong>Politeness.</strong> Each site's own <code>robots.txt</code> was read and
+      its stated crawl-delay honoured. Only content served publicly was requested.</li>
+    <li><strong>Reporting.</strong> Aggregate only. No site is named, here or anywhere else.</li>
+  </ol>
+
+  <h2>What this does not show</h2>
+  <p>
+    Seven sites is a small sample, and they were not randomly selected from all Confluence
+    sites — no such list exists. They skew towards public knowledge bases in education,
+    because those are the ones readable without an account. A wider study would need more
+    sites and a defensible frame for choosing them.
+  </p>
+  <p>
+    Nor does it measure everything. Roughly a third of WCAG cannot be decided by any tool:
+    whether reading order matches meaning, whether a description is adequate, whether
+    captions are accurate. Those criteria are reported as needing review, never as passing.
+  </p>
+  <p>
+    So: treat 57% as a first measurement of a thing nobody had measured, not as a settled
+    figure. We would rather publish a number with its limits attached than a rounder one
+    without them.
+  </p>
+
+  <h2>Why we ran it</h2>
+  <p>
+    We build an accessibility checker for Confluence, so we had both the engine and the
+    reason to care. That is a conflict worth stating plainly. It is also why the method is
+    written out above in enough detail to be repeated by someone who wants to check us.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Measure one of your own pages</a></p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>
