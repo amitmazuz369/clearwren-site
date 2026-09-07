@@ -1,0 +1,295 @@
+{
+  "poolSize": 2000,
+  "sampled": 120,
+  "crawlDelayMs": 1000,
+  "all": {
+    "pages": 120,
+    "conformantPages": 61,
+    "averageScore": 81,
+    "counts": {
+      "critical": 131,
+      "serious": 109,
+      "moderate": 58,
+      "advisory": 8
+    },
+    "byRule": [
+      {
+        "ruleId": "img-alt-missing",
+        "title": "Image has no alternative text",
+        "severity": "critical",
+        "pages": 39,
+        "issues": 114
+      },
+      {
+        "ruleId": "contrast-minimum",
+        "title": "Text contrast is below the WCAG AA minimum",
+        "severity": "critical",
+        "pages": 3,
+        "issues": 17
+      },
+      {
+        "ruleId": "img-alt-meaningless",
+        "title": "Alternative text does not describe the image",
+        "severity": "serious",
+        "pages": 19,
+        "issues": 81
+      },
+      {
+        "ruleId": "fake-heading",
+        "title": "Bold text used instead of a heading",
+        "severity": "serious",
+        "pages": 3,
+        "issues": 20
+      },
+      {
+        "ruleId": "link-nondescriptive",
+        "title": "Link text does not say where it goes",
+        "severity": "serious",
+        "pages": 4,
+        "issues": 5
+      },
+      {
+        "ruleId": "table-no-header",
+        "title": "Table has no header row",
+        "severity": "serious",
+        "pages": 2,
+        "issues": 2
+      },
+      {
+        "ruleId": "heading-empty",
+        "title": "Heading has no text",
+        "severity": "serious",
+        "pages": 1,
+        "issues": 1
+      },
+      {
+        "ruleId": "table-merged-cells",
+        "title": "Table uses merged cells",
+        "severity": "moderate",
+        "pages": 3,
+        "issues": 27
+      },
+      {
+        "ruleId": "heading-h1-in-body",
+        "title": "H1 used inside the page body",
+        "severity": "moderate",
+        "pages": 8,
+        "issues": 12
+      },
+      {
+        "ruleId": "link-raw-url",
+        "title": "Bare URL used as link text",
+        "severity": "moderate",
+        "pages": 6,
+        "issues": 11
+      },
+      {
+        "ruleId": "fake-list",
+        "title": "Dashes or numbers used instead of a list",
+        "severity": "moderate",
+        "pages": 1,
+        "issues": 3
+      },
+      {
+        "ruleId": "colour-only-meaning",
+        "title": "Instructions rely on colour alone",
+        "severity": "moderate",
+        "pages": 2,
+        "issues": 3
+      },
+      {
+        "ruleId": "link-ambiguous-duplicate",
+        "title": "Same link text points to different pages",
+        "severity": "moderate",
+        "pages": 1,
+        "issues": 2
+      },
+      {
+        "ruleId": "img-alt-too-long",
+        "title": "Alternative text is very long",
+        "severity": "advisory",
+        "pages": 3,
+        "issues": 4
+      },
+      {
+        "ruleId": "img-alt-redundant",
+        "title": "Alternative text starts with \"image of\"",
+        "severity": "advisory",
+        "pages": 1,
+        "issues": 1
+      },
+      {
+        "ruleId": "spacing-hard-breaks",
+        "title": "Blank lines used for spacing",
+        "severity": "advisory",
+        "pages": 1,
+        "issues": 1
+      },
+      {
+        "ruleId": "heading-duplicate-text",
+        "title": "Two headings have the same text",
+        "severity": "advisory",
+        "pages": 1,
+        "issues": 1
+      },
+      {
+        "ruleId": "all-caps-run",
+        "title": "Long run of capital letters",
+        "severity": "advisory",
+        "pages": 1,
+        "issues": 1
+      }
+    ]
+  },
+  "topLevel": {
+    "pages": 1,
+    "conformantPages": 1,
+    "averageScore": 100,
+    "counts": {
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "advisory": 0
+    },
+    "byRule": []
+  },
+  "deeper": {
+    "pages": 119,
+    "conformantPages": 60,
+    "averageScore": 81,
+    "counts": {
+      "critical": 131,
+      "serious": 109,
+      "moderate": 58,
+      "advisory": 8
+    },
+    "byRule": [
+      {
+        "ruleId": "img-alt-missing",
+        "title": "Image has no alternative text",
+        "severity": "critical",
+        "pages": 39,
+        "issues": 114
+      },
+      {
+        "ruleId": "contrast-minimum",
+        "title": "Text contrast is below the WCAG AA minimum",
+        "severity": "critical",
+        "pages": 3,
+        "issues": 17
+      },
+      {
+        "ruleId": "img-alt-meaningless",
+        "title": "Alternative text does not describe the image",
+        "severity": "serious",
+        "pages": 19,
+        "issues": 81
+      },
+      {
+        "ruleId": "fake-heading",
+        "title": "Bold text used instead of a heading",
+        "severity": "serious",
+        "pages": 3,
+        "issues": 20
+      },
+      {
+        "ruleId": "link-nondescriptive",
+        "title": "Link text does not say where it goes",
+        "severity": "serious",
+        "pages": 4,
+        "issues": 5
+      },
+      {
+        "ruleId": "table-no-header",
+        "title": "Table has no header row",
+        "severity": "serious",
+        "pages": 2,
+        "issues": 2
+      },
+      {
+        "ruleId": "heading-empty",
+        "title": "Heading has no text",
+        "severity": "serious",
+        "pages": 1,
+        "issues": 1
+      },
+      {
+        "ruleId": "table-merged-cells",
+        "title": "Table uses merged cells",
+        "severity": "moderate",
+        "pages": 3,
+        "issues": 27
+      },
+      {
+        "ruleId": "heading-h1-in-body",
+        "title": "H1 used inside the page body",
+        "severity": "moderate",
+        "pages": 8,
+        "issues": 12
+      },
+      {
+        "ruleId": "link-raw-url",
+        "title": "Bare URL used as link text",
+        "severity": "moderate",
+        "pages": 6,
+        "issues": 11
+      },
+      {
+        "ruleId": "fake-list",
+        "title": "Dashes or numbers used instead of a list",
+        "severity": "moderate",
+        "pages": 1,
+        "issues": 3
+      },
+      {
+        "ruleId": "colour-only-meaning",
+        "title": "Instructions rely on colour alone",
+        "severity": "moderate",
+        "pages": 2,
+        "issues": 3
+      },
+      {
+        "ruleId": "link-ambiguous-duplicate",
+        "title": "Same link text points to different pages",
+        "severity": "moderate",
+        "pages": 1,
+        "issues": 2
+      },
+      {
+        "ruleId": "img-alt-too-long",
+        "title": "Alternative text is very long",
+        "severity": "advisory",
+        "pages": 3,
+        "issues": 4
+      },
+      {
+        "ruleId": "img-alt-redundant",
+        "title": "Alternative text starts with \"image of\"",
+        "severity": "advisory",
+        "pages": 1,
+        "issues": 1
+      },
+      {
+        "ruleId": "spacing-hard-breaks",
+        "title": "Blank lines used for spacing",
+        "severity": "advisory",
+        "pages": 1,
+        "issues": 1
+      },
+      {
+        "ruleId": "heading-duplicate-text",
+        "title": "Two headings have the same text",
+        "severity": "advisory",
+        "pages": 1,
+        "issues": 1
+      },
+      {
+        "ruleId": "all-caps-run",
+        "title": "Long run of capital letters",
+        "severity": "advisory",
+        "pages": 1,
+        "issues": 1
+      }
+    ]
+  }
+}

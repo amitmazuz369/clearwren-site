@@ -1,0 +1,87 @@
+CLEARWREN — FOUR ATLASSIAN COMMUNITY REPLIES
+Ready to paste. Plain text, no formatting marks, no special characters.
+Post signed in as partners@clearwren.com.
+
+Order matters: post one a day, not four in an hour. Four near-identical vendor
+replies in one sitting is what community moderation is built to catch.
+
+================================================================================
+1 — post first. Best match to what we sell, and still the top Google result for
+    Confluence + EAA.
+
+https://community.atlassian.com/forums/Confluence-questions/Compliance-with-EAA-Accessibility-laws/qaq-p/2985036
+
+Use the "Suggest an answer" box at the bottom, not the comment box.
+
+--------------------------------------------------------------------------------
+There are two separate questions hiding in this one, and they have different answers.
+
+The product. Whether Confluence's own editor, dialogs and navigation meet the standard is Atlassian's responsibility, and their VPAT for the relevant product is the document that answers it. The button labelling and tab order problems you found with NVDA belong here, and are worth reporting through the accessibility portal, since they can only be fixed upstream.
+
+Your content. If what you publish out of Confluence is a public-facing service, such as customer documentation, a help centre or a knowledge base, then under the EAA the content is in scope too, and no VPAT from Atlassian covers it. Whether your screenshots have alt text, whether your tables have header rows, whether your links say something other than "click here": that part is yours.
+
+In practice the second question is the one that bites, because most teams answer it with a document that only addresses the first.
+
+If you are auditing, I would start by listing which spaces are reachable without logging in, then measure those against WCAG 2.1 AA before fixing anything, so you have a baseline to show a reviewer rather than an assertion.
+
+Disclosure: I build an accessibility checker for Confluence, so I have an interest here. Setting that aside, I wrote up what the EAA actually requires of content published from Confluence. No signup, it is just the explanation: https://clearwren.com/guide-eaa.html
+--------------------------------------------------------------------------------
+
+
+================================================================================
+2 — post second. Not marked solved, so an answer can still be accepted.
+
+https://community.atlassian.com/forums/Confluence-questions/Is-Confluence-Site-ADA-Compliant/qaq-p/2815597
+
+--------------------------------------------------------------------------------
+"Is Confluence ADA compliant" does not quite have an answer, because the ADA does not certify software. What it does is create an obligation on you, and the question then becomes whether the thing you publish meets a standard. In practice that standard is WCAG 2.1 AA, which the April 2024 Title II rule names explicitly for public entities.
+
+So the useful version of the question is whether your Confluence site is accessible. Two parts:
+
+The platform. Atlassian's VPAT for Confluence Cloud covers the interface. Attach it when someone asks about the product itself.
+
+Your pages. Not covered by anything Atlassian publishes. Alt text, heading structure, table headers, contrast, link text. All authored by your team, and all testable.
+
+If a deadline is driving this, note that the Department of Justice extended both dates in April 2026. Public entities serving populations of 50,000 or more now have until 26 April 2027, and smaller entities and special districts until 26 April 2028. Worth knowing that a state university's population is read as the state's population rather than its enrolment, so almost every state university sits in the earlier group.
+
+The second part is where the work is, and it is worth measuring a whole space before you start fixing, so you can show a trend rather than an assertion.
+
+Disclosure: I make a tool in this area. The write-up below is the standards explanation on its own, which is the part that answers your question: https://clearwren.com/guide-ada-title-ii.html
+--------------------------------------------------------------------------------
+
+
+================================================================================
+3 — post third. A concrete how-to question. No link, no disclosure needed. This
+    one is purely useful, which is what makes the other three credible.
+
+https://community.atlassian.com/forums/Confluence-questions/How-to-set-a-Column-as-a-header-for-each-row-in-Confluence/qaq-p/1936758
+
+--------------------------------------------------------------------------------
+In the Cloud editor: click into the table, use the column control at the top of the first column, and choose Header column. That sets the first column as row headers, which is what a screen reader needs in order to announce "Region: North" rather than reading a bare grid of values.
+
+Two things worth knowing:
+
+Header row and header column are separate settings. A table used as a matrix needs both. A simple list of records usually needs only the header row.
+
+A merged cell in the header breaks it. Screen readers cannot reliably resolve which header applies to which cell once the header row spans columns. If you need a grouping label, put it in a heading above the table instead.
+
+The one that catches people out is a table whose first row is just bold text rather than an actual header row. It looks identical and carries none of the meaning.
+--------------------------------------------------------------------------------
+
+
+================================================================================
+4 — post last.
+
+https://community.atlassian.com/forums/Confluence-questions/WCAG-Compliance-accessible-text-for-images-buttons-and-icons/qaq-p/2809358
+
+--------------------------------------------------------------------------------
+Splitting your list, because the two halves go to different places.
+
+Atlassian's to fix: search icons with no discernible text, incorrect ARIA roles, iframes without titles in the product chrome. Report these through the accessibility portal. Nothing you do in your own pages will change them.
+
+Yours to fix: images inside your pages. Every image in the editor has an alt text field. Decorative images should be given an empty alt deliberately, rather than left blank by default, because "blank because nobody filled it in" and "blank because it is decorative" are indistinguishable to a checker and to a reviewer.
+
+The distinction matters for more than tidiness. If a procurement questionnaire asks about accessibility and you answer with Atlassian's VPAT, you have answered the first half only.
+
+Disclosure: I build in this area. On alt text specifically, including what to do with screenshots and diagrams where "a screenshot" is not a description: https://clearwren.com/guide-alt-text.html
+--------------------------------------------------------------------------------
