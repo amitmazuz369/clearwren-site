@@ -123,4 +123,17 @@ for (const file of readdirSync(src).filter((f) => f.endsWith('.html'))) {
   }));
   built++;
 }
-console.log(`built ${built} pages`);
+/* --- sitemap ---------------------------------------------------------------
+ * Generated, never hand-written. The hand-kept version silently missed five pages
+ * added in a single day, which is exactly the SEO the pages were written for.
+ */
+const pages = readdirSync(src).filter((f) => f.endsWith('.html'))
+  .map((f) => (f === 'index.html' ? '/' : `/${f}`))
+  .sort();
+const today = new Date().toISOString().slice(0, 10);
+writeFileSync(join(out, 'sitemap.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  pages.map((u) => `  <url><loc>https://clearwren.com${u}</loc><lastmod>${today}</lastmod></url>`).join('\n') +
+  `\n</urlset>\n`);
+
+console.log(`built ${built} pages, sitemap ${pages.length} urls`);
