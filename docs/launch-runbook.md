@@ -140,3 +140,16 @@ browser here is not signed in to Atlassian and I do not enter credentials. Stati
 verified instead — CSV quoting round-trips through a strict RFC 4180 parser, the
 concurrency pool fills every slot in order at n=0,1,7,10,11,250, both bundles compile,
 and the deploy succeeded.
+
+### 2026-09-07 — audience capture, and the launch kit
+
+The site was building an audience and keeping none of it. A launch-notice block now sits
+on all 13 guide, checker, home and checks pages; it is a prefilled mailto, which works
+today with no third-party account, and swapping in a form endpoint is one constant in
+`tools/build-site.mjs`.
+
+Two more guides published: universities and the April 2027 deadline, and what a screen
+reader does with documentation. 36 pages, all clean against our own engine.
+
+`docs/launch-day.md` holds the first hour, the launch email and post, and what is
+deliberately held back. Written now so nothing is improvised on the day.
