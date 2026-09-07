@@ -62,9 +62,14 @@ Posted September 2024 · **not marked solved** · both replies say "read the VPA
 > 2. Your pages. Not covered by anything Atlassian publishes. Alt text, heading structure,
 >    table headers, contrast, link text — all authored by your team, all testable.
 >
-> If a deadline is driving this (public entities: April 2026 or April 2027 depending on
-> population), the second part is where the work is, and it is worth measuring the whole
-> space before you start fixing so you can show a trend rather than an assertion.
+> If a deadline is driving this, the Department of Justice extended both dates in April
+> 2026: entities serving populations of 50,000 or more now have until 26 April 2027, and
+> smaller entities and special districts until 26 April 2028. Worth knowing that a state
+> university's population is read as the state's population, not its enrolment, so almost
+> every state university sits in the 2027 group.
+>
+> The second part is where the work is, and it is worth measuring the whole space before
+> you start fixing, so you can show a trend rather than an assertion.
 >
 > Disclosure: I make a tool in this space. The write-up below is the standards explanation
 > on its own, which is the part that answers your question:

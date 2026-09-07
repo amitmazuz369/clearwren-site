@@ -100,7 +100,8 @@ on a Saturday.
 > Three deadlines that have already landed on documentation teams, in plain terms:
 >
 > **ADA Title II** — US public entities, including every public university and school
-> district. WCAG 2.1 AA. April 2026 for populations of 50,000+, April 2027 below that.
+> district. WCAG 2.1 AA. The Department of Justice extended both dates in April 2026:
+> 26 April 2027 for populations of 50,000 or more, 26 April 2028 below that.
 >
 > **European Accessibility Act** — in force since June 2025. Covers services sold to
 > consumers in the EU, and the documentation that goes with them.
