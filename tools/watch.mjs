@@ -6,6 +6,15 @@
 import { execSync } from 'node:child_process';
 
 const sh = (cmd) => { try { return execSync(cmd, { encoding: 'utf8', timeout: 30000 }).trim(); } catch { return ''; } };
+// DNS lookups feed the integrity checks; a single timeout must not read as "records gone".
+// Retry a few times and only trust an empty answer after it stays empty.
+const dig = (args) => {
+  for (let i = 0; i < 4; i++) {
+    const out = sh(`dig +tries=2 +time=5 ${args}`);
+    if (out) return out;
+  }
+  return '';
+};
 const findings = [];
 const ok = [];
 const report = (severity, line) => (severity === 'ok' ? ok : findings).push(line);
@@ -24,26 +33,30 @@ if (certEnd) {
 } else report('bad', 'could not read the TLS certificate');
 
 /* --- DNS integrity: the site, and the mail that Atlassian and customers use --- */
-const a = sh(`dig @${NS} ${DOMAIN} A +short`).split('\n').filter(Boolean);
+const a = dig(`@${NS} ${DOMAIN} A +short`).split('\n').filter(Boolean);
 report(a.length === 4 ? 'ok' : 'bad', `${a.length} A records (expected 4)`);
 
-const mx = sh(`dig @${NS} ${DOMAIN} MX +short`).split('\n').filter(Boolean);
+const mx = dig(`@${NS} ${DOMAIN} MX +short`).split('\n').filter(Boolean);
 report(mx.length === 3 ? 'ok' : 'bad', `${mx.length} MX records (expected 3) — mail silently stops if these go`);
 
-const txt = sh(`dig @${NS} ${DOMAIN} TXT +short`);
+const txt = dig(`@${NS} ${DOMAIN} TXT +short`);
 const spfCount = (txt.match(/v=spf1/g) ?? []).length;
 report(spfCount === 1 ? 'ok' : 'bad', `${spfCount} SPF records (exactly 1 is valid; two invalidate each other)`);
 report(txt.includes('zoho-verification') ? 'ok' : 'bad', 'Zoho domain verification record present');
-report(sh(`dig @${NS} zmail._domainkey.${DOMAIN} TXT +short`).includes('DKIM1') ? 'ok' : 'bad', 'DKIM key present');
+report(dig(`@${NS} zmail._domainkey.${DOMAIN} TXT +short`).includes('DKIM1') ? 'ok' : 'bad', 'DKIM key present');
 
 /* --- a nameserver change is what a domain hijack looks like --- */
-const ns = sh(`dig +short ${DOMAIN} NS`).split('\n').filter(Boolean).sort().join(',');
+const ns = dig(`+short ${DOMAIN} NS`).split('\n').filter(Boolean).sort().join(',');
 report(ns === 'dns1.registrar-servers.com.,dns2.registrar-servers.com.' ? 'ok' : 'bad',
   `nameservers: ${ns || 'none'}`);
 
 /* --- domain expiry: it takes the site, the mail and the listing links with it --- */
-const expiryLine = sh(`whois ${DOMAIN} | grep -i 'Registry Expiry Date' | head -1`);
-const expiry = expiryLine.match(/(\d{4}-\d{2}-\d{2}T[\d:.]+Z)/)?.[1];
+// whois servers rate-limit and stall; retry before calling the date unreadable.
+let expiry;
+for (let i = 0; i < 3 && !expiry; i++) {
+  expiry = sh(`whois ${DOMAIN} | grep -iE 'Registry Expiry Date|Registrar Registration Expiration Date' | head -1`)
+    .match(/(\d{4}-\d{2}-\d{2}T[\d:.]+Z)/)?.[1];
+}
 if (expiry) {
   const days = Math.round((Date.parse(expiry) - Date.now()) / 86400000);
   report(days > 30 ? 'ok' : 'bad', `domain expires in ${days} days (${expiry.slice(0, 10)})`);

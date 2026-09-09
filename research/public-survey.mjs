@@ -32,6 +32,7 @@ async function crawlDelayMs(site) {
 async function get(site, path) {
   const res = await fetch(`https://${site}${path}`, {
     headers: { Accept: 'application/json', 'User-Agent': UA },
+    signal: AbortSignal.timeout(20000),
   });
   if (!res.ok) throw new Error(`${res.status}`);
   return res.json();
@@ -42,7 +43,9 @@ async function pool(site, delay, cap = 2000) {
   const out = [];
   let path = '/wiki/api/v2/pages?limit=250&status=current';
   while (path && out.length < cap) {
-    const d = await get(site, path);
+    let d;
+    try { d = await get(site, path); }
+    catch { break; } // a page of the listing timed out or failed; keep what we have
     for (const p of d.results ?? []) out.push({ id: String(p.id), title: p.title, topLevel: !p.parentId });
     const next = d._links?.next;
     path = next ? (next.startsWith('/wiki') ? next : `/wiki${next}`) : null;
