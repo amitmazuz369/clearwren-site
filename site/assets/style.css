@@ -65,6 +65,10 @@ main { padding: 56px 0 80px; }
 .btn {
   display: inline-block; padding: 11px 20px; border-radius: var(--radius);
   text-decoration: none; font-weight: 560; border: 1px solid transparent;
+  /* A <button> carries the browser's own light background unless told otherwise.
+     On an <a class="btn"> it is transparent, so this only broke on real buttons,
+     and only in dark mode: light text on the UA grey measured 1.04:1. */
+  background: transparent; font: inherit; font-weight: 560; cursor: pointer;
 }
 .btn-primary { background: var(--accent); color: var(--on-accent); }
 .btn-primary:hover { filter: brightness(1.08); }
@@ -129,10 +133,13 @@ textarea.raw { width: 100%; min-height: 190px; border: 1px solid var(--border); 
 aside.signup {
   margin: 3rem 0 1rem;
   padding: 1.5rem 1.75rem;
-  border: 1px solid var(--line, #d8dee6);
-  border-left: 4px solid var(--brand, #1c5d99);
+  /* These must be the real tokens. An earlier version invented --line, --brand and
+     --tint, none of which exist, so every value fell through to a hardcoded light
+     colour and the block stayed light in dark mode: 1.13:1. */
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
   border-radius: 6px;
-  background: var(--tint, #f6f8fa);
+  background: var(--surface);
 }
 aside.signup h2 { margin: 0 0 .5rem; font-size: 1.15rem; }
 aside.signup p { margin: 0 0 .75rem; }

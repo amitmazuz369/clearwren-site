@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The accessibility of documentation published in Confluence</title>
-<meta name="description" content="582 pages across seven public Confluence sites, measured against WCAG 2.2. 57% carried no level A or AA failure, and six checks accounted for 87% of everything found.">
+<meta name="description" content="1,179 pages across 13 public Confluence sites, measured against WCAG 2.2. Roughly half carried no level A or AA failure, and six checks accounted for most of what was found.">
 <meta property="og:title" content="The accessibility of documentation published in Confluence">
-<meta property="og:description" content="582 pages across seven public Confluence sites, measured against WCAG 2.2. 57% carried no level A or AA failure, and six checks accounted for 87% of everything found.">
+<meta property="og:description" content="1,179 pages across 13 public Confluence sites, measured against WCAG 2.2. Roughly half carried no level A or AA failure, and six checks accounted for most of what was found.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
@@ -41,36 +41,43 @@
 
 <div class="prose">
   <p>
-    <strong>Published 7 September 2026.</strong> 582 pages, seven public Confluence Cloud
-    sites, measured against WCAG 2.2 by the Clearwren rule engine.
+    <strong>Published 7 September 2026, widened 9 September.</strong> 1,179 pages across
+    13 public Confluence Cloud sites, measured against WCAG 2.2 by the Clearwren rule
+    engine. The first version of this page covered seven sites; the notes on sample size
+    below explain what the extra six changed and what they did not.
   </p>
 
   <h2>What we found</h2>
   <table>
     <thead><tr><th>Measure</th><th>Result</th></tr></thead>
     <tbody>
-      <tr><td>Pages measured</td><td><strong>582</strong></td></tr>
-      <tr><td>Sites measured</td><td><strong>7</strong></td></tr>
-      <tr><td>Pages with no level A or AA failure</td><td><strong>57%</strong></td></tr>
-      <tr><td>Average page score</td><td><strong>74 / 100</strong></td></tr>
-      <tr><td>Distinct issues detected</td><td><strong>2,508</strong></td></tr>
-      <tr><td>Of those, rated critical</td><td><strong>1,381</strong></td></tr>
+      <tr><td>Pages measured</td><td><strong>1,179</strong></td></tr>
+      <tr><td>Sites measured</td><td><strong>13</strong></td></tr>
+      <tr><td>Pages with no level A or AA failure</td><td><strong>roughly half</strong> (57% across the full sample; 49% when the original seven sites were re-drawn)</td></tr>
+      <tr><td>Average page score</td><td><strong>73 / 100</strong></td></tr>
+      <tr><td>Distinct issues detected</td><td><strong>6,486</strong></td></tr>
+      <tr><td>Of those, rated critical</td><td><strong>3,123</strong></td></tr>
     </tbody>
   </table>
+  <p>
+    Read the headline figure as one page in two, not as a precise percentage. Re-running
+    the same seven sites with a fresh random sample moved it eight points on its own; the
+    section on method sets out why.
+  </p>
 
-  <h2>Six checks account for 87% of everything</h2>
+  <h2>Six checks account for most of it</h2>
   <p>
     This is the finding that matters, because it says the problem is smaller than it looks.
   </p>
   <table>
-    <thead><tr><th>Check</th><th>Issues</th><th>Share</th><th>Pages</th><th>Sites</th></tr></thead>
+    <thead><tr><th>Check</th><th>Issues</th><th>Pages</th><th>Sites</th></tr></thead>
     <tbody>
-      <tr><td>Image has no alternative text</td><td>1,050</td><td>42%</td><td>181</td><td>6 of 7</td></tr>
-      <tr><td>Text contrast below the AA minimum</td><td>329</td><td>13%</td><td>45</td><td>6 of 7</td></tr>
-      <tr><td>Bare URL used as link text</td><td>244</td><td>10%</td><td>94</td><td>7 of 7</td></tr>
-      <tr><td>H1 used inside the page body</td><td>219</td><td>9%</td><td>71</td><td>6 of 7</td></tr>
-      <tr><td>Alternative text does not describe the image</td><td>216</td><td>9%</td><td>46</td><td>6 of 7</td></tr>
-      <tr><td>Bold text used instead of a heading</td><td>116</td><td>5%</td><td>37</td><td>5 of 7</td></tr>
+      <tr><td>Image has no alternative text</td><td>1,765</td><td>311</td><td>12 of 13</td></tr>
+      <tr><td>Text contrast below the AA minimum</td><td>1,350</td><td>122</td><td>12 of 13</td></tr>
+      <tr><td>Bare URL used as link text</td><td>907</td><td>260</td><td>13 of 13</td></tr>
+      <tr><td>H1 used inside the page body</td><td>695</td><td>193</td><td>12 of 13</td></tr>
+      <tr><td>Bold text used instead of a heading</td><td>505</td><td>129</td><td>11 of 13</td></tr>
+      <tr><td>Alternative text does not describe the image</td><td>294</td><td>53</td><td>9 of 13</td></tr>
     </tbody>
   </table>
   <p>
@@ -79,13 +86,20 @@
     unmeasured.
   </p>
 
+  <h2>Contrast is concentrated, not spread</h2>
+  <p>
+    1,350 contrast issues sit on just 122 pages. That is almost always one template or one
+    colour, chosen once and repeated. It reads as the second-largest problem by volume and
+    is one of the smallest to actually fix: change the value, not 122 pages.
+  </p>
+
   <h2>The alt text problem is not the one people think</h2>
   <p>
-    Missing alt text is the largest single category, at 42% of everything detected, on 181
-    of the 582 pages. That is the expected result.
+    Missing alt text is the largest single category, on 311 of the 1,179 pages. That is the
+    expected result.
   </p>
   <p>
-    The unexpected one sits below it: 216 further issues where alt text <em>was</em>
+    The unexpected one sits below it: 294 further issues where alt text <em>was</em>
     written and does not describe the image. Filenames, the word "image", a caption
     repeated from the paragraph above. Somebody filled the field in and the information is
     still gone.
@@ -96,28 +110,48 @@
     piece of work.
   </p>
 
-  <h2>No site was clean, and the range was wide</h2>
+  <h2>Software docs are cleaner than knowledge bases</h2>
   <p>
-    Per-site conformance ran from <strong>31% to 68%</strong>. The best-performing site in
-    the sample still had roughly a third of its pages carrying a level A or AA failure, and
-    the weakest had over two thirds.
+    The original seven sites were public knowledge bases, mostly in education. The six added
+    in September are open-source software projects and research-computing docs. They came
+    in cleaner — 65% of pages with no A or AA failure, against 49% for the re-drawn
+    knowledge bases.
   </p>
   <p>
-    Two rules appeared on all seven sites: bare URLs used as link text, and skipped heading
+    The reason is visible in the breakdown. The software docs carry far fewer images, so far
+    less missing alt text. They carry <em>more</em> bare URLs pasted as link text and more
+    bold-as-heading — the failures of writing fast in plain text rather than the failures of
+    a rich page. Different content, different failure, similar total.
+  </p>
+
+  <h2>No site was clean, and the range was wide</h2>
+  <p>
+    Per-site conformance ran from the low forties to the low seventies. The best-performing
+    site in the sample still had roughly a quarter of its pages carrying a level A or AA
+    failure, and the weakest had more than half.
+  </p>
+  <p>
+    Two rules appeared on all 13 sites: bare URLs used as link text, and skipped heading
     levels. Both come from the same habit — writing for how a page looks rather than how it
     is structured.
   </p>
 
   <h2>Method</h2>
   <ol>
-    <li><strong>Site selection.</strong> Seven publicly readable Confluence Cloud sites,
+    <li><strong>Site selection.</strong> Thirteen publicly readable Confluence Cloud sites,
       found through ordinary web search. All serve their content to anonymous visitors by
-      their own configuration.</li>
+      their own configuration. Seven are public knowledge bases; six are software-project
+      and research-computing documentation, added to widen the frame beyond education.</li>
     <li><strong>Page selection.</strong> The full public page list was enumerated for each
-      site, then a random sample drawn from it. This matters more than it sounds: an
-      earlier run took the first pages of each space and reported 90% clean. Those are
-      landing pages — short, no images, no tables. Sampling from the top of a documentation
-      tree measures the part with the least content in it.</li>
+      site, then a random sample of up to 100 pages drawn from it. This matters more than it
+      sounds: an earlier run took the first pages of each space and reported 90% clean.
+      Those are landing pages — short, no images, no tables. Sampling from the top of a
+      documentation tree measures the part with the least content in it.</li>
+    <li><strong>Sampling error.</strong> At 100 pages per site the figure carries real
+      noise. Re-drawing the original seven sites produced 49% clean where the first
+      published run had 57% — an eight-point move from the sample alone. Treat the precision
+      as about plus or minus eight points, and the honest claim as "between a half and two
+      thirds".</li>
     <li><strong>Measurement.</strong> Page bodies were read in Atlassian Document Format,
       the same input the product uses, and evaluated by the same 32 rules across 15 WCAG
       2.2 success criteria. No conversion step, so no fidelity lost.</li>
@@ -128,10 +162,9 @@
 
   <h2>What this does not show</h2>
   <p>
-    Seven sites is a small sample, and they were not randomly selected from all Confluence
-    sites — no such list exists. They skew towards public knowledge bases in education,
-    because those are the ones readable without an account. A wider study would need more
-    sites and a defensible frame for choosing them.
+    Thirteen sites is still a small sample, and they were not randomly selected from all
+    Confluence sites — no such list exists. They are the sites that serve their content
+    without an account, which is its own kind of selection.
   </p>
   <p>
     Nor does it measure everything. Roughly a third of WCAG cannot be decided by any tool:
@@ -139,7 +172,7 @@
     captions are accurate. Those criteria are reported as needing review, never as passing.
   </p>
   <p>
-    So: treat 57% as a first measurement of a thing nobody had measured, not as a settled
+    So: treat this as a first measurement of a thing nobody had measured, not as a settled
     figure. We would rather publish a number with its limits attached than a rounder one
     without them.
   </p>

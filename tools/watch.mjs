@@ -93,6 +93,16 @@ if (rival.startsWith('{')) {
     (per === null ? 'price unreadable' : `$${per.toFixed(2)}/user` + (moved ? ' — PRICE MOVED, ours is $3.35' : ' — unchanged')));
 } else report('bad', 'could not read the competitor listing');
 
+/* --- our own site's contrast, both themes ---
+ * We sell accessibility. A buyer running axe on clearwren.com and finding failures
+ * ends the conversation, and two such failures shipped unnoticed on 2026-09-08. */
+try {
+  const out = sh('node tools/contrast-check.mjs 2>&1');
+  report(out.includes('pass') ? 'ok' : 'bad', out.split('\n')[0] || 'contrast check produced no output');
+} catch (e) {
+  report('bad', `our own site fails a contrast check: ${String(e.message ?? e).split('\n').slice(0, 3).join(' ')}`);
+}
+
 console.log('CLEARWREN DAILY CHECK — ' + new Date().toISOString().slice(0, 16).replace('T', ' '));
 for (const line of ok) console.log(`  ok    ${line}`);
 for (const line of findings) console.log(`  FAIL  ${line}`);
