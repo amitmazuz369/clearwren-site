@@ -65,6 +65,10 @@ main { padding: 56px 0 80px; }
 .btn {
   display: inline-block; padding: 11px 20px; border-radius: var(--radius);
   text-decoration: none; font-weight: 560; border: 1px solid transparent;
+  /* A <button> carries the browser's own light background unless told otherwise.
+     On an <a class="btn"> it is transparent, so this only broke on real buttons,
+     and only in dark mode: light text on the UA grey measured 1.04:1. */
+  background: transparent; font: inherit; font-weight: 560; cursor: pointer;
 }
 .btn-primary { background: var(--accent); color: var(--on-accent); }
 .btn-primary:hover { filter: brightness(1.08); }
