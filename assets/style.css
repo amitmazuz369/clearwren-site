@@ -133,10 +133,13 @@ textarea.raw { width: 100%; min-height: 190px; border: 1px solid var(--border); 
 aside.signup {
   margin: 3rem 0 1rem;
   padding: 1.5rem 1.75rem;
-  border: 1px solid var(--line, #d8dee6);
-  border-left: 4px solid var(--brand, #1c5d99);
+  /* These must be the real tokens. An earlier version invented --line, --brand and
+     --tint, none of which exist, so every value fell through to a hardcoded light
+     colour and the block stayed light in dark mode: 1.13:1. */
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
   border-radius: 6px;
-  background: var(--tint, #f6f8fa);
+  background: var(--surface);
 }
 aside.signup h2 { margin: 0 0 .5rem; font-size: 1.15rem; }
 aside.signup p { margin: 0 0 .75rem; }
