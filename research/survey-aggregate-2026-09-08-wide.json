@@ -1,0 +1,778 @@
+{
+  "generatedAt": "2026-09-08T06:20:09.525Z",
+  "all": {
+    "sitesMeasured": 13,
+    "pagesMeasured": 1179,
+    "pagesClean": 669,
+    "percentClean": 57,
+    "averageScore": 73,
+    "counts": {
+      "critical": 3123,
+      "serious": 1239,
+      "moderate": 1801,
+      "advisory": 323
+    },
+    "byRule": [
+      {
+        "ruleId": "img-alt-missing",
+        "title": "Image has no alternative text",
+        "severity": "critical",
+        "pages": 311,
+        "issues": 1765,
+        "sites": 12
+      },
+      {
+        "ruleId": "link-raw-url",
+        "title": "Bare URL used as link text",
+        "severity": "moderate",
+        "pages": 260,
+        "issues": 907,
+        "sites": 13
+      },
+      {
+        "ruleId": "heading-h1-in-body",
+        "title": "H1 used inside the page body",
+        "severity": "moderate",
+        "pages": 193,
+        "issues": 695,
+        "sites": 12
+      },
+      {
+        "ruleId": "fake-heading",
+        "title": "Bold text used instead of a heading",
+        "severity": "serious",
+        "pages": 129,
+        "issues": 505,
+        "sites": 11
+      },
+      {
+        "ruleId": "contrast-minimum",
+        "title": "Text contrast is below the WCAG AA minimum",
+        "severity": "critical",
+        "pages": 122,
+        "issues": 1350,
+        "sites": 12
+      },
+      {
+        "ruleId": "table-no-header",
+        "title": "Table has no header row",
+        "severity": "serious",
+        "pages": 78,
+        "issues": 195,
+        "sites": 12
+      },
+      {
+        "ruleId": "heading-skipped-level",
+        "title": "Heading level is skipped",
+        "severity": "serious",
+        "pages": 71,
+        "issues": 163,
+        "sites": 13
+      },
+      {
+        "ruleId": "spacing-hard-breaks",
+        "title": "Blank lines used for spacing",
+        "severity": "advisory",
+        "pages": 57,
+        "issues": 61,
+        "sites": 11
+      },
+      {
+        "ruleId": "img-alt-meaningless",
+        "title": "Alternative text does not describe the image",
+        "severity": "serious",
+        "pages": 53,
+        "issues": 294,
+        "sites": 9
+      },
+      {
+        "ruleId": "link-nondescriptive",
+        "title": "Link text does not say where it goes",
+        "severity": "serious",
+        "pages": 52,
+        "issues": 69,
+        "sites": 12
+      },
+      {
+        "ruleId": "table-layout",
+        "title": "Table appears to be used for layout",
+        "severity": "advisory",
+        "pages": 38,
+        "issues": 79,
+        "sites": 11
+      },
+      {
+        "ruleId": "long-paragraph",
+        "title": "Very long paragraph",
+        "severity": "advisory",
+        "pages": 36,
+        "issues": 45,
+        "sites": 7
+      },
+      {
+        "ruleId": "table-merged-cells",
+        "title": "Table uses merged cells",
+        "severity": "moderate",
+        "pages": 26,
+        "issues": 72,
+        "sites": 9
+      },
+      {
+        "ruleId": "expand-no-title",
+        "title": "Collapsible section has no label",
+        "severity": "moderate",
+        "pages": 25,
+        "issues": 32,
+        "sites": 3
+      },
+      {
+        "ruleId": "all-caps-run",
+        "title": "Long run of capital letters",
+        "severity": "advisory",
+        "pages": 20,
+        "issues": 26,
+        "sites": 8
+      },
+      {
+        "ruleId": "link-ambiguous-duplicate",
+        "title": "Same link text points to different pages",
+        "severity": "moderate",
+        "pages": 18,
+        "issues": 24,
+        "sites": 9
+      },
+      {
+        "ruleId": "heading-too-long",
+        "title": "Heading reads as a paragraph",
+        "severity": "advisory",
+        "pages": 17,
+        "issues": 20,
+        "sites": 7
+      },
+      {
+        "ruleId": "fake-list",
+        "title": "Dashes or numbers used instead of a list",
+        "severity": "moderate",
+        "pages": 14,
+        "issues": 22,
+        "sites": 9
+      },
+      {
+        "ruleId": "img-alt-redundant",
+        "title": "Alternative text starts with \"image of\"",
+        "severity": "advisory",
+        "pages": 13,
+        "issues": 74,
+        "sites": 2
+      },
+      {
+        "ruleId": "heading-empty",
+        "title": "Heading has no text",
+        "severity": "serious",
+        "pages": 12,
+        "issues": 13,
+        "sites": 8
+      },
+      {
+        "ruleId": "embed-no-label",
+        "title": "Embedded content has no accessible name",
+        "severity": "moderate",
+        "pages": 12,
+        "issues": 19,
+        "sites": 4
+      },
+      {
+        "ruleId": "img-alt-too-long",
+        "title": "Alternative text is very long",
+        "severity": "advisory",
+        "pages": 8,
+        "issues": 9,
+        "sites": 3
+      },
+      {
+        "ruleId": "table-empty-header",
+        "title": "Header cell is empty",
+        "severity": "moderate",
+        "pages": 8,
+        "issues": 17,
+        "sites": 3
+      },
+      {
+        "ruleId": "link-empty",
+        "title": "Link has no readable text",
+        "severity": "critical",
+        "pages": 8,
+        "issues": 8,
+        "sites": 5
+      },
+      {
+        "ruleId": "media-av-no-alternative",
+        "title": "Video or audio may need captions or a transcript",
+        "severity": "moderate",
+        "pages": 6,
+        "issues": 8,
+        "sites": 3
+      },
+      {
+        "ruleId": "heading-duplicate-text",
+        "title": "Two headings have the same text",
+        "severity": "advisory",
+        "pages": 6,
+        "issues": 9,
+        "sites": 3
+      },
+      {
+        "ruleId": "colour-only-meaning",
+        "title": "Instructions rely on colour alone",
+        "severity": "moderate",
+        "pages": 5,
+        "issues": 5,
+        "sites": 4
+      }
+    ]
+  },
+  "original": {
+    "sitesMeasured": 7,
+    "pagesMeasured": 582,
+    "pagesClean": 283,
+    "percentClean": 49,
+    "averageScore": 70,
+    "counts": {
+      "critical": 1840,
+      "serious": 560,
+      "moderate": 699,
+      "advisory": 156
+    },
+    "byRule": [
+      {
+        "ruleId": "img-alt-missing",
+        "title": "Image has no alternative text",
+        "severity": "critical",
+        "pages": 215,
+        "issues": 1322,
+        "sites": 6
+      },
+      {
+        "ruleId": "link-raw-url",
+        "title": "Bare URL used as link text",
+        "severity": "moderate",
+        "pages": 98,
+        "issues": 332,
+        "sites": 7
+      },
+      {
+        "ruleId": "heading-h1-in-body",
+        "title": "H1 used inside the page body",
+        "severity": "moderate",
+        "pages": 80,
+        "issues": 242,
+        "sites": 6
+      },
+      {
+        "ruleId": "contrast-minimum",
+        "title": "Text contrast is below the WCAG AA minimum",
+        "severity": "critical",
+        "pages": 62,
+        "issues": 516,
+        "sites": 6
+      },
+      {
+        "ruleId": "fake-heading",
+        "title": "Bold text used instead of a heading",
+        "severity": "serious",
+        "pages": 50,
+        "issues": 158,
+        "sites": 5
+      },
+      {
+        "ruleId": "img-alt-meaningless",
+        "title": "Alternative text does not describe the image",
+        "severity": "serious",
+        "pages": 45,
+        "issues": 273,
+        "sites": 6
+      },
+      {
+        "ruleId": "table-no-header",
+        "title": "Table has no header row",
+        "severity": "serious",
+        "pages": 35,
+        "issues": 70,
+        "sites": 7
+      },
+      {
+        "ruleId": "link-nondescriptive",
+        "title": "Link text does not say where it goes",
+        "severity": "serious",
+        "pages": 29,
+        "issues": 29,
+        "sites": 6
+      },
+      {
+        "ruleId": "spacing-hard-breaks",
+        "title": "Blank lines used for spacing",
+        "severity": "advisory",
+        "pages": 25,
+        "issues": 26,
+        "sites": 6
+      },
+      {
+        "ruleId": "expand-no-title",
+        "title": "Collapsible section has no label",
+        "severity": "moderate",
+        "pages": 20,
+        "issues": 27,
+        "sites": 2
+      },
+      {
+        "ruleId": "heading-skipped-level",
+        "title": "Heading level is skipped",
+        "severity": "serious",
+        "pages": 19,
+        "issues": 27,
+        "sites": 7
+      },
+      {
+        "ruleId": "table-merged-cells",
+        "title": "Table uses merged cells",
+        "severity": "moderate",
+        "pages": 14,
+        "issues": 54,
+        "sites": 5
+      },
+      {
+        "ruleId": "img-alt-redundant",
+        "title": "Alternative text starts with \"image of\"",
+        "severity": "advisory",
+        "pages": 13,
+        "issues": 74,
+        "sites": 2
+      },
+      {
+        "ruleId": "all-caps-run",
+        "title": "Long run of capital letters",
+        "severity": "advisory",
+        "pages": 12,
+        "issues": 13,
+        "sites": 5
+      },
+      {
+        "ruleId": "table-layout",
+        "title": "Table appears to be used for layout",
+        "severity": "advisory",
+        "pages": 12,
+        "issues": 21,
+        "sites": 6
+      },
+      {
+        "ruleId": "fake-list",
+        "title": "Dashes or numbers used instead of a list",
+        "severity": "moderate",
+        "pages": 9,
+        "issues": 15,
+        "sites": 5
+      },
+      {
+        "ruleId": "img-alt-too-long",
+        "title": "Alternative text is very long",
+        "severity": "advisory",
+        "pages": 8,
+        "issues": 9,
+        "sites": 3
+      },
+      {
+        "ruleId": "media-av-no-alternative",
+        "title": "Video or audio may need captions or a transcript",
+        "severity": "moderate",
+        "pages": 6,
+        "issues": 8,
+        "sites": 3
+      },
+      {
+        "ruleId": "link-ambiguous-duplicate",
+        "title": "Same link text points to different pages",
+        "severity": "moderate",
+        "pages": 5,
+        "issues": 7,
+        "sites": 4
+      },
+      {
+        "ruleId": "embed-no-label",
+        "title": "Embedded content has no accessible name",
+        "severity": "moderate",
+        "pages": 5,
+        "issues": 6,
+        "sites": 3
+      },
+      {
+        "ruleId": "colour-only-meaning",
+        "title": "Instructions rely on colour alone",
+        "severity": "moderate",
+        "pages": 4,
+        "issues": 4,
+        "sites": 3
+      },
+      {
+        "ruleId": "heading-too-long",
+        "title": "Heading reads as a paragraph",
+        "severity": "advisory",
+        "pages": 4,
+        "issues": 4,
+        "sites": 3
+      },
+      {
+        "ruleId": "heading-empty",
+        "title": "Heading has no text",
+        "severity": "serious",
+        "pages": 3,
+        "issues": 3,
+        "sites": 3
+      },
+      {
+        "ruleId": "long-paragraph",
+        "title": "Very long paragraph",
+        "severity": "advisory",
+        "pages": 3,
+        "issues": 3,
+        "sites": 2
+      },
+      {
+        "ruleId": "heading-duplicate-text",
+        "title": "Two headings have the same text",
+        "severity": "advisory",
+        "pages": 3,
+        "issues": 6,
+        "sites": 2
+      },
+      {
+        "ruleId": "table-empty-header",
+        "title": "Header cell is empty",
+        "severity": "moderate",
+        "pages": 2,
+        "issues": 4,
+        "sites": 1
+      },
+      {
+        "ruleId": "link-empty",
+        "title": "Link has no readable text",
+        "severity": "critical",
+        "pages": 2,
+        "issues": 2,
+        "sites": 1
+      }
+    ]
+  },
+  "added": {
+    "sitesMeasured": 6,
+    "pagesMeasured": 597,
+    "pagesClean": 386,
+    "percentClean": 65,
+    "averageScore": 75,
+    "counts": {
+      "critical": 1283,
+      "serious": 679,
+      "moderate": 1102,
+      "advisory": 167
+    },
+    "byRule": [
+      {
+        "ruleId": "link-raw-url",
+        "title": "Bare URL used as link text",
+        "severity": "moderate",
+        "pages": 162,
+        "issues": 575,
+        "sites": 6
+      },
+      {
+        "ruleId": "heading-h1-in-body",
+        "title": "H1 used inside the page body",
+        "severity": "moderate",
+        "pages": 113,
+        "issues": 453,
+        "sites": 6
+      },
+      {
+        "ruleId": "img-alt-missing",
+        "title": "Image has no alternative text",
+        "severity": "critical",
+        "pages": 96,
+        "issues": 443,
+        "sites": 6
+      },
+      {
+        "ruleId": "fake-heading",
+        "title": "Bold text used instead of a heading",
+        "severity": "serious",
+        "pages": 79,
+        "issues": 347,
+        "sites": 6
+      },
+      {
+        "ruleId": "contrast-minimum",
+        "title": "Text contrast is below the WCAG AA minimum",
+        "severity": "critical",
+        "pages": 60,
+        "issues": 834,
+        "sites": 6
+      },
+      {
+        "ruleId": "heading-skipped-level",
+        "title": "Heading level is skipped",
+        "severity": "serious",
+        "pages": 52,
+        "issues": 136,
+        "sites": 6
+      },
+      {
+        "ruleId": "table-no-header",
+        "title": "Table has no header row",
+        "severity": "serious",
+        "pages": 43,
+        "issues": 125,
+        "sites": 5
+      },
+      {
+        "ruleId": "long-paragraph",
+        "title": "Very long paragraph",
+        "severity": "advisory",
+        "pages": 33,
+        "issues": 42,
+        "sites": 5
+      },
+      {
+        "ruleId": "spacing-hard-breaks",
+        "title": "Blank lines used for spacing",
+        "severity": "advisory",
+        "pages": 32,
+        "issues": 35,
+        "sites": 5
+      },
+      {
+        "ruleId": "table-layout",
+        "title": "Table appears to be used for layout",
+        "severity": "advisory",
+        "pages": 26,
+        "issues": 58,
+        "sites": 5
+      },
+      {
+        "ruleId": "link-nondescriptive",
+        "title": "Link text does not say where it goes",
+        "severity": "serious",
+        "pages": 23,
+        "issues": 40,
+        "sites": 6
+      },
+      {
+        "ruleId": "link-ambiguous-duplicate",
+        "title": "Same link text points to different pages",
+        "severity": "moderate",
+        "pages": 13,
+        "issues": 17,
+        "sites": 5
+      },
+      {
+        "ruleId": "heading-too-long",
+        "title": "Heading reads as a paragraph",
+        "severity": "advisory",
+        "pages": 13,
+        "issues": 16,
+        "sites": 4
+      },
+      {
+        "ruleId": "table-merged-cells",
+        "title": "Table uses merged cells",
+        "severity": "moderate",
+        "pages": 12,
+        "issues": 18,
+        "sites": 4
+      },
+      {
+        "ruleId": "heading-empty",
+        "title": "Heading has no text",
+        "severity": "serious",
+        "pages": 9,
+        "issues": 10,
+        "sites": 5
+      },
+      {
+        "ruleId": "img-alt-meaningless",
+        "title": "Alternative text does not describe the image",
+        "severity": "serious",
+        "pages": 8,
+        "issues": 21,
+        "sites": 3
+      },
+      {
+        "ruleId": "all-caps-run",
+        "title": "Long run of capital letters",
+        "severity": "advisory",
+        "pages": 8,
+        "issues": 13,
+        "sites": 3
+      },
+      {
+        "ruleId": "embed-no-label",
+        "title": "Embedded content has no accessible name",
+        "severity": "moderate",
+        "pages": 7,
+        "issues": 13,
+        "sites": 1
+      },
+      {
+        "ruleId": "link-empty",
+        "title": "Link has no readable text",
+        "severity": "critical",
+        "pages": 6,
+        "issues": 6,
+        "sites": 4
+      },
+      {
+        "ruleId": "table-empty-header",
+        "title": "Header cell is empty",
+        "severity": "moderate",
+        "pages": 6,
+        "issues": 13,
+        "sites": 2
+      },
+      {
+        "ruleId": "expand-no-title",
+        "title": "Collapsible section has no label",
+        "severity": "moderate",
+        "pages": 5,
+        "issues": 5,
+        "sites": 1
+      },
+      {
+        "ruleId": "fake-list",
+        "title": "Dashes or numbers used instead of a list",
+        "severity": "moderate",
+        "pages": 5,
+        "issues": 7,
+        "sites": 4
+      },
+      {
+        "ruleId": "heading-duplicate-text",
+        "title": "Two headings have the same text",
+        "severity": "advisory",
+        "pages": 3,
+        "issues": 3,
+        "sites": 1
+      },
+      {
+        "ruleId": "colour-only-meaning",
+        "title": "Instructions rely on colour alone",
+        "severity": "moderate",
+        "pages": 1,
+        "issues": 1,
+        "sites": 1
+      }
+    ]
+  },
+  "perSite": [
+    {
+      "label": "site-01",
+      "tranche": "original",
+      "poolSize": 2000,
+      "sampled": 100,
+      "percentClean": 45,
+      "averageScore": 80
+    },
+    {
+      "label": "site-02",
+      "tranche": "original",
+      "poolSize": 847,
+      "sampled": 100,
+      "percentClean": 46,
+      "averageScore": 70
+    },
+    {
+      "label": "site-03",
+      "tranche": "original",
+      "poolSize": 40,
+      "sampled": 40,
+      "percentClean": 68,
+      "averageScore": 85
+    },
+    {
+      "label": "site-04",
+      "tranche": "original",
+      "poolSize": 2000,
+      "sampled": 100,
+      "percentClean": 53,
+      "averageScore": 73
+    },
+    {
+      "label": "site-05",
+      "tranche": "original",
+      "poolSize": 283,
+      "sampled": 100,
+      "percentClean": 54,
+      "averageScore": 69
+    },
+    {
+      "label": "site-06",
+      "tranche": "original",
+      "poolSize": 1001,
+      "sampled": 100,
+      "percentClean": 45,
+      "averageScore": 58
+    },
+    {
+      "label": "site-07",
+      "tranche": "original",
+      "poolSize": 42,
+      "sampled": 42,
+      "percentClean": 31,
+      "averageScore": 51
+    },
+    {
+      "label": "site-08",
+      "tranche": "added",
+      "poolSize": 2000,
+      "sampled": 97,
+      "percentClean": 70,
+      "averageScore": 78
+    },
+    {
+      "label": "site-09",
+      "tranche": "added",
+      "poolSize": 2000,
+      "sampled": 100,
+      "percentClean": 64,
+      "averageScore": 73
+    },
+    {
+      "label": "site-10",
+      "tranche": "added",
+      "poolSize": 2000,
+      "sampled": 100,
+      "percentClean": 79,
+      "averageScore": 79
+    },
+    {
+      "label": "site-11",
+      "tranche": "added",
+      "poolSize": 323,
+      "sampled": 100,
+      "percentClean": 61,
+      "averageScore": 76
+    },
+    {
+      "label": "site-12",
+      "tranche": "added",
+      "poolSize": 2000,
+      "sampled": 100,
+      "percentClean": 66,
+      "averageScore": 83
+    },
+    {
+      "label": "site-13",
+      "tranche": "added",
+      "poolSize": 2000,
+      "sampled": 100,
+      "percentClean": 48,
+      "averageScore": 64
+    }
+  ]
+}
