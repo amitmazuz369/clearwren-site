@@ -5,6 +5,7 @@
   --ink: #16191d;
   --ink-soft: #5a626e;
   --accent: #1c5d99;
+  --on-accent: #ffffff;
   --accent-soft: #eaf1f8;
   --critical: #b3261e;
   --serious: #a24c00;
@@ -21,6 +22,7 @@
     --ink: #e8eaed;
     --ink-soft: #a2abb8;
     --accent: #7db3e8;
+    --on-accent: #0d1116;
     --accent-soft: #17222e;
     --critical: #f2837c;
     --serious: #e0a267;
@@ -64,7 +66,7 @@ main { padding: 56px 0 80px; }
   display: inline-block; padding: 11px 20px; border-radius: var(--radius);
   text-decoration: none; font-weight: 560; border: 1px solid transparent;
 }
-.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
 .btn-primary:hover { filter: brightness(1.08); }
 .btn-ghost { border-color: var(--border); color: var(--ink); }
 .btn-ghost:hover { background: var(--surface); }
