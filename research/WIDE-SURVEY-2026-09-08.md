@@ -59,3 +59,14 @@ Concrete changes to `site/src/study-confluence-accessibility.html`:
 This is an owner call: it rewrites a published research page and the follow-up
 LinkedIn posts. The currently-queued post (8 Sept) cites the live 7-site study and
 stays internally consistent — no need to touch it.
+
+---
+
+## 2026-09-09 — rewrite drafted
+
+`study-confluence-accessibility.rev2.html` in this directory is the full proposed
+replacement page, built from `survey-aggregate-2026-09-08-wide.json`. It drops the
+false precision, adds the software-docs-vs-knowledge-base split, and reframes the
+headline as "roughly half". Not built, not deployed — publishing it is the owner
+call described above. On approval: copy into `site/src/`, rebuild, deploy from
+`clearwren-site`, then reconcile the three queued LinkedIn posts that cite "57%".

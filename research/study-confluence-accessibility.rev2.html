@@ -1,0 +1,162 @@
+<!--
+DRAFT — not built, not deployed. Proposed replacement for
+site/src/study-confluence-accessibility.html after the 13-site re-run.
+Publishing this is an owner call: it rewrites a published research page and
+the LinkedIn posts that cite it. On approval: copy into site/src/ (drop this
+comment, keep the title/description block), rebuild, deploy from clearwren-site.
+
+title: The accessibility of documentation published in Confluence
+description: 1,179 pages across 13 public Confluence sites, measured against WCAG 2.2. Roughly half carried no level A or AA failure, and six checks accounted for most of what was found.
+-->
+<h1>The accessibility of documentation published in Confluence</h1>
+<p class="lede">
+  A great deal is known about the accessibility of home pages. Almost nothing is known
+  about the documentation organisations actually publish. This is a first measurement.
+</p>
+
+<div class="prose">
+  <p>
+    <strong>Published 7 September 2026, widened 9 September.</strong> 1,179 pages across
+    13 public Confluence Cloud sites, measured against WCAG 2.2 by the Clearwren rule
+    engine. The first version of this page covered seven sites; the notes on sample size
+    below explain what the extra six changed and what they did not.
+  </p>
+
+  <h2>What we found</h2>
+  <table>
+    <thead><tr><th>Measure</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Pages measured</td><td><strong>1,179</strong></td></tr>
+      <tr><td>Sites measured</td><td><strong>13</strong></td></tr>
+      <tr><td>Pages with no level A or AA failure</td><td><strong>roughly half</strong> (57% across the full sample; 49% when the original seven sites were re-drawn)</td></tr>
+      <tr><td>Average page score</td><td><strong>73 / 100</strong></td></tr>
+      <tr><td>Distinct issues detected</td><td><strong>6,486</strong></td></tr>
+      <tr><td>Of those, rated critical</td><td><strong>3,123</strong></td></tr>
+    </tbody>
+  </table>
+  <p>
+    Read the headline figure as one page in two, not as a precise percentage. Re-running
+    the same seven sites with a fresh random sample moved it eight points on its own; the
+    section on method sets out why.
+  </p>
+
+  <h2>Six checks account for most of it</h2>
+  <p>
+    This is the finding that matters, because it says the problem is smaller than it looks.
+  </p>
+  <table>
+    <thead><tr><th>Check</th><th>Issues</th><th>Pages</th><th>Sites</th></tr></thead>
+    <tbody>
+      <tr><td>Image has no alternative text</td><td>1,765</td><td>311</td><td>12 of 13</td></tr>
+      <tr><td>Text contrast below the AA minimum</td><td>1,350</td><td>122</td><td>12 of 13</td></tr>
+      <tr><td>Bare URL used as link text</td><td>907</td><td>260</td><td>13 of 13</td></tr>
+      <tr><td>H1 used inside the page body</td><td>695</td><td>193</td><td>12 of 13</td></tr>
+      <tr><td>Bold text used instead of a heading</td><td>505</td><td>129</td><td>11 of 13</td></tr>
+      <tr><td>Alternative text does not describe the image</td><td>294</td><td>53</td><td>9 of 13</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Every one of these is mechanical. None needs a specialist to find, and none needs a
+    redesign to fix. A documentation estate failing on all six is not badly built; it is
+    unmeasured.
+  </p>
+
+  <h2>Contrast is concentrated, not spread</h2>
+  <p>
+    1,350 contrast issues sit on just 122 pages. That is almost always one template or one
+    colour, chosen once and repeated. It reads as the second-largest problem by volume and
+    is one of the smallest to actually fix: change the value, not 122 pages.
+  </p>
+
+  <h2>The alt text problem is not the one people think</h2>
+  <p>
+    Missing alt text is the largest single category, on 311 of the 1,179 pages. That is the
+    expected result.
+  </p>
+  <p>
+    The unexpected one sits below it: 294 further issues where alt text <em>was</em>
+    written and does not describe the image. Filenames, the word "image", a caption
+    repeated from the paragraph above. Somebody filled the field in and the information is
+    still gone.
+  </p>
+  <p>
+    That distinction matters for how you fix it. The first group needs a policy. The second
+    needs the authors to understand what the field is for, which is a different and slower
+    piece of work.
+  </p>
+
+  <h2>Software docs are cleaner than knowledge bases</h2>
+  <p>
+    The original seven sites were public knowledge bases, mostly in education. The six added
+    in September are open-source software projects and research-computing docs. They came
+    in cleaner — 65% of pages with no A or AA failure, against 49% for the re-drawn
+    knowledge bases.
+  </p>
+  <p>
+    The reason is visible in the breakdown. The software docs carry far fewer images, so far
+    less missing alt text. They carry <em>more</em> bare URLs pasted as link text and more
+    bold-as-heading — the failures of writing fast in plain text rather than the failures of
+    a rich page. Different content, different failure, similar total.
+  </p>
+
+  <h2>No site was clean, and the range was wide</h2>
+  <p>
+    Per-site conformance ran from the low forties to the low seventies. The best-performing
+    site in the sample still had roughly a quarter of its pages carrying a level A or AA
+    failure, and the weakest had more than half.
+  </p>
+  <p>
+    Two rules appeared on all 13 sites: bare URLs used as link text, and skipped heading
+    levels. Both come from the same habit — writing for how a page looks rather than how it
+    is structured.
+  </p>
+
+  <h2>Method</h2>
+  <ol>
+    <li><strong>Site selection.</strong> Thirteen publicly readable Confluence Cloud sites,
+      found through ordinary web search. All serve their content to anonymous visitors by
+      their own configuration. Seven are public knowledge bases; six are software-project
+      and research-computing documentation, added to widen the frame beyond education.</li>
+    <li><strong>Page selection.</strong> The full public page list was enumerated for each
+      site, then a random sample of up to 100 pages drawn from it. This matters more than it
+      sounds: an earlier run took the first pages of each space and reported 90% clean.
+      Those are landing pages — short, no images, no tables. Sampling from the top of a
+      documentation tree measures the part with the least content in it.</li>
+    <li><strong>Sampling error.</strong> At 100 pages per site the figure carries real
+      noise. Re-drawing the original seven sites produced 49% clean where the first
+      published run had 57% — an eight-point move from the sample alone. Treat the precision
+      as about plus or minus eight points, and the honest claim as "between a half and two
+      thirds".</li>
+    <li><strong>Measurement.</strong> Page bodies were read in Atlassian Document Format,
+      the same input the product uses, and evaluated by the same 32 rules across 15 WCAG
+      2.2 success criteria. No conversion step, so no fidelity lost.</li>
+    <li><strong>Politeness.</strong> Each site's own <code>robots.txt</code> was read and
+      its stated crawl-delay honoured. Only content served publicly was requested.</li>
+    <li><strong>Reporting.</strong> Aggregate only. No site is named, here or anywhere else.</li>
+  </ol>
+
+  <h2>What this does not show</h2>
+  <p>
+    Thirteen sites is still a small sample, and they were not randomly selected from all
+    Confluence sites — no such list exists. They are the sites that serve their content
+    without an account, which is its own kind of selection.
+  </p>
+  <p>
+    Nor does it measure everything. Roughly a third of WCAG cannot be decided by any tool:
+    whether reading order matches meaning, whether a description is adequate, whether
+    captions are accurate. Those criteria are reported as needing review, never as passing.
+  </p>
+  <p>
+    So: treat this as a first measurement of a thing nobody had measured, not as a settled
+    figure. We would rather publish a number with its limits attached than a rounder one
+    without them.
+  </p>
+
+  <h2>Why we ran it</h2>
+  <p>
+    We build an accessibility checker for Confluence, so we had both the engine and the
+    reason to care. That is a conflict worth stating plainly. It is also why the method is
+    written out above in enough detail to be repeated by someone who wants to check us.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Measure one of your own pages</a></p>
+</div>
