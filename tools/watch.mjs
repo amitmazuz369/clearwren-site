@@ -103,6 +103,14 @@ try {
   report('bad', `our own site fails a contrast check: ${String(e.message ?? e).split('\n').slice(0, 3).join(' ')}`);
 }
 
+/* --- published figures still match the data behind them --- */
+try {
+  const out = sh('node tools/claims-check.mjs 2>&1');
+  report(out.includes('match the data') ? 'ok' : 'bad', out.split('\n')[0] || 'claims check produced no output');
+} catch (e) {
+  report('bad', `a published figure no longer matches the data: ${String(e.message ?? e).split('\n').slice(0, 3).join(' ')}`);
+}
+
 console.log('CLEARWREN DAILY CHECK — ' + new Date().toISOString().slice(0, 16).replace('T', ' '));
 for (const line of ok) console.log(`  ok    ${line}`);
 for (const line of findings) console.log(`  FAIL  ${line}`);
