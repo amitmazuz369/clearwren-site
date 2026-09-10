@@ -1,0 +1,112 @@
+<!--
+title: The six checks behind most Confluence accessibility failures
+description: In a study of 1,179 public Confluence pages, six checks accounted for most of every issue found. All six are mechanical. Here is what each one is and how an author closes it.
+-->
+<h1>The six checks behind most of it</h1>
+<p class="lede">
+  We measured 1,179 pages across thirteen public Confluence sites against WCAG 2.2. Six
+  checks accounted for most of the 6,486 issues found. None of the six needs a specialist to
+  spot, and none needs a redesign to fix. If your space fails on all of them, it is not badly
+  built &mdash; it is unmeasured.
+</p>
+
+<div class="prose">
+  <h2>Why these six</h2>
+  <p>
+    They are the failures that come from writing for how a page looks rather than how it is
+    structured: an image dropped in without a description, a heading made by enlarging text,
+    a link that is just a pasted address. Each is easy to make hundreds of times without
+    noticing, and each is easy for a machine to find &mdash; which is what makes the problem
+    tractable rather than daunting.
+  </p>
+
+  <h2>1. Image has no alternative text</h2>
+  <p>
+    The largest single category: 1,765 issues, on 311 of the 1,179 pages. In documentation
+    the screenshot is often the instruction, so a missing description removes the step, not a
+    decoration.
+  </p>
+  <p>
+    In the Cloud editor, click the image and use the alt text field in the toolbar. Describe
+    what the reader needs to <em>do</em>, not what the picture is: the setting and its value,
+    not &ldquo;screenshot of the settings page&rdquo;. An image that carries no information
+    &mdash; a purely decorative divider &mdash; should be marked decorative so the reader
+    skips it cleanly. This one needs a written policy, because it is a habit across every
+    author.
+  </p>
+
+  <h2>2. Text contrast below the AA minimum</h2>
+  <p>
+    1,350 issues &mdash; and they sat on just 122 pages. That concentration is the good news.
+    It is almost always one template, one panel style, or one brand grey, chosen once and
+    repeated. You change the value, not 122 pages.
+  </p>
+  <p>
+    Body text needs a contrast ratio of at least 4.5 to 1 against its background; large text
+    needs 3 to 1. The usual culprits are light grey captions, coloured text in panels, and
+    status text that leans on a pale colour. Fix the source style and the whole set clears at
+    once.
+  </p>
+
+  <h2>3. Bare URL used as link text</h2>
+  <p>
+    907 issues, and the only check that appeared on all thirteen sites. A pasted address
+    reads aloud one character at a time and tells the listener nothing about where the link
+    goes. In a list of links, every entry sounds the same.
+  </p>
+  <p>
+    Select the text you want to be the link and attach the URL to it, so the link reads as
+    the name of its destination. The test: the link text should make sense read on its own,
+    with no sentence around it.
+  </p>
+
+  <h2>4. H1 used inside the page body</h2>
+  <p>
+    695 issues across twelve of the thirteen sites. Confluence supplies the page title as the
+    only first-level heading; a second H1 pasted into the body gives the page two competing
+    top-level headings and breaks the outline a screen-reader user navigates by.
+  </p>
+  <p>
+    Start body headings at Heading 2 and nest downward without skipping a level &mdash; H2,
+    then H3 under it, not H2 straight to H4. The heading menu in the editor is the whole fix.
+  </p>
+
+  <h2>5. Bold text used instead of a heading</h2>
+  <p>
+    505 issues. A bold line with a paragraph under it looks like a heading and is not one. A
+    screen reader cannot list it, cannot jump to it, and announces it as ordinary text, so
+    the reader loses the structure a sighted reader sees at a glance.
+  </p>
+  <p>
+    If a line names a section, make it a real heading at the right level. Reserve bold for
+    emphasis inside a sentence. This is a five-second change per instance and it restores the
+    page&rsquo;s table of contents.
+  </p>
+
+  <h2>6. Alternative text that does not describe the image</h2>
+  <p>
+    294 issues &mdash; and the one people do not expect. Here the field was filled in, and
+    the information is still gone: a filename, the word &ldquo;image&rdquo;, or the caption
+    from the paragraph above repeated verbatim.
+  </p>
+  <p>
+    This one is slower to fix than plain missing alt text, because it is not a policy gap. It
+    is authors not yet knowing what the field is for. The check to teach: delete the image in
+    your head, read only the alt text, and ask whether the reader can still do what the page
+    is teaching.
+  </p>
+
+  <h2>The order to work in</h2>
+  <p>
+    Contrast first, because it is one change for the largest count. Then the two heading
+    checks together, because authors fix them with the same menu in the same pass. Then the
+    two alt-text checks, missing before inadequate, since the first needs a rule and the
+    second needs a short piece of training. Bare URLs can be cleaned continuously by whoever
+    edits a page next.
+  </p>
+  <p>
+    Measure before and after. &ldquo;We ran an audit&rdquo; is not evidence; a dated count
+    over the whole space, moving in the right direction, is.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page against all six</a></p>
+</div>
