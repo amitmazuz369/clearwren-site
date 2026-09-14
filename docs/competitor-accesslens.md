@@ -27,7 +27,8 @@ That is substantially the same product as ours.
 
 ## Where we are ahead
 
-1. **Price.** $3.35 vs $7.50 per user. At 100 users: $335/month against $750/month.
+1. **Price.** $1.60 vs $7.50 per user (revised down from an initial $3.35 before the
+   2026-09-04 submission). At 100 users: $160/month against $750/month.
 2. **Free tier.** Free to 10 users; they charge $7.50 there. Free tiers buy install
    counts, and install count is the main ranking and trust signal on a listing with no
    reviews.

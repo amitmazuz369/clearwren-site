@@ -62,24 +62,25 @@ Runs entirely inside Forge with no outbound calls, which qualifies it for the
 
 ## Money
 
-Pricing follows Atlassian's own default table, which they derive as 50% of the Confluence
-seat price. Deviating downward was considered and rejected: the buyer here is driven by a
-legal deadline, not by price, and a compliance tool priced well under the market reads as a
-side project — the opposite of what someone staking a regulatory obligation on it needs.
+Pricing originally followed Atlassian's own default table (50% of the Confluence seat
+price). That table is superseded: when AccessLens appeared on 2026-08-19 at $7.50/user
+with no free tier (see `docs/competitor-accesslens.md`), pricing was revised down before
+the 2026-09-04 submission to compete on both price and a free tier. The table below is
+what was actually entered in the Marketplace pricing tab and is locked while the listing
+is pending review — it is the real, current price, not a draft.
 
 | Users | Price/user/month | Example bill |
 |---|---|---|
 | 1–10 | **free** | $0 |
-| 11–100 | $3.35 | 50 users → $167.50/mo |
-| 101–250 | $2.55 | 200 users → $510/mo |
-| 251–1,000 | $1.90 | 600 users → $1,140/mo |
-| 1,001–2,500 | $1.75 | |
-| tapering to 250,000 | $0.57 | |
+| 11–100 | $1.60 | 50 users → $80/mo |
+| 101–250 | $0.90 | 200 users → $180/mo |
+| 251–1,000 | $0.55 | 600 users → $330/mo |
+| 1,001–10,000 | $0.30 | |
 
-The free tier up to ten users is the one deliberate departure from their template, which
-charged a $33.50 flat rate there. Early on the scarce resource is installs and reviews, not
-revenue from small teams: the ten-person team is not the buyer, but it is the one that
-installs, tries it, and writes the first review a university will read.
+The free tier up to ten users is the one deliberate departure from Atlassian's own default
+template, which charged a $33.50 flat rate there. Early on the scarce resource is installs
+and reviews, not revenue from small teams: the ten-person team is not the buyer, but it is
+the one that installs, tries it, and writes the first review a university will read.
 
 Annual billing is computed automatically at ten times the monthly rate — two months free.
 Resale through Atlassian Solution Partners is enabled, because public-sector buyers are
@@ -87,11 +88,12 @@ frequently required to purchase through an approved reseller rather than directl
 
 Routes to ₪10,000/month (~$2,700):
 
-- 16 customers of about 50 users, **or**
-- 5 customers of about 200 users, **or**
-- 2 to 3 customers of about 600 users, **or** any mix.
+- 34 customers of about 50 users, **or**
+- 15 customers of about 200 users, **or**
+- 8 customers of about 600 users, **or** any mix.
 
-That is roughly half the customer count the earlier, cheaper model required.
+That is more customers than the original, higher-priced table required — the trade made
+deliberately for install volume and ranking, per the competitor response above.
 
 If installs are slow after 45 days, the lever is a time-boxed launch promotion through the
 Marketplace's own promotions mechanism — not a list-price cut. A promotion expires by
@@ -134,12 +136,14 @@ the vendor's ranking, reviews and cross-sell:
 
 **AccessLens for Confluence** (TechnofyStore) first shipped 2026-08-19 and is iterating
 daily — v4.3.0 the same day this was written. Cloud-only Forge app, Runs on Atlassian
-badge, zero installs, zero reviews, **$7.50 per user/month** against our $3.35, and no
-free tier where we are free to ten users.
+badge, zero installs, zero reviews, **$7.50 per user/month** against our $3.35 at the
+time, and no free tier where we are free to ten users. Pricing was cut again before the
+2026-09-04 submission, to $1.60 — see the Money section above; the submitted listing is
+now under a quarter of AccessLens's price, not half.
 
 The category is therefore no longer empty, and the claim that it is must be struck from
 all copy. It is still a race between two apps with no traction rather than an entrenched
-incumbent, and we are less than half the price with a free tier and a conformance report
+incumbent, and we are well under the price with a free tier and a conformance report
 they explicitly decline to offer.
 
 Consequence for the build queue: **CSV/JSON export of findings and of the conformance
