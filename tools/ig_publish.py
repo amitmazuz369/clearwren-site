@@ -49,6 +49,8 @@ def call(method, path, token, params=None):
 
 def main(spec_path):
     spec = json.loads(Path(spec_path).read_text())
+    if spec.get('hold') and '--release' not in sys.argv:
+        sys.exit(f"on hold ({spec['hold']}) — publish only from launch-day.md, with --release")
     slides, caption = spec['slides'], spec['caption']
     if not 2 <= len(slides) <= 10:
         sys.exit('a carousel needs 2-10 slides')

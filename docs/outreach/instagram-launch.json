@@ -1,0 +1,28 @@
+{
+ "hold": "until the Marketplace listing is approved",
+ "expect_username": "clearwren",
+ "caption": "Clearwren is now on the Atlassian Marketplace.\n\nIt checks the accessibility of what your team publishes in Confluence. Not the platform, which Atlassian’s own report covers, but the pages your people wrote.\n\n32 checks across 15 WCAG 2.2 success criteria, run over a whole space and grouped by what failed, with the location and the fix for every finding. The output is a dated conformance report: the thing a reviewer or a procurement form actually asks for.\n\nFree for teams up to 10 people. Link in bio.\n\n#WebAccessibility #A11y #DigitalAccessibility #WCAG #Confluence #Atlassian",
+ "slides": [
+  {
+   "url": "https://clearwren.com/assets/social/ig-launch-1.jpg",
+   "label": "Now on the Atlassian Marketplace",
+   "headline": "Clearwren is live.",
+   "body": "Accessibility checking for the documentation your team publishes in Confluence.",
+   "alt": "Now on the Atlassian Marketplace. Clearwren is live. Accessibility checking for the documentation your team publishes in Confluence."
+  },
+  {
+   "url": "https://clearwren.com/assets/social/ig-launch-2.jpg",
+   "label": "What it does",
+   "headline": "Every page in a space, checked.",
+   "body": "32 checks across 15 WCAG 2.2 success criteria, grouped by what failed. 420 missing image descriptions is one job, not 420.",
+   "alt": "What it does. Every page in a space, checked. 32 checks across 15 WCAG 2.2 success criteria, grouped by what failed. 420 missing image descriptions is one job, not 420."
+  },
+  {
+   "url": "https://clearwren.com/assets/social/ig-launch-3.jpg",
+   "label": "What you get",
+   "headline": "A dated conformance report.",
+   "body": "The part a reviewer or a procurement form actually asks for. Free for teams up to 10 people.",
+   "alt": "What you get. A dated conformance report. The part a reviewer or a procurement form actually asks for. Free for teams up to 10 people."
+  }
+ ]
+}

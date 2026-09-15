@@ -19,6 +19,17 @@ day. Approval could land any morning; the work is then an hour, not a week.
    once. Tell them once.
 6. **Post to LinkedIn**, then the four Atlassian Community answers.
 
+7. **Instagram launch post**, after the site change in step 4:
+   ```
+   cp brand/social-pending/ig-launch-*.jpg site/assets/social/
+   ```
+   deploy the site, confirm each `https://clearwren.com/assets/social/ig-launch-N.jpg`
+   returns 200 `image/jpeg`, then
+   ```
+   /usr/bin/python3 tools/ig_publish.py docs/outreach/instagram-launch.json --release
+   ```
+   and mark `docs/outreach/instagram-launch.md` POSTED with the permalink.
+
 ## Why the first week matters more than it looks
 
 Marketplace ranking rewards installs and reviews, and we have neither. So does the only
