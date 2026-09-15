@@ -4,6 +4,7 @@
  * here fails silently in real life, which is why it is checked on a schedule.
  */
 import { execSync } from 'node:child_process';
+import { readdirSync, readFileSync } from 'node:fs';
 
 const sh = (cmd) => { try { return execSync(cmd, { encoding: 'utf8', timeout: 30000 }).trim(); } catch { return ''; } };
 // DNS lookups feed the integrity checks; a single timeout must not read as "records gone".
@@ -62,11 +63,25 @@ if (expiry) {
   report(days > 30 ? 'ok' : 'bad', `domain expires in ${days} days (${expiry.slice(0, 10)})`);
 } else report('bad', 'could not read the domain expiry date');
 
-/* --- the published site is the one we built --- */
-const localTitle = sh(`grep -o '<title>[^<]*</title>' site/index.html | head -1`);
-const liveTitle = sh(`curl -s -m 25 --resolve ${DOMAIN}:443:185.199.108.153 https://${DOMAIN}/ | grep -o '<title>[^<]*</title>' | head -1`);
-report(localTitle && localTitle === liveTitle ? 'ok' : 'bad',
-  liveTitle ? 'live site matches the built source' : 'could not read the live page');
+/* --- the published site is the one we built ---
+ * Comparing only the homepage title let two whole guides sit built-but-unpublished
+ * for five days without ever failing this check. Every page in site/ (bar the
+ * sitemap, which carries a build date and always differs) must match byte for byte. */
+const localPages = readdirSync('site').filter((f) => f.endsWith('.html')).sort();
+const stale = [];
+let unreadable = 0;
+for (const file of localPages) {
+  const local = readFileSync(`site/${file}`, 'utf8').trim();
+  const path = file === 'index.html' ? '' : file;
+  const live = sh(`curl -s -m 25 --resolve ${DOMAIN}:443:185.199.108.153 https://${DOMAIN}/${path}`);
+  if (!live) { unreadable++; continue; }
+  if (live !== local) stale.push(file);
+}
+if (unreadable === localPages.length) report('bad', 'could not read any live page');
+else report(stale.length === 0 ? 'ok' : 'bad',
+  stale.length === 0
+    ? `live site matches the built source (${localPages.length} pages)`
+    : `${stale.length} page(s) built but not live: ${stale.join(', ')}`);
 
 /* --- the app listing, once it exists --- */
 const listing = sh(`curl -s -m 25 'https://marketplace.atlassian.com/rest/2/addons?text=clearwren&hosting=cloud&limit=5'`);
