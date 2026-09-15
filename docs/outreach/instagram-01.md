@@ -1,11 +1,12 @@
 # Instagram 01 — the documentation study (carousel)
 
-**Status: ready, not posted.** Blocked on the Instagram channel being connected to Buffer
-(checked 2026-09-15: the Buffer organisation holds only the LinkedIn page and the
-TikTok account). Mark this line `POSTED <date>` once it goes out.
+**Status: POSTED 2026-09-15** — https://www.instagram.com/p/DdUhjowijKn/ (media 17906893101550878).
+Published straight through the Instagram Login API with `tools/ig_publish.py`, not Buffer.
+Alt text confirmed on all three slides after publishing (it cannot be read back from an
+unpublished container, only from the published post's children).
 
 ## Images
-Hosted on our own domain so Buffer can fetch a direct URL. JPEG 1080x1350 — 4:5 is the
+Hosted on our own domain so Instagram can fetch a direct URL. JPEG 1080x1350 — 4:5 is the
 tallest ratio the Instagram API accepts, and it takes JPEG only.
 
 1. https://clearwren.com/assets/social/ig-01-study-1.jpg
@@ -41,6 +42,5 @@ Method, sample size and limits: clearwren.com (link in bio).
 - Figures come only from `research/survey-aggregate-2026-09-08-wide.json`: 1,179 pages,
   13 sites, best single site 79% clean — so "no site was clean" holds. "Roughly half",
   never "57%" (see the sampling note in memory).
-- Buffer settings: `metadata.instagram` = `{ type: "post", shouldShareToFeed: true }`,
-  three image assets in order, each with its alt text. Publish same-day rather than
-  queueing: the organisation's 10 scheduled-post cap is shared with LinkedIn.
+- Machine-readable spec: `instagram-01.json`, published with
+  `/usr/bin/python3 tools/ig_publish.py docs/outreach/instagram-01.json`.

@@ -1,0 +1,18 @@
+{
+ "expect_username": "clearwren",
+ "caption": "Everyone measures home pages. Almost nobody measures the documentation organisations actually publish.\n\nSo we did: 1,179 pages across 13 public Confluence sites, checked against WCAG 2.2.\n\nRoughly half had at least one accessibility failure, and no site was clean.\n\nThe finding that stayed with us wasn’t the missing descriptions. It was the ones that exist and say nothing: a filename, the word “screenshot”. Someone made the effort, and the information still didn’t arrive.\n\nMethod, sample size and limits: clearwren.com (link in bio).\n\n#WebAccessibility #A11y #DigitalAccessibility #WCAG #TechnicalWriting #Accessibility",
+ "slides": [
+  {
+   "url": "https://clearwren.com/assets/social/ig-01-study-1.jpg",
+   "alt": "A Clearwren study. We checked 1,179 pages of public documentation. Roughly half had an accessibility failure. Not one of the 13 sites was clean."
+  },
+  {
+   "url": "https://clearwren.com/assets/social/ig-01-study-2.jpg",
+   "alt": "The biggest single problem: images with no description. A screen reader just says “image”. The step it was meant to show is gone."
+  },
+  {
+   "url": "https://clearwren.com/assets/social/ig-01-study-3.jpg",
+   "alt": "The one that surprised us: descriptions that describe nothing, such as “screenshot”, “image.png” and “IMG_2231”. Someone filled the field in. The information still didn’t arrive."
+  }
+ ]
+}
