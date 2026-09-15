@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Headings and structure: the outline a screen reader hears</title>
+<meta name="description" content="Skipped heading levels, bold text standing in for headings, hand-typed lists, and the H1 Confluence already gave you.">
+<meta property="og:title" content="Headings and structure: the outline a screen reader hears">
+<meta property="og:description" content="Skipped heading levels, bold text standing in for headings, hand-typed lists, and the H1 Confluence already gave you.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>The outline a screen reader hears</h1>
+<p class="lede">
+  A sighted reader skims a page by its visual weight: size, boldness, spacing. A screen-reader
+  user skims the same page by pulling up a list of its headings and jumping between them. If
+  that list is wrong, thin, or missing, skimming is not available to them at all — they are
+  reading start to end, every time.
+</p>
+
+<div class="prose">
+  <h2>The list only exists if the headings are real</h2>
+  <p>
+    Bold text at the top of a paragraph looks like a heading to anyone looking at the page. It
+    does not appear in a screen reader's heading list, because nothing marked it as one — it is
+    a paragraph with emphasis, and the reader has no way to tell the two apart short of reading
+    every paragraph looking for one that sounds like a title.
+  </p>
+  <p>
+    The fix is one menu, not a rewrite: select the line and apply a real heading level from the
+    text-style menu instead of bolding it. The same problem shows up with hand-typed lists — a
+    run of lines each starting with a dash or a number, rather than a real bulleted or numbered
+    list. Read aloud, it is a sequence of ordinary sentences; a real list tells the listener how
+    many items there are and when the list ends.
+  </p>
+
+  <h2>Skipping a level looks like a missing section</h2>
+  <p>
+    Heading levels describe nesting, not size. An H2 section holds H3 subsections underneath it;
+    jumping from an H2 straight to an H4 does not read as a stylistic choice to someone
+    navigating by level — it reads as though a subsection went missing, because from where they
+    are standing, one did.
+  </p>
+  <p>
+    This is usually not a decision anyone made. It is what happens when a page is assembled from
+    pasted sections written at different times, each with its own idea of where it sits in the
+    document.
+  </p>
+
+  <h2>The H1 you already have</h2>
+  <p>
+    Confluence renders the page title as the page's only H1 before your content even starts. An
+    H1 placed inside the body does not add emphasis; it gives the page two competing titles, and
+    a screen reader has no principled way to decide which one is the real one. Body headings
+    start at H2.
+  </p>
+
+  <h2>A heading is a label, not a paragraph</h2>
+  <p>
+    A heading that runs to two sentences works visually — it is still bold, still bigger — but
+    it fails the one job a heading has, which is to be short enough to recognise at a glance in
+    a list of thirty others. If the heading needs a sentence to make its point, write the
+    sentence underneath it and leave the heading as the label.
+  </p>
+
+  <h2>Checking a page you did not just write</h2>
+  <p>
+    None of the above requires reading the whole page. Open the heading list a screen reader
+    would build — most word processors and the Confluence editor both expose one — and read
+    only that. A good outline reads as a sentence on its own: an ordered set of labels that
+    describes what the page covers before a single paragraph is read. If it does not, the page's
+    structure is the thing to fix, not any one paragraph in it.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page's heading structure</a></p>
+</div>
+
+<aside class="signup">
+  <h2>Tell me when it is available</h2>
+  <p>Clearwren is with Atlassian for review. One email when it goes live, and nothing else.</p>
+  <p><a class="btn btn-primary" href="mailto:support@clearwren.com?subject=Tell%20me%20when%20Clearwren%20is%20available&body=Please%20let%20me%20know%20when%20the%20Confluence%20accessibility%20checker%20is%20on%20the%20Marketplace.%0A%0AOrganisation%3A%0ARoughly%20how%20many%20Confluence%20pages%3A">Ask to be told</a></p>
+</aside>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

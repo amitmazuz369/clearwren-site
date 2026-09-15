@@ -1,0 +1,67 @@
+<!--
+title: Headings and structure: the outline a screen reader hears
+description: Skipped heading levels, bold text standing in for headings, hand-typed lists, and the H1 Confluence already gave you.
+-->
+<h1>The outline a screen reader hears</h1>
+<p class="lede">
+  A sighted reader skims a page by its visual weight: size, boldness, spacing. A screen-reader
+  user skims the same page by pulling up a list of its headings and jumping between them. If
+  that list is wrong, thin, or missing, skimming is not available to them at all — they are
+  reading start to end, every time.
+</p>
+
+<div class="prose">
+  <h2>The list only exists if the headings are real</h2>
+  <p>
+    Bold text at the top of a paragraph looks like a heading to anyone looking at the page. It
+    does not appear in a screen reader's heading list, because nothing marked it as one — it is
+    a paragraph with emphasis, and the reader has no way to tell the two apart short of reading
+    every paragraph looking for one that sounds like a title.
+  </p>
+  <p>
+    The fix is one menu, not a rewrite: select the line and apply a real heading level from the
+    text-style menu instead of bolding it. The same problem shows up with hand-typed lists — a
+    run of lines each starting with a dash or a number, rather than a real bulleted or numbered
+    list. Read aloud, it is a sequence of ordinary sentences; a real list tells the listener how
+    many items there are and when the list ends.
+  </p>
+
+  <h2>Skipping a level looks like a missing section</h2>
+  <p>
+    Heading levels describe nesting, not size. An H2 section holds H3 subsections underneath it;
+    jumping from an H2 straight to an H4 does not read as a stylistic choice to someone
+    navigating by level — it reads as though a subsection went missing, because from where they
+    are standing, one did.
+  </p>
+  <p>
+    This is usually not a decision anyone made. It is what happens when a page is assembled from
+    pasted sections written at different times, each with its own idea of where it sits in the
+    document.
+  </p>
+
+  <h2>The H1 you already have</h2>
+  <p>
+    Confluence renders the page title as the page's only H1 before your content even starts. An
+    H1 placed inside the body does not add emphasis; it gives the page two competing titles, and
+    a screen reader has no principled way to decide which one is the real one. Body headings
+    start at H2.
+  </p>
+
+  <h2>A heading is a label, not a paragraph</h2>
+  <p>
+    A heading that runs to two sentences works visually — it is still bold, still bigger — but
+    it fails the one job a heading has, which is to be short enough to recognise at a glance in
+    a list of thirty others. If the heading needs a sentence to make its point, write the
+    sentence underneath it and leave the heading as the label.
+  </p>
+
+  <h2>Checking a page you did not just write</h2>
+  <p>
+    None of the above requires reading the whole page. Open the heading list a screen reader
+    would build — most word processors and the Confluence editor both expose one — and read
+    only that. A good outline reads as a sentence on its own: an ordered set of labels that
+    describes what the page covers before a single paragraph is read. If it does not, the page's
+    structure is the thing to fix, not any one paragraph in it.
+  </p>
+  <p><a class="btn btn-primary" href="/checker.html">Check a page's heading structure</a></p>
+</div>
