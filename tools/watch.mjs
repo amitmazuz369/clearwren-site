@@ -126,6 +126,25 @@ try {
   report('bad', `a published figure no longer matches the data: ${String(e.message ?? e).split('\n').slice(0, 3).join(' ')}`);
 }
 
+/* --- Instagram: the token is alive and still points at @clearwren ---
+ * It lives in ~/.config/clearwren/instagram.env and only clearwren-morning refreshes it.
+ * If it dies, Instagram posting stops silently, so a dead token must reach the phone. */
+try {
+  const { readFileSync: readCred } = await import('node:fs');
+  const cred = Object.fromEntries(
+    readCred(`${process.env.HOME}/.config/clearwren/instagram.env`, 'utf8').split('\n')
+      .filter((l) => l && !l.startsWith('#') && l.includes('='))
+      .map((l) => [l.slice(0, l.indexOf('=')).trim(), l.slice(l.indexOf('=') + 1).trim()]));
+  const res = await fetch('https://graph.instagram.com/v23.0/me?fields=username&access_token='
+    + encodeURIComponent(cred.IG_ACCESS_TOKEN ?? ''));
+  const me = await res.json();
+  report(me.username === 'clearwren' ? 'ok' : 'bad', me.username === 'clearwren'
+    ? 'Instagram token valid for @clearwren'
+    : `Instagram token not working: ${me.error?.message ?? `HTTP ${res.status}`}`);
+} catch (e) {
+  report('bad', `could not check the Instagram token: ${String(e.message ?? e).slice(0, 120)}`);
+}
+
 console.log('CLEARWREN DAILY CHECK — ' + new Date().toISOString().slice(0, 16).replace('T', ' '));
 for (const line of ok) console.log(`  ok    ${line}`);
 for (const line of findings) console.log(`  FAIL  ${line}`);

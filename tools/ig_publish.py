@@ -2,8 +2,9 @@
 """Publish a Clearwren Instagram carousel, with alt text on every slide.
 
 The account (formerly @theluxframes, now @clearwren) is reached through the Instagram
-Login API credentials that already live in ~/luxe-frames/.env. They are read at run time
-and never copied: ~/clearwren-site is a public repository, and nothing secret goes near it.
+Login API credential in ~/.config/clearwren/instagram.env — outside every repository,
+because ~/clearwren-site is public. It was moved there from ~/luxe-frames/.env on
+2026-09-15, so the old LuxeFrames routines can no longer post to this account at all.
 
 Why not luxe-frames' own post.publish_carousel: it sends no alt_text, and a Clearwren post
 without image descriptions would commit the exact failure it is about.
@@ -19,7 +20,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-ENV = Path.home() / 'luxe-frames' / '.env'
+ENV = Path.home() / '.config' / 'clearwren' / 'instagram.env'
 GRAPH = 'https://graph.instagram.com/v23.0'   # alt_text on /media arrived in March 2025
 
 
