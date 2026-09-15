@@ -7,22 +7,22 @@
    "url": "https://clearwren.com/assets/social/ig-launch-1.jpg",
    "label": "Now on the Atlassian Marketplace",
    "headline": "Clearwren is live.",
-   "body": "Accessibility checking for the documentation your team publishes in Confluence.",
-   "alt": "Now on the Atlassian Marketplace. Clearwren is live. Accessibility checking for the documentation your team publishes in Confluence."
+   "body": "It checks the accessibility of what your team publishes in Confluence.",
+   "alt": "Now on the Atlassian Marketplace. Clearwren is live. It checks the accessibility of what your team publishes in Confluence."
   },
   {
    "url": "https://clearwren.com/assets/social/ig-launch-2.jpg",
    "label": "What it does",
    "headline": "Every page in a space, checked.",
-   "body": "32 checks across 15 WCAG 2.2 success criteria, grouped by what failed. 420 missing image descriptions is one job, not 420.",
-   "alt": "What it does. Every page in a space, checked. 32 checks across 15 WCAG 2.2 success criteria, grouped by what failed. 420 missing image descriptions is one job, not 420."
+   "body": "32 checks across 15 WCAG 2.2 success criteria, grouped by what failed, so 420 missing descriptions become one job.",
+   "alt": "What it does. Every page in a space, checked. 32 checks across 15 WCAG 2.2 success criteria, grouped by what failed, so 420 missing descriptions become one job."
   },
   {
    "url": "https://clearwren.com/assets/social/ig-launch-3.jpg",
    "label": "What you get",
    "headline": "A dated conformance report.",
-   "body": "The part a reviewer or a procurement form actually asks for. Free for teams up to 10 people.",
-   "alt": "What you get. A dated conformance report. The part a reviewer or a procurement form actually asks for. Free for teams up to 10 people."
+   "body": "The part procurement actually asks for. Free for teams up to 10 people.",
+   "alt": "What you get. A dated conformance report. The part procurement actually asks for. Free for teams up to 10 people."
   }
  ]
 }
