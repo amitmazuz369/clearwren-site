@@ -1,0 +1,1426 @@
+{
+  "site": "ucsb-engr.atlassian.net",
+  "scannedAt": "2026-09-15T11:34:11.113Z",
+  "crawlDelayMs": 1000,
+  "poolSize": 283,
+  "sampled": 80,
+  "pagesWithBlocking": 29,
+  "byRule": [
+    {
+      "ruleId": "img-alt-missing",
+      "title": "Image has no alternative text",
+      "severity": "critical",
+      "pages": 18,
+      "issues": 82
+    },
+    {
+      "ruleId": "heading-skipped-level",
+      "title": "Heading level is skipped",
+      "severity": "serious",
+      "pages": 5,
+      "issues": 7
+    },
+    {
+      "ruleId": "link-nondescriptive",
+      "title": "Link text does not say where it goes",
+      "severity": "serious",
+      "pages": 4,
+      "issues": 4
+    },
+    {
+      "ruleId": "table-no-header",
+      "title": "Table has no header row",
+      "severity": "serious",
+      "pages": 3,
+      "issues": 4
+    },
+    {
+      "ruleId": "img-alt-meaningless",
+      "title": "Alternative text does not describe the image",
+      "severity": "serious",
+      "pages": 2,
+      "issues": 14
+    },
+    {
+      "ruleId": "contrast-minimum",
+      "title": "Text contrast is below the WCAG AA minimum",
+      "severity": "critical",
+      "pages": 2,
+      "issues": 4
+    },
+    {
+      "ruleId": "heading-empty",
+      "title": "Heading has no text",
+      "severity": "serious",
+      "pages": 1,
+      "issues": 1
+    }
+  ],
+  "pages": [
+    {
+      "id": "584843230",
+      "title": "Securing your Google Account",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/584843230/Securing+your+Google+Account",
+      "score": 25,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 466e2751-eecf-4081-9f98-a34cfdc14067"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media bce3385e-085e-449d-9abc-2a2d8f7ec7a3"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f012ded1-5fc1-4172-aedf-7339a8ca531c"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e1ba6ecc-d44c-4693-8937-1046767f8d50"
+        }
+      ]
+    },
+    {
+      "id": "573604319",
+      "title": "Configuring Windows 10 Mail and Calendar to use UCSB Connect",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604319/Configuring+Windows+10+Mail+and+Calendar+to+use+UCSB+Connect",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/CEko2…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/Zk9L7…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/YtkQm…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/i8qNE…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh5.googleusercontent.com/oBkK-…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh5.googleusercontent.com/aWIlI…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/s7moD…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/IOskp…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/A2KeW…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/SVmQY…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh5.googleusercontent.com/2xYU6…"
+        }
+      ]
+    },
+    {
+      "id": "575373300",
+      "title": "HFH 1152 AV Hardware",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373300/HFH+1152+AV+Hardware",
+      "score": 94,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604686",
+      "title": "Mac Laptop",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604686/Mac+Laptop",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 48ec58e6-cbfd-4848-ba00-659434f61290"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 17b290c5-56ee-40cb-87cc-87956f2a4e05"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://www.delock.com/infothek/Thunder…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media aec32edd-b446-41c2-b783-0a6af3ddfc6c"
+        }
+      ]
+    },
+    {
+      "id": "573604324",
+      "title": "Configuring Connect Calendar in Thunderbird",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604324/Configuring+Connect+Calendar+in+Thunderbird",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/E_EKH…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/YF50w…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/qQX5F…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/ZM5cT…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/prBqx…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/ynaMz…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh5.googleusercontent.com/Vpou6…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/CKDIG…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh5.googleusercontent.com/OaCpR…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/6iwws…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/ZN_SL…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/P4BZD…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/DtbpP…"
+        }
+      ]
+    },
+    {
+      "id": "573603942",
+      "title": "How do I change my login shell?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603942/How+do+I+change+my+login+shell",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575373782",
+      "title": "Phishing - What do I do if I clicked on a phishing link?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373782/Phishing+-+What+do+I+do+if+I+clicked+on+a+phishing+link",
+      "score": 91,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604181",
+      "title": "What Happens When I Graduate or Leave UCSB to my GitHub?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604181/What+Happens+When+I+Graduate+or+Leave+UCSB+to+my+GitHub",
+      "score": 67,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604311",
+      "title": "Configuring Outlook (Mac) to use UCSB Connect",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604311/Configuring+Outlook+Mac+to+use+UCSB+Connect",
+      "score": 14,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh5.googleusercontent.com/7KmH1…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/osPts…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/lNPcs…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/r1Jmx…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/hX_zZ…"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "FieldInformation"
+        }
+      ]
+    },
+    {
+      "id": "573604002",
+      "title": "How do I forward email to another address?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604002/How+do+I+forward+email+to+another+address",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "588054444",
+      "title": "How to update Powerpoint - Google Drive TV Presentation",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/588054444/How+to+update+Powerpoint+-+Google+Drive+TV+Presentation",
+      "score": 55,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c6e5ba7f-f992-4885-b83e-da5db15fd136"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": ".ppsx)"
+        }
+      ]
+    },
+    {
+      "id": "581337061",
+      "title": "Shared Drive Permissions",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/581337061/Shared+Drive+Permissions",
+      "score": 91,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575374663",
+      "title": "Hardware Support",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374663/Hardware+Support",
+      "score": 88,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1176207407",
+      "title": "How to use Slurm",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/1176207407/How+to+use+Slurm",
+      "score": 68,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "Students"
+        }
+      ]
+    },
+    {
+      "id": "573604285",
+      "title": "UCSB Connect Support Documents",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604285/UCSB+Connect+Support+Documents",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575373475",
+      "title": "Windows 10 Computer says Printer is Offline",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373475/Windows+10+Computer+says+Printer+is+Offline",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c9788bd3-9b59-48a2-a66a-68e54e147096"
+        }
+      ]
+    },
+    {
+      "id": "573603998",
+      "title": "What should I set as my incoming and outgoing mail server in my email client configuration?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603998/What+should+I+set+as+my+incoming+and+outgoing+mail+server+in+my+email+client+configuration",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575375082",
+      "title": "Security Checklist",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575375082/Security+Checklist",
+      "score": 88,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573603959",
+      "title": "How do I send files to CSIL from/to my laptop/desktop?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603959/How+do+I+send+files+to+CSIL+from+to+my+laptop+desktop",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604281",
+      "title": "Unable to set Send As on Gmail for ﻿@cs.ucsb.edu",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604281/Unable+to+set+Send+As+on+Gmail+for+cs.ucsb.edu",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575374455",
+      "title": "Computer Science",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374455/Computer+Science",
+      "score": 79,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575374397",
+      "title": "I get \"Connection Refused\" when trying to connect to CSIL/Linux Machines remotely.",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374397/I+get+Connection+Refused+when+trying+to+connect+to+CSIL+Linux+Machines+remotely.",
+      "score": 80,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604156",
+      "title": "Wireless Network Support",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604156/Wireless+Network+Support",
+      "score": 92,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        }
+      ]
+    },
+    {
+      "id": "573603816",
+      "title": "How to identity phishing attempts...",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603816/How+to+identity+phishing+attempts...",
+      "score": 92,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H5",
+          "evidence": "Phishing Example"
+        }
+      ]
+    },
+    {
+      "id": "581337155",
+      "title": "What other addresses do I have on my UCSB Connect Account?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/581337155/What+other+addresses+do+I+have+on+my+UCSB+Connect+Account",
+      "score": 91,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575373365",
+      "title": "Monitors",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373365/Monitors",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 30ab7736-6642-4ec7-b006-954dea9ca97a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media fb62bb04-4295-4ef3-b327-0b9032bc9384"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1db84c8b-dd05-4c34-86af-4922bc4007a7"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c30eb719-b411-4012-86a9-4dafe383c90e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media aec32edd-b446-41c2-b783-0a6af3ddfc6c"
+        }
+      ]
+    },
+    {
+      "id": "1288208510",
+      "title": "Zoom with Powerpoint Presentation and Presenter Video or Presenter Desktop",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/1288208510/Zoom+with+Powerpoint+Presentation+and+Presenter+Video+or+Presenter+Desktop",
+      "score": 54,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "macos-ventura-system-settings-displays-refresh-rate.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "Mac-External-Displays-Mirror-Displays.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "windows11_display.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "windows11_extend_display.png"
+        },
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "Mac"
+        }
+      ]
+    },
+    {
+      "id": "575374689",
+      "title": "Mac Printing to a Windows Shared Printer",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374689/Mac+Printing+to+a+Windows+Shared+Printer",
+      "score": 74,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "602046496",
+      "title": "ECI Lab RDP Access - Windows Client (classic)",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/602046496/ECI+Lab+RDP+Access+-+Windows+Client+classic",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8a140059-f541-4851-84ea-7ba1b208e04b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6a0fb699-fde0-465e-aaf0-f6c0d4e73d60"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4aa46d64-64ec-48d1-946a-4e59e5d51554"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 92a79400-1a70-4570-89e3-ab85fa0bbd8a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 21a4794d-2871-4481-aeec-61b9beeb51c5"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 57ea0445-de5c-442a-b657-20df97cfc3df"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 221660d5-1fb1-4df6-aadd-761ce0c01a8d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 5d563596-523d-40e2-b7fa-abd893e6e1cf"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 806f05c0-82dd-4b51-bbb5-babadd5fcdc3"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e26bcf7d-df86-46a0-9476-a33f329e9308"
+        }
+      ]
+    },
+    {
+      "id": "573603807",
+      "title": "Security",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603807/Security",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575374945",
+      "title": "What software is available on the ECI Computers?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374945/What+software+is+available+on+the+ECI+Computers",
+      "score": 83,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "SoftwareMakerVersion"
+        }
+      ]
+    },
+    {
+      "id": "591462331",
+      "title": "When trying to go to Kronos, you get a message about Getting Adobe Flash Player",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/591462331/When+trying+to+go+to+Kronos+you+get+a+message+about+Getting+Adobe+Flash+Player",
+      "score": 64,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media cb031210-c85d-4533-a2dc-57dac7c15012"
+        }
+      ]
+    },
+    {
+      "id": "573603826",
+      "title": "Thunderbird says it is already running, but not responding...",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603826/Thunderbird+says+it+is+already+running+but+not+responding...",
+      "score": 65,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604114",
+      "title": "How to use compress files on Linux",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604114/How+to+use+compress+files+on+Linux",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575374643",
+      "title": "IPTable - Configuration Examples",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374643/IPTable+-+Configuration+Examples",
+      "score": 82,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1886650370",
+      "title": "UCSB Maas360 AppleTV and Android - Manual Enrollment Procedure",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/1886650370/UCSB+Maas360+AppleTV+and+Android+-+Manual+Enrollment+Procedure",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "2731147265",
+      "title": "Zscaler Client Connector (ZCC/ZPA) FAQ",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/2731147265/Zscaler+Client+Connector+ZCC+ZPA+FAQ",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "jamf_self_service_top_bar.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "jamf_self_service_icon.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "jamf_catalog.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "jamf_catalog_zscaler.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "zcc_windows.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "zcc_mac.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "zcc_email.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "zcc_sso.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "zcc_main.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "zcc_do_not_disturb.png"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Windows notification area, bottom-rightMacOS notification area, top-r…"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "OSVersion"
+        }
+      ]
+    },
+    {
+      "id": "573603953",
+      "title": "Where are the ECI Labs?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603953/Where+are+the+ECI+Labs",
+      "score": 76,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        }
+      ]
+    },
+    {
+      "id": "573604399",
+      "title": "Setting up Connect Account for Mail Clients",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604399/Setting+up+Connect+Account+for+Mail+Clients",
+      "score": 25,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/HwNd2…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/tYBEF…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh3.googleusercontent.com/YrYWf…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/3oHPR…"
+        }
+      ]
+    },
+    {
+      "id": "575374016",
+      "title": "Can't find X: Drive on the CoE Windows Computers",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374016/Can+t+find+X+Drive+on+the+CoE+Windows+Computers",
+      "score": 94,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604222",
+      "title": "How do I make a mailing list?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604222/How+do+I+make+a+mailing+list",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575373269",
+      "title": "Matlab and Mathematica",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373269/Matlab+and+Mathematica",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575373675",
+      "title": "Account Process",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373675/Account+Process",
+      "score": 64,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573603834",
+      "title": "Can't upload/save to file share, getting 'File in Use' error message.",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603834/Can+t+upload+save+to+file+share+getting+File+in+Use+error+message.",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604051",
+      "title": "Can not log onto UCSB Connect",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604051/Can+not+log+onto+UCSB+Connect",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575374880",
+      "title": "You forgot your College of Engineering Account Username",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374880/You+forgot+your+College+of+Engineering+Account+Username",
+      "score": 94,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604317",
+      "title": "Configuring Outlook on iPhone/iPad to use UCSB Connect",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604317/Configuring+Outlook+on+iPhone+iPad+to+use+UCSB+Connect",
+      "score": 7,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh5.googleusercontent.com/nNnEe…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/2fFc6…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/vSTkP…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/Y5x5q…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh5.googleusercontent.com/fFocx…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/4D6Ey…"
+        }
+      ]
+    },
+    {
+      "id": "573604109",
+      "title": "How can I secure my Windows PC?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604109/How+can+I+secure+my+Windows+PC",
+      "score": 61,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604313",
+      "title": "Configuring Outlook (PC) to use UCSB Connect",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604313/Configuring+Outlook+PC+to+use+UCSB+Connect",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/k8zlK…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/Lzuhq…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/owkqX…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/t0lJB…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh4.googleusercontent.com/NjAgr…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/Dg6YT…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://lh6.googleusercontent.com/UOUeo…"
+        }
+      ]
+    },
+    {
+      "id": "575373570",
+      "title": "Account Extension",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373570/Account+Extension",
+      "score": 72,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "602046553",
+      "title": "Remote Access to Computer Science Computing Labs",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/602046553/Remote+Access+to+Computer+Science+Computing+Labs",
+      "score": 75,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "For All SSH Classroom and Lab Needs"
+        },
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "For All Graphical Desktop Classroom and Lab Needs"
+        }
+      ]
+    },
+    {
+      "id": "575374019",
+      "title": "My Engineering Email Forwarding isn't working",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374019/My+Engineering+Email+Forwarding+isn+t+working",
+      "score": 53,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 24767b38-920b-42d9-9c12-955637eef946"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media a63b5251-5fde-43a5-a660-b19a0c9f845c"
+        },
+        {
+          "ruleId": "heading-empty",
+          "severity": "serious",
+          "location": "Heading H2",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "581337102",
+      "title": "Migrating from SAMBA to Google Shared Drive",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/581337102/Migrating+from+SAMBA+to+Google+Shared+Drive",
+      "score": 72,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573603975",
+      "title": "I cannot download Matlab to my Mac OS X computer when using UCSB's wireless.",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603975/I+cannot+download+Matlab+to+my+Mac+OS+X+computer+when+using+UCSB+s+wireless.",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604160",
+      "title": "What do I do with old computers/printers?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604160/What+do+I+do+with+old+computers+printers",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575373509",
+      "title": "Browser Articles",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373509/Browser+Articles",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575373289",
+      "title": "How do I get Solidworks?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373289/How+do+I+get+Solidworks",
+      "score": 51,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "The instructional version installed on ECI lab computers"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "MAY NOT"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "be used for research. There is a separate research license."
+        }
+      ]
+    },
+    {
+      "id": "575373524",
+      "title": "Mail bouncing when trying to send from Engineering Account",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373524/Mail+bouncing+when+trying+to+send+from+Engineering+Account",
+      "score": 70,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4795e0e4-b83e-40ac-aca3-bbc9c534f70a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4795e0e4-b83e-40ac-aca3-bbc9c534f70a"
+        }
+      ]
+    },
+    {
+      "id": "573603851",
+      "title": "Unable to create a CSIL/Engineering/CoE Account",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603851/Unable+to+create+a+CSIL+Engineering+CoE+Account",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573603903",
+      "title": "How much disk space can I use?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603903/How+much+disk+space+can+I+use",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573603843",
+      "title": "Web Browsing: Secure vs Not Secure",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603843/Web+Browsing+Secure+vs+Not+Secure",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604084",
+      "title": "How can I transfer files stored on CSIL/Linux machine to my device?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604084/How+can+I+transfer+files+stored+on+CSIL+Linux+machine+to+my+device",
+      "score": 64,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 5909862b-c48d-4dc0-8dba-2fddc21a97d2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9f4c5037-5f9d-4812-b4d4-9d37c2f394f9"
+        }
+      ]
+    },
+    {
+      "id": "581337107",
+      "title": "Recovering a deleted file in Shared Drive",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/581337107/Recovering+a+deleted+file+in+Shared+Drive",
+      "score": 43,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d0990734-f427-4edb-8841-b5a6943071d6"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c5a52cb9-9d6a-490f-9ef4-e1e1971aa8ca"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8b66f482-c660-4487-9eef-14803f9f84fb"
+        }
+      ]
+    },
+    {
+      "id": "583827454",
+      "title": "How To Manage or Kill a Process",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/583827454/How+To+Manage+or+Kill+a+Process",
+      "score": 72,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "pgrep"
+        },
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "kill PID_of_target_process"
+        }
+      ]
+    },
+    {
+      "id": "575373232",
+      "title": "Problems with the Projector/Screen...",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373232/Problems+with+the+Projector+Screen...",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1254653980",
+      "title": "Common Account Expiration Questions and Answers",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/1254653980/Common+Account+Expiration+Questions+and+Answers",
+      "score": 92,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "2287337476",
+      "title": "ECI Backup Offerings and Policy",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/2287337476/ECI+Backup+Offerings+and+Policy",
+      "score": 35,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604205",
+      "title": "Oops - I deleted a repo by accident, can I get it restored?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604205/Oops+-+I+deleted+a+repo+by+accident+can+I+get+it+restored",
+      "score": 94,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604171",
+      "title": "What is git, GitHub.com, and GitHub Enterprise?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604171/What+is+git+GitHub.com+and+GitHub+Enterprise",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575374844",
+      "title": "How do I find out what my email address?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374844/How+do+I+find+out+what+my+email+address",
+      "score": 79,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7240408a-bb0e-43e7-8892-fbbd2ef6c4b1"
+        }
+      ]
+    },
+    {
+      "id": "573604164",
+      "title": "When you are trying to connect to any of the CSIL or LINUX machines via SSH, you get:  ssh: connect to host csil.cs.ucsb.edu port 22: Connection refused  or  ssh: connect to host linux.engr.ucsb.edu port 22: Connection refused",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604164/When+you+are+trying+to+connect+to+any+of+the+CSIL+or+LINUX+machines+via+SSH+you+get+ssh+connect+to+host+csil.cs.ucsb.edu+port+22+Connection+refused+or+ssh+connect+to+host+linux.engr.ucsb.edu+port+22+Connection+refused",
+      "score": 89,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575374115",
+      "title": "Can't Access my OneDrive",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575374115/Can+t+Access+my+OneDrive",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575375139",
+      "title": "Can I get older versions of Windows from ECI?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575375139/Can+I+get+older+versions+of+Windows+from+ECI",
+      "score": 91,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "575373355",
+      "title": "MATLAB license is about to expire.",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373355/MATLAB+license+is+about+to+expire.",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604183",
+      "title": "Firefox not saving/loading up bookmarks.",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604183/Firefox+not+saving+loading+up+bookmarks.",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573603812",
+      "title": "Securing a computer on Campus",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603812/Securing+a+computer+on+Campus",
+      "score": 91,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573604055",
+      "title": "How do I get Microsoft Office?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604055/How+do+I+get+Microsoft+Office",
+      "score": 68,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        }
+      ]
+    },
+    {
+      "id": "573604036",
+      "title": "How can I access CoE email on my device?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604036/How+can+I+access+CoE+email+on+my+device",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573603822",
+      "title": "How do I get my MAC address?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603822/How+do+I+get+my+MAC+address",
+      "score": 85,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "573603814",
+      "title": "Can I remotely access the CoE Windows Computers?",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573603814/Can+I+remotely+access+the+CoE+Windows+Computers",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    }
+  ]
+}

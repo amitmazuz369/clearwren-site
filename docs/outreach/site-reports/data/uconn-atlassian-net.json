@@ -1,0 +1,1493 @@
+{
+  "site": "uconn.atlassian.net",
+  "scannedAt": "2026-09-15T11:34:22.044Z",
+  "crawlDelayMs": 1000,
+  "poolSize": 2000,
+  "sampled": 80,
+  "pagesWithBlocking": 37,
+  "byRule": [
+    {
+      "ruleId": "img-alt-missing",
+      "title": "Image has no alternative text",
+      "severity": "critical",
+      "pages": 24,
+      "issues": 66
+    },
+    {
+      "ruleId": "img-alt-meaningless",
+      "title": "Alternative text does not describe the image",
+      "severity": "serious",
+      "pages": 9,
+      "issues": 32
+    },
+    {
+      "ruleId": "link-nondescriptive",
+      "title": "Link text does not say where it goes",
+      "severity": "serious",
+      "pages": 5,
+      "issues": 14
+    },
+    {
+      "ruleId": "contrast-minimum",
+      "title": "Text contrast is below the WCAG AA minimum",
+      "severity": "critical",
+      "pages": 3,
+      "issues": 10
+    },
+    {
+      "ruleId": "table-no-header",
+      "title": "Table has no header row",
+      "severity": "serious",
+      "pages": 3,
+      "issues": 3
+    },
+    {
+      "ruleId": "heading-skipped-level",
+      "title": "Heading level is skipped",
+      "severity": "serious",
+      "pages": 2,
+      "issues": 2
+    }
+  ],
+  "pages": [
+    {
+      "id": "10880582198",
+      "title": "Creating a Distribution List",
+      "url": "https://uconn.atlassian.net/wiki/spaces/DMRA/pages/10880582198/Creating+a+Distribution+List",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26069499988",
+      "title": "Accessing the Student Gallery (for Students)",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/26069499988/Accessing+the+Student+Gallery+for+Students",
+      "score": 62,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260406-135913.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260406-140009.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260406-135732.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260406-140238.png"
+        }
+      ]
+    },
+    {
+      "id": "26017400149",
+      "title": "Polling in Webex",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/26017400149/Polling+in+Webex",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10803053528",
+      "title": "Microsoft Sway",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10803053528/Microsoft+Sway",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media a466a911-e3e5-4ab3-84c1-16d816f5435b"
+        }
+      ]
+    },
+    {
+      "id": "10802103646",
+      "title": "Invite Attendees to a Teams Live Event",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10802103646/Invite+Attendees+to+a+Teams+Live+Event",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26413334536",
+      "title": "Combining Sections in CLSS",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/26413334536/Combining+Sections+in+CLSS",
+      "score": 56,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20250507-174704.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20250507-180303.png"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "When entering the Enrollment capacities, please note that the enrollm…"
+        }
+      ]
+    },
+    {
+      "id": "10413179201",
+      "title": "Parking Project Planning",
+      "url": "https://uconn.atlassian.net/wiki/spaces/ITSPMO/pages/10413179201/Parking+Project+Planning",
+      "score": 84,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 00423fce-20e7-40ed-8a70-1bc3cba8f0dd"
+        }
+      ]
+    },
+    {
+      "id": "22562866105",
+      "title": "I. Creating / Building the Band",
+      "url": "https://uconn.atlassian.net/wiki/spaces/UCMB/pages/22562866105/I.+Creating+Building+the+Band",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10886840704",
+      "title": "Webex on Multi-Monitor Setups",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10886840704/Webex+on+Multi-Monitor+Setups",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10907091255",
+      "title": "Accessing Your Wepa Account",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10907091255/Accessing+Your+Wepa+Account",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26474971157",
+      "title": "Using Snagit (Desktop Application)",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/26474971157/Using+Snagit+Desktop+Application",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 059414a7-c431-4d24-8589-c66a7c7171a2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 5cab7d05-ca89-4bd1-8486-df249f70f8c9"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 40839a64-86ee-4571-a220-b6dddaa6be96"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 79da5568-16e6-4e4e-bcb4-d09aa05104d3"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3546ac6e-b479-437c-a408-a34f178f18ed"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 66115d01-c036-40b6-b926-62e38d53adbd"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ddaf38b3-2dc9-4b32-aeba-138ef501e240"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6f75eacb-1cad-46db-b2c1-f1c7d082e7a0"
+        },
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H4",
+          "evidence": "Additional Functions"
+        }
+      ]
+    },
+    {
+      "id": "26029129742",
+      "title": "Bitbucket Upgrade 7.10 to 7.21",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SDLC/pages/26029129742/Bitbucket+Upgrade+7.10+to+7.21",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10749085302",
+      "title": "Placing Calls on a Polycom Speakerphone",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10749085302/Placing+Calls+on+a+Polycom+Speakerphone",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "21183039633",
+      "title": "Outlook Autocomplete Issues",
+      "url": "https://uconn.atlassian.net/wiki/spaces/StamfordITS/pages/21183039633/Outlook+Autocomplete+Issues",
+      "score": 99,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26033979893",
+      "title": "FAQ",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SH/pages/26033979893/FAQ",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "link"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "link"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "awkbasemountbashbzipchgrpchmodcmakecomsollaunchercpduemacsfindfortgcc…"
+        }
+      ]
+    },
+    {
+      "id": "10785229011",
+      "title": "Student Response Systems",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/10785229011/Student+Response+Systems",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10776806524",
+      "title": "Kaltura: UConn's Video Platform",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/10776806524/Kaltura+UConn+s+Video+Platform",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "24848171008",
+      "title": "Home",
+      "url": "https://uconn.atlassian.net/wiki/spaces/~rjb03001/pages/24848171008/Home",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10879893723",
+      "title": "Scheduling a Report",
+      "url": "https://uconn.atlassian.net/wiki/spaces/DMRA/pages/10879893723/Scheduling+a+Report",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26058752577",
+      "title": "Posting Grades in Ultra Course View",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/26058752577/Posting+Grades+in+Ultra+Course+View",
+      "score": 32,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260717-142448.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260717-143103.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "4.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260717-144348.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260717-144701.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260717-144813.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "9.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "10.png"
+        }
+      ]
+    },
+    {
+      "id": "26074447873",
+      "title": "Bitbucket Upgrade 7.21 to 8.2",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SDLC/pages/26074447873/Bitbucket+Upgrade+7.21+to+8.2",
+      "score": 74,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "here"
+        }
+      ]
+    },
+    {
+      "id": "10883138104",
+      "title": "Editing an Existing Account",
+      "url": "https://uconn.atlassian.net/wiki/spaces/FPB/pages/10883138104/Editing+an+Existing+Account",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "10784507316",
+      "title": "Viewing Audit Service Indicators",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/10784507316/Viewing+Audit+Service+Indicators",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "10724476732",
+      "title": "Mac Support",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10724476732/Mac+Support",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "19531368884",
+      "title": "Jira Upgrade 8.1.2 to 8.3.3",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SDLC/pages/19531368884/Jira+Upgrade+8.1.2+to+8.3.3",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26441416705",
+      "title": "Sharing or Cross-Listing to Other Calendars",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/26441416705/Sharing+or+Cross-Listing+to+Other+Calendars",
+      "score": 25,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e64843f5-5f56-4b0c-bd2a-1716e9beb96f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 173e68aa-4108-4454-b8d0-083e309d800b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7a2e897a-dc9c-4ac1-83b7-e31288549f13"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Only Available to Calendar Admins"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Hidden"
+        }
+      ]
+    },
+    {
+      "id": "26438009006",
+      "title": "Group & Role Administration",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/26438009006/Group+Role+Administration",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c2485485-8885-47f3-9e86-74c70cb6c83b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 851b9343-784a-4303-b540-2f5272c14a83"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8d7f729c-6c1b-44f2-9a57-969593f4178f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 29f351ba-04af-4264-a082-4c9ff45ecd81"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 39dd4032-d502-4df2-9398-e60e348e6f8d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media b02cf5dc-86c7-42ba-a5e1-483f0d7382bc"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 441a1560-c9f8-445e-9d6c-0da8e6521f97"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 15a22009-299e-4033-83ca-6aa3ed4d87a6"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media dff43ba3-c2a8-400e-beef-3ff48b3e0400"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e92c9754-2e70-4d1d-89f7-30f0bdcc5e73"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e6a47f76-f8af-42a6-acc5-e0e609c6015c"
+        }
+      ]
+    },
+    {
+      "id": "10868425146",
+      "title": "General Ledger Transfer",
+      "url": "https://uconn.atlassian.net/wiki/spaces/FPB/pages/10868425146/General+Ledger+Transfer",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26031489073",
+      "title": "Open and Close Outlook Data Files (.pst)",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/26031489073/Open+and+Close+Outlook+Data+Files+.pst",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10950772027",
+      "title": "Troubleshooting Home Wireless Network Connections",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10950772027/Troubleshooting+Home+Wireless+Network+Connections",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "19493880225",
+      "title": "Jira",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SDLC/pages/19493880225/Jira",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10758194612",
+      "title": "Academic Advisement",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/10758194612/Academic+Advisement",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "26033783688",
+      "title": "File Transfer",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SH/pages/26033783688/File+Transfer",
+      "score": 52,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240813-183508.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240813-183825.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240815-143439.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "FileZillaTimeOutDisable.png"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "this page"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "Download"
+        }
+      ]
+    },
+    {
+      "id": "26343702649",
+      "title": "Ethnicity",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SRDAR/pages/26343702649/Ethnicity",
+      "score": 99,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10782343625",
+      "title": "Importing Sites",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10782343625/Importing+Sites",
+      "score": 92,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H4",
+          "evidence": "What Gets Imported"
+        }
+      ]
+    },
+    {
+      "id": "10789159041",
+      "title": "Revisionize",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10789159041/Revisionize",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10784506113",
+      "title": "Viewing and Printing a Transfer Credit Report",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/10784506113/Viewing+and+Printing+a+Transfer+Credit+Report",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "10730799570",
+      "title": "Fix OneDrive Sync Problems on a Mac",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10730799570/Fix+OneDrive+Sync+Problems+on+a+Mac",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10787029310",
+      "title": "Bulk Import Students into Groups using a CSV - Original",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/10787029310/Bulk+Import+Students+into+Groups+using+a+CSV+-+Original",
+      "score": 32,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f9cf03ea-cb10-4582-b52f-9a7e34e7fea7"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media be85fa38-41b9-4e5c-9de9-1d39eba38a8f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e36f4cc7-e832-4782-8dc3-e637be96a0e2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f080b022-a60d-4005-8fd9-46fc620450ab"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "export.png"
+        }
+      ]
+    },
+    {
+      "id": "25018368577",
+      "title": "PS Payroll User Guides",
+      "url": "https://uconn.atlassian.net/wiki/spaces/~rjb03001/pages/25018368577/PS+Payroll+User+Guides",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26211713033",
+      "title": "Student Support for HuskyCT",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/26211713033/Student+Support+for+HuskyCT",
+      "score": 92,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260326-140846.png"
+        }
+      ]
+    },
+    {
+      "id": "8259863714",
+      "title": "IISP",
+      "url": "https://uconn.atlassian.net/wiki/spaces/EP/pages/8259863714/IISP",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10828449503",
+      "title": "Creating a Webex Webinar Experience using Webex Meetings",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10828449503/Creating+a+Webex+Webinar+Experience+using+Webex+Meetings",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f73a88e2-d897-474e-a689-a7137d7d5d5c"
+        }
+      ]
+    },
+    {
+      "id": "10767466657",
+      "title": "Utilizing LockDown Browser as a Student",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/10767466657/Utilizing+LockDown+Browser+as+a+Student",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "26609025042",
+      "title": "Manually Adjusting Teaching Evaluation Preferences in CLSS",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/26609025042/Manually+Adjusting+Teaching+Evaluation+Preferences+in+CLSS",
+      "score": 88,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10730800623",
+      "title": "Sending a Message to a Listserv List",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10730800623/Sending+a+Message+to+a+Listserv+List",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26473398366",
+      "title": "UConn Video Conference Rooms",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/26473398366/UConn+Video+Conference+Rooms",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26458456065",
+      "title": "Build JSON with nested and unbounded objects",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SIM/pages/26458456065/Build+JSON+with+nested+and+unbounded+objects",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0f81e389-0b29-47b6-9aca-7953358fe2c7"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0006675a-310d-429c-819a-3518b1ff7e5e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 108f542f-dbf1-4f1b-8b2c-941fd4776ad2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 89de60e3-0abc-4535-8847-0fa30d291c5a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media cfebdee5-1ff5-463b-9fb0-efc4f2d7c3c2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media abcc14d2-6843-46a4-95d6-8a34bcc007a0"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 2ba772d3-77dc-4e9a-a2a4-4d736d9fcaf4"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 92251896-9003-4dcb-a0c9-e1b72b4d492e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media a81bcc4c-0975-4e16-8663-97735003fd76"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c96579bd-bef3-4fab-beba-8c082067ce03"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 22a1ee16-ffb6-4ad8-9293-0decf66593ab"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 73e8706b-00dd-480d-9259-2647724b0064"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8d154ce3-ef78-4df8-86a0-54459f3274c5"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8d6b2135-5751-488b-93c5-f4ee68eeb6ce"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media cd5a1edf-c3e3-4e49-b26d-ea343c663420"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 69bfff06-b0ac-437f-ae89-e65940d8b419"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1018604c-9995-4ce1-aafa-2ea96ae48e64"
+        }
+      ]
+    },
+    {
+      "id": "10787029677",
+      "title": "Share Files Inside Microsoft 365 Apps",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10787029677/Share+Files+Inside+Microsoft+365+Apps",
+      "score": 70,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 2ef9fa9f-25b1-4c4d-89b1-f8ecfa127ac5"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 59d723f1-1e43-4053-959d-844fa3ec6b83"
+        }
+      ]
+    },
+    {
+      "id": "25004180263",
+      "title": "Technical Resources",
+      "url": "https://uconn.atlassian.net/wiki/spaces/~rjb03001/pages/25004180263/Technical+Resources",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10776805948",
+      "title": "Viewing Data for Other Students",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/10776805948/Viewing+Data+for+Other+Students",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "10769929374",
+      "title": "Viewing the Transfer Credit Report",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/10769929374/Viewing+the+Transfer+Credit+Report",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "26027394000",
+      "title": "Psych IT Resource Page",
+      "url": "https://uconn.atlassian.net/wiki/spaces/CIPS/overview",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10758194570",
+      "title": "Academics (Students)",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/10758194570/Academics+Students",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "10730800617",
+      "title": "Sending Daily Quarantine Message to Your Junk Folder",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10730800617/Sending+Daily+Quarantine+Message+to+Your+Junk+Folder",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26054164852",
+      "title": "Grading with Rubrics in Ultra Course View",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/26054164852/Grading+with+Rubrics+in+Ultra+Course+View",
+      "score": 25,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260716-155658.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260716-155739.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260716-155821.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "ddd.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260716-174432.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260716-174520.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260716-174553.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "rubric 5.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260716-174700.png"
+        }
+      ]
+    },
+    {
+      "id": "19531367201",
+      "title": "Jira Security",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SDLC/pages/19531367201/Jira+Security",
+      "score": 68,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 502d600c-32d9-49c1-8ecd-36afb8521877"
+        }
+      ]
+    },
+    {
+      "id": "26079723879",
+      "title": "Miniconda Environment Set Up",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SH/pages/26079723879/Miniconda+Environment+Set+Up",
+      "score": 92,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10871506065",
+      "title": "Adding Yourself to a Course's Waitlist in Student Admin",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/10871506065/Adding+Yourself+to+a+Course+s+Waitlist+in+Student+Admin",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10789160223",
+      "title": "Securing your Webex Meeting",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10789160223/Securing+your+Webex+Meeting",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "21196277046",
+      "title": "At Risk Clients",
+      "url": "https://uconn.atlassian.net/wiki/spaces/StamfordITS/pages/21196277046/At+Risk+Clients",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10763764269",
+      "title": "Options for Mobile Blackboard Apps",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/10763764269/Options+for+Mobile+Blackboard+Apps",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "10802103123",
+      "title": "Microsoft MyAnalytics",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10802103123/Microsoft+MyAnalytics",
+      "score": 73,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        }
+      ]
+    },
+    {
+      "id": "10733127409",
+      "title": "Setting the Default PDF editor on macOS",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10733127409/Setting+the+Default+PDF+editor+on+macOS",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26223935509",
+      "title": "Edit or Cancel an Existing EMS Reservation",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/26223935509/Edit+or+Cancel+an+Existing+EMS+Reservation",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10903716025",
+      "title": "Printing to a Wepa Print Station",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10903716025/Printing+to+a+Wepa+Print+Station",
+      "score": 78,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "this"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "this"
+        }
+      ]
+    },
+    {
+      "id": "10784507292",
+      "title": "Using the UC Search Match Tool",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SAS/pages/10784507292/Using+the+UC+Search+Match+Tool",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media http://confluence.uconn.edu/confluence/…"
+        }
+      ]
+    },
+    {
+      "id": "26541228108",
+      "title": "Global Object Edit Rules Guide",
+      "url": "https://uconn.atlassian.net/wiki/spaces/FPB/pages/26541228108/Global+Object+Edit+Rules+Guide",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "SUBFUNDSUBFUND NAMERULENOTES*UNIVERSAL RULES APPLY?"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "SUBFUND"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "SUBFUND NAME"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "RULE"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOTES"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "*UNIVERSAL"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "RULES"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "APPLY?"
+        }
+      ]
+    },
+    {
+      "id": "26059244000",
+      "title": "Grading Tests in Ultra Course View",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/26059244000/Grading+Tests+in+Ultra+Course+View",
+      "score": 33,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media fe879e1f-2a42-4327-9bea-fb685d90efbb"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media cc8dd429-1d85-4687-a2db-587387174839"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d415d75a-8496-4497-b630-fbbef056ffe8"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260106-185519.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260716-184445.png"
+        }
+      ]
+    },
+    {
+      "id": "25004180323",
+      "title": "Project Documentation",
+      "url": "https://uconn.atlassian.net/wiki/spaces/~rjb03001/pages/25004180323/Project+Documentation",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26033783792",
+      "title": "Ansys Fluent Guide",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SH/pages/26033783792/Ansys+Fluent+Guide",
+      "score": 92,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "AnsysFluentLauncher.png"
+        }
+      ]
+    },
+    {
+      "id": "10890772776",
+      "title": "Create and Alter a Template",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10890772776/Create+and+Alter+a+Template",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26035093582",
+      "title": "Webex Webinar Practice Session",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/26035093582/Webex+Webinar+Practice+Session",
+      "score": 70,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media aff2e907-b529-468c-a802-25eb32be96ba"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 270d4521-8dc0-4e5d-8e85-a53b0d33e52a"
+        }
+      ]
+    },
+    {
+      "id": "21185823292",
+      "title": "Oracle Virtual Box",
+      "url": "https://uconn.atlassian.net/wiki/spaces/StamfordITS/pages/21185823292/Oracle+Virtual+Box",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10422060197",
+      "title": "2019-03-12 Weekly Status Meeting",
+      "url": "https://uconn.atlassian.net/wiki/spaces/ITSPMO/pages/10422060197/2019-03-12+Weekly+Status+Meeting",
+      "score": 76,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26072875075",
+      "title": "Tips for best LockDown Browser Experience",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/26072875075/Tips+for+best+LockDown+Browser+Experience",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10759274797",
+      "title": "Hosting or Joining a Webex Meeting",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10759274797/Hosting+or+Joining+a+Webex+Meeting",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10749247599",
+      "title": "Microsoft Teams",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10749247599/Microsoft+Teams",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "26512457751",
+      "title": "Search Operands",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/26512457751/Search+Operands",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "10744071182",
+      "title": "Network Addresses",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10744071182/Network+Addresses",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    }
+  ]
+}

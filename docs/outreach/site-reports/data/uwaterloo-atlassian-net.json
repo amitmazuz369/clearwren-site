@@ -1,0 +1,1417 @@
+{
+  "site": "uwaterloo.atlassian.net",
+  "scannedAt": "2026-09-15T11:34:21.663Z",
+  "crawlDelayMs": 1000,
+  "poolSize": 2000,
+  "sampled": 78,
+  "pagesWithBlocking": 24,
+  "byRule": [
+    {
+      "ruleId": "img-alt-missing",
+      "title": "Image has no alternative text",
+      "severity": "critical",
+      "pages": 11,
+      "issues": 50
+    },
+    {
+      "ruleId": "table-no-header",
+      "title": "Table has no header row",
+      "severity": "serious",
+      "pages": 5,
+      "issues": 22
+    },
+    {
+      "ruleId": "img-alt-meaningless",
+      "title": "Alternative text does not describe the image",
+      "severity": "serious",
+      "pages": 4,
+      "issues": 9
+    },
+    {
+      "ruleId": "heading-skipped-level",
+      "title": "Heading level is skipped",
+      "severity": "serious",
+      "pages": 3,
+      "issues": 3
+    },
+    {
+      "ruleId": "contrast-minimum",
+      "title": "Text contrast is below the WCAG AA minimum",
+      "severity": "critical",
+      "pages": 2,
+      "issues": 29
+    },
+    {
+      "ruleId": "link-nondescriptive",
+      "title": "Link text does not say where it goes",
+      "severity": "serious",
+      "pages": 2,
+      "issues": 4
+    },
+    {
+      "ruleId": "link-empty",
+      "title": "Link has no readable text",
+      "severity": "critical",
+      "pages": 1,
+      "issues": 1
+    }
+  ],
+  "pages": [
+    {
+      "id": "2071527441",
+      "title": "Quality of a video conference call",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/2071527441/Quality+of+a+video+conference+call",
+      "score": 92,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "LocationMobile officeOff-campusOff-campusOn-campusOn-campus"
+        }
+      ]
+    },
+    {
+      "id": "31722150629",
+      "title": "Arch History",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31722150629/Arch+History",
+      "score": 73,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1776582708",
+      "title": "Printing for students",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/MAD/pages/1776582708/Printing+for+students",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "42590142558",
+      "title": "Dealing with Malware",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTSERV/pages/42590142558/Dealing+with+Malware",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "31732630041",
+      "title": "Connection Types - Pipes",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31732630041/Connection+Types+-+Pipes",
+      "score": 44,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "263290887",
+      "title": "Sharing with individuals",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/263290887/Sharing+with+individuals",
+      "score": 25,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 804a1ff6-daf0-4e63-83af-41e6a01d5fb8"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c7739793-6158-4329-8481-34edf10d2a5c"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6d4f3c88-617b-42a4-baf3-db119aa345cb"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 98cdd52b-05c0-41ba-9ca2-4a15eb18b1f2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 722fc5c4-7b5e-42b4-abfb-28946a412d59"
+        }
+      ]
+    },
+    {
+      "id": "2100625439",
+      "title": "Adding a dependent",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/SFS/pages/2100625439/Adding+a+dependent",
+      "score": 91,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "How do I enrol a dependant in UHIP coverage?"
+        }
+      ]
+    },
+    {
+      "id": "284530141",
+      "title": "Students",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/284530141/Students",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33962265447",
+      "title": "Connector Selection",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33962265447/Connector+Selection",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "2172026963",
+      "title": "Creating an appointment or meeting in Outlook - Windows",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/2172026963/Creating+an+appointment+or+meeting+in+Outlook+-+Windows",
+      "score": 52,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d147ee87-8d5a-4284-996a-182fdf739897"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d45cf340-2f39-41be-be61-15d08a9dcc8c"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 20db1db1-410a-41ab-892e-265304f9245a"
+        }
+      ]
+    },
+    {
+      "id": "33969998007",
+      "title": "Arm Prototype Manufacturing",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33969998007/Arm+Prototype+Manufacturing",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Done"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOT STARTED"
+        }
+      ]
+    },
+    {
+      "id": "31735878527",
+      "title": "House Foundations",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31735878527/House+Foundations",
+      "score": 88,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "290359229",
+      "title": "Fix for remote desktop unexpected loss of connection on Windows 11",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/290359229/Fix+for+remote+desktop+unexpected+loss+of+connection+on+Windows+11",
+      "score": 71,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1622f651-a8c7-4ab2-946e-ed4819b213e7"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20250402-124520.png"
+        }
+      ]
+    },
+    {
+      "id": "42574840679",
+      "title": "Infrastructure",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ROCKETRY/pages/42574840679/Infrastructure",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "42583588985",
+      "title": "Network storage",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTSERV/pages/42583588985/Network+storage",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "25715343361",
+      "title": "Tool comparison for webinars and webcasts",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/25715343361/Tool+comparison+for+webinars+and+webcasts",
+      "score": 99,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "34019779304",
+      "title": "Open Data 1.0",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWAPI/pages/34019779304/Open+Data+1.0",
+      "score": 88,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "42637426883",
+      "title": "Injector Valve Section",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ROCKETRY/pages/42637426883/Injector+Valve+Section",
+      "score": 83,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Title"
+        }
+      ]
+    },
+    {
+      "id": "31760385873",
+      "title": "Common Materials",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31760385873/Common+Materials",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "42582671391",
+      "title": "Waterloo LEARN",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTSERV/pages/42582671391/Waterloo+LEARN",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "31727390694",
+      "title": "GD&T",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31727390694/GD+T",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "GD&T feature control frame labelled [5]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "The datum symbol and corresponding feature control frame [6]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "An example of using a datum plane to dimension an uneven part [6]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Symbols included in GD&T [3]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Surface straightness tolerance example [9]Axis straightness tolerance…"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Flatness Tolerance Example [10]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Circularity tolerance example [11]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Cylindricity Tolerance Example [12]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Example of the Profile of a Line Tolerance [13]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Profile of a surface tolerance example [14]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Angularity tolerance example [15]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Perpendicularity tolerance example [16]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Parallelism Tolerance Example [19]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "RFS Tolerance Zone Example [20]MMC Tolerance Example [20]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Concentricity Tolerance Zone Example [22]Concentricity Tolerance Zone…"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Symmetry tolerance example [23]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Tolerance Zone for Circular Runout [25]"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Total runout tolerance example [26]"
+        }
+      ]
+    },
+    {
+      "id": "261226692",
+      "title": "Mobile Device Support",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/261226692/Mobile+Device+Support",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "42607837569",
+      "title": "Teaching and research support",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/MAD/pages/42607837569/Teaching+and+research+support",
+      "score": 99,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "42583195670",
+      "title": "Email security- Joe Jobs",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/42583195670/Email+security-+Joe+Jobs",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "31727390928",
+      "title": "Acid and Base Extraction",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31727390928/Acid+and+Base+Extraction",
+      "score": 69,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33955655270",
+      "title": "Gimbal Requirements (2021-2022)",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33955655270/Gimbal+Requirements+2021-2022",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "31732631331",
+      "title": "Digital Design",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31732631331/Digital+Design",
+      "score": 89,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33962264705",
+      "title": "Encoder research",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33962264705/Encoder+research",
+      "score": 82,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "288819203",
+      "title": "Making a copy of an asset using Collaborate",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/288819203/Making+a+copy+of+an+asset+using+Collaborate",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "269156886",
+      "title": "Adobe Acrobat Pro DC alternatives - Mac",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/269156886/Adobe+Acrobat+Pro+DC+alternatives+-+Mac",
+      "score": 83,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "Note"
+        }
+      ]
+    },
+    {
+      "id": "818282856",
+      "title": "Common Mac pop ups",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ACOHD/pages/818282856/Common+Mac+pop+ups",
+      "score": 96,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33980155196",
+      "title": "9/22/2021",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33980155196/9+22+2021",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "269156583",
+      "title": "SharePoint",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/269156583/SharePoint",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33999389095",
+      "title": "Endpoints",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWAPI/pages/33999389095/Endpoints",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "42584408079",
+      "title": "Version control",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTSERV/pages/42584408079/Version+control",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33955660127",
+      "title": "2021-04-20 Meeting Minutes - Drivetrain",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33955660127/2021-04-20+Meeting+Minutes+-+Drivetrain",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "262013486",
+      "title": "Accessing SpeechAttendant",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/262013486/Accessing+SpeechAttendant",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1544290672",
+      "title": "Tuition Fees",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/SFS/pages/1544290672/Tuition+Fees",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1950122285",
+      "title": "Navigating the Content Repository",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/MOBIUS/pages/1950122285/Navigating+the+Content+Repository",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "266995174",
+      "title": "Use a link or code to join a team",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/266995174/Use+a+link+or+code+to+join+a+team",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33943586522",
+      "title": "Low Power Brushed Motor Controller",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33943586522/Low+Power+Brushed+Motor+Controller",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "269156733",
+      "title": "Enable Email forwarding from your Microsoft 365 Outlook account",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/269156733/Enable+Email+forwarding+from+your+Microsoft+365+Outlook+account",
+      "score": 68,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240731-194923.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240731-194943.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240731-195013.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240731-195028.png"
+        }
+      ]
+    },
+    {
+      "id": "1544225162",
+      "title": "How to submit a promissory note",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/SFS/pages/1544225162/How+to+submit+a+promissory+note",
+      "score": 99,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1291976881",
+      "title": "Using Turnitin with a Dropbox",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/1291976881/Using+Turnitin+with+a+Dropbox",
+      "score": 52,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 059c05f7-fd88-4a43-a722-df9fb4d7fd8d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9f5a74b3-1c0a-454e-9cf2-66ce192e7e42"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "NOTE"
+        }
+      ]
+    },
+    {
+      "id": "42608329653",
+      "title": "Service Desk - Davis Centre",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTSERV/pages/42608329653/Service+Desk+-+Davis+Centre",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "262012963",
+      "title": "Connecting to the VPN on iOS",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/262012963/Connecting+to+the+VPN+on+iOS",
+      "score": 1,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media cd8cac01-cf1b-45a1-8ae0-2ac190bdd6dd"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4fa58a37-5a10-4510-a126-ed86dcbd311d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 56c17156-8878-4d6b-97c4-86ebc905d314"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4933dfec-4af5-48b4-a05f-c19f020456b4"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media aae01bc6-5648-4877-a4da-bf67b945f158"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240718-173326.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240718-173424.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240718-173601.png"
+        }
+      ]
+    },
+    {
+      "id": "262013500",
+      "title": "Voicemail User Guide (3xxxx extensions)",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/262013500/Voicemail+User+Guide+3xxxx+extensions",
+      "score": 51,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "Related articles"
+        }
+      ]
+    },
+    {
+      "id": "269156646",
+      "title": "Create Repeating Appointments and Meetings (recurrence) in Outlook - desktop",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/269156646/Create+Repeating+Appointments+and+Meetings+recurrence+in+Outlook+-+desktop",
+      "score": 52,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4c0499d5-f634-414c-a985-6bbd7a9859d7"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 60b87667-0f61-4048-aa59-26d93d18012f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0df0f3bd-8255-4673-bea7-0026c7310e65"
+        }
+      ]
+    },
+    {
+      "id": "40815035723",
+      "title": "Hackthon",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTPORTRES/pages/40815035723/Hackthon",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33964068409",
+      "title": "2021-05-27 Meeting Minutes - Drivetrain",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33964068409/2021-05-27+Meeting+Minutes+-+Drivetrain",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "84541586",
+      "title": "St. Jerome's University Knowledge Base",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/SJUIT/overview",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8ea75277-45b0-44b2-b475-d1692cd37dfa"
+        }
+      ]
+    },
+    {
+      "id": "23388718219",
+      "title": "Home Page",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/SCIN/pages/23388718219/Home+Page",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7c49aad7-948c-43ac-81c8-22bd4db5ebdc"
+        }
+      ]
+    },
+    {
+      "id": "42619863070",
+      "title": "Design and Manufacturing of Torsion Testing Device",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/42619863070/Design+and+Manufacturing+of+Torsion+Testing+Device",
+      "score": 80,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H4",
+          "evidence": "Base Design"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        }
+      ]
+    },
+    {
+      "id": "297799832",
+      "title": "How to merge Crowdmark accounts",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/297799832/How+to+merge+Crowdmark+accounts",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "42571300871",
+      "title": "Revision 1 - F2021 - Jason Gao",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/42571300871/Revision+1+-+F2021+-+Jason+Gao",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33962264692",
+      "title": "SW/FW Presentations",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33962264692/SW+FW+Presentations",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8ed40087-2360-42dd-bd0f-0f02bf17f36b"
+        }
+      ]
+    },
+    {
+      "id": "21531820058",
+      "title": "Self-host a defence on Webex",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/MAD/pages/21531820058/Self-host+a+defence+on+Webex",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media fa759cbd-f476-4f22-9baf-3191b42254ec"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 32eb119d-ef0f-4f3f-87dc-d2f0458a572b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9348a0e5-a2a9-481d-84a0-f5091563e908"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 62a04f60-4111-434f-867b-b739429dca67"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d3f18a65-fdcc-4c66-9bfe-d72583ac8d57"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ca9ad24a-52ae-4749-9b02-6c6d14508d38"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media eb54a47c-67ce-40c9-8309-43b0de8e36a9"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ca9ad24a-52ae-4749-9b02-6c6d14508d38"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1011a771-2a9e-4c78-9b50-31511acb1b8a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ca9ad24a-52ae-4749-9b02-6c6d14508d38"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 659b0950-4830-4e65-bbbe-9eddd6cb624f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8d49efb9-fe8f-4f15-ba53-ea057ba152c6"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3a9f37eb-0379-433f-9154-f5c882a73636"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 22459097-2669-4083-918c-9dbbad1039a3"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c1e0dbb3-0447-4839-abd9-7abf4550099b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 50470147-8227-428a-9ff3-9305fe127c5e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media a9d3855d-8ae1-4b2f-a471-487900972b28"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 09b87060-8448-416f-9ef4-de074ebd588a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d8ff2f9b-d1e2-4d08-a858-6ee69633076b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ad272ec9-3c67-4700-9853-79bf5121da84"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8eae0f1e-a54f-4059-b750-c3987455c947"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 426af6bf-9935-4aba-9267-f9d010a3bf82"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 81248c80-3078-47f2-a5ef-7098e3246c69"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4a898f25-b167-4b92-8ea2-2ec82f04d0e7"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 05107a79-ea52-4c70-8874-a0a25186c391"
+        }
+      ]
+    },
+    {
+      "id": "31722147538",
+      "title": "Bearing Selection",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31722147538/Bearing+Selection",
+      "score": 78,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "31735880103",
+      "title": "C",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31735880103/C",
+      "score": 53,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        }
+      ]
+    },
+    {
+      "id": "42574775341",
+      "title": "Electrical",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ROCKETRY/pages/42574775341/Electrical",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33975468559",
+      "title": "2020-07-21 Meeting Minutes - General",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33975468559/2020-07-21+Meeting+Minutes+-+General",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33955648068",
+      "title": "Research",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33955648068/Research",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "291834493",
+      "title": "How Grades synch between Video Assignment and LEARN",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/291834493/How+Grades+synch+between+Video+Assignment+and+LEARN",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33967800813",
+      "title": "2021-06-17 - End Effector Design Review Minutes (with Nikhil)",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33967800813/2021-06-17+-+End+Effector+Design+Review+Minutes+with+Nikhil",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "42582409370",
+      "title": "Co-location",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTSERV/pages/42582409370/Co-location",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33980154318",
+      "title": "Downloading SOLIDWORKS",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33980154318/Downloading+SOLIDWORKS",
+      "score": 88,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1540424673",
+      "title": "Incidental (non-tuition fees)",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/SFS/pages/1540424673/Incidental+non-tuition+fees",
+      "score": 91,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "What are incidental fees?"
+        }
+      ]
+    },
+    {
+      "id": "865075217",
+      "title": "Self Registration Courses",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/865075217/Self+Registration+Courses",
+      "score": 92,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image1.png"
+        }
+      ]
+    },
+    {
+      "id": "857506099",
+      "title": "Renison IST",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/RenKB/overview",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33962265987",
+      "title": "Robotic Arm Passive Stoving/Caging Mechanism",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33962265987/Robotic+Arm+Passive+Stoving+Caging+Mechanism",
+      "score": 52,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media df55bae1-642f-4b29-8e70-46670a4cfb91"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 156715bb-8542-4e2c-96b8-9541024b90ba"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://upload.wikimedia.org/wikipedia/…"
+        }
+      ]
+    },
+    {
+      "id": "25716162595",
+      "title": "Configuring an email client",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/SCI/pages/25716162595/Configuring+an+email+client",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "31752061660",
+      "title": "3D Printing - SLS",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31752061660/3D+Printing+-+SLS",
+      "score": 85,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "31722148806",
+      "title": "Bearing Manufacturing",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31722148806/Bearing+Manufacturing",
+      "score": 85,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "266995284",
+      "title": "Waterloo Photos User Guide",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/266995284/Waterloo+Photos+User+Guide",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "2023358506",
+      "title": "Opt outs-Supplemental Health and Dental",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/SFS/pages/2023358506/Opt+outs-Supplemental+Health+and+Dental",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33975468615",
+      "title": "2020-08-11 Meeting Minutes - General",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33975468615/2020-08-11+Meeting+Minutes+-+General",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "33962265491",
+      "title": "Revamp Framework Proposal",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33962265491/Revamp+Framework+Proposal",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "40799765541",
+      "title": "API Reference",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTPORTRES/pages/40799765541/API+Reference",
+      "score": 84,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-empty",
+          "severity": "critical",
+          "location": "Link",
+          "evidence": null
+        }
+      ]
+    }
+  ]
+}

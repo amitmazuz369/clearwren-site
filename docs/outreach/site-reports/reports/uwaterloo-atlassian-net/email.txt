@@ -1,0 +1,16 @@
+Subject: Accessibility snapshot of uwaterloo.atlassian.net
+
+Hello,
+
+I ran a random sample of 78 public pages on uwaterloo.atlassian.net through automated WCAG checks. 24 of them have at least one failure the checks can confirm with certainty, most often images with no alternative text.
+
+Since AODA has required WCAG 2.0 level AA on public web content since 2021, I thought the attached one-page summary might be useful. It has the numbers and five pages that are a good place to start.
+
+If you would like the full page-by-page list, reply and I will send it, at no cost.
+
+Amit Mazuz
+Clearwren, accessibility checks for Confluence Cloud
+clearwren.com
+
+[POSTAL ADDRESS: required before sending, see README]
+If you would rather not hear from us, reply "no" and we will not write again.

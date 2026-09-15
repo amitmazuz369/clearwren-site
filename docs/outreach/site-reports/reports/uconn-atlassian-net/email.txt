@@ -1,0 +1,16 @@
+Subject: Accessibility snapshot of uconn.atlassian.net
+
+Hello IT Accessibility team,
+
+I ran a random sample of 80 public pages on uconn.atlassian.net through automated WCAG checks. 37 of them have at least one failure the checks can confirm with certainty, most often images with no alternative text.
+
+With the ADA Title II date for state universities now set at 26 April 2027, I thought the attached one-page summary might be useful. It has the numbers and five pages that are a good place to start.
+
+If you would like the full page-by-page list, reply and I will send it, at no cost.
+
+Amit Mazuz
+Clearwren, accessibility checks for Confluence Cloud
+clearwren.com
+
+[POSTAL ADDRESS: required before sending, see README]
+If you would rather not hear from us, reply "no" and we will not write again.

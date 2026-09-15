@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Accessibility snapshot — UC Santa Barbara, Engineering Computing Infrastructure</title>
+<style>
+@page { size: A4; margin: 14mm 16mm 12mm; }
+body { font: 10pt/1.42 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #1b1f24; margin: 0; }
+h1 { font-size: 16pt; margin: 0 0 2pt; letter-spacing: -0.01em; }
+.sub { color: #57606a; margin: 0 0 10pt; }
+h2 { font-size: 11pt; margin: 11pt 0 3pt; }
+p { margin: 0 0 6pt; }
+.big { font-size: 12.5pt; margin: 6pt 0 4pt; }
+.big b { font-size: 14.5pt; }
+table { border-collapse: collapse; width: 100%; margin: 2pt 0; }
+th, td { text-align: left; padding: 2.5pt 6pt 2.5pt 0; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+th { font-weight: 600; color: #57606a; font-size: 9pt; }
+td.n, th.n { text-align: right; white-space: nowrap; }
+ol { padding-left: 16pt; margin: 2pt 0; }
+li { margin: 0 0 3pt; }
+a { color: #0a58ca; text-decoration: none; }
+.issues { color: #57606a; display: block; }
+.note { color: #57606a; font-size: 8.5pt; border-top: 1px solid #d0d7de; padding-top: 5pt; margin-top: 10pt; }
+</style></head><body>
+<h1>Accessibility snapshot</h1>
+<p class="sub">UC Santa Barbara, Engineering Computing Infrastructure · public Confluence pages at ucsb-engr.atlassian.net · 15 September 2026</p>
+
+<p>We checked a random sample of 80 pages from ucsb-engr.atlassian.net, drawn from 283 that anyone can open without logging in. Each page went through automated checks mapped to WCAG success criteria at levels A and AA. Only failures the checks can confirm with certainty are counted.</p>
+
+<p class="big"><b>29 of 80</b> pages (36%) have at least one such failure.</p>
+
+<h2>What comes up most</h2>
+<table><thead><tr><th>Failure</th><th class="n">Pages</th><th class="n">Instances</th></tr></thead><tbody>
+<tr><td>Image has no alternative text</td><td class="n">18</td><td class="n">82</td></tr>
+<tr><td>Heading level is skipped</td><td class="n">5</td><td class="n">7</td></tr>
+<tr><td>Link text does not say where it goes</td><td class="n">4</td><td class="n">4</td></tr>
+<tr><td>Table has no header row</td><td class="n">3</td><td class="n">4</td></tr>
+</tbody></table>
+
+<h2>Five pages to start with</h2>
+<ol>
+<li><a href="https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604324/Configuring+Connect+Calendar+in+Thunderbird">Configuring Connect Calendar in Thunderbird</a><span class="issues">Image has no alternative text (13)</span></li>
+<li><a href="https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/2731147265/Zscaler+Client+Connector+ZCC+ZPA+FAQ">Zscaler Client Connector (ZCC/ZPA) FAQ</a><span class="issues">Alternative text does not describe the image (10), e.g. “jamf_self_service_top_bar.png” · Table has no header row (2) · Link text does not say where it goes</span></li>
+<li><a href="https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373289/How+do+I+get+Solidworks">How do I get Solidworks?</a><span class="issues">Text contrast is below the WCAG AA minimum (3)</span></li>
+<li><a href="https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/602046553/Remote+Access+to+Computer+Science+Computing+Labs">Remote Access to Computer Science Computing Labs</a><span class="issues">Heading level is skipped (2)</span></li>
+<li><a href="https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604156/Wireless+Network+Support">Wireless Network Support</a><span class="issues">Link text does not say where it goes</span></li>
+</ol>
+
+<h2>Fixing the most common one</h2><p><b>Image has no alternative text.</b> Select the image, open the image toolbar and add alt text that conveys the same information as the picture. If it is purely decorative, mark it as decorative so it is skipped.</p>
+
+<h2>Why it matters</h2>
+<p>As a public university, UC Santa Barbara is covered by the US Department of Justice's ADA Title II rule, which sets WCAG 2.1 level AA as the standard for web content. Since the April 2026 extension, the compliance date for state and local government entities serving a population of 50,000 or more — which generally includes state universities — is 26 April 2027. Every failure in this report maps to a success criterion that already exists in WCAG 2.0 and 2.1.</p>
+
+<p><b>Want the rest?</b> Reply and we will send the complete page-by-page list for this sample, at no cost.</p>
+
+<p class="note">What this is not: automated checks find part of what WCAG asks for and cannot establish conformance on their own, and a sample is not an audit. Pages were read through Confluence's public API, following the site's robots.txt crawl delay. Source for the rule above: <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web">Federal Register, 20 April 2026, document 2026-07663</a>.<br>
+Clearwren · accessibility checks for Confluence Cloud · clearwren.com · partners@clearwren.com</p>
+</body></html>

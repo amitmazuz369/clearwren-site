@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Accessibility snapshot — Salisbury University</title>
+<style>
+@page { size: A4; margin: 14mm 16mm 12mm; }
+body { font: 10pt/1.42 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #1b1f24; margin: 0; }
+h1 { font-size: 16pt; margin: 0 0 2pt; letter-spacing: -0.01em; }
+.sub { color: #57606a; margin: 0 0 10pt; }
+h2 { font-size: 11pt; margin: 11pt 0 3pt; }
+p { margin: 0 0 6pt; }
+.big { font-size: 12.5pt; margin: 6pt 0 4pt; }
+.big b { font-size: 14.5pt; }
+table { border-collapse: collapse; width: 100%; margin: 2pt 0; }
+th, td { text-align: left; padding: 2.5pt 6pt 2.5pt 0; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+th { font-weight: 600; color: #57606a; font-size: 9pt; }
+td.n, th.n { text-align: right; white-space: nowrap; }
+ol { padding-left: 16pt; margin: 2pt 0; }
+li { margin: 0 0 3pt; }
+a { color: #0a58ca; text-decoration: none; }
+.issues { color: #57606a; display: block; }
+.note { color: #57606a; font-size: 8.5pt; border-top: 1px solid #d0d7de; padding-top: 5pt; margin-top: 10pt; }
+</style></head><body>
+<h1>Accessibility snapshot</h1>
+<p class="sub">Salisbury University · public Confluence pages at su-support.atlassian.net · 15 September 2026</p>
+
+<p>We checked a random sample of 80 pages from su-support.atlassian.net, drawn from 848 that anyone can open without logging in. Each page went through automated checks mapped to WCAG success criteria at levels A and AA. Only failures the checks can confirm with certainty are counted.</p>
+
+<p class="big"><b>52 of 80</b> pages (65%) have at least one such failure.</p>
+
+<h2>What comes up most</h2>
+<table><thead><tr><th>Failure</th><th class="n">Pages</th><th class="n">Instances</th></tr></thead><tbody>
+<tr><td>Image has no alternative text</td><td class="n">39</td><td class="n">204</td></tr>
+<tr><td>Alternative text does not describe the image</td><td class="n">14</td><td class="n">92</td></tr>
+<tr><td>Table has no header row</td><td class="n">9</td><td class="n">10</td></tr>
+<tr><td>Heading level is skipped</td><td class="n">4</td><td class="n">4</td></tr>
+</tbody></table>
+
+<h2>Five pages to start with</h2>
+<ol>
+<li><a href="https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168976/How+do+I+make+lists+or+links+more+interesting+on+my+pages">How do I make lists or links more interesting on my pages?</a><span class="issues">Alternative text does not describe the image (21), e.g. “readability.png”</span></li>
+<li><a href="https://su-support.atlassian.net/wiki/spaces/TSC/pages/149225523/Workday-FIN+Payment+Management+and+Settlement">Workday-FIN: Payment Management and Settlement</a><span class="issues">Image has no alternative text (18) · Table has no header row (2)</span></li>
+<li><a href="https://su-support.atlassian.net/wiki/spaces/TSC/pages/73829768/Holds+on+your+account+in+GullNet">Holds on your account in GullNet</a><span class="issues">Link text does not say where it goes · Table has no header row</span></li>
+<li><a href="https://su-support.atlassian.net/wiki/spaces/TSC/pages/1366720527/Adjusting+your+time+zone+in+Microsoft+Outlook">Adjusting your time zone in Microsoft Outlook</a><span class="issues">Alternative text does not describe the image, e.g. “calendartime.png”</span></li>
+<li><a href="https://su-support.atlassian.net/wiki/spaces/TSC/pages/2166915082/Using+Microsoft+Teams+During+a+Campus+Network+Outage+Accessing+Meetings+and+Chats+via+Alternative+Connections">Using Microsoft Teams During a Campus Network Outage: Accessing Meetings and Chats via Alternative Connections</a><span class="issues">Heading level is skipped</span></li>
+</ol>
+
+<h2>Fixing the most common one</h2><p><b>Image has no alternative text.</b> Select the image, open the image toolbar and add alt text that conveys the same information as the picture. If it is purely decorative, mark it as decorative so it is skipped.</p>
+
+<h2>Why it matters</h2>
+<p>As a public university, Salisbury University is covered by the US Department of Justice's ADA Title II rule, which sets WCAG 2.1 level AA as the standard for web content. Since the April 2026 extension, the compliance date for state and local government entities serving a population of 50,000 or more — which generally includes state universities — is 26 April 2027. Every failure in this report maps to a success criterion that already exists in WCAG 2.0 and 2.1.</p>
+
+<p><b>Want the rest?</b> Reply and we will send the complete page-by-page list for this sample, at no cost.</p>
+
+<p class="note">What this is not: automated checks find part of what WCAG asks for and cannot establish conformance on their own, and a sample is not an audit. Pages were read through Confluence's public API, following the site's robots.txt crawl delay. Source for the rule above: <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web">Federal Register, 20 April 2026, document 2026-07663</a>.<br>
+Clearwren · accessibility checks for Confluence Cloud · clearwren.com · partners@clearwren.com</p>
+</body></html>

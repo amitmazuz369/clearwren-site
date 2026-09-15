@@ -1,0 +1,87 @@
+{
+  "host": "uconn.atlassian.net",
+  "renderedAt": "2026-09-15T11:37:33.164Z",
+  "pdfPages": 1,
+  "problems": [],
+  "examples": [
+    {
+      "id": "26458456065",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SIM/pages/26458456065/Build+JSON+with+nested+and+unbounded+objects",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "img-alt-missing"
+      ],
+      "stillPresent": [
+        "img-alt-missing"
+      ],
+      "ok": true
+    },
+    {
+      "id": "26054164852",
+      "url": "https://uconn.atlassian.net/wiki/spaces/TL/pages/26054164852/Grading+with+Rubrics+in+Ultra+Course+View",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "img-alt-meaningless"
+      ],
+      "stillPresent": [
+        "img-alt-meaningless"
+      ],
+      "ok": true
+    },
+    {
+      "id": "26541228108",
+      "url": "https://uconn.atlassian.net/wiki/spaces/FPB/pages/26541228108/Global+Object+Edit+Rules+Guide",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "table-no-header",
+        "contrast-minimum"
+      ],
+      "stillPresent": [
+        "table-no-header",
+        "contrast-minimum"
+      ],
+      "ok": true
+    },
+    {
+      "id": "26033979893",
+      "url": "https://uconn.atlassian.net/wiki/spaces/SH/pages/26033979893/FAQ",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "link-nondescriptive",
+        "table-no-header"
+      ],
+      "stillPresent": [
+        "link-nondescriptive",
+        "table-no-header"
+      ],
+      "ok": true
+    },
+    {
+      "id": "10782343625",
+      "url": "https://uconn.atlassian.net/wiki/spaces/IKB/pages/10782343625/Importing+Sites",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "heading-skipped-level"
+      ],
+      "stillPresent": [
+        "heading-skipped-level"
+      ],
+      "ok": true
+    }
+  ]
+}

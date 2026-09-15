@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Accessibility snapshot — University of Waterloo</title>
+<style>
+@page { size: A4; margin: 14mm 16mm 12mm; }
+body { font: 10pt/1.42 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #1b1f24; margin: 0; }
+h1 { font-size: 16pt; margin: 0 0 2pt; letter-spacing: -0.01em; }
+.sub { color: #57606a; margin: 0 0 10pt; }
+h2 { font-size: 11pt; margin: 11pt 0 3pt; }
+p { margin: 0 0 6pt; }
+.big { font-size: 12.5pt; margin: 6pt 0 4pt; }
+.big b { font-size: 14.5pt; }
+table { border-collapse: collapse; width: 100%; margin: 2pt 0; }
+th, td { text-align: left; padding: 2.5pt 6pt 2.5pt 0; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+th { font-weight: 600; color: #57606a; font-size: 9pt; }
+td.n, th.n { text-align: right; white-space: nowrap; }
+ol { padding-left: 16pt; margin: 2pt 0; }
+li { margin: 0 0 3pt; }
+a { color: #0a58ca; text-decoration: none; }
+.issues { color: #57606a; display: block; }
+.note { color: #57606a; font-size: 8.5pt; border-top: 1px solid #d0d7de; padding-top: 5pt; margin-top: 10pt; }
+</style></head><body>
+<h1>Accessibility snapshot</h1>
+<p class="sub">University of Waterloo · public Confluence pages at uwaterloo.atlassian.net · 15 September 2026</p>
+
+<p>We checked a random sample of 78 pages from uwaterloo.atlassian.net, drawn from at least 2,000 that anyone can open without logging in. Each page went through automated checks mapped to WCAG success criteria at levels A and AA. Only failures the checks can confirm with certainty are counted.</p>
+
+<p class="big"><b>24 of 78</b> pages (31%) have at least one such failure.</p>
+
+<h2>What comes up most</h2>
+<table><thead><tr><th>Failure</th><th class="n">Pages</th><th class="n">Instances</th></tr></thead><tbody>
+<tr><td>Image has no alternative text</td><td class="n">11</td><td class="n">50</td></tr>
+<tr><td>Table has no header row</td><td class="n">5</td><td class="n">22</td></tr>
+<tr><td>Alternative text does not describe the image</td><td class="n">4</td><td class="n">9</td></tr>
+<tr><td>Heading level is skipped</td><td class="n">3</td><td class="n">3</td></tr>
+</tbody></table>
+
+<h2>Five pages to start with</h2>
+<ol>
+<li><a href="https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33969998007/Arm+Prototype+Manufacturing">Arm Prototype Manufacturing</a><span class="issues">Text contrast is below the WCAG AA minimum (28)</span></li>
+<li><a href="https://uwaterloo.atlassian.net/wiki/spaces/MAD/pages/21531820058/Self-host+a+defence+on+Webex">Self-host a defence on Webex</a><span class="issues">Image has no alternative text (25)</span></li>
+<li><a href="https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31727390694/GD+T">GD&amp;T</a><span class="issues">Table has no header row (18)</span></li>
+<li><a href="https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/269156733/Enable+Email+forwarding+from+your+Microsoft+365+Outlook+account">Enable Email forwarding from your Microsoft 365 Outlook account</a><span class="issues">Alternative text does not describe the image (4), e.g. “image-20240731-194923.png”</span></li>
+<li><a href="https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/42619863070/Design+and+Manufacturing+of+Torsion+Testing+Device">Design and Manufacturing of Torsion Testing Device</a><span class="issues">Heading level is skipped · Link text does not say where it goes</span></li>
+</ol>
+
+<h2>Fixing the most common one</h2><p><b>Image has no alternative text.</b> Select the image, open the image toolbar and add alt text that conveys the same information as the picture. If it is purely decorative, mark it as decorative so it is skipped.</p>
+
+<h2>Why it matters</h2>
+<p>Ontario's AODA requires designated public sector organizations, such as the University of Waterloo, to make public web content posted since 2012 meet WCAG 2.0 level AA. That requirement has applied since 1 January 2021, with exceptions only for live captions and pre-recorded audio description. Every failure in this report maps to a success criterion that already exists in WCAG 2.0 and 2.1.</p>
+
+<p><b>Want the rest?</b> Reply and we will send the complete page-by-page list for this sample, at no cost.</p>
+
+<p class="note">What this is not: automated checks find part of what WCAG asks for and cannot establish conformance on their own, and a sample is not an audit. Pages were read through Confluence's public API, following the site's robots.txt crawl delay. Source for the rule above: <a href="https://www.ontario.ca/page/how-make-websites-accessible">Government of Ontario, “How to make websites accessible”</a>.<br>
+Clearwren · accessibility checks for Confluence Cloud · clearwren.com · partners@clearwren.com</p>
+</body></html>

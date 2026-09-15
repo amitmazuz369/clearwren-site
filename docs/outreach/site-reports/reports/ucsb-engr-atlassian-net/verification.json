@@ -1,0 +1,87 @@
+{
+  "host": "ucsb-engr.atlassian.net",
+  "renderedAt": "2026-09-15T11:37:32.938Z",
+  "pdfPages": 1,
+  "problems": [],
+  "examples": [
+    {
+      "id": "573604324",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604324/Configuring+Connect+Calendar+in+Thunderbird",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "img-alt-missing"
+      ],
+      "stillPresent": [
+        "img-alt-missing"
+      ],
+      "ok": true
+    },
+    {
+      "id": "2731147265",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/2731147265/Zscaler+Client+Connector+ZCC+ZPA+FAQ",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "img-alt-meaningless",
+        "link-nondescriptive",
+        "table-no-header"
+      ],
+      "stillPresent": [
+        "img-alt-meaningless",
+        "link-nondescriptive",
+        "table-no-header"
+      ],
+      "ok": true
+    },
+    {
+      "id": "575373289",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/575373289/How+do+I+get+Solidworks",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "contrast-minimum"
+      ],
+      "stillPresent": [
+        "contrast-minimum"
+      ],
+      "ok": true
+    },
+    {
+      "id": "602046553",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/602046553/Remote+Access+to+Computer+Science+Computing+Labs",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "heading-skipped-level"
+      ],
+      "stillPresent": [
+        "heading-skipped-level"
+      ],
+      "ok": true
+    },
+    {
+      "id": "573604156",
+      "url": "https://ucsb-engr.atlassian.net/wiki/spaces/EPK/pages/573604156/Wireless+Network+Support",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "link-nondescriptive"
+      ],
+      "stillPresent": [
+        "link-nondescriptive"
+      ],
+      "ok": true
+    }
+  ]
+}

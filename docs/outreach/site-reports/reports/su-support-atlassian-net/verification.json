@@ -1,0 +1,87 @@
+{
+  "host": "su-support.atlassian.net",
+  "renderedAt": "2026-09-15T11:37:32.846Z",
+  "pdfPages": 1,
+  "problems": [],
+  "examples": [
+    {
+      "id": "79168976",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168976/How+do+I+make+lists+or+links+more+interesting+on+my+pages",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "img-alt-meaningless"
+      ],
+      "stillPresent": [
+        "img-alt-meaningless"
+      ],
+      "ok": true
+    },
+    {
+      "id": "149225523",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/149225523/Workday-FIN+Payment+Management+and+Settlement",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "img-alt-missing",
+        "table-no-header"
+      ],
+      "stillPresent": [
+        "img-alt-missing",
+        "table-no-header"
+      ],
+      "ok": true
+    },
+    {
+      "id": "73829768",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73829768/Holds+on+your+account+in+GullNet",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "link-nondescriptive",
+        "table-no-header"
+      ],
+      "stillPresent": [
+        "link-nondescriptive",
+        "table-no-header"
+      ],
+      "ok": true
+    },
+    {
+      "id": "1366720527",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/1366720527/Adjusting+your+time+zone+in+Microsoft+Outlook",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "img-alt-meaningless"
+      ],
+      "stillPresent": [
+        "img-alt-meaningless"
+      ],
+      "ok": true
+    },
+    {
+      "id": "2166915082",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/2166915082/Using+Microsoft+Teams+During+a+Campus+Network+Outage+Accessing+Meetings+and+Chats+via+Alternative+Connections",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "heading-skipped-level"
+      ],
+      "stillPresent": [
+        "heading-skipped-level"
+      ],
+      "ok": true
+    }
+  ]
+}

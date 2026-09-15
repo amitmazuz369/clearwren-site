@@ -1,0 +1,2630 @@
+{
+  "site": "su-support.atlassian.net",
+  "scannedAt": "2026-09-15T11:34:12.135Z",
+  "crawlDelayMs": 1000,
+  "poolSize": 848,
+  "sampled": 80,
+  "pagesWithBlocking": 52,
+  "byRule": [
+    {
+      "ruleId": "img-alt-missing",
+      "title": "Image has no alternative text",
+      "severity": "critical",
+      "pages": 39,
+      "issues": 204
+    },
+    {
+      "ruleId": "img-alt-meaningless",
+      "title": "Alternative text does not describe the image",
+      "severity": "serious",
+      "pages": 14,
+      "issues": 92
+    },
+    {
+      "ruleId": "table-no-header",
+      "title": "Table has no header row",
+      "severity": "serious",
+      "pages": 9,
+      "issues": 10
+    },
+    {
+      "ruleId": "heading-skipped-level",
+      "title": "Heading level is skipped",
+      "severity": "serious",
+      "pages": 4,
+      "issues": 4
+    },
+    {
+      "ruleId": "link-nondescriptive",
+      "title": "Link text does not say where it goes",
+      "severity": "serious",
+      "pages": 2,
+      "issues": 2
+    },
+    {
+      "ruleId": "contrast-minimum",
+      "title": "Text contrast is below the WCAG AA minimum",
+      "severity": "critical",
+      "pages": 1,
+      "issues": 2
+    }
+  ],
+  "pages": [
+    {
+      "id": "73834572",
+      "title": "GullNet Fluid Navigation Menu and Homepage-GullNet 2021",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73834572/GullNet+Fluid+Navigation+Menu+and+Homepage-GullNet+2021",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media af9b3242-badc-4855-a7ac-de8746ede405"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 97d8de06-af2b-4d24-8079-80791e38578f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 082fd723-1ccd-44e0-8ce4-8bff879faa25"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ee01ab61-042f-4edc-b5ac-4e9822ba9e38"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 19df089d-2e39-440d-8b04-315b65ec6770"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media b0b77c46-322f-4327-8743-accaff115799"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e23996dc-9527-4157-b04b-4f816261d01a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media cebdbefa-ab4a-460b-b376-43aff399cbe2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 696f82b6-4fa1-4b61-b9db-b6b50988a988"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 686a330b-d523-4f87-b40a-4dcdcd4997e3"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1ca1078c-35a9-488d-8ff8-dcf5592ff9dc"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 65a3d809-d9c3-4406-9189-eea6f600b158"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f0b912ac-2914-4f97-a0e9-cf1ec9571775"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 072921d0-8398-4a27-aa84-b9e83363703e"
+        },
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "Home"
+        }
+      ]
+    },
+    {
+      "id": "1081016684",
+      "title": "How do I use Lucid templates for course collaboration activities?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/1081016684/How+do+I+use+Lucid+templates+for+course+collaboration+activities",
+      "score": 68,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "lucidspark1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "lucidspark2.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "lucidspark3.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "lucidspark4.png"
+        }
+      ]
+    },
+    {
+      "id": "73833306",
+      "title": "Using FileLinks in LiquidFiles / SecureShare",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73833306/Using+FileLinks+in+LiquidFiles+SecureShare",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6aaa8983-9005-459b-b347-fd4a38915d6d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f7e3e88f-7b8b-4076-9864-b85303abc259"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 2ede06a6-78bd-4696-96a4-62b4052a20b9"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 82b512d0-f1b5-41cf-be37-17c701809e7b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6eaebf2e-5ea7-4c7b-957f-0e51f8954d67"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0b3e3985-d987-4f30-a48f-2c69e9903d42"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media bcffd4a2-dc6c-4ad7-a48f-b353e135aaf8"
+        }
+      ]
+    },
+    {
+      "id": "484966422",
+      "title": "Microsoft Teams Phone",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/484966422/Microsoft+Teams+Phone",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73827738",
+      "title": "Connect to the SU-Secure Wireless Network using a Nook or Kindle E-Reader",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73827738/Connect+to+the+SU-Secure+Wireless+Network+using+a+Nook+or+Kindle+E-Reader",
+      "score": 94,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73828028",
+      "title": "Obtaining a Course Evaluation Student Participant Count in GullNet",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73828028/Obtaining+a+Course+Evaluation+Student+Participant+Count+in+GullNet",
+      "score": 55,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0a69f675-98b3-4d50-80a1-e955450b7cf0"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c2540fb3-2e3f-4273-a1a8-69a11cd5fc52"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e56ec344-429c-4367-a71b-9706e39ce899"
+        }
+      ]
+    },
+    {
+      "id": "73829768",
+      "title": "Holds on your account in GullNet",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73829768/Holds+on+your+account+in+GullNet",
+      "score": 84,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "*ACAAcademic AffairsAcademic Affairs Office410-543-6330"
+        }
+      ]
+    },
+    {
+      "id": "73827654",
+      "title": "Install Software on an SU-Tagged Computer Using Right-Click Elevation for SU faculty",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73827654/Install+Software+on+an+SU-Tagged+Computer+Using+Right-Click+Elevation+for+SU+faculty",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73830424",
+      "title": "Shrink the size of a powerpoint presentation to email",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73830424/Shrink+the+size+of+a+powerpoint+presentation+to+email",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "79170079",
+      "title": "How do I use the Canvas Conferences interface?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79170079/How+do+I+use+the+Canvas+Conferences+interface",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1366720527",
+      "title": "Adjusting your time zone in Microsoft Outlook",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/1366720527/Adjusting+your+time+zone+in+Microsoft+Outlook",
+      "score": 92,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "calendartime.png"
+        }
+      ]
+    },
+    {
+      "id": "2303066149",
+      "title": "How do I extend access to my course for students who have Incompletes?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/2303066149/How+do+I+extend+access+to+my+course+for+students+who+have+Incompletes",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "79168362",
+      "title": "How do I run and save a PowerPoint polling session in PointSolutions?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168362/How+do+I+run+and+save+a+PowerPoint+polling+session+in+PointSolutions",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media bb22fc4a-71cb-4d2f-bef4-b7439d7f9428"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e23d23fb-6cd4-40b8-86a4-06a8772d869d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0f2c910f-2bde-4573-8ebc-3f01f4ed7c12"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e05e24de-f09c-4c23-9b07-5758bcfddfa4"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 63eaa299-aa5d-4d00-a244-e26b5757f7d5"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 5af4ebbb-0078-4a12-abf6-2b2cbc069b57"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media dffd64b5-f2c3-4f30-a2b8-9ff2405b25b3"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 774c3e60-ef16-4f1f-88f2-b2d68db48f52"
+        }
+      ]
+    },
+    {
+      "id": "73827754",
+      "title": "Recommended anti-malware programs for personal computers",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73827754/Recommended+anti-malware+programs+for+personal+computers",
+      "score": 82,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73827970",
+      "title": "How to add a departmental/shared email address in Outlook for Windows or Mac",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73827970/How+to+add+a+departmental+shared+email+address+in+Outlook+for+Windows+or+Mac",
+      "score": 18,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d354091f-a3f1-4597-981c-4987fd3cdc3e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 2a607be8-b650-4fad-81c7-1ff914a795b3"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3190b055-3f77-47bc-8089-2e8479848daf"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9db5549d-2e19-4050-ab8c-edfed94b0611"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9dae22bf-4a78-4d48-a4e8-d50bf953f165"
+        }
+      ]
+    },
+    {
+      "id": "73830416",
+      "title": "Xbox will not connect to internet even after registering and connecting to SU-Connect.",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73830416/Xbox+will+not+connect+to+internet+even+after+registering+and+connecting+to+SU-Connect.",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73829294",
+      "title": "Faculty and staff software access",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73829294/Faculty+and+staff+software+access",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73832226",
+      "title": "Getting Started with Teams",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73832226/Getting+Started+with+Teams",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73837848",
+      "title": "Workday-HCM: Change Emergency Contact",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73837848/Workday-HCM+Change+Emergency+Contact",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7b6e1207-7e57-43f8-8bee-01e258bdcfa7"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f94b7570-9f72-4b44-a4ff-de4bc53abbee"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6851808e-24cc-44a3-a81b-61550c284366"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 5f8a0719-226d-4de3-8633-3bd54a69cb83"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d1281791-25bb-4b9f-95ec-5a0583622496"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0afa7da2-1e86-42f8-ba3c-6571c5ee5d98"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 027ea07d-fc01-4f4b-acb3-d858da64745f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e47c94c3-27ea-472b-9f32-9a52d0579c75"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e8f5fe20-def6-4ccb-b797-0d9428c2386d"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "839614477",
+      "title": "System Status/Outage Information",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/839614477/System+Status+Outage+Information",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "79168560",
+      "title": "Turnitin",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168560/Turnitin",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73832790",
+      "title": "Changing your Personal Meeting ID and Personal Meeting Room Settings in Zoom",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73832790/Changing+your+Personal+Meeting+ID+and+Personal+Meeting+Room+Settings+in+Zoom",
+      "score": 47,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 02ec6db7-2077-4324-b7b1-c335a3e2960f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 795ac013-00a6-4f21-9ba4-4abc84828411"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media b50bc5d6-acb1-41f3-92fd-65870f2a210d"
+        },
+        {
+          "ruleId": "link-nondescriptive",
+          "severity": "serious",
+          "location": "Link",
+          "evidence": "here"
+        }
+      ]
+    },
+    {
+      "id": "79168149",
+      "title": "How do I personalize my MyClasses user profile?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168149/How+do+I+personalize+my+MyClasses+user+profile",
+      "score": 62,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9b9d033f-def7-422d-9f85-72ec41ac3361"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 31560692-bef7-4b4a-b40f-d8c5935cb3a6"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "Editprofile3.png"
+        }
+      ]
+    },
+    {
+      "id": "73831338",
+      "title": "Sharing Your Screen in Zoom",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73831338/Sharing+Your+Screen+in+Zoom",
+      "score": 37,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ec800af9-e1ea-40ba-a27a-d5422eeaaf76"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7e9e796d-0562-4b7b-b190-3f18a9fb9c3e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f1b79293-7df7-4a3a-8005-f02954bff1f4"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1227f2e4-c2b2-433e-95f2-39a3890bb2cb"
+        }
+      ]
+    },
+    {
+      "id": "73835246",
+      "title": "Block Edit and Download Access for a OneDrive File",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73835246/Block+Edit+and+Download+Access+for+a+OneDrive+File",
+      "score": 55,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e508b9a4-1e3a-4157-b976-4628118f4c3b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 41cb8794-d7f4-454a-b64c-7cb7bc0d320b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d55323b9-f574-493f-ba2a-46d570218cce"
+        }
+      ]
+    },
+    {
+      "id": "73832176",
+      "title": "How to Recover a deleted item in OneDrive",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73832176/How+to+Recover+a+deleted+item+in+OneDrive",
+      "score": 40,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3c21146d-16ca-4728-9c5d-6b27b2be70fa"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 283929f8-e717-4f23-81ca-563ce2a65509"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c98165c0-06a1-41cd-9ae7-6fb09be0c49a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 46ec469c-8e4a-4871-b9fe-180b8d7c1e17"
+        }
+      ]
+    },
+    {
+      "id": "73829700",
+      "title": "Caring for your Gull Card",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73829700/Caring+for+your+Gull+Card",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73827996",
+      "title": "Obtaining Course Evaluation Results for Department Chairs in GullNet",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73827996/Obtaining+Course+Evaluation+Results+for+Department+Chairs+in+GullNet",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73831328",
+      "title": "Meetings in Zoom",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73831328/Meetings+in+Zoom",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 314ffb07-36ac-4b53-93c9-3c6060504bc2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9f19b1c1-0bae-498d-838c-7b61ec9f9048"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 671d65d2-81c7-4de5-b922-4851bc8f3632"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8f70692d-525b-4635-84a4-c60f60da863b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1bf72139-15e9-4475-b195-be190a10c626"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e461cfe1-dc2c-4467-96aa-2ade22b25975"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media cc1814b4-1aa8-4145-bcad-a21acca12e30"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3482d474-39a5-449c-ad7f-828d49e82a60"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": "Please note"
+        },
+        {
+          "ruleId": "contrast-minimum",
+          "severity": "critical",
+          "location": "Coloured text",
+          "evidence": ":"
+        }
+      ]
+    },
+    {
+      "id": "79168438",
+      "title": "How do I use Cengage MINDTAP content in MyClasses?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168438/How+do+I+use+Cengage+MINDTAP+content+in+MyClasses",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 2a9876eb-25e2-4beb-9c68-354bde230e4d"
+        }
+      ]
+    },
+    {
+      "id": "73829778",
+      "title": "Creating a forwarding rule from Microsoft 365 Outlook Web App",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73829778/Creating+a+forwarding+rule+from+Microsoft+365+Outlook+Web+App",
+      "score": 69,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1b3cda53-ffe4-424e-a217-a9c1f3734355"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media bb8244ac-e86d-47cb-8561-58da29e3a762"
+        }
+      ]
+    },
+    {
+      "id": "73827794",
+      "title": "Sonia Client Setup and Web Site Login Information",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73827794/Sonia+Client+Setup+and+Web+Site+Login+Information",
+      "score": 17,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media df2f91bd-57bc-454e-b4c5-d434bf10b532"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 5aa838cc-aa60-4028-923b-f1d18fbfb929"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 765e2300-202e-4faf-8524-430843207f5f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8111806b-0a34-45c6-9aa3-f5b81d3e3697"
+        },
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H4",
+          "evidence": "Authentication"
+        }
+      ]
+    },
+    {
+      "id": "73835288",
+      "title": "Publishing to Canvas using Respondus",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73835288/Publishing+to+Canvas+using+Respondus",
+      "score": 51,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 509cf3e0-84bf-4fda-b4e8-aee27844a427"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4612dcd3-3113-4f61-99ae-ea81e1889f87"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3e0ddba6-044f-4cc8-afbf-8e304a560870"
+        }
+      ]
+    },
+    {
+      "id": "79167707",
+      "title": "Panopto",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79167707/Panopto",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73830506",
+      "title": "Getting an out of disk space error on a network drive",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73830506/Getting+an+out+of+disk+space+error+on+a+network+drive",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73834588",
+      "title": "GullNet Fluid Menus-GullNet 2021:  How to Add or Edit Favorites",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73834588/GullNet+Fluid+Menus-GullNet+2021+How+to+Add+or+Edit+Favorites",
+      "score": 55,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f6b91e32-187f-4093-a777-9c3a3b09bda8"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media acffcb7b-35b9-4cd5-b1ce-9427b5334933"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6042bbe8-ec08-41be-895c-573cf0eff929"
+        }
+      ]
+    },
+    {
+      "id": "484868176",
+      "title": "Transfer a Call in Teams",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/484868176/Transfer+a+Call+in+Teams",
+      "score": 84,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20241031-233748.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20241031-233644.png"
+        }
+      ]
+    },
+    {
+      "id": "73837188",
+      "title": "Troubleshooting Wi-Fi/Internet Issues",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73837188/Troubleshooting+Wi-Fi+Internet+Issues",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "2340356143",
+      "title": "Akindi (Bubblesheets)",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/2340356143/Akindi+Bubblesheets",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "79168432",
+      "title": "How do I use McGraw-Hill ALEKS content in MyClasses?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168432/How+do+I+use+McGraw-Hill+ALEKS+content+in+MyClasses",
+      "score": 70,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ccd57cb7-9030-4217-80c6-d362fab1d36c"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 37096b22-5347-445c-b7e3-ec20aff5c8c4"
+        }
+      ]
+    },
+    {
+      "id": "73833014",
+      "title": "Updating SU-Secure for new Wifi Certificates - iOS (iPhone)",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73833014/Updating+SU-Secure+for+new+Wifi+Certificates+-+iOS+iPhone",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 95a49d31-2a44-435c-904b-0d62df854179"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f8befe0c-8155-430c-a7c0-c888d8b7f42d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7dd21085-f4ee-4dc4-959b-9cae5328b852"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 87a5ade0-3681-48fe-98b1-bcdd2f5b3f1b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media b24eb4d3-abc5-473c-9767-57c9bd383c56"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3351d127-d6fa-4471-a33f-970957064418"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 58879ddb-ef6e-42b1-8429-111fd6e88ea3"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e8d00a24-bf39-4c2c-8965-d9dda34c716c"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c9a9bf3d-d700-48cd-bc84-41c801af7b9a"
+        }
+      ]
+    },
+    {
+      "id": "2323677239",
+      "title": "Discussions and Virtual Meetings",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/2323677239/Discussions+and+Virtual+Meetings",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "189562953",
+      "title": "Workday-FIN: Requisition Event",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/189562953/Workday-FIN+Requisition+Event",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 81099117-8ca5-4571-8e1d-133d62c8f9ab"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6582d9e6-b2a8-4067-8987-a05dda3114f2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 07e804bf-af30-4db7-95a5-8461709e00fd"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c7aab029-59f3-455f-9fa8-20ee0fa02eac"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c933205b-4b79-4152-9f22-5469502918e9"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f4a073a2-6b0b-4c01-9f39-598e66ee388d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media dcd4152a-2056-46d4-b363-2a9dc1a6201a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media de20dbe8-ef6c-4fa1-96eb-8efe01ffa347"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1d17a4aa-033e-4694-adb2-90bb6749eb35"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1ba3c36d-59cc-42ee-afce-6c14c2e3135c"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 05813431-01d5-485c-adab-c7bba7c89602"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240626-115747.png"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Required Field Radio Prompt Checkbox"
+        }
+      ]
+    },
+    {
+      "id": "94470192",
+      "title": "Workday-HCM: New Position Description Request",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/94470192/Workday-HCM+New+Position+Description+Request",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ef9bd13d-6dda-42fc-844f-6bacb28e1020"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 05074ee9-ceb2-4f71-8902-d52073cee531"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1b20c94b-b4f9-4be2-9b9e-2ed156fe577d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 37e4879d-e32c-4c95-a35e-cd240f9af707"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240509-204658.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240509-204738.png"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "PromptRequired"
+        }
+      ]
+    },
+    {
+      "id": "79168238",
+      "title": "MyClasses How-To (Instructors)",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168238/MyClasses+How-To+Instructors",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73834170",
+      "title": "Phishing Alert Report- email security icon",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73834170/Phishing+Alert+Report-+email+security+icon",
+      "score": 52,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 01372c8c-4922-4574-a944-8d61e258e931"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 2f6296af-713e-4c04-a207-b3c2ff6b4607"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3c1a0e8a-cdde-4107-98c1-4d1622c5eee1"
+        }
+      ]
+    },
+    {
+      "id": "149225523",
+      "title": "Workday-FIN: Payment Management and Settlement",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/149225523/Workday-FIN+Payment+Management+and+Settlement",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7875e9bf-04a4-461d-88fd-11ea3037177e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media a87eb36b-7a26-4b20-b49b-4f83d65e5552"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6478c505-86a6-4e1d-aa08-7ef2b55db6ae"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media a65db5b3-643f-4d91-a680-9d34119c1618"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4f12e597-54dd-494a-8898-45886ad981d5"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 191d67de-1e5e-41b9-822d-b4383e15403a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 591968ef-c168-4840-96ad-5119a35bdcdf"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 90ea38f1-f20f-4c17-959a-623598954b00"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9bcabfc2-c5ad-4bee-911e-d39613e7078e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media fc671a18-6581-4d3f-be5b-d4a63ae44adf"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0982a267-fc91-44e8-aa92-4569b8e2f90c"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9aa62afc-4f31-451c-adb7-f49d8156b22a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 316bcf93-95bf-4410-bb94-88e9d755b245"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 329aa64c-4786-4184-b34b-ca081f30015c"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 06240610-ed24-4f2f-9713-4b3e468a2002"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4f3141d5-2bcf-46b7-8184-6a608183c4e4"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4b3529fe-32ec-41fb-9aab-a308ed8d678b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 330dccc2-edfd-45d9-bbd8-3914f1791f61"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Add Row Prompt Related Actions Required Field"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "StatusDescription"
+        }
+      ]
+    },
+    {
+      "id": "73829062",
+      "title": "Telecommunications",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73829062/Telecommunications",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1157398540",
+      "title": "How do I use MyClasses as a repository for a in-person course?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/1157398540/How+do+I+use+MyClasses+as+a+repository+for+a+in-person+course",
+      "score": 12,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-homepage2.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-navbar1.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-navbar2.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-navbar3.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-files1.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-files2.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-files3.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-files3b.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-files4.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-files5.jpg"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "repository-files6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "79168976",
+      "title": "How do I make lists or links more interesting on my pages?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168976/How+do+I+make+lists+or+links+more+interesting+on+my+pages",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "readability.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "blist1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "blist2.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "bullet1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "numlist.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "nested 1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "nested 2.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "iconlist1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "blist8.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "blist9.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "blist10.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "linkicon1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "linkicon2.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "linkicon3b.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "button1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "button2a.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "button2b.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "button3.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "hover1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "hover2.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "hover3.gif"
+        }
+      ]
+    },
+    {
+      "id": "95912005",
+      "title": "Workday-HCM: Personal Information Change",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/95912005/Workday-HCM+Personal+Information+Change",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f83723d9-d4df-4c6d-9f8d-444806ed02e0"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8aade809-cb44-437c-826b-eb4aefa7f63f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1072ce5e-e6c2-4b96-a120-5fe5ba5712d7"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f797c9c9-531e-49b4-9776-6e84d0d811eb"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d40136ba-0f1f-49c8-b8af-181601b2c23d"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media b02e3569-ec10-46b1-b138-d248b0089f83"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 21df8168-e2b0-4a7f-b90f-7c1948010ab5"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-152912.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-152958.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-153049.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-153136.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-153255.png"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Menu Save Undo Required Field Pencil"
+        }
+      ]
+    },
+    {
+      "id": "73835318",
+      "title": "Current SU Workday Groups",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73835318/Current+SU+Workday+Groups",
+      "score": 77,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media e1f71240-e437-432c-a9d8-fcb780f90f5d"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Lora AdkinsPresident’s OfficeAthleticslladkins@salisbury.edu"
+        }
+      ]
+    },
+    {
+      "id": "73830180",
+      "title": "Security certificate is not trusted error in Google Chrome",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73830180/Security+certificate+is+not+trusted+error+in+Google+Chrome",
+      "score": 99,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "2186510337",
+      "title": "How do I export, edit, and reupload captions for my Panopto video?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/2186510337/How+do+I+export+edit+and+reupload+captions+for+my+Panopto+video",
+      "score": 12,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-150150.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-151245.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-151807.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-152029.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-152337.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-152453.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-152527.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-152644.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-152743.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-152853.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260626-153154.png"
+        }
+      ]
+    },
+    {
+      "id": "73827464",
+      "title": "Printing to a Departmental Canon from Windows",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73827464/Printing+to+a+Departmental+Canon+from+Windows",
+      "score": 6,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7824c5f0-f372-4b75-8921-7551639e0345"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 632ad1e5-d3c4-47cf-8e0b-c526d27268d0"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 2b9e8a68-f1ec-4057-b002-2ce92c3e5300"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media af38d9d7-8b32-4d4e-bcbf-ecb4da01a84b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 10b26995-4fef-4179-b5cc-8e34b32e469a"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 183de5ba-1f29-44fe-994d-0ebb91362c28"
+        }
+      ]
+    },
+    {
+      "id": "89784513",
+      "title": "Zoom Workplace",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/89784513/Zoom+Workplace",
+      "score": 97,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73833566",
+      "title": "Inclusive Access Ebook Error",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73833566/Inclusive+Access+Ebook+Error",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://support.salisbury.edu/servicede…"
+        }
+      ]
+    },
+    {
+      "id": "73831184",
+      "title": "Navigate - for faculty",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73831184/Navigate+-+for+faculty",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 90027a56-d5ea-4322-9ff6-1f18eb9f269f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9db1f2aa-9b25-4268-920d-4140ca41969e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1e8672c9-4765-4a75-b9b2-ee4e40287dcc"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 163067ce-bcb5-4dad-8412-be2aa03115e6"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 42915346-db01-49d4-b991-a7a4800553df"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 95367074-0e67-4c8e-985a-bb09bbb508b7"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9d97be88-4f4e-4f5d-9e55-e274384e3566"
+        }
+      ]
+    },
+    {
+      "id": "73831842",
+      "title": "Using the Waiting Room Option in Zoom",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73831842/Using+the+Waiting+Room+Option+in+Zoom",
+      "score": 40,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 99c5c637-3fdf-4147-a1a5-9d4227f7733e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c70974de-cf9f-4c2b-8c95-761713c7f79b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://assets.zoom.us/images/en-us/des…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://assets.zoom.us/images/en-us/des…"
+        }
+      ]
+    },
+    {
+      "id": "73837120",
+      "title": "Go Gulls Student Application Portal (Slate)",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73837120/Go+Gulls+Student+Application+Portal+Slate",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0d77c71e-e154-47c1-90cb-ab6f7c4e3c53"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media ad663c60-def0-4d4a-b201-b10f3e2b79b7"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7671decf-9bde-4729-ab9f-f303afb8d3f0"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6aec83e8-a97a-44fe-b656-f9f667810c2c"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7ed30f52-4f8d-4ccb-8f46-0ca19ef194d2"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 8f69d0b6-015a-42ec-b445-f4d51b9a4533"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 5c140eb3-dc26-4125-9e36-00f1fe1687b9"
+        }
+      ]
+    },
+    {
+      "id": "2166915082",
+      "title": "Using Microsoft Teams During a Campus Network Outage: Accessing Meetings and Chats via Alternative Connections",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/2166915082/Using+Microsoft+Teams+During+a+Campus+Network+Outage+Accessing+Meetings+and+Chats+via+Alternative+Connections",
+      "score": 77,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H3",
+          "evidence": "Teams Will Not Connect"
+        }
+      ]
+    },
+    {
+      "id": "73835228",
+      "title": "How to Manage Office 365 Activations and Installations",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73835228/How+to+Manage+Office+365+Activations+and+Installations",
+      "score": 55,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4b527445-9a20-496f-aa4c-64377e26d91b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c9855548-749c-4010-8322-9b097f3aa241"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media b8372087-ed0a-49b3-8751-fd64526e7c0c"
+        }
+      ]
+    },
+    {
+      "id": "73832994",
+      "title": "Secure File Transfer and Sharing User Guide",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73832994/Secure+File+Transfer+and+Sharing+User+Guide",
+      "score": 78,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f5889578-0cab-4b39-8357-fa1914d265ce"
+        }
+      ]
+    },
+    {
+      "id": "860225682",
+      "title": "How do I access my Canvas Credentials?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/860225682/How+do+I+access+my+Canvas+Credentials",
+      "score": 84,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260727-131150.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20260727-134805.png"
+        }
+      ]
+    },
+    {
+      "id": "73829330",
+      "title": "Password protect your files in Microsoft Office",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73829330/Password+protect+your+files+in+Microsoft+Office",
+      "score": 90,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "888635498",
+      "title": "Colors",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/888635498/Colors",
+      "score": 92,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "heading-skipped-level",
+          "severity": "serious",
+          "location": "Heading H4",
+          "evidence": "Protanopia (red/green color blindness; anomalous red cones):"
+        }
+      ]
+    },
+    {
+      "id": "1788968965",
+      "title": "Faculty and Staff Printing",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/1788968965/Faculty+and+Staff+Printing",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "73831580",
+      "title": "Resolving iPhone/Mac SU-Secure Cert Issue",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73831580/Resolving+iPhone+Mac+SU-Secure+Cert+Issue",
+      "score": 6,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 963fd4f4-8f2c-4119-8b51-b99a4b74c047"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3493ef89-e96e-45b8-8d0b-0bcf08f90906"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media a711138e-5181-4ba9-bad0-701f05869138"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 0b662ba2-2bdf-415b-88c8-e6a7d4ba804e"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3ce90187-ee30-4d16-b3e8-2892e8aa34a8"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media a943c9b9-0e3d-4785-87bd-f89ab3e8cd28"
+        }
+      ]
+    },
+    {
+      "id": "79168248",
+      "title": "How do I use the PointSolutions toolbar in PowerPoint?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168248/How+do+I+use+the+PointSolutions+toolbar+in+PowerPoint",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 4bf4cc41-46a2-4457-b983-b816061406fd"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1f38246a-8e40-4a84-b73e-770757d54878"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3a16c50d-1a7e-48e2-bb21-f72fcc714acd"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 7659f554-2366-49da-b9cd-148b1ac9694b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media d54fd9c5-03a2-48cd-9036-102ea6de3815"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3b6459ce-7f21-46d5-a0aa-3bcbbe0cd764"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 3fdfdf1f-4d64-485f-bc0b-cd78a0548321"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media be585eca-3c65-41bb-b10f-b3136c352d89"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1ae6ba73-99a6-442e-a783-2c52e00c735b"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 065fb082-40fb-49ef-b7ee-8736d66bfdd9"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f6f914b5-ea80-4c20-a7d5-495dc5281290"
+        }
+      ]
+    },
+    {
+      "id": "96206849",
+      "title": "Workday-HCM: Manage Jobs",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/96206849/Workday-HCM+Manage+Jobs",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 612f6469-ff27-44f7-968e-caf5e5be3618"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 867a0964-93cd-4d21-8fa4-9b840a6905b8"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media f9f97fd0-0d5a-4299-ac88-36bde0130d7e"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-122825.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-122859.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-122916.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-122930.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-122957.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-123111.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-123152.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-123304.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-123533.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-123834.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-123953.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-124108.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-124227.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-124340.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-124648.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "image-20240510-124733.png"
+        },
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "CheckboxPromptCalendarRequired Field"
+        }
+      ]
+    },
+    {
+      "id": "73827604",
+      "title": "Working with Network Drives",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73827604/Working+with+Network+Drives",
+      "score": 80,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "table-no-header",
+          "severity": "serious",
+          "location": "Table",
+          "evidence": "Name (Letter)PathDescription"
+        }
+      ]
+    },
+    {
+      "id": "73827734",
+      "title": "Connect to the SU-Secure Wireless Network using an Android device",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73827734/Connect+to+the+SU-Secure+Wireless+Network+using+an+Android+device",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 457f9024-0fc2-4a0c-b47a-9b6ecdb09536"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c43657f9-8b0b-492d-b1fc-2675d8aecfaa"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 9a231827-d878-44fa-977c-2f181317269f"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 49978e25-ea23-438f-9d7a-ec34610739f0"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media b1d87d75-cee3-4151-898f-ff8fe4aa9547"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media bfee9e69-02f8-4df3-bd1a-bc220d6f7782"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media c2c9d85a-7330-43da-9e45-053cef758918"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 35154780-5566-4b55-84bc-302dc92527f0"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 1752a5f3-1ad7-4fdc-ac40-f1a8dd5fdccd"
+        }
+      ]
+    },
+    {
+      "id": "73829234",
+      "title": "Password Assistance",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73829234/Password+Assistance",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "79169067",
+      "title": "How do I use the Accessibility Checkers in DesignPLUS?",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79169067/How+do+I+use+the+Accessibility+Checkers+in+DesignPLUS",
+      "score": 0,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "access icon.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "contrast 1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "contrast 2.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "contrast 3.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "contrast 4.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "contrast 5.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "heading1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "heading2.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "heading3.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "heading4.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "imagealt 1.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "imagealt 2.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "imagealt 3.png"
+        }
+      ]
+    },
+    {
+      "id": "73831812",
+      "title": "Play Enter/Exit Chime in Zoom",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73831812/Play+Enter+Exit+Chime+in+Zoom",
+      "score": 69,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 6398000b-9024-4f36-a88f-fb35581443b0"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media 04f9345f-658e-4e26-9f15-d7178c5d802d"
+        }
+      ]
+    },
+    {
+      "id": "73835618",
+      "title": "Microsoft Defender for Office 365 has encountered an error",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/73835618/Microsoft+Defender+for+Office+365+has+encountered+an+error",
+      "score": 85,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media efcc154c-f0d1-4bc5-9f42-7a48db8c6a7f"
+        }
+      ]
+    },
+    {
+      "id": "1046544689",
+      "title": "Tableau Student Access",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/1046544689/Tableau+Student+Access",
+      "score": 81,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "tableaudownload.png"
+        },
+        {
+          "ruleId": "img-alt-meaningless",
+          "severity": "serious",
+          "location": "Image",
+          "evidence": "tableaudownloadpic.png"
+        }
+      ]
+    },
+    {
+      "id": "807370794",
+      "title": "Microsoft Teams versus Zoom Comparison",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/807370794/Microsoft+Teams+versus+Zoom+Comparison",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "79168093",
+      "title": "iClicker",
+      "url": "https://su-support.atlassian.net/wiki/spaces/IDD/pages/79168093/iClicker",
+      "score": 100,
+      "conformant": true,
+      "blocking": []
+    },
+    {
+      "id": "1342538036",
+      "title": "Microsoft Office Accessibility Checker",
+      "url": "https://su-support.atlassian.net/wiki/spaces/TSC/pages/1342538036/Microsoft+Office+Accessibility+Checker",
+      "score": 25,
+      "conformant": false,
+      "blocking": [
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://support.microsoft.com/images/en…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://support.microsoft.com/images/en…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://support.microsoft.com/images/en…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://support.microsoft.com/images/en…"
+        },
+        {
+          "ruleId": "img-alt-missing",
+          "severity": "critical",
+          "location": "Image",
+          "evidence": "media https://support.microsoft.com/images/en…"
+        }
+      ]
+    }
+  ]
+}

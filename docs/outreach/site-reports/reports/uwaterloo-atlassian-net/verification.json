@@ -1,0 +1,85 @@
+{
+  "host": "uwaterloo.atlassian.net",
+  "renderedAt": "2026-09-15T11:38:50.660Z",
+  "pdfPages": 1,
+  "problems": [],
+  "examples": [
+    {
+      "id": "33969998007",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/UWRT/pages/33969998007/Arm+Prototype+Manufacturing",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "contrast-minimum"
+      ],
+      "stillPresent": [
+        "contrast-minimum"
+      ],
+      "ok": true
+    },
+    {
+      "id": "21531820058",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/MAD/pages/21531820058/Self-host+a+defence+on+Webex",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "img-alt-missing"
+      ],
+      "stillPresent": [
+        "img-alt-missing"
+      ],
+      "ok": true
+    },
+    {
+      "id": "31727390694",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/31727390694/GD+T",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "table-no-header"
+      ],
+      "stillPresent": [
+        "table-no-header"
+      ],
+      "ok": true
+    },
+    {
+      "id": "269156733",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/ISTKB/pages/269156733/Enable+Email+forwarding+from+your+Microsoft+365+Outlook+account",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "img-alt-meaningless"
+      ],
+      "stillPresent": [
+        "img-alt-meaningless"
+      ],
+      "ok": true
+    },
+    {
+      "id": "42619863070",
+      "url": "https://uwaterloo.atlassian.net/wiki/spaces/EIC/pages/42619863070/Design+and+Manufacturing+of+Torsion+Testing+Device",
+      "reachable": {
+        "status": 200,
+        "ok": true
+      },
+      "claimed": [
+        "heading-skipped-level",
+        "link-nondescriptive"
+      ],
+      "stillPresent": [
+        "heading-skipped-level",
+        "link-nondescriptive"
+      ],
+      "ok": true
+    }
+  ]
+}
