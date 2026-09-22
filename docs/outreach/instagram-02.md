@@ -1,6 +1,8 @@
 # Instagram 02 — missing alt text (carousel)
 
-**Status: draft, not yet posted.**
+**Status: POSTED 2026-09-22** — https://www.instagram.com/p/Ddlpf3JjUrW/ (media 17871982995637924).
+Published straight through the Instagram Login API with `tools/ig_publish.py`, not Buffer.
+Alt text confirmed on all three slides after publishing.
 
 ## Images
 Hosted on our own domain so Instagram can fetch a direct URL. JPEG 1080x1350 — 4:5 is the
