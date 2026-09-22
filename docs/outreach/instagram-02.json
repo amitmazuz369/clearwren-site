@@ -1,0 +1,27 @@
+{
+ "expect_username": "clearwren",
+ "caption": "Missing image descriptions: the single biggest accessibility failure we found.\n\n1,179 pages across 13 public Confluence sites. 1,765 images with no alt text, scattered across 311 pages.\n\nAn image that should explain a step becomes invisible to a screen reader. \"Image\" is all it says.\n\nNot a hard fix — one paragraph per slide — but it compounds across a space: you can't explain screenshots with pictures. You need words.\n\nMethod, data, and limits: clearwren.com (link in bio).\n\n#WebAccessibility #A11y #AltText #DigitalAccessibility #WCAG #Confluence #Documentation",
+ "slides": [
+  {
+   "label": "The biggest problem",
+   "headline": "Missing image descriptions.",
+   "body": "1,765 of them scattered across 311 pages — the most common failure in our study.",
+   "url": "https://clearwren.com/assets/social/ig-02-alt-1.jpg",
+   "alt": "The biggest problem: missing image descriptions. 1,765 of them scattered across 311 pages — the most common failure in our study."
+  },
+  {
+   "label": "What a screen reader hears",
+   "headline": "Just the word image.",
+   "body": "A user who cannot see the screenshot has no idea what step it was meant to show. The information is gone.",
+   "url": "https://clearwren.com/assets/social/ig-02-alt-2.jpg",
+   "alt": "What a screen reader hears: just the word image. A user who cannot see the screenshot has no idea what step it was meant to show. The information is gone."
+  },
+  {
+   "label": "How to fix it",
+   "headline": "One paragraph per image.",
+   "body": "Describe what the screenshot shows: the button you clicked, the tab that opened, the state of the page. That paragraph becomes the alt text.",
+   "url": "https://clearwren.com/assets/social/ig-02-alt-3.jpg",
+   "alt": "How to fix it: one paragraph per image. Describe what the screenshot shows: the button you clicked, the tab that opened, the state of the page. That paragraph becomes the alt text."
+  }
+ ]
+}
