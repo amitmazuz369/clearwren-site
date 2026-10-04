@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation — Clearwren for Confluence</title>
+<meta name="description" content="Install, scan, fix and report with Clearwren accessibility checking for Confluence Cloud.">
+<meta property="og:title" content="Documentation — Clearwren for Confluence">
+<meta property="og:description" content="Install, scan, fix and report with Clearwren accessibility checking for Confluence Cloud.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M7.4 12.3l3.1 3.1 6.1-6.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html" aria-current="page">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>Documentation</h1>
+
+<h2>Installing</h2>
+<div class="prose">
+  <p>
+    Install from the Atlassian Marketplace as a Confluence site administrator. The app asks
+    for permission to read page content, to write pages (used only when you apply a fix or
+    publish a report) and to store its own data. It appears in three places once installed:
+    the byline of every page, an <strong>Accessibility</strong> entry in the space menu, and
+    an <strong>Accessibility report</strong> entry in the site-wide apps menu.
+  </p>
+</div>
+
+<h2>Checking one page</h2>
+<div class="prose">
+  <p>
+    Open any page and select <strong>Accessibility</strong> in the byline under the title.
+    The panel checks the page as it is right now and lists what it found, grouped by
+    severity. Each finding explains the effect on a reader and the fix.
+  </p>
+  <p>
+    For an image with missing or unhelpful alt text you can type the description into the
+    panel and apply it — Clearwren writes it into the page body and creates a new version,
+    attributed to you.
+  </p>
+</div>
+
+<h2>Scanning a space</h2>
+<div class="prose">
+  <p>
+    In the space menu choose <strong>Accessibility</strong>, then <strong>Scan this
+    space</strong>. The scan runs in the background in batches, so you can leave the page;
+    progress updates as it goes. When it finishes you get the average score, how many pages
+    have no level A or AA failure, the most common problems across the space, and the pages
+    to fix first.
+  </p>
+  <p>Every scanned space is re-scanned automatically once a week.</p>
+</div>
+
+<h2>Publishing a conformance report</h2>
+<div class="prose">
+  <p>
+    From the space dashboard, <strong>Publish report page</strong> creates a dated Confluence
+    page in that space containing the summary, the findings by check with their WCAG
+    criteria, and a statement of method. It is an ordinary page: comment on it, restrict it,
+    export it or attach it to a procurement response.
+  </p>
+</div>
+
+<h2>Settings</h2>
+<div class="prose">
+  <p>
+    Under app settings you can set the conformance target (A, AA or AAA) and turn individual
+    checks off site-wide. Turning a check off removes it from scores, dashboards and reports.
+  </p>
+  <p>
+    Images that are genuinely decorative — a divider, a repeated brand mark — can be marked
+    as decorative so they stop being reported as missing alt text.
+  </p>
+</div>
+
+<h2>Limits</h2>
+<div class="prose">
+  <ul class="checks">
+    <li>Pages whose body is larger than roughly 900&nbsp;KB are skipped and reported as unsupported.</li>
+    <li>Up to 300 issues are stored per page; the rest are counted but not listed individually.</li>
+    <li>Only current pages are scanned — not drafts, archived pages, or attachments.</li>
+    <li>Checks apply to page content. The surrounding Confluence interface is Atlassian's own responsibility, covered by their VPAT.</li>
+  </ul>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

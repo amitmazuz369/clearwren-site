@@ -1,0 +1,517 @@
+[
+  {
+    "id": "contrast-minimum",
+    "title": "Text contrast is below the WCAG AA minimum",
+    "why": "Low-contrast text is unreadable for many people with low vision, and for anyone on a dim screen or in sunlight.",
+    "howToFix": "Pick a darker text colour or a lighter background until the pair reaches 4.5:1 (3:1 for large headings).",
+    "wcag": [
+      {
+        "criterion": "1.4.3",
+        "name": "Contrast (Minimum)",
+        "level": "AA"
+      }
+    ],
+    "severity": "critical",
+    "confidence": "certain"
+  },
+  {
+    "id": "img-alt-missing",
+    "title": "Image has no alternative text",
+    "why": "Screen-reader users get nothing but the word \"image\" where this picture is, so any information it carries is lost.",
+    "howToFix": "Select the image, open the image toolbar and add alt text that conveys the same information as the picture. If it is purely decorative, mark it as decorative so it is skipped.",
+    "wcag": [
+      {
+        "criterion": "1.1.1",
+        "name": "Non-text Content",
+        "level": "A"
+      }
+    ],
+    "severity": "critical",
+    "confidence": "certain"
+  },
+  {
+    "id": "link-empty",
+    "title": "Link has no readable text",
+    "why": "A link with no text is announced only as its URL, or skipped entirely.",
+    "howToFix": "Add link text, or if the link wraps an image, give the image alt text.",
+    "wcag": [
+      {
+        "criterion": "2.4.4",
+        "name": "Link Purpose (In Context)",
+        "level": "A"
+      },
+      {
+        "criterion": "4.1.2",
+        "name": "Name, Role, Value",
+        "level": "A"
+      }
+    ],
+    "severity": "critical",
+    "confidence": "certain"
+  },
+  {
+    "id": "fake-heading",
+    "title": "Bold text used instead of a heading",
+    "why": "Bold text looks like a heading but is not one, so it never appears in the heading list a screen-reader user navigates by.",
+    "howToFix": "Select the line and apply a real heading level from the text-style menu.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "serious",
+    "confidence": "review"
+  },
+  {
+    "id": "heading-empty",
+    "title": "Heading has no text",
+    "why": "An empty heading is announced as a heading with nothing in it, which breaks navigation by headings.",
+    "howToFix": "Give the heading text, or convert the empty line back to a normal paragraph.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      },
+      {
+        "criterion": "2.4.6",
+        "name": "Headings and Labels",
+        "level": "AA"
+      }
+    ],
+    "severity": "serious",
+    "confidence": "certain"
+  },
+  {
+    "id": "heading-skipped-level",
+    "title": "Heading level is skipped",
+    "why": "Screen-reader users navigate by heading level; a jump from H2 straight to H4 makes the page look like it has missing sections.",
+    "howToFix": "Step heading levels down one at a time — an H2 section contains H3 subsections, not H4.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "serious",
+    "confidence": "certain"
+  },
+  {
+    "id": "img-alt-meaningless",
+    "title": "Alternative text does not describe the image",
+    "why": "Alt text like \"image1.png\" or \"screenshot\" tells a screen-reader user nothing about what the image shows.",
+    "howToFix": "Replace the alt text with a sentence describing the information the image conveys in this context.",
+    "wcag": [
+      {
+        "criterion": "1.1.1",
+        "name": "Non-text Content",
+        "level": "A"
+      }
+    ],
+    "severity": "serious",
+    "confidence": "certain"
+  },
+  {
+    "id": "link-nondescriptive",
+    "title": "Link text does not say where it goes",
+    "why": "Screen-reader users often pull up a list of every link on the page; a list of \"click here\" entries is unusable.",
+    "howToFix": "Rewrite the link text to name the destination, for example \"2026 onboarding checklist\" instead of \"click here\".",
+    "wcag": [
+      {
+        "criterion": "2.4.4",
+        "name": "Link Purpose (In Context)",
+        "level": "A"
+      }
+    ],
+    "severity": "serious",
+    "confidence": "certain"
+  },
+  {
+    "id": "status-colour-only",
+    "title": "Status lozenge has no readable text",
+    "why": "A lozenge is announced by its text; with none, its colour is the only thing carrying the meaning and a screen reader conveys nothing.",
+    "howToFix": "Give the lozenge a word — “Done”, “Blocked”, “At risk” — so the meaning survives without the colour.",
+    "wcag": [
+      {
+        "criterion": "1.4.1",
+        "name": "Use of Color",
+        "level": "A"
+      },
+      {
+        "criterion": "1.1.1",
+        "name": "Non-text Content",
+        "level": "A"
+      }
+    ],
+    "severity": "serious",
+    "confidence": "certain"
+  },
+  {
+    "id": "table-no-header",
+    "title": "Table has no header row",
+    "why": "Without header cells a screen reader reads a wall of values with no way to tell which column each one belongs to.",
+    "howToFix": "Select the first row and turn on \"Header row\" in the table toolbar.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "serious",
+    "confidence": "certain"
+  },
+  {
+    "id": "colour-only-meaning",
+    "title": "Instructions rely on colour alone",
+    "why": "A reader who cannot distinguish the colour, or who is using a screen reader, has no way to tell which items you mean.",
+    "howToFix": "Add a second cue alongside the colour — a label, an icon, or bold text — and refer to that instead.",
+    "wcag": [
+      {
+        "criterion": "1.4.1",
+        "name": "Use of Color",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "review"
+  },
+  {
+    "id": "embed-no-label",
+    "title": "Embedded content has no accessible name",
+    "why": "Embedded frames are announced by their title; without one, a screen-reader user hears only \"frame\".",
+    "howToFix": "Add a title or a short line of text above the embed saying what it contains.",
+    "wcag": [
+      {
+        "criterion": "4.1.2",
+        "name": "Name, Role, Value",
+        "level": "A"
+      },
+      {
+        "criterion": "2.4.1",
+        "name": "Bypass Blocks",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "review"
+  },
+  {
+    "id": "expand-no-title",
+    "title": "Collapsible section has no label",
+    "why": "An unlabelled expand is announced only as a button, so a keyboard user cannot tell what opening it will reveal.",
+    "howToFix": "Type a short label into the collapsible section’s title field.",
+    "wcag": [
+      {
+        "criterion": "2.4.6",
+        "name": "Headings and Labels",
+        "level": "AA"
+      },
+      {
+        "criterion": "4.1.2",
+        "name": "Name, Role, Value",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "certain"
+  },
+  {
+    "id": "fake-list",
+    "title": "Dashes or numbers used instead of a list",
+    "why": "A hand-typed list is read as loose sentences, so a screen-reader user never hears how many items there are or where the list ends.",
+    "howToFix": "Select the lines and apply a bulleted or numbered list.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "review"
+  },
+  {
+    "id": "heading-h1-in-body",
+    "title": "H1 used inside the page body",
+    "why": "Confluence already renders the page title as the only H1, so a second H1 in the body gives the page two competing titles.",
+    "howToFix": "Demote body headings to start at H2.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "certain"
+  },
+  {
+    "id": "link-ambiguous-duplicate",
+    "title": "Same link text points to different pages",
+    "why": "Two links reading \"guidelines\" that lead to different pages are indistinguishable in a screen reader’s link list.",
+    "howToFix": "Make each link text unique, for example \"security guidelines\" and \"brand guidelines\".",
+    "wcag": [
+      {
+        "criterion": "2.4.4",
+        "name": "Link Purpose (In Context)",
+        "level": "A"
+      },
+      {
+        "criterion": "2.4.9",
+        "name": "Link Purpose (Link Only)",
+        "level": "AAA"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "certain"
+  },
+  {
+    "id": "link-raw-url",
+    "title": "Bare URL used as link text",
+    "why": "A screen reader reads a raw URL character by character, which is slow and tells the listener very little.",
+    "howToFix": "Replace the URL with a short phrase describing the page it opens.",
+    "wcag": [
+      {
+        "criterion": "2.4.4",
+        "name": "Link Purpose (In Context)",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "certain"
+  },
+  {
+    "id": "media-av-no-alternative",
+    "title": "Video or audio may need captions or a transcript",
+    "why": "Pre-recorded audio and video need captions and a text alternative, and a page cannot prove it has them on its own.",
+    "howToFix": "Confirm the file has captions, or add a transcript or summary on the page next to it.",
+    "wcag": [
+      {
+        "criterion": "1.2.1",
+        "name": "Audio-only and Video-only (Prerecorded)",
+        "level": "A"
+      },
+      {
+        "criterion": "1.2.2",
+        "name": "Captions (Prerecorded)",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "review"
+  },
+  {
+    "id": "mixed-language",
+    "title": "Passage in a different script",
+    "why": "A screen reader keeps using the page language, so text in another script is read with the wrong pronunciation rules.",
+    "howToFix": "Move the passage to its own page in that language, or add a note naming the language for readers.",
+    "wcag": [
+      {
+        "criterion": "3.1.2",
+        "name": "Language of Parts",
+        "level": "AA"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "review"
+  },
+  {
+    "id": "page-title-nondescriptive",
+    "title": "Page title does not describe the page",
+    "why": "The title is the first thing a screen reader announces and the label the page carries in search, tabs and link lists.",
+    "howToFix": "Rename the page to something that identifies its topic without the surrounding context.",
+    "wcag": [
+      {
+        "criterion": "2.4.2",
+        "name": "Page Titled",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "certain"
+  },
+  {
+    "id": "table-empty-header",
+    "title": "Header cell is empty",
+    "why": "An empty header leaves every cell in that column without a label when it is read out.",
+    "howToFix": "Give the header cell a short label, even for a column of icons or actions.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "certain"
+  },
+  {
+    "id": "table-merged-cells",
+    "title": "Table uses merged cells",
+    "why": "Merged cells break the grid a screen reader uses to pair each value with its header, so the reading order can come out scrambled.",
+    "howToFix": "Split the merged cells, or split the table into simple tables with one header row each.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "moderate",
+    "confidence": "review"
+  },
+  {
+    "id": "all-caps-run",
+    "title": "Long run of capital letters",
+    "why": "Some screen readers spell out all-caps words letter by letter, and blocks of capitals are slower for everyone to read.",
+    "howToFix": "Use sentence case and apply bold or a heading if you need the text to stand out.",
+    "wcag": [
+      {
+        "criterion": "3.1.5",
+        "name": "Reading Level",
+        "level": "AAA"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "review"
+  },
+  {
+    "id": "heading-duplicate-text",
+    "title": "Two headings have the same text",
+    "why": "Screen-reader users navigate by jumping between headings; identical headings are impossible to tell apart in that list.",
+    "howToFix": "Make each heading say what distinguishes its section — “Setup on Windows” and “Setup on macOS” rather than “Setup” twice.",
+    "wcag": [
+      {
+        "criterion": "2.4.6",
+        "name": "Headings and Labels",
+        "level": "AA"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "certain"
+  },
+  {
+    "id": "heading-too-long",
+    "title": "Heading reads as a paragraph",
+    "why": "Long headings are hard to scan in a screen reader’s heading list, which is how many users find their way around a page.",
+    "howToFix": "Shorten the heading to a label and move the explanation into the text below it.",
+    "wcag": [
+      {
+        "criterion": "2.4.6",
+        "name": "Headings and Labels",
+        "level": "AA"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "certain"
+  },
+  {
+    "id": "img-alt-redundant",
+    "title": "Alternative text starts with \"image of\"",
+    "why": "Screen readers already announce that the element is an image, so the prefix is read out twice.",
+    "howToFix": "Drop the leading \"image of\" / \"picture of\" and start with what the image actually shows.",
+    "wcag": [
+      {
+        "criterion": "1.1.1",
+        "name": "Non-text Content",
+        "level": "A"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "certain"
+  },
+  {
+    "id": "img-alt-too-long",
+    "title": "Alternative text is very long",
+    "why": "A screen reader reads alt text in one uninterrupted run, so anything past roughly 150 characters is hard to follow.",
+    "howToFix": "Keep the alt text to a short description and move the detail into a caption or the surrounding text.",
+    "wcag": [
+      {
+        "criterion": "1.1.1",
+        "name": "Non-text Content",
+        "level": "A"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "certain"
+  },
+  {
+    "id": "justified-text",
+    "title": "Text is justified",
+    "why": "Justified text creates uneven rivers of white space that people with dyslexia find hard to track.",
+    "howToFix": "Set the paragraph alignment back to left (or right for right-to-left languages).",
+    "wcag": [
+      {
+        "criterion": "1.4.8",
+        "name": "Visual Presentation",
+        "level": "AAA"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "certain"
+  },
+  {
+    "id": "long-paragraph",
+    "title": "Very long paragraph",
+    "why": "A screen reader reads a paragraph as one unbroken block, and long blocks are hard to follow or re-find.",
+    "howToFix": "Break the paragraph into shorter ones, or turn the steps inside it into a list.",
+    "wcag": [
+      {
+        "criterion": "3.1.5",
+        "name": "Reading Level",
+        "level": "AAA"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "review"
+  },
+  {
+    "id": "page-title-duplicate",
+    "title": "Another page in this space has the same title",
+    "why": "Identical titles are impossible to tell apart in search results, breadcrumbs and link lists.",
+    "howToFix": "Make the title unique, for example by naming the team, product or year it belongs to.",
+    "wcag": [
+      {
+        "criterion": "2.4.2",
+        "name": "Page Titled",
+        "level": "A"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "certain"
+  },
+  {
+    "id": "spacing-hard-breaks",
+    "title": "Blank lines used for spacing",
+    "why": "A screen reader announces every empty line, so stacks of them are read out as meaningless pauses.",
+    "howToFix": "Delete the blank lines and use a divider or a heading to separate the sections.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "review"
+  },
+  {
+    "id": "table-layout",
+    "title": "Table appears to be used for layout",
+    "why": "A table announces rows and columns that carry no meaning here, which slows a screen-reader user down for no benefit.",
+    "howToFix": "Use a page layout with columns instead of a table, or add a header row if the table really is data.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "review"
+  }
+]
