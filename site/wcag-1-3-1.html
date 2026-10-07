@@ -48,13 +48,13 @@
   <ul class="checks">
     <li><strong>Heading level is skipped</strong> — Screen-reader users navigate by heading level; a jump from H2 straight to H4 makes the page look like it has missing sections.</li>
     <li><strong>Heading has no text</strong> — An empty heading is announced as a heading with nothing in it, which breaks navigation by headings.</li>
-    <li><strong>H1 used inside the page body</strong> — Confluence already renders the page title as the only H1, so a second H1 in the body gives the page two competing titles.</li>
+    <li><strong>H1 used inside the page body</strong> <span class="muted">(advice, not a failure)</span> — Confluence already renders the page title as the only H1, so a second H1 in the body gives the page two competing titles.</li>
     <li><strong>Bold text used instead of a heading</strong> — Bold text looks like a heading but is not one, so it never appears in the heading list a screen-reader user navigates by.</li>
     <li><strong>Dashes or numbers used instead of a list</strong> — A hand-typed list is read as loose sentences, so a screen-reader user never hears how many items there are or where the list ends.</li>
     <li><strong>Table has no header row</strong> — Without header cells a screen reader reads a wall of values with no way to tell which column each one belongs to.</li>
     <li><strong>Header cell is empty</strong> — An empty header leaves every cell in that column without a label when it is read out.</li>
     <li><strong>Table uses merged cells</strong> — Merged cells break the grid a screen reader uses to pair each value with its header, so the reading order can come out scrambled.</li>
-    <li><strong>Table appears to be used for layout</strong> — A table announces rows and columns that carry no meaning here, which slows a screen-reader user down for no benefit.</li>
+    <li><strong>Table appears to be used for layout</strong> <span class="muted">(for review)</span> — A table announces rows and columns that carry no meaning here, which slows a screen-reader user down for no benefit.</li>
     <li><strong>Blank lines used for spacing</strong> — A screen reader announces every empty line, so stacks of them are read out as meaningless pauses.</li>
   </ul>
   <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>

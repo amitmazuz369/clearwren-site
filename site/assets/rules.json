@@ -127,7 +127,7 @@
       }
     ],
     "severity": "serious",
-    "confidence": "certain"
+    "confidence": "review"
   },
   {
     "id": "status-colour-only",
@@ -235,21 +235,6 @@
     "confidence": "review"
   },
   {
-    "id": "heading-h1-in-body",
-    "title": "H1 used inside the page body",
-    "why": "Confluence already renders the page title as the only H1, so a second H1 in the body gives the page two competing titles.",
-    "howToFix": "Demote body headings to start at H2.",
-    "wcag": [
-      {
-        "criterion": "1.3.1",
-        "name": "Info and Relationships",
-        "level": "A"
-      }
-    ],
-    "severity": "moderate",
-    "confidence": "certain"
-  },
-  {
     "id": "link-ambiguous-duplicate",
     "title": "Same link text points to different pages",
     "why": "Two links reading \"guidelines\" that lead to different pages are indistinguishable in a screen reader’s link list.",
@@ -264,21 +249,6 @@
         "criterion": "2.4.9",
         "name": "Link Purpose (Link Only)",
         "level": "AAA"
-      }
-    ],
-    "severity": "moderate",
-    "confidence": "certain"
-  },
-  {
-    "id": "link-raw-url",
-    "title": "Bare URL used as link text",
-    "why": "A screen reader reads a raw URL character by character, which is slow and tells the listener very little.",
-    "howToFix": "Replace the URL with a short phrase describing the page it opens.",
-    "wcag": [
-      {
-        "criterion": "2.4.4",
-        "name": "Link Purpose (In Context)",
-        "level": "A"
       }
     ],
     "severity": "moderate",
@@ -395,6 +365,21 @@
     "confidence": "certain"
   },
   {
+    "id": "heading-h1-in-body",
+    "title": "H1 used inside the page body",
+    "why": "Confluence already renders the page title as the only H1, so a second H1 in the body gives the page two competing titles.",
+    "howToFix": "Demote body headings to start at H2.",
+    "wcag": [
+      {
+        "criterion": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "review"
+  },
+  {
     "id": "heading-too-long",
     "title": "Heading reads as a paragraph",
     "why": "Long headings are hard to scan in a screen reader’s heading list, which is how many users find their way around a page.",
@@ -453,6 +438,21 @@
     ],
     "severity": "advisory",
     "confidence": "certain"
+  },
+  {
+    "id": "link-raw-url",
+    "title": "Bare URL used as link text",
+    "why": "Best practice, not a failure on its own: a URL tells the reader exactly where the link goes. A screen reader reads a raw URL character by character, which is slow and tells the listener very little.",
+    "howToFix": "Replace the URL with a short phrase describing the page it opens.",
+    "wcag": [
+      {
+        "criterion": "2.4.4",
+        "name": "Link Purpose (In Context)",
+        "level": "A"
+      }
+    ],
+    "severity": "advisory",
+    "confidence": "review"
   },
   {
     "id": "long-paragraph",
