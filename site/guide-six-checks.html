@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The six checks behind most Confluence accessibility failures</title>
-<meta name="description" content="In a study of 1,082 public Confluence pages, six mechanical checks accounted for most of what failed WCAG 2.2. Here is what each one is and how an author closes it, plus two common habits that are advice rather than failures.">
+<meta name="description" content="In a study of 1,182 public Confluence pages, six mechanical checks accounted for most of what failed WCAG 2.2. Here is what each one is and how an author closes it, plus three common habits that are advice rather than failures.">
 <meta property="og:title" content="The six checks behind most Confluence accessibility failures">
-<meta property="og:description" content="In a study of 1,082 public Confluence pages, six mechanical checks accounted for most of what failed WCAG 2.2. Here is what each one is and how an author closes it, plus two common habits that are advice rather than failures.">
+<meta property="og:description" content="In a study of 1,182 public Confluence pages, six mechanical checks accounted for most of what failed WCAG 2.2. Here is what each one is and how an author closes it, plus three common habits that are advice rather than failures.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
@@ -35,18 +35,18 @@
   <div class="wrap">
 <h1>The six checks behind most of it</h1>
 <p class="lede">
-  We measured 1,082 pages across twelve public Confluence sites against WCAG 2.2. Six checks
-  accounted for most of what failed. None of the six needs a specialist to spot, and none
-  needs a redesign to fix. If your space fails on all of them, it is not badly built &mdash;
-  it is unmeasured.
+  We measured 1,182 pages across thirteen public Confluence sites against WCAG 2.2. Six
+  checks accounted for most of what failed. None of the six needs a specialist to spot, and
+  none needs a redesign to fix. If your space fails on all of them, it is not badly built
+  &mdash; it is unmeasured.
 </p>
 
 <div class="prose">
   <p>
-    <em>Updated 7 October 2026.</em> An earlier version of this guide listed bare URLs and a
-    second H1 among the six. Neither fails WCAG on its own, and both are now covered at the
-    end as advice. The figures below come from the recount described in
-    <a href="/study-confluence-accessibility.html">the study</a>.
+    <em>Updated 7 October 2026.</em> An earlier version of this guide listed bare URLs, a
+    second H1 and skipped heading levels among the six. None of them fails WCAG on its own,
+    and all three are now covered at the end as advice. The figures below come from the
+    recount described in <a href="/study-confluence-accessibility.html">the study</a>.
   </p>
 
   <h2>Why these six</h2>
@@ -58,24 +58,11 @@
     tractable rather than daunting.
   </p>
 
-  <h2>1. Text contrast below the AA minimum</h2>
+  <h2>1. Image has no alternative text</h2>
   <p>
-    The largest count: 1,791 issues &mdash; and they sat on just 125 pages. That
-    concentration is the good news. It is almost always one template, one panel style, or one
-    brand grey, chosen once and repeated. You change the value, not 125 pages.
-  </p>
-  <p>
-    Body text needs a contrast ratio of at least 4.5 to 1 against its background; large text
-    needs 3 to 1. The usual culprits are light grey captions, coloured text in panels, and
-    status text that leans on a pale colour. Fix the source style and the whole set clears at
-    once.
-  </p>
-
-  <h2>2. Image has no alternative text</h2>
-  <p>
-    The most widespread certain failure: 1,399 issues, on 249 of the 1,082 pages. In
-    documentation the screenshot is often the instruction, so a missing description removes
-    the step, not a decoration.
+    The most widespread certain failure: 1,474 issues, on 285 of the 1,182 pages and twelve
+    of the thirteen sites. In documentation the screenshot is often the instruction, so a
+    missing description removes the step, not a decoration.
   </p>
   <p>
     In the Cloud editor, click the image and use the alt text field in the toolbar. Describe
@@ -86,11 +73,26 @@
     author.
   </p>
 
+  <h2>2. Text contrast below the AA minimum</h2>
+  <p>
+    1,396 issues &mdash; and they sat on just 114 pages. That concentration is the good news.
+    It is almost always one template, one panel style, or one brand grey, chosen once and
+    repeated. You change the value, not 114 pages.
+  </p>
+  <p>
+    Body text needs a contrast ratio of at least 4.5 to 1 against its background; large text
+    needs 3 to 1. The usual culprits are light grey captions, coloured text in panels, and
+    status text that leans on a pale colour. Fix the source style and the whole set clears at
+    once.
+  </p>
+
   <h2>3. Bold text used instead of a heading</h2>
   <p>
-    365 issues on 124 pages. A bold line with a paragraph under it looks like a heading and
+    461 issues on 146 pages. A bold line with a paragraph under it looks like a heading and
     is not one. A screen reader cannot list it, cannot jump to it, and announces it as
-    ordinary text, so the reader loses the structure a sighted reader sees at a glance.
+    ordinary text, so the reader loses the structure a sighted reader sees at a glance. This
+    one is reported for a person to confirm, because a short bold line is sometimes just
+    emphasis.
   </p>
   <p>
     If a line names a section, make it a real heading at the right level. Reserve bold for
@@ -98,20 +100,9 @@
     page&rsquo;s table of contents.
   </p>
 
-  <h2>4. Heading level skipped</h2>
+  <h2>4. Alternative text that does not describe the image</h2>
   <p>
-    263 issues, and the only failure found on every one of the twelve sites. Jumping from
-    Heading 2 straight to Heading 4 leaves a gap in the outline a screen-reader user
-    navigates by, so it is unclear whether a section is a sub-part or a new topic.
-  </p>
-  <p>
-    Start body headings at Heading 2 and nest downward one level at a time &mdash; H2, then
-    H3 under it. The heading menu in the editor is the whole fix.
-  </p>
-
-  <h2>5. Alternative text that does not describe the image</h2>
-  <p>
-    231 issues &mdash; and the one people do not expect. Here the field was filled in, and
+    258 issues &mdash; and the one people do not expect. Here the field was filled in, and
     the information is still gone: a filename, the word &ldquo;image&rdquo;, or the caption
     from the paragraph above repeated verbatim.
   </p>
@@ -122,9 +113,9 @@
     is teaching.
   </p>
 
-  <h2>6. Link text that does not say where it goes</h2>
+  <h2>5. Link text that does not say where it goes</h2>
   <p>
-    84 issues on 50 pages, across eleven of the twelve sites. &ldquo;Click here&rdquo;,
+    59 issues on 41 pages, across eleven of the thirteen sites. &ldquo;Click here&rdquo;,
     &ldquo;more&rdquo; and &ldquo;this page&rdquo; tell a listener nothing when links are read
     out as a list. WCAG allows the surrounding sentence to explain a link, so these are
     reported for a person to confirm rather than as certain failures.
@@ -135,25 +126,42 @@
     on its own.
   </p>
 
-  <h2>Two common habits that are advice, not failures</h2>
+  <h2>6. Data table with no header row</h2>
   <p>
-    <strong>Bare URLs as link text</strong> were the most frequent finding of all: 921 on 286
+    58 issues on 44 pages, on twelve of the thirteen sites. Without header cells a screen
+    reader reads a grid of values with no way to tell which column each one belongs to. A
+    table used only to place images side by side is layout, not data, and is not counted
+    here.
+  </p>
+  <p>
+    Select the first row and turn on &ldquo;Header row&rdquo; in the table toolbar. If the
+    table only arranges content, use a page layout with columns instead.
+  </p>
+
+  <h2>Three common habits that are advice, not failures</h2>
+  <p>
+    <strong>Bare URLs as link text</strong> were the most frequent finding of all: 846 on 293
     pages, on every site. A URL names its own destination, so it does not fail WCAG, but a
     long one is read aloud character by character. Where you can, link a short name instead.
   </p>
   <p>
-    <strong>An H1 inside the page body</strong> appeared 645 times on 158 pages. Confluence
+    <strong>An H1 inside the page body</strong> appeared 636 times on 178 pages. Confluence
     already uses the page title as the H1, so a second one is untidy rather than a barrier.
-    Start body headings at Heading 2.
+  </p>
+  <p>
+    <strong>Skipped heading levels</strong> appeared 137 times on 76 pages, on every site.
+    WCAG does not require levels to run in sequence, but an outline that jumps from Heading 2
+    to Heading 4 is harder to follow. Start body headings at Heading 2 and nest one level at
+    a time.
   </p>
 
   <h2>The order to work in</h2>
   <p>
-    Contrast first, because it is one change for the largest count. Then the two heading
-    checks together, because authors fix them with the same menu in the same pass. Then the
-    two alt-text checks, missing before inadequate, since the first needs a rule and the
-    second needs a short piece of training. Vague links and bare URLs can be cleaned
-    continuously by whoever edits a page next.
+    Contrast first, because it is one change for a large count. Then the two alt-text checks,
+    missing before inadequate, since the first needs a rule and the second needs a short
+    piece of training. Then headings and tables, which authors fix with the editor toolbar in
+    one pass. Vague links and bare URLs can be cleaned continuously by whoever edits a page
+    next.
   </p>
   <p>
     Measure before and after. &ldquo;We ran an audit&rdquo; is not evidence; a dated count

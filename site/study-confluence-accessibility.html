@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The accessibility of documentation published in Confluence</title>
-<meta name="description" content="1,082 pages across 12 public Confluence sites, measured against WCAG 2.2. About three in five carried no level A or AA failure, no site was clean, and a handful of mechanical checks accounted for most of what failed.">
+<meta name="description" content="1,182 pages across 13 public Confluence sites, measured against WCAG 2.2. Nearly two in three carried no level A or AA failure, no site was clean, and a handful of mechanical checks accounted for most of what failed.">
 <meta property="og:title" content="The accessibility of documentation published in Confluence">
-<meta property="og:description" content="1,082 pages across 12 public Confluence sites, measured against WCAG 2.2. About three in five carried no level A or AA failure, no site was clean, and a handful of mechanical checks accounted for most of what failed.">
+<meta property="og:description" content="1,182 pages across 13 public Confluence sites, measured against WCAG 2.2. Nearly two in three carried no level A or AA failure, no site was clean, and a handful of mechanical checks accounted for most of what failed.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
@@ -42,17 +42,19 @@
 <div class="prose">
   <p>
     <strong>Published 7 September 2026, widened 9 September, recounted 7 October.</strong>
-    1,082 pages across 12 public Confluence Cloud sites, measured against WCAG 2.2 by the
+    1,182 pages across 13 public Confluence Cloud sites, measured against WCAG 2.2 by the
     Clearwren rule engine.
   </p>
 
   <h2>Corrected on 7 October</h2>
   <p>
-    The first version of this page counted two habits as failures: a bare URL used as link
-    text, and an H1 used inside the page body. A reader showed us that neither fails WCAG on
-    its own. A URL names its own destination, and success criterion 2.4.4 lets the sentence
-    around a link explain it. A second H1 is untidy, not a barrier. We also reported a table
-    used only to lay out images as a data table without a header row, which it is not.
+    The first version of this page counted several habits as failures that WCAG does not
+    treat as failures on their own: a bare URL used as link text, an H1 inside the page body,
+    a skipped heading level and an empty heading. A reader showed us the first of these, and
+    checking the rest against WCAG found the others. A URL names its own destination, and
+    success criterion 2.4.4 lets the sentence around a link explain it. WCAG does not require
+    heading levels to run in sequence. We also reported a table used only to lay out images
+    as a data table without a header row, which it is not.
   </p>
   <p>
     We fixed the checker and measured again on a fresh random sample. Those habits are now
@@ -64,16 +66,16 @@
   <table>
     <thead><tr><th>Measure</th><th>Result</th></tr></thead>
     <tbody>
-      <tr><td>Pages measured</td><td><strong>1,082</strong></td></tr>
-      <tr><td>Sites measured</td><td><strong>12</strong></td></tr>
-      <tr><td>Pages with no level A or AA failure</td><td><strong>about three in five</strong> (62% across the sample)</td></tr>
-      <tr><td>Average page score</td><td><strong>75 / 100</strong></td></tr>
-      <tr><td>Distinct issues detected</td><td><strong>6,225</strong>, including advice</td></tr>
-      <tr><td>Of those, rated critical</td><td><strong>3,208</strong></td></tr>
+      <tr><td>Pages measured</td><td><strong>1,182</strong></td></tr>
+      <tr><td>Sites measured</td><td><strong>13</strong></td></tr>
+      <tr><td>Pages with no level A or AA failure</td><td><strong>nearly two in three</strong> (64% across the sample)</td></tr>
+      <tr><td>Average page score</td><td><strong>77 / 100</strong></td></tr>
+      <tr><td>Distinct issues detected</td><td><strong>5,944</strong>, including advice</td></tr>
+      <tr><td>Of those, rated critical</td><td><strong>2,881</strong></td></tr>
     </tbody>
   </table>
   <p>
-    Read the headline figure as three pages in five, not as a precise percentage. A fresh
+    Read the headline figure as two pages in three, not as a precise percentage. A fresh
     random sample of the same sites can move it several points on its own; the section on
     method sets out why.
   </p>
@@ -85,25 +87,26 @@
   <table>
     <thead><tr><th>Check</th><th>Issues</th><th>Pages</th><th>Sites</th></tr></thead>
     <tbody>
-      <tr><td>Text contrast below the AA minimum</td><td>1,791</td><td>125</td><td>10 of 12</td></tr>
-      <tr><td>Image has no alternative text</td><td>1,399</td><td>249</td><td>11 of 12</td></tr>
-      <tr><td>Bold text used instead of a heading</td><td>365</td><td>124</td><td>10 of 12</td></tr>
-      <tr><td>Heading level skipped</td><td>263</td><td>82</td><td>12 of 12</td></tr>
-      <tr><td>Alternative text does not describe the image</td><td>231</td><td>34</td><td>7 of 12</td></tr>
-      <tr><td>Link text does not say where it goes</td><td>84</td><td>50</td><td>11 of 12</td></tr>
+      <tr><td>Image has no alternative text</td><td>1,474</td><td>285</td><td>12 of 13</td></tr>
+      <tr><td>Text contrast below the AA minimum</td><td>1,396</td><td>114</td><td>12 of 13</td></tr>
+      <tr><td>Bold text used instead of a heading</td><td>461</td><td>146</td><td>11 of 13</td></tr>
+      <tr><td>Alternative text does not describe the image</td><td>258</td><td>55</td><td>8 of 13</td></tr>
+      <tr><td>Link text does not say where it goes</td><td>59</td><td>41</td><td>11 of 13</td></tr>
+      <tr><td>Data table has no header row</td><td>58</td><td>44</td><td>12 of 13</td></tr>
     </tbody>
   </table>
   <p>
     Every one of these is mechanical. None needs a specialist to find, and none needs a
     redesign to fix. A documentation estate failing on all of them is not badly built; it is
-    unmeasured. Some are reported for a person to confirm rather than as certain failures:
-    "click here" can be acceptable when the sentence around it says where it goes.
+    unmeasured. Two are reported for a person to confirm rather than as certain failures:
+    bold used as a heading, and "click here", which can be acceptable when the sentence
+    around it says where it goes.
   </p>
   <p>
-    Two habits are more common than any of these, and neither fails on its own: bare URLs
-    used as link text (921 instances on 286 pages, every site) and an H1 inside the page body
-    (645 on 158 pages). Both are worth tidying. Neither is a barrier, and we no longer count
-    them as one.
+    Three habits are common and do not fail WCAG on their own: bare URLs used as link text
+    (846 instances on 293 pages, every site), an H1 inside the page body (636 on 178 pages)
+    and skipped heading levels (137 on 76 pages, every site). All are worth tidying. None is
+    a barrier, and we no longer count them as one.
   </p>
   <p>
     Each check, with the editor step that closes it, is written up in
@@ -112,18 +115,18 @@
 
   <h2>Contrast is concentrated, not spread</h2>
   <p>
-    1,791 contrast issues sit on just 125 pages. That is almost always one template or one
-    colour, chosen once and repeated. It is the largest problem by volume and one of the
-    smallest to actually fix: change the value, not 125 pages.
+    1,396 contrast issues sit on just 114 pages. That is almost always one template or one
+    colour, chosen once and repeated. It is one of the largest problems by volume and one of
+    the smallest to actually fix: change the value, not 114 pages.
   </p>
 
   <h2>The alt text problem is not the one people think</h2>
   <p>
-    Missing alt text is the most widespread certain failure, on 249 of the 1,082 pages. That
+    Missing alt text is the most widespread certain failure, on 285 of the 1,182 pages. That
     is the expected result.
   </p>
   <p>
-    The unexpected one sits below it: 231 further issues where alt text <em>was</em>
+    The unexpected one sits below it: 258 further issues where alt text <em>was</em>
     written and does not describe the image. Filenames, the word "image", a caption
     repeated from the paragraph above. Somebody filled the field in and the information is
     still gone.
@@ -136,36 +139,36 @@
 
   <h2>Software docs are cleaner than knowledge bases</h2>
   <p>
-    Half the sites are public knowledge bases, mostly in education; the other half are
-    open-source software projects and research-computing docs, added to widen the frame.
-    The software docs came in cleaner: 65% of pages with no A or AA failure, against 57% for
-    the knowledge bases.
+    Seven of the sites are public knowledge bases, mostly in education; six are open-source
+    software projects and research-computing docs, added to widen the frame. The software
+    docs came in cleaner: 71% of pages with no A or AA failure, against 57% for the knowledge
+    bases.
   </p>
   <p>
-    The difference is in the kind of failure. Missing alt text sat on 16% of the software
-    pages against 32% of the knowledge-base pages. Bold used as a heading and skipped
-    heading levels went the other way, on 15% and 10% of software pages against 7% and 4%.
-    Those are the failures of writing fast in plain text, rather than the failures of a
-    rich page.
+    The difference is in the kind of failure. Missing alt text sat on 17% of the software
+    pages against 32% of the knowledge-base pages. Bold used as a heading went the other way,
+    on 16% of software pages against 8%. That is the failure of writing fast in plain text,
+    rather than the failure of a rich page.
   </p>
 
   <h2>No site was clean, and the range was wide</h2>
   <p>
     Per-site, the share of pages with no level A or AA failure ran from about a third to
-    about four in five. The best site in the sample still had roughly one page in six
-    carrying a failure; the weakest had more than two in three.
+    nearly nine in ten. The best site in the sample still had roughly one page in eight
+    carrying a failure; the weakest had two in three.
   </p>
   <p>
-    One failure appeared on every site: skipped heading levels. It comes from writing for
-    how a page looks rather than how it is structured.
+    Missing alt text and contrast failures each appeared on twelve of the thirteen sites.
+    Neither is specific to one organisation's habits; both come from how documentation is
+    written everywhere.
   </p>
 
   <h2>Method</h2>
   <ol>
-    <li><strong>Site selection.</strong> Publicly readable Confluence Cloud sites, found
-      through ordinary web search. All serve their content to anonymous visitors by their
-      own configuration. The September runs covered thirteen; one did not respond during the
-      October recount, which therefore covers twelve.</li>
+    <li><strong>Site selection.</strong> Thirteen publicly readable Confluence Cloud sites,
+      found through ordinary web search. All serve their content to anonymous visitors by
+      their own configuration. Seven are public knowledge bases; six are software-project
+      and research-computing documentation, added to widen the frame beyond education.</li>
     <li><strong>Page selection.</strong> The full public page list was enumerated for each
       site, then a random sample of up to 100 pages drawn from it. This matters more than it
       sounds: an early run took the first pages of each space and reported 90% clean.
@@ -174,7 +177,7 @@
     <li><strong>Sampling error.</strong> At 100 pages per site the figure carries real
       noise. Re-drawing the same sites has moved it by up to eight points from the sample
       alone. Treat the precision as about plus or minus eight points, and the honest claim
-      as "between a half and two thirds".</li>
+      as "between a half and three quarters".</li>
     <li><strong>Measurement.</strong> Page bodies were read in Atlassian Document Format,
       the same input the product uses, and evaluated by the same 32 rules across 15 WCAG
       2.2 success criteria. No conversion step, so no fidelity lost. A failure is counted
@@ -187,7 +190,7 @@
 
   <h2>What this does not show</h2>
   <p>
-    Twelve sites is still a small sample, and they were not randomly selected from all
+    Thirteen sites is still a small sample, and they were not randomly selected from all
     Confluence sites — no such list exists. They are the sites that serve their content
     without an account, which is its own kind of selection.
   </p>
