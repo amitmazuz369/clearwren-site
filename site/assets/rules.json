@@ -182,7 +182,7 @@
       }
     ],
     "severity": "moderate",
-    "confidence": "certain"
+    "confidence": "review"
   },
   {
     "id": "fake-list",
@@ -252,7 +252,7 @@
       }
     ],
     "severity": "moderate",
-    "confidence": "certain"
+    "confidence": "review"
   },
   {
     "id": "media-av-no-alternative",
@@ -302,7 +302,7 @@
       }
     ],
     "severity": "moderate",
-    "confidence": "certain"
+    "confidence": "review"
   },
   {
     "id": "table-empty-header",

@@ -61,7 +61,7 @@
   </p>
   <p>
     Public Confluence spaces, Jira Service Management help centres and Confluence-published
-    documentation all fall inside that scope. And the content that fails is rarely the
+    documentation can all fall inside that scope. And the content that fails is rarely the
     template — it is the thousands of pages your teams wrote by hand.
   </p>
 </div>
@@ -105,8 +105,8 @@
 <div class="note">
   <p style="margin:0">
     Every check runs inside Atlassian's own Forge platform. Page content is read, evaluated
-    in memory and discarded; only scores and issue locations are stored, and they are stored
-    in Forge storage inside your tenant. Clearwren operates no servers, and page content is
+    in memory and discarded; only scores, issue locations and a short quoted fragment of each
+    finding are stored, and they are stored in Forge storage inside your tenant. Clearwren operates no servers, and page content is
     never sent anywhere — including to us.
   </p>
 </div>
@@ -114,8 +114,10 @@
 <h2>What it does not claim</h2>
 <div class="prose">
   <p>
-    No automated tool can certify accessibility. Roughly a third of WCAG success criteria
-    need a person to judge meaning, reading order or whether a media alternative is
+    No automated tool can certify accessibility. Clearwren tests 12 of the 55 level A and AA
+    success criteria in WCAG 2.2: the ones written page content can break and a rule can check.
+    Most of the rest concern the Confluence interface itself, which is Atlassian's to meet;
+    others need a person to judge meaning, reading order or whether a media alternative is
     adequate. Clearwren decides what can be decided from the content, marks the rest for
     review, and says plainly which is which — in the app and in the report.
   </p>
