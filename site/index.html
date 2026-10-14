@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Clearwren — accessibility checking for Confluence Cloud</title>
-<meta name="description" content="Check every Confluence page against WCAG 2.2 A and AA, fix issues in place, and publish the conformance report your auditor asks for. Runs entirely inside Atlassian.">
+<meta name="description" content="Check every Confluence page against WCAG 2.2 A and AA, fix issues in place, and publish a dated conformance report as evidence for your audit. Runs entirely inside Atlassian.">
 <meta property="og:title" content="Clearwren — accessibility checking for Confluence Cloud">
-<meta property="og:description" content="Check every Confluence page against WCAG 2.2 A and AA, fix issues in place, and publish the conformance report your auditor asks for. Runs entirely inside Atlassian.">
+<meta property="og:description" content="Check every Confluence page against WCAG 2.2 A and AA, fix issues in place, and publish a dated conformance report as evidence for your audit. Runs entirely inside Atlassian.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="stylesheet" href="/assets/home.css">
@@ -15,6 +15,7 @@
 <link rel="apple-touch-icon" href="/assets/clearwren-wren-144.png">
 </head>
 <body>
+<a class="skip" href="#content">Skip to content</a>
 <header class="site">
   <div class="wrap">
     <a class="brand" href="/"><svg width="26" height="26" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
@@ -42,7 +43,7 @@
     </nav>
   </div>
 </header>
-<main class="full">
+<main class="full" id="content" tabindex="-1">
 <div class="x-home x-js-off" id="x-home">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <filter id="x-f-deut"><feColorMatrix type="matrix" values="0.367322 0.860646 -0.227968 0 0  0.280085 0.672501 0.047413 0 0  -0.011820 0.042940 0.968881 0 0  0 0 0 1 0"/></filter>
@@ -54,29 +55,66 @@
     <div class="x-toprow">
       <p class="x-eyebrow"><span class="x-dot" aria-hidden="true"></span>Accessibility checks for Confluence Cloud</p>
       <div class="x-tools x-js-only" hidden>
-        <button class="x-tool" id="x-open-pal" aria-haspopup="dialog">Search WCAG <span class="x-kbd" aria-hidden="true">/</span></button>
+        <button class="x-tool" id="x-open-pal" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K">Search WCAG <span class="x-kbd" id="x-kbd" aria-hidden="true">Ctrl K</span></button>
         <button class="x-tool" id="x-motion" aria-pressed="false">Pause animations</button>
       </div>
     </div>
     <h1 id="x-hero-h">Every page your team writes, checked against WCAG 2.2 <span class="x-rot" id="x-rot">as you write.</span></h1>
-    <p class="x-lede">32 checks across 15 WCAG success criteria, inside Confluence Cloud. Try the editor below: it is live. Break something and watch it get caught.</p>
+    <p class="x-lede">32 checks across 15 WCAG success criteria, inside Confluence Cloud. Write a page below and get a score in seconds.</p>
     <div class="x-ctas">
       <a class="x-btn x-btn-light" href="https://marketplace.atlassian.com/apps/2203523728/wcag-ada-accessibility-checker-for-confluence?utm_source=clearwren.com&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=home-hero">Get it on the Marketplace</a>
-      <a class="x-btn x-btn-glass" href="/checker.html">Check one page free</a>
+      <a class="x-btn x-btn-glass" href="#lab">Try it on a page</a>
     </div>
 
-    <div class="x-lab x-js-only" id="x-lab" role="region" aria-label="Live lab: a working mini checker" hidden>
+    <div class="x-basics" role="region" aria-labelledby="x-basics-h">
+      <h2 class="x-basics-h" id="x-basics-h">In plain words</h2>
+      <div class="x-basics-grid">
+        <div class="x-basic"><h3>Who we are</h3><p>Clearwren is a small, independent software company. We make one thing: an accessibility checker for Atlassian Confluence.</p></div>
+        <div class="x-basic"><h3>What it does</h3><p>It reads your Confluence pages, finds what makes them hard to use for people with disabilities, such as pictures with no description or headings out of order, and shows how to fix each one.</p></div>
+        <div class="x-basic"><h3>Who it is for</h3><p>Teams that publish in Confluence Cloud and need to meet accessibility rules: universities, public bodies and the companies that work with them.</p></div>
+        <div class="x-basic"><h3>What it costs</h3><p>You install it from the Atlassian Marketplace. It is free for sites of 10 users or fewer, with a 30-day free trial for everyone else. Your pages never leave Atlassian.</p></div>
+      </div>
+    </div>
+
+    <div class="x-stats" id="x-stats">
+      <div class="x-stat"><span class="x-big" data-count="32">32</span><span>checks in every scan</span></div>
+      <div class="x-stat"><span class="x-big" data-count="15">15</span><span>WCAG criteria, 12 of them at A and AA</span></div>
+      <div class="x-stat"><span class="x-big" data-count="1182">1,182</span><span>public pages in our study</span></div>
+      <div class="x-stat"><span class="x-big" data-count="30">30</span><span>day free trial on any site</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="x-block x-labsec" id="lab" aria-labelledby="x-lab-h">
+  <div class="wrap">
+    <div class="x-head">
+      <span class="x-tag">Live lab</span>
+      <h2 id="x-lab-h" tabindex="-1">Write a page, get a score.</h2>
+      <p>This runs the same checks as the app, in your browser. Write your own page, or step through ten examples. Nothing you type is sent anywhere.</p>
+    </div>
+    <noscript><p>The live lab needs JavaScript. The <a href="/checker.html">free checker</a> works on any page you paste in.</p></noscript>
+    <div class="x-exbar x-js-only" hidden>
+      <span class="x-exname" id="x-ex-name" aria-live="polite"></span>
+      <div class="x-exbtns">
+        <button class="x-sbtn" id="x-own">Write your own page</button>
+        <button class="x-sbtn solid" id="x-next">Next example</button>
+      </div>
+    </div>
+    <div class="x-lab x-js-only" role="region" aria-label="Live lab" hidden>
       <div class="x-col">
-        <div class="x-colh"><label for="x-src">Write, with Markdown shortcuts</label><button class="x-linkbtn" id="x-reset">Reset example</button></div>
-        <textarea id="x-src" spellcheck="false" aria-describedby="x-src-hint"></textarea>
-        <div class="x-hint" id="x-src-hint">Try a heading that skips a level, an image with empty brackets or a link that says “click here”. Findings update as you type.</div>
+        <div class="x-colh"><span>Your page</span></div>
+        <label class="x-fieldlabel" for="x-title">Page title</label>
+        <input class="x-titlein" id="x-title" type="text" autocomplete="off" placeholder="For example: Travel policy">
+        <label class="x-fieldlabel" for="x-src">Page content</label>
+        <textarea id="x-src" spellcheck="false" aria-describedby="x-src-hint" placeholder="## A heading&#10;A paragraph with a [link](https://example.com/page).&#10;![What the picture shows](photo.png)"></textarea>
+        <div class="x-hint" id="x-src-hint">Use <code>##</code> for headings, <code>**bold**</code>, <code>- </code> for lists, <code>![description](photo.png)</code> for pictures and <code>[text](link)</code> for links.</div>
       </div>
       <div class="x-col">
-        <div class="x-colh"><span>Page preview</span><span class="x-mono" id="x-pv-count" aria-hidden="true"></span></div>
+        <div class="x-colh"><span>Preview</span><span class="x-mono" id="x-pv-count" aria-hidden="true"></span></div>
         <div class="x-pv" id="x-pv" role="img" aria-label="Preview of your page"></div>
       </div>
       <div class="x-col">
-        <div class="x-colh"><span>Clearwren</span><span class="x-mono">WCAG 2.2 AA</span></div>
+        <div class="x-colh"><span>Result</span><span class="x-mono">WCAG 2.2 AA</span></div>
         <div class="x-score">
           <div class="x-ring" id="x-ring" aria-hidden="true"><span id="x-ring-n">0</span></div>
           <div><span class="x-score-t" id="x-score-t">Checking</span><span class="x-score-s" id="x-score-s"></span></div>
@@ -89,16 +127,8 @@
           <span class="x-s">Nothing flagged on this page. In the app, the check runs while you write.</span>
         </div>
         <div class="x-actions"><button class="x-sbtn solid" id="x-fixall">Fix everything</button></div>
-        <div class="x-hint">Here we fill in example descriptions. In the app, your team writes them.</div>
+        <div class="x-hint">Fix fills in example text. In the app, your team writes it.</div>
       </div>
-    </div>
-    <noscript><p class="x-lede" style="margin-top:28px">The live demo needs JavaScript. The <a href="/checker.html" style="color:#8cc2f5">free checker</a> works on any page you paste in.</p></noscript>
-
-    <div class="x-stats" id="x-stats">
-      <div class="x-stat"><span class="x-big" data-count="32">32</span><span>checks in every scan</span></div>
-      <div class="x-stat"><span class="x-big" data-count="15">15</span><span>WCAG criteria, 12 of them at A and AA</span></div>
-      <div class="x-stat"><span class="x-big" data-count="1182">1,182</span><span>public pages in our study</span></div>
-      <div class="x-stat"><span class="x-big" data-count="30">30</span><span>day free trial on any site</span></div>
     </div>
   </div>
 </section>
@@ -107,7 +137,7 @@
   <div class="wrap">
     <div class="x-head">
       <span class="x-tag">Contrast lab</span>
-      <h2 id="x-cx-h">Would your colours pass?</h2>
+      <h2 id="x-cx-h" tabindex="-1">Would your colours pass?</h2>
       <p>Pick any two colours. The ratio is calculated the way WCAG defines it, and the lab can find the nearest text colour that passes.</p>
     </div>
     <div class="x-cx x-js-only" hidden>
@@ -118,7 +148,8 @@
         <div class="x-nm">Submit expense reports by the 5th of each month. Late reports are processed in the next cycle.</div>
       </div>
       <div class="x-card x-cx-panel">
-        <div class="x-ratio" aria-live="polite" aria-atomic="true"><span class="x-r" id="x-cx-ratio">4.5</span><span class="x-u">: 1</span><span class="sr-only">contrast ratio</span></div>
+        <div class="x-ratio"><span class="x-r" id="x-cx-ratio">4.5</span><span class="x-u">: 1</span><span class="sr-only">contrast ratio</span></div>
+        <div class="sr-only" id="x-cx-status" aria-live="polite"></div>
         <div class="x-meter" aria-hidden="true"><div class="x-fill" id="x-cx-fill"></div><div class="x-tick" style="left:14.3%"><small>3</small></div><div class="x-tick" style="left:21.4%"><small>4.5</small></div><div class="x-tick" style="left:33.3%"><small>7</small></div></div>
         <div class="x-badges" id="x-cx-badges"></div>
         <div class="x-pickers">
@@ -136,7 +167,7 @@
   <div class="wrap">
     <div class="x-head">
       <span class="x-tag">Simulator</span>
-      <h2 id="x-sim-h">See the same page the way your readers do.</h2>
+      <h2 id="x-sim-h" tabindex="-1">See the same page the way your readers do.</h2>
       <p>One Confluence page, five ways of reading it. Then switch on the fixes and see what changes.</p>
     </div>
     <div class="x-js-only" hidden>
@@ -166,7 +197,7 @@
   <div class="wrap">
     <div class="x-head">
       <span class="x-tag">Coverage map</span>
-      <h2 id="x-cov-h">Exactly what gets checked.</h2>
+      <h2 id="x-cov-h" tabindex="-1">Exactly what gets checked.</h2>
       <p>Every success criterion in a scan, grouped by WCAG principle. Select one to see its checks, or see the <a href="/checks.html">full list of checks</a>.</p>
     </div>
     <div class="x-js-only" hidden>
@@ -188,7 +219,7 @@
   <div class="wrap">
     <div class="x-head">
       <span class="x-tag">Space estimate</span>
-      <h2 id="x-est-h">What would a scan of your space find?</h2>
+      <h2 id="x-est-h" tabindex="-1">What would a scan of your space find?</h2>
       <p>An estimate from our <a href="/study-confluence-accessibility.html">study of 1,182 pages across 13 public Confluence sites</a>. Your space will differ; a scan tells you exactly.</p>
     </div>
     <div class="x-est x-js-only" hidden>
@@ -196,9 +227,10 @@
         <label for="x-pages">Pages in your space</label>
         <input type="range" id="x-pages" min="50" max="20000" step="50" value="2000" aria-valuetext="2,000 pages">
         <div class="x-estnum"><input type="number" id="x-pages-n" min="1" max="200000" value="2000" aria-label="Pages in your space, exact number"><span class="x-small">pages</span></div>
-        <div class="x-estbig"><span class="x-r" id="x-est-total">0</span><p>pages likely to have at least one level A or AA failure (about 36% in our study).</p></div>
+        <div class="x-estbig"><span class="x-r" id="x-est-total" aria-hidden="true">0</span><p>pages likely to have at least one level A or AA failure (about 36% in our study).</p></div>
       </div>
-      <div class="x-card x-estout" id="x-est-bars" aria-live="polite"></div>
+      <div class="x-card x-estout" id="x-est-bars"></div>
+      <div class="sr-only" id="x-est-status" aria-live="polite"></div>
     </div>
   </div>
 </section>
@@ -207,14 +239,14 @@
   <div class="wrap">
     <div class="x-head">
       <span class="x-tag">How it works</span>
-      <h2 id="x-how-h">From the first page to the audit, in four steps.</h2>
+      <h2 id="x-how-h" tabindex="-1">From the first page to the audit, in four steps.</h2>
     </div>
     <div class="x-story">
       <div>
         <div class="x-step on" data-scene="0"><span class="x-k" aria-hidden="true">1</span><h3>Check a page as you write it</h3><p>An accessibility score sits in the page byline. Open it to see every issue, why it matters to a real reader, and how to fix it. Missing alt text can be written straight into the page from the panel.</p></div>
         <div class="x-step" data-scene="1"><span class="x-k" aria-hidden="true">2</span><h3>Scan a whole space</h3><p>One click walks every current page in the space and ranks the worst offenders.</p></div>
         <div class="x-step" data-scene="2"><span class="x-k" aria-hidden="true">3</span><h3>Fix the pattern, not the page</h3><p>The scan shows which problems are the most common, so hundreds of missing descriptions become one job.</p></div>
-        <div class="x-step" data-scene="3"><span class="x-k" aria-hidden="true">4</span><h3>Publish the evidence</h3><p>Generate a conformance report as a Confluence page, dated and mapped to WCAG success criteria: the artefact an auditor or procurement questionnaire asks for.</p></div>
+        <div class="x-step" data-scene="3"><span class="x-k" aria-hidden="true">4</span><h3>Publish the evidence</h3><p>Generate a conformance report as a Confluence page, dated and mapped to WCAG success criteria: evidence you can hand to an auditor or add to a procurement file.</p></div>
       </div>
       <div class="x-card x-device x-js-only" id="x-device" aria-hidden="true" hidden></div>
     </div>
@@ -238,7 +270,7 @@
         Accessibility law has stopped being about public websites only. Under
         <strong>ADA Title II</strong>, US state and local government content must meet WCAG 2.1
         level AA by 26 April 2027 for populations of 50,000 or more, and by 26 April 2028 below
-        that. The <strong>European Accessibility Act</strong> has been in force since 28 June
+        that. The <strong>European Accessibility Act</strong> has applied since 28 June
         2025. <strong>Section 508</strong> binds US federal agencies and the contractors who
         supply them.
       </p>
@@ -281,7 +313,8 @@
   <ul class="x-pallist" id="x-pal-list" role="listbox" aria-label="Results"></ul>
   <div class="x-palfoot" aria-hidden="true"><span>Arrows to move</span><span>Enter to open</span><span>Esc to close</span></div>
 </dialog>
-<script type="application/json" id="x-data">{"rules":[{"id":"contrast-minimum","title":"Text contrast is below the WCAG AA minimum","confidence":"certain","severity":"critical","wcag":[["1.4.3","Contrast (Minimum)","AA"]]},{"id":"img-alt-missing","title":"Image has no alternative text","confidence":"certain","severity":"critical","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"link-empty","title":"Link has no readable text","confidence":"certain","severity":"critical","wcag":[["2.4.4","Link Purpose (In Context)","A"],["4.1.2","Name, Role, Value","A"]]},{"id":"fake-heading","title":"Bold text used instead of a heading","confidence":"review","severity":"serious","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"img-alt-meaningless","title":"Alternative text does not describe the image","confidence":"certain","severity":"serious","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"link-nondescriptive","title":"Link text does not say where it goes","confidence":"review","severity":"serious","wcag":[["2.4.4","Link Purpose (In Context)","A"]]},{"id":"status-colour-only","title":"Status lozenge has no readable text","confidence":"certain","severity":"serious","wcag":[["1.4.1","Use of Color","A"],["1.1.1","Non-text Content","A"]]},{"id":"table-no-header","title":"Table has no header row","confidence":"certain","severity":"serious","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"colour-only-meaning","title":"Instructions rely on colour alone","confidence":"review","severity":"moderate","wcag":[["1.4.1","Use of Color","A"]]},{"id":"embed-no-label","title":"Embedded content has no accessible name","confidence":"review","severity":"moderate","wcag":[["4.1.2","Name, Role, Value","A"],["2.4.1","Bypass Blocks","A"]]},{"id":"expand-no-title","title":"Collapsible section has no label","confidence":"review","severity":"moderate","wcag":[["2.4.6","Headings and Labels","AA"],["4.1.2","Name, Role, Value","A"]]},{"id":"fake-list","title":"Dashes or numbers used instead of a list","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"heading-empty","title":"Heading has no text","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"],["2.4.6","Headings and Labels","AA"]]},{"id":"heading-skipped-level","title":"Heading level is skipped","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"link-ambiguous-duplicate","title":"Same link text points to different pages","confidence":"review","severity":"moderate","wcag":[["2.4.4","Link Purpose (In Context)","A"],["2.4.9","Link Purpose (Link Only)","AAA"]]},{"id":"media-av-no-alternative","title":"Video or audio may need captions or a transcript","confidence":"review","severity":"moderate","wcag":[["1.2.1","Audio-only and Video-only (Prerecorded)","A"],["1.2.2","Captions (Prerecorded)","A"]]},{"id":"mixed-language","title":"Passage in a different script","confidence":"review","severity":"moderate","wcag":[["3.1.2","Language of Parts","AA"]]},{"id":"page-title-nondescriptive","title":"Page title does not describe the page","confidence":"review","severity":"moderate","wcag":[["2.4.2","Page Titled","A"]]},{"id":"table-empty-header","title":"Header cell is empty","confidence":"certain","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"table-merged-cells","title":"Table uses merged cells","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"all-caps-run","title":"Long run of capital letters","confidence":"review","severity":"advisory","wcag":[["3.1.5","Reading Level","AAA"]]},{"id":"heading-duplicate-text","title":"Two headings have the same text","confidence":"certain","severity":"advisory","wcag":[["2.4.6","Headings and Labels","AA"]]},{"id":"heading-h1-in-body","title":"H1 used inside the page body","confidence":"review","severity":"advisory","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"heading-too-long","title":"Heading reads as a paragraph","confidence":"certain","severity":"advisory","wcag":[["2.4.6","Headings and Labels","AA"]]},{"id":"img-alt-redundant","title":"Alternative text starts with \"image of\"","confidence":"certain","severity":"advisory","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"img-alt-too-long","title":"Alternative text is very long","confidence":"certain","severity":"advisory","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"justified-text","title":"Text is justified","confidence":"certain","severity":"advisory","wcag":[["1.4.8","Visual Presentation","AAA"]]},{"id":"link-raw-url","title":"Bare URL used as link text","confidence":"review","severity":"advisory","wcag":[["2.4.4","Link Purpose (In Context)","A"]]},{"id":"long-paragraph","title":"Very long paragraph","confidence":"review","severity":"advisory","wcag":[["3.1.5","Reading Level","AAA"]]},{"id":"page-title-duplicate","title":"Another page in this space has the same title","confidence":"certain","severity":"advisory","wcag":[["2.4.2","Page Titled","A"]]},{"id":"spacing-hard-breaks","title":"Blank lines used for spacing","confidence":"review","severity":"advisory","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"table-layout","title":"Table appears to be used for layout","confidence":"review","severity":"advisory","wcag":[["1.3.1","Info and Relationships","A"]]}],"study":{"pages":1182,"sites":13,"failing":420,"top":[["Image has no alternative text",285],["Bold text used instead of a heading",146],["Text contrast is below the WCAG AA minimum",114],["Heading level is skipped",76],["Alternative text does not describe the image",55]]}}</script>
+<script src="/assets/checker.js" defer></script>
+<script type="application/json" id="x-data">{"rules":[{"id":"contrast-minimum","title":"Text contrast is below the WCAG AA minimum","howToFix":"Pick a darker text colour or a lighter background until the pair reaches 4.5:1 (3:1 for large headings).","confidence":"certain","severity":"critical","wcag":[["1.4.3","Contrast (Minimum)","AA"]]},{"id":"img-alt-missing","title":"Image has no alternative text","howToFix":"Select the image, open the image toolbar and add alt text that conveys the same information as the picture. If it is purely decorative, mark it as decorative so it is skipped.","confidence":"certain","severity":"critical","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"link-empty","title":"Link has no readable text","howToFix":"Add link text, or if the link wraps an image, give the image alt text.","confidence":"certain","severity":"critical","wcag":[["2.4.4","Link Purpose (In Context)","A"],["4.1.2","Name, Role, Value","A"]]},{"id":"fake-heading","title":"Bold text used instead of a heading","howToFix":"Select the line and apply a real heading level from the text-style menu.","confidence":"review","severity":"serious","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"img-alt-meaningless","title":"Alternative text does not describe the image","howToFix":"Replace the alt text with a sentence describing the information the image conveys in this context.","confidence":"certain","severity":"serious","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"link-nondescriptive","title":"Link text does not say where it goes","howToFix":"Rewrite the link text to name the destination, for example \"2026 onboarding checklist\" instead of \"click here\".","confidence":"review","severity":"serious","wcag":[["2.4.4","Link Purpose (In Context)","A"]]},{"id":"status-colour-only","title":"Status lozenge has no readable text","howToFix":"Give the lozenge a word — “Done”, “Blocked”, “At risk” — so the meaning survives without the colour.","confidence":"certain","severity":"serious","wcag":[["1.4.1","Use of Color","A"],["1.1.1","Non-text Content","A"]]},{"id":"table-no-header","title":"Table has no header row","howToFix":"Select the first row and turn on \"Header row\" in the table toolbar.","confidence":"certain","severity":"serious","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"colour-only-meaning","title":"Instructions rely on colour alone","howToFix":"Add a second cue alongside the colour — a label, an icon, or bold text — and refer to that instead.","confidence":"review","severity":"moderate","wcag":[["1.4.1","Use of Color","A"]]},{"id":"embed-no-label","title":"Embedded content has no accessible name","howToFix":"Add a title or a short line of text above the embed saying what it contains.","confidence":"review","severity":"moderate","wcag":[["4.1.2","Name, Role, Value","A"],["2.4.1","Bypass Blocks","A"]]},{"id":"expand-no-title","title":"Collapsible section has no label","howToFix":"Type a short label into the collapsible section’s title field.","confidence":"review","severity":"moderate","wcag":[["2.4.6","Headings and Labels","AA"],["4.1.2","Name, Role, Value","A"]]},{"id":"fake-list","title":"Dashes or numbers used instead of a list","howToFix":"Select the lines and apply a bulleted or numbered list.","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"heading-empty","title":"Heading has no text","howToFix":"Give the heading text, or convert the empty line back to a normal paragraph.","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"],["2.4.6","Headings and Labels","AA"]]},{"id":"heading-skipped-level","title":"Heading level is skipped","howToFix":"Step heading levels down one at a time — an H2 section contains H3 subsections, not H4.","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"link-ambiguous-duplicate","title":"Same link text points to different pages","howToFix":"Make each link text unique, for example \"security guidelines\" and \"brand guidelines\".","confidence":"review","severity":"moderate","wcag":[["2.4.4","Link Purpose (In Context)","A"],["2.4.9","Link Purpose (Link Only)","AAA"]]},{"id":"media-av-no-alternative","title":"Video or audio may need captions or a transcript","howToFix":"Confirm the file has captions, or add a transcript or summary on the page next to it.","confidence":"review","severity":"moderate","wcag":[["1.2.1","Audio-only and Video-only (Prerecorded)","A"],["1.2.2","Captions (Prerecorded)","A"]]},{"id":"mixed-language","title":"Passage in a different script","howToFix":"Move the passage to its own page in that language, or add a note naming the language for readers.","confidence":"review","severity":"moderate","wcag":[["3.1.2","Language of Parts","AA"]]},{"id":"page-title-nondescriptive","title":"Page title does not describe the page","howToFix":"Rename the page to something that identifies its topic without the surrounding context.","confidence":"review","severity":"moderate","wcag":[["2.4.2","Page Titled","A"]]},{"id":"table-empty-header","title":"Header cell is empty","howToFix":"Give the header cell a short label, even for a column of icons or actions.","confidence":"certain","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"table-merged-cells","title":"Table uses merged cells","howToFix":"Split the merged cells, or split the table into simple tables with one header row each.","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"all-caps-run","title":"Long run of capital letters","howToFix":"Use sentence case and apply bold or a heading if you need the text to stand out.","confidence":"review","severity":"advisory","wcag":[["3.1.5","Reading Level","AAA"]]},{"id":"heading-duplicate-text","title":"Two headings have the same text","howToFix":"Make each heading say what distinguishes its section — “Setup on Windows” and “Setup on macOS” rather than “Setup” twice.","confidence":"certain","severity":"advisory","wcag":[["2.4.6","Headings and Labels","AA"]]},{"id":"heading-h1-in-body","title":"H1 used inside the page body","howToFix":"Demote body headings to start at H2.","confidence":"review","severity":"advisory","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"heading-too-long","title":"Heading reads as a paragraph","howToFix":"Shorten the heading to a label and move the explanation into the text below it.","confidence":"certain","severity":"advisory","wcag":[["2.4.6","Headings and Labels","AA"]]},{"id":"img-alt-redundant","title":"Alternative text starts with \"image of\"","howToFix":"Drop the leading \"image of\" / \"picture of\" and start with what the image actually shows.","confidence":"certain","severity":"advisory","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"img-alt-too-long","title":"Alternative text is very long","howToFix":"Keep the alt text to a short description and move the detail into a caption or the surrounding text.","confidence":"certain","severity":"advisory","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"justified-text","title":"Text is justified","howToFix":"Set the paragraph alignment back to left (or right for right-to-left languages).","confidence":"certain","severity":"advisory","wcag":[["1.4.8","Visual Presentation","AAA"]]},{"id":"link-raw-url","title":"Bare URL used as link text","howToFix":"Replace the URL with a short phrase describing the page it opens.","confidence":"review","severity":"advisory","wcag":[["2.4.4","Link Purpose (In Context)","A"]]},{"id":"long-paragraph","title":"Very long paragraph","howToFix":"Break the paragraph into shorter ones, or turn the steps inside it into a list.","confidence":"review","severity":"advisory","wcag":[["3.1.5","Reading Level","AAA"]]},{"id":"page-title-duplicate","title":"Another page in this space has the same title","howToFix":"Make the title unique, for example by naming the team, product or year it belongs to.","confidence":"certain","severity":"advisory","wcag":[["2.4.2","Page Titled","A"]]},{"id":"spacing-hard-breaks","title":"Blank lines used for spacing","howToFix":"Delete the blank lines and use a divider or a heading to separate the sections.","confidence":"review","severity":"advisory","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"table-layout","title":"Table appears to be used for layout","howToFix":"Use a page layout with columns instead of a table, or add a header row if the table really is data.","confidence":"review","severity":"advisory","wcag":[["1.3.1","Info and Relationships","A"]]}],"study":{"pages":1182,"sites":13,"failing":420,"top":[["Image has no alternative text",285,"img-alt-missing"],["Bold text used instead of a heading",146,"fake-heading"],["Text contrast is below the WCAG AA minimum",114,"contrast-minimum"],["Heading level is skipped",76,"heading-skipped-level"],["Alternative text does not describe the image",55,"img-alt-meaningless"]]}}</script>
 </div>
 <div class="wrap">
 <aside class="signup">

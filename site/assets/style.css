@@ -48,14 +48,24 @@ body {
 }
 a { color: var(--accent); text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+@media (min-width: 900px) { .wrap { padding: 0 40px; } }
 .prose { max-width: var(--measure); }
 header.site {
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: saturate(180%) blur(8px); z-index: 10;
 }
-header.site .wrap { display: flex; align-items: center; gap: 24px; height: 62px; }
+header.site .wrap { display: flex; align-items: center; gap: 24px; min-height: 62px; }
+/* Small screens: the menu wraps onto its own rows and the header scrolls with the page, so no
+ * link is cut off above the screen and nothing floats over the content (WCAG 1.4.10). */
+@media (max-width: 760px) {
+  header.site { position: static; }
+  header.site .wrap { flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; padding-bottom: 12px; }
+  nav.site { margin-left: 0; width: 100%; gap: 6px 18px; }
+}
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--accent); color: var(--on-accent); padding: 10px 16px; border-radius: var(--radius); font-weight: 600; text-decoration: none; }
+.skip:focus { top: 12px; }
 .brand { font-weight: 650; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 9px; }
 .brand svg { display: block; }
 nav.site { margin-left: auto; display: flex; gap: 20px; flex-wrap: wrap; }
@@ -152,3 +162,4 @@ aside.signup {
 aside.signup h2 { margin: 0 0 .5rem; font-size: 1.15rem; }
 aside.signup p { margin: 0 0 .75rem; }
 aside.signup p:last-child { margin-bottom: 0; }
+main:focus { outline: none; }

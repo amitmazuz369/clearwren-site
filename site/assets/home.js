@@ -73,21 +73,117 @@
   }), { threshold: 0.4 });
   statsIO.observe($('#x-stats'));
 
-  /* ---------- live lab ---------- */
-  const EXAMPLE = [
-    '## Before your first day',
-    '#### Accounts and tools',
-    '**Your first week**',
-    '![](IMG_2041.png)',
-    'Booking a trip? [click here](https://intranet.example/travel-policy)',
-    'PLEASE SUBMIT ALL FORMS BEFORE FRIDAY NOON',
-    '| Day | Session |',
-    '| Monday | Welcome breakfast |',
-    '| Tuesday | Security training |',
-  ].join('\n');
-  const ALT = ['New starters at the welcome breakfast', 'Floor plan of the third floor', 'Diagram of the onboarding steps'];
-  const BAD_LINK = /^(here|click here|read more|more|link|this|this link|go|details|learn more)$/i;
-  const BAD_ALT = /^(image|img|photo|picture|graphic|screenshot|untitled|pic)[\s_-]*\d*$|\.(png|jpe?g|gif|svg|webp)$|^(img|dsc|screenshot)[\s_-]?\d+/i;
+  /* ---------- live lab ----------
+   * The findings and the score come from the real engine (assets/checker.js, the same bundle as
+   * the free checker): the Markdown is turned into HTML, the HTML into ADF, and the ADF is
+   * audited exactly as in the app. Only the "Fix" buttons are demo code: they rewrite the line
+   * the engine pointed at. */
+  const EXAMPLES = [
+    { name: 'Team onboarding', title: 'Welcome to the team', body: [
+      '## Before your first day',
+      '#### Accounts and tools',
+      '**Your first week**',
+      '![](IMG_2041.png)',
+      'Booking a trip? [click here](https://intranet.example/travel-policy)',
+      'Bring a photo ID on your first day.',
+      '| Day | Session |',
+      '| Monday | Welcome breakfast |',
+      '| Tuesday | Security training |'],
+      alts: { 'IMG_2041.png': 'New starters at the welcome breakfast' } },
+    { name: 'Outage report', title: 'Untitled', goodTitle: 'Email outage report, Tuesday', body: [
+      '## Summary',
+      'Email was down for 47 minutes on Tuesday morning.',
+      '### Timeline',
+      '**What happened**',
+      '![](screenshot-1.png)',
+      'Full log: [https://status.example/incidents/email-outage](https://status.example/incidents/email-outage)',
+      '##### Follow-up actions',
+      '- Add a second mail relay',
+      '- Alert the help desk sooner'],
+      alts: { 'screenshot-1.png': 'Mail queue graph: a spike at 9:12 that clears at 9:59' },
+      links: { 'https://status.example/incidents/email-outage': 'Full incident log' } },
+    { name: 'Course syllabus', title: 'Writing 101 syllabus, spring term', body: [
+      '## Course overview',
+      'Writing for academic and professional audiences.',
+      '#### Weekly schedule',
+      '| Week | Topic | Reading |',
+      '| 1 | Audience and purpose | Chapter 1 |',
+      '| 2 | Paragraphs | Chapter 3 |',
+      '**Grading**',
+      'Essays 60%, participation 20%, final portfolio 20%.',
+      'Submit your work on the [link](https://lms.example/writing-101) page.',
+      '![image of the writing center](writing-center.jpg)'],
+      links: { 'https://lms.example/writing-101': 'course site' } },
+    { name: 'Council meeting', title: 'Meeting notes', goodTitle: 'Council meeting, 3 March: parks budget', body: [
+      '## Agenda',
+      '1) Approve the minutes',
+      '2) Parks budget',
+      '3) Public comment',
+      '## Decisions',
+      'THE PARKS BUDGET WAS APPROVED BY FIVE VOTES TO TWO',
+      'The full budget is [here](https://city.example/parks-budget)',
+      '![DSC_0042](DSC_0042.jpg)'],
+      alts: { 'DSC_0042.jpg': 'Council members voting by show of hands' } },
+    { name: 'Release notes', title: 'Release 4.2', body: [
+      '## What is new',
+      '### Faster search',
+      'Search results now load in under a second.',
+      '### Dark mode',
+      '![dark-mode.png](dark-mode.png)',
+      '## Known issues',
+      'Exports over 10,000 rows may time out. See [https://docs.example/exports](https://docs.example/exports)',
+      '## What is new'],
+      alts: { 'dark-mode.png': 'The dashboard in dark mode, with white text on a charcoal background' },
+      links: { 'https://docs.example/exports': 'Export limits' } },
+    { name: 'Benefits overview', title: 'Copy of Benefits overview', goodTitle: 'Benefits overview', body: [
+      '## Health insurance',
+      'Cover starts on your first day.',
+      '## Pension',
+      '**How to enrol**',
+      'Fill in the form and send it to HR. [Read more](https://hr.example/pension-form)',
+      '| | Employee | Employer |',
+      '| --- | --- | --- |',
+      '| Contribution | 5% | 7% |'],
+      links: { 'https://hr.example/pension-form': 'Pension enrolment form' } },
+    { name: 'Lab safety', title: 'Chemistry lab safety rules', body: [
+      '## Before you start',
+      'Goggles and gloves are required at all times.',
+      '### Emergency exits',
+      '![](floor-plan-level-2.png)',
+      '### Chemical spills',
+      'STOP WORK, LEAVE THE ROOM AND CALL THE SAFETY OFFICER AT ONCE',
+      '### Contacts',
+      'Safety office: [link](https://safety.example/contacts)'],
+      alts: { 'floor-plan-level-2.png': 'Floor plan of level 2: exits at both ends of the main corridor' },
+      links: { 'https://safety.example/contacts': 'Safety office contacts' } },
+    { name: 'Product spec', title: 'Search filters: product spec', body: [
+      '# Search filters',
+      '## Problem',
+      'People cannot narrow results by date.',
+      '#### Proposal',
+      'Add a date filter to the results page.',
+      '**Open questions**',
+      '![image of the wireframe](wireframe-v3.png)'] },
+    { name: 'Help article', title: 'How to reset your password', body: [
+      '## Steps',
+      '1) Open the sign-in page',
+      '2) Select Forgot password',
+      '3) Follow the link in the email',
+      '## Still stuck?',
+      'Contact support [here](https://help.example/contact) or chat with us [here](https://help.example/chat)'],
+      links: { 'https://help.example/contact': 'Contact form', 'https://help.example/chat': 'Live chat' } },
+    { name: 'A clean page', title: 'Office opening hours', body: [
+      '## Opening hours',
+      'Monday to Friday, 8:30 to 17:00.',
+      '## How to find us',
+      '![Map: the office is next to the central station, entrance on the north side](map.png)',
+      'Read the [visitor guide](https://office.example/visitor-guide) before you come.',
+      '| Day | Hours |',
+      '| --- | --- |',
+      '| Saturday | Closed |'] },
+  ];
+  const BLANK = { name: 'Your own page', title: '', body: [] };
+  const MARKER = /^\s*([-*•‣▪·]|\(?\d{1,2}[.)])\s+\S/;
   const DAYS = /\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday|january|february|march|april|may|june|july|august|september|october|november|december)\b/g;
   const sentence = (s) => s.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, (c) => c.toUpperCase()).replace(DAYS, (w) => w[0].toUpperCase() + w.slice(1));
   const slugLabel = (u) => {
@@ -97,147 +193,227 @@
     w = w.replace(/[-_]+/g, ' ').trim();
     return w && !/^https?:$/.test(w) && !/\./.test(w) ? w[0].toUpperCase() + w.slice(1) : 'Linked page';
   };
+  const attr = (s) => esc(s);
+  const inlineHtml = (s) => esc(s)
+    .replace(/!\[([^\]]*)\]\(([^)]*)\)/g, (_, a, u) => `<img src="${u}" alt="${a}">`)
+    .replace(/\[([^\]]*)\]\(([^)]*)\)/g, (_, t, u) => `<a href="${u}">${t}</a>`)
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|\W)_([^_]+)_(?=\W|$)/g, '$1<em>$2</em>');
 
-  function analyze(src) {
-    const L = src.split('\n');
-    const out = [];
-    let prev = 1; // Confluence supplies the page title as the H1.
-    let altN = 0;
-    const add = (id, line, fix, extra) => { if (RULE[id]) out.push({ id, line, fix, extra }); };
-    L.forEach((raw, i) => {
-      const line = raw.trimEnd();
-      let m;
-      if ((m = line.match(/^(#{1,6})\s*(.*)$/))) {
-        const lvl = m[1].length; const text = m[2].trim();
-        if (!text) add('heading-empty', i, (A) => A.splice(i, 1));
-        else if (lvl === 1) add('heading-h1-in-body', i, (A) => { A[i] = `## ${text}`; });
-        else if (lvl > prev + 1) { const p = prev; add('heading-skipped-level', i, (A) => { A[i] = `${'#'.repeat(p + 1)} ${text}`; }, `H${p} to H${lvl}`); }
-        if (text) prev = Math.max(lvl, 2);
-        return;
-      }
-      if ((m = line.match(/^\s*\*\*([^*]{1,80})\*\*:?\s*$/))) {
-        const t = m[1].trim(); const lv = Math.min(Math.max(prev, 2), 6);
-        add('fake-heading', i, (A) => { A[i] = `${'#'.repeat(lv)} ${t}`; });
-        return;
-      }
+  /** Markdown subset to HTML, one top-level element per block, and which line each block starts on. */
+  function toHtml(src) {
+    const L = src.split('\n'); const blocks = []; let html = '';
+    const listRe = { ul: /^\s*[-*]\s+/, ol: /^\s*\d+\.\s+/ };
+    for (let i = 0; i < L.length; i++) {
+      const line = L[i]; let m;
+      if (!line.trim()) continue;
+      if ((m = line.match(/^(#{1,6})\s*(.*)$/))) { html += `<h${m[1].length}>${inlineHtml(m[2].trim())}</h${m[1].length}>`; blocks.push({ line: i }); continue; }
       if (/^\s*\|/.test(line)) {
-        if (!/^\s*\|/.test(L[i - 1] || '') && !/^\s*\|?\s*:?-{3,}/.test(L[i + 1] || '')) {
-          const cols = Math.max(1, line.split('|').length - 2);
-          add('table-no-header', i, (A) => A.splice(i + 1, 0, `|${' --- |'.repeat(cols)}`));
-        }
-        return;
+        const start = i; const rows = [];
+        while (i < L.length && /^\s*\|/.test(L[i])) rows.push({ text: L[i], line: i++ });
+        i--;
+        const hasHead = rows.length > 1 && /^\s*\|?\s*:?-{3,}/.test(rows[1].text);
+        const body = rows.filter((r, k) => !(hasHead && k === 1));
+        html += `<table>${body.map((r, k) => `<tr>${r.text.split('|').slice(1, -1).map((c) => { const t = hasHead && k === 0 ? 'th' : 'td'; return `<${t}>${inlineHtml(c.trim())}</${t}>`; }).join('')}</tr>`).join('')}</table>`;
+        blocks.push({ line: start, rows: body.map((r) => r.line) });
+        continue;
       }
-      for (const im of line.matchAll(/!\[([^\]]*)\]\(([^)]*)\)/g)) {
-        const alt = im[1].trim(); const whole = im[0]; const srcU = im[2]; const sug = ALT[altN++ % ALT.length];
-        const rep = (A) => { A[i] = A[i].replace(whole, `![${sug}](${srcU})`); };
-        if (!alt) add('img-alt-missing', i, rep);
-        else if (BAD_ALT.test(alt)) add('img-alt-meaningless', i, rep);
-        else if (/^(an? )?(image|picture|photo) of /i.test(alt)) {
-          const clean = alt.replace(/^(an? )?(image|picture|photo) of /i, '').replace(/^\w/, (c) => c.toUpperCase());
-          add('img-alt-redundant', i, (A) => { A[i] = A[i].replace(whole, `![${clean}](${srcU})`); });
-        }
+      const kind = listRe.ul.test(line) ? 'ul' : listRe.ol.test(line) ? 'ol' : null;
+      if (kind) {
+        const items = [];
+        while (i < L.length && listRe[kind].test(L[i])) items.push({ text: L[i].replace(listRe[kind], ''), line: i++ });
+        i--;
+        html += `<${kind}>${items.map((it) => `<li>${inlineHtml(it.text)}</li>`).join('')}</${kind}>`;
+        blocks.push({ line: items[0].line, rows: items.map((it) => it.line) });
+        continue;
       }
-      for (const lk of line.matchAll(/(^|[^!])\[([^\]]*)\]\(([^)]*)\)/g)) {
-        const text = lk[2].trim(); const url = lk[3]; const whole = `[${lk[2]}](${url})`;
-        const rep = (A) => { A[i] = A[i].replace(whole, `[${slugLabel(url)}](${url})`); };
-        if (!text) add('link-empty', i, rep);
-        else if (BAD_LINK.test(text)) add('link-nondescriptive', i, rep, `“${text}”`);
-        else if (/^https?:\/\//i.test(text)) add('link-raw-url', i, rep);
+      html += `<p>${inlineHtml(line)}</p>`;
+      blocks.push({ line: i });
+    }
+    return { html, blocks };
+  }
+  const lineOf = (issue, blocks) => {
+    const b = blocks[issue.path?.[0]];
+    if (!b) return -1;
+    if (b.rows && issue.path.length > 1 && b.rows[issue.path[1]] !== undefined) return b.rows[issue.path[1]];
+    return b.line;
+  };
+  const prevHeading = (A, i) => { for (let k = i - 1; k >= 0; k--) { const m = A[k].match(/^(#{1,6})\s*\S/); if (m) return m[1].length; } return 1; };
+
+  let current = EXAMPLES[0];
+  /** A fix for the line the engine pointed at, or null when only a person can fix it. */
+  function fixFor(issue, line) {
+    const id = issue.ruleId;
+    if (id === 'page-title-nondescriptive') return current.goodTitle ? () => { titleIn.value = current.goodTitle; } : null;
+    if (line < 0) return null;
+    const rep = (fn) => (A) => { A[line] = fn(A[line], A); };
+    switch (id) {
+      case 'heading-skipped-level': return rep((s) => s.replace(/^#{1,6}/, '#'.repeat((issue.data?.previousLevel ?? 1) + 1)));
+      case 'heading-h1-in-body': return rep((s) => s.replace(/^#\s*/, '## '));
+      case 'heading-empty': return (A) => A.splice(line, 1);
+      case 'fake-heading': return (A) => { const t = A[line].replace(/\*\*/g, '').replace(/:\s*$/, '').trim(); A[line] = `${'#'.repeat(Math.min(Math.max(prevHeading(A, line), 2), 6))} ${t}`; };
+      case 'img-alt-missing':
+      case 'img-alt-meaningless': {
+        const id = issue.data?.mediaId;
+        let done = false;
+        return rep((s) => s.replace(/!\[([^\]]*)\]\(([^)]*)\)/g, (m, a, u) => {
+          if (done || (id && u !== id)) return m;
+          done = true;
+          return `![${current.alts?.[u] ?? 'Description of the image'}](${u})`;
+        }));
       }
-      const plain = line.replace(/\[[^\]]*\]\([^)]*\)/g, ' ');
-      if (/(\b[A-Z][A-Z'’]+\b[\s,.!:]+){4,}\b[A-Z][A-Z'’]+\b/.test(plain)) add('all-caps-run', i, (A) => { A[i] = sentence(A[i]); });
-    });
-    return out;
+      case 'img-alt-redundant': return rep((s) => s.replace(/!\[(?:an? )?(?:image|picture|photo) of ([^\]]*)\]/i, (_, r) => `![${r[0].toUpperCase()}${r.slice(1)}]`));
+      case 'link-nondescriptive': case 'link-empty': case 'link-raw-url': case 'link-ambiguous-duplicate': {
+        const href = issue.data?.href;
+        return rep((s) => s.replace(/(^|[^!])\[([^\]]*)\]\(([^)]*)\)/g, (m, pre, t, u) => {
+          if (href && u !== href) return m;
+          if (!href && !(issue.evidence === t || !t || /^https?:/.test(t))) return m;
+          return `${pre}[${current.links?.[u] ?? slugLabel(u)}](${u})`;
+        }));
+      }
+      case 'all-caps-run': return rep((s) => sentence(s));
+      case 'table-no-header': return (A) => { const cols = Math.max(1, A[line].split('|').length - 2); A.splice(line + 1, 0, `|${' --- |'.repeat(cols)}`); };
+      case 'fake-list': return (A) => { for (let k = line; k < A.length && MARKER.test(A[k]); k++) A[k] = A[k].replace(/^\s*\(?(\d{1,2})[.)]\s+/, '$1. ').replace(/^\s*[•‣▪·]\s+/, '- '); };
+      case 'table-empty-header': return (A) => { A[line] = A[line].replace(/\|\s*\|/, '| Item |'); };
+      case 'heading-duplicate-text': return rep((s) => s.replace(/^(#{1,6}\s*)(.*)$/, (_, h, t) => `${h}${t} (continued)`));
+      default: return null;
+    }
   }
 
   const IMG_ICON = '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 8"/></svg>';
-  const inline = (s) => esc(s)
+  const pvInline = (s) => esc(s)
     .replace(/!\[([^\]]*)\]\(([^)]*)\)/g, (_, a) => `</span><span class="x-pv-img">${IMG_ICON}<span>${a ? `Description: ${a}` : 'No description'}</span></span><span>`)
     .replace(/\[([^\]]*)\]\(([^)]*)\)/g, (_, t) => `<span class="x-pv-a">${t || '&nbsp;&nbsp;&nbsp;'}</span>`)
     .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
-
-  function render(src, finds, glowLine) {
+  function preview(src, byLine, glowLine, title, titleFlag) {
     const L = src.split('\n');
-    const byLine = {};
-    finds.forEach((f, k) => { (byLine[f.line] ||= []).push({ n: k + 1, rv: kindOf(RULE[f.id]) === 'review' }); });
     const cls = (i) => {
       const f = byLine[i]; let c = '';
       if (f) c += ` x-flag${f.every((x) => x.rv) ? ' rv' : ''}" data-n="${f.map((x) => x.n).join(',')}`;
       if (i === glowLine) c += ' x-glow';
       return c;
     };
-    let h = '<div class="x-pv-crumb">Onboarding / New starters</div><div class="x-pv-title">Welcome to the team</div>';
+    const tf = titleFlag ? ` x-flag${titleFlag.rv ? ' rv' : ''}" data-n="${titleFlag.n}` : '';
+    let h = `<div class="x-pv-crumb">Space / Pages</div><div class="x-pv-title${tf}">${esc(title) || '<span class="x-pv-none">No title</span>'}</div>`;
     for (let i = 0; i < L.length; i++) {
       const line = L[i]; let m;
       if (!line.trim()) continue;
-      if ((m = line.match(/^(#{1,6})\s*(.*)$/))) { h += `<div class="x-pv-h${m[1].length}${cls(i)}">${inline(m[2]) || '&nbsp;'}</div>`; continue; }
+      if ((m = line.match(/^(#{1,6})\s*(.*)$/))) { h += `<div class="x-pv-h${m[1].length}${cls(i)}">${pvInline(m[2]) || '&nbsp;'}</div>`; continue; }
       if (/^\s*\|/.test(line)) {
-        const start = i; const rows = [];
-        while (i < L.length && /^\s*\|/.test(L[i])) rows.push(L[i++]);
+        const rows = []; const lines = [];
+        while (i < L.length && /^\s*\|/.test(L[i])) { lines.push(i); rows.push(L[i++]); }
         i--;
         const hasHead = rows.length > 1 && /^\s*\|?\s*:?-{3,}/.test(rows[1]);
-        const cells = (r) => r.split('|').slice(1, -1).map((c) => inline(c.trim()));
-        let t = `<table class="${cls(start).trim()}">`;
+        const flagged = lines.find((k) => byLine[k]);
+        let t = `<table class="${flagged !== undefined ? cls(flagged).trim() : ''}">`;
         rows.forEach((r, k) => {
           if (hasHead && k === 1) return;
           const tag = hasHead && k === 0 ? 'th' : 'td';
-          t += `<tr>${cells(r).map((c) => `<${tag}>${c}</${tag}>`).join('')}</tr>`;
+          t += `<tr>${r.split('|').slice(1, -1).map((c) => `<${tag}>${pvInline(c.trim())}</${tag}>`).join('')}</tr>`;
         });
         h += `${t}</table>`;
         continue;
       }
-      h += `<div class="x-pv-p${cls(i)}"><span>${inline(line)}</span></div>`;
+      const li = line.match(/^\s*([-*]|\d+\.)\s+(.*)$/);
+      if (li) { h += `<div class="x-pv-li${cls(i)}"><span class="x-pv-bul" aria-hidden="true">${/\d/.test(li[1]) ? li[1] : '•'}</span><span>${pvInline(li[2])}</span></div>`; continue; }
+      h += `<div class="x-pv-p${cls(i)}"><span>${pvInline(line)}</span></div>`;
     }
     return h;
   }
 
-  const src = $('#x-src'); const pv = $('#x-pv'); const list = $('#x-findings');
-  let peak = 0; let statusT; let celebrated = false; let finds = [];
+  const src = $('#x-src'); const titleIn = $('#x-title'); const pv = $('#x-pv'); const list = $('#x-findings');
+  let statusT; let celebrated = false; let shownIssues = []; let lastScore = null;
+  const engineReady = () => typeof window.Clearwren?.check === 'function';
   function run(glowLine) {
-    finds = analyze(src.value);
-    peak = Math.max(peak, finds.length);
-    const fails = finds.filter((f) => kindOf(RULE[f.id]) === 'fail').length;
-    pv.innerHTML = render(src.value, finds, glowLine);
-    pv.setAttribute('aria-label', `Preview of your page, ${finds.length} item${finds.length === 1 ? '' : 's'} flagged`);
-    list.innerHTML = finds.map((f, k) => {
-      const r = RULE[f.id]; const kind = kindOf(r); const [c, , lv] = r.wcag[0];
-      return `<li class="x-finding${kind === 'review' ? ' rv' : ''}" style="--i:${k}"><span class="x-n" aria-hidden="true">${k + 1}</span><div><span class="x-t">${esc(r.title)}</span><span class="x-meta"><span class="x-kind">${kind === 'fail' ? 'Fail' : 'Review'}</span> · line ${f.line + 1} · WCAG ${c} (${lv})${f.extra ? ` · ${esc(f.extra)}` : ''}</span></div><button class="x-fixbtn" data-k="${k}" aria-label="Fix ${esc(r.title)}, line ${f.line + 1}">Fix</button></li>`;
+    if (!engineReady()) return;
+    if (!src.value.trim()) {
+      pv.innerHTML = preview('', {}, undefined, titleIn.value.trim(), null);
+      list.innerHTML = '';
+      $('#x-ring').style.background = 'var(--border)'; $('#x-ring-n').textContent = '–'; lastScore = null;
+      $('#x-score-t').textContent = 'Waiting for your page';
+      $('#x-score-s').textContent = 'Write a title and some content to get a score.';
+      $('#x-pv-count').textContent = ''; $('#x-clear').classList.remove('on'); $('#x-fixall').hidden = true;
+      return;
+    }
+    const { html, blocks } = toHtml(src.value);
+    const title = titleIn.value.trim();
+    const { result } = window.Clearwren.check(html, title);
+    shownIssues = result.issues.map((issue) => {
+      const r = RULE[issue.ruleId] ?? { title: issue.ruleId, wcag: [['', '', '']] };
+      const line = lineOf(issue, blocks);
+      const kind = issue.confidence === 'certain' && issue.severity !== 'advisory' && r.wcag.some((w) => w[2] !== 'AAA') ? 'fail' : 'review';
+      return { issue, r, line, kind, fix: fixFor(issue, line) };
+    });
+    const byLine = {}; let titleFlag = null;
+    shownIssues.forEach((f, k) => {
+      const mark = { n: k + 1, rv: f.kind === 'review' };
+      if (f.issue.ruleId.startsWith('page-title')) titleFlag = mark;
+      else if (f.line >= 0) (byLine[f.line] ||= []).push(mark);
+    });
+    pv.innerHTML = preview(src.value, byLine, glowLine, title, titleFlag);
+    pv.setAttribute('aria-label', `Preview of your page, ${shownIssues.length} item${shownIssues.length === 1 ? '' : 's'} flagged`);
+    list.innerHTML = shownIssues.map((f, k) => {
+      const [c, , lv] = f.r.wcag[0];
+      const where = f.issue.ruleId.startsWith('page-title') ? 'title' : f.line >= 0 ? `line ${f.line + 1}` : esc(f.issue.location ?? '');
+      const action = f.fix
+        ? `<button class="x-fixbtn" data-k="${k}" aria-label="Fix ${esc(f.r.title)}, ${where}">Fix</button>`
+        : `<button class="x-fixbtn x-howbtn" data-how="${k}" aria-expanded="false" aria-controls="x-how-${k}">How</button>`;
+      return `<li class="x-finding${f.kind === 'review' ? ' rv' : ''}" style="--i:${k}"><span class="x-n" aria-hidden="true">${k + 1}</span><div><span class="x-t">${esc(f.r.title)}</span><span class="x-meta"><span class="x-kind">${f.kind === 'fail' ? 'Fail' : 'Review'}</span> · ${where}${c ? ` · WCAG ${c} (${lv})` : ''}</span><span class="x-howtext" id="x-how-${k}" hidden>${esc(f.r.howToFix ?? '')}</span></div>${action}</li>`;
     }).join('');
-    const fixed = peak - finds.length; const pct = peak ? Math.round((fixed / peak) * 100) : 100;
-    $('#x-ring').style.background = `conic-gradient(var(--x-pass) ${pct}%, var(--border) 0)`;
-    $('#x-ring-n').textContent = finds.length;
-    $('#x-score-t').textContent = finds.length ? `${finds.length} finding${finds.length === 1 ? '' : 's'}` : 'All clear';
-    $('#x-score-s').textContent = finds.length ? `${fails} fail, ${finds.length - fails} to review · ${fixed} of ${peak} fixed` : (peak ? `${peak} of ${peak} fixed` : 'Nothing flagged');
-    $('#x-pv-count').textContent = finds.length ? `${finds.length} flagged` : '';
-    $('#x-clear').classList.toggle('on', !finds.length);
-    $('#x-fixall').hidden = !finds.length;
+    const fails = shownIssues.filter((f) => f.kind === 'fail').length;
+    const n = shownIssues.length; const score = result.score;
+    const ringColour = score >= 90 ? 'var(--x-pass)' : score >= 70 ? 'var(--x-review)' : 'var(--x-fail)';
+    $('#x-ring').style.background = `conic-gradient(${ringColour} ${score}%, var(--border) 0)`;
+    const rn = $('#x-ring-n');
+    if (lastScore === null || still()) rn.textContent = score; else { rn.dataset.v = lastScore; countTo(rn, score, { dur: 500 }); }
+    lastScore = score;
+    $('#x-score-t').textContent = n ? `Score ${score} · ${n} finding${n === 1 ? '' : 's'}` : `Score ${score} · all clear`;
+    $('#x-score-s').textContent = n ? `${fails} fail, ${n - fails} to review${result.conformant ? ' · no A or AA failure' : ''}` : 'Nothing flagged on this page';
+    $('#x-pv-count').textContent = n ? `${n} flagged` : '';
+    $('#x-clear').classList.toggle('on', !n);
+    $('#x-fixall').hidden = !shownIssues.some((f) => f.fix);
     clearTimeout(statusT);
-    statusT = setTimeout(() => { $('#x-lab-status').textContent = finds.length ? `${finds.length} finding${finds.length === 1 ? '' : 's'}` : 'All clear, nothing flagged'; }, 700);
-    if (!finds.length && peak && !celebrated) { celebrated = true; confetti($('#x-clear')); }
-    if (finds.length) celebrated = false;
+    statusT = setTimeout(() => { $('#x-lab-status').textContent = `Score ${score}, ${n ? `${n} finding${n === 1 ? '' : 's'}` : 'nothing flagged'}`; }, 700);
+    if (!n && !celebrated && current !== EXAMPLES[EXAMPLES.length - 1]) { celebrated = true; confetti($('#x-clear')); }
+    if (n) celebrated = false;
   }
-  function applyFix(f) { const A = src.value.split('\n'); f.fix(A); src.value = A.join('\n'); run(f.line); }
+  function applyFix(f) {
+    const A = src.value.split('\n'); f.fix(A); src.value = A.join('\n');
+    run(f.issue.ruleId.startsWith('page-title') ? undefined : f.line);
+  }
   list.addEventListener('click', (e) => {
+    const how = e.target.closest('.x-howbtn');
+    if (how) { const t = $(`#x-how-${how.dataset.how}`); t.hidden = !t.hidden; how.setAttribute('aria-expanded', String(!t.hidden)); return; }
     const b = e.target.closest('.x-fixbtn'); if (!b) return;
-    applyFix(finds[+b.dataset.k]);
-    ($('.x-fixbtn', list) || $('#x-reset')).focus({ preventScroll: true });
+    applyFix(shownIssues[+b.dataset.k]);
+    ($('.x-fixbtn', list) || $('#x-next')).focus({ preventScroll: true });
   });
   let fixing = false;
   async function fixAll() {
     if (fixing) return; fixing = true;
-    for (let n = 0; n < 30; n++) {
-      const f = analyze(src.value)[0]; if (!f) break;
+    for (let n = 0; n < 40; n++) {
+      const f = shownIssues.find((x) => x.fix); if (!f) break;
       applyFix(f);
       if (!still()) await new Promise((r) => setTimeout(r, 380));
     }
     fixing = false;
-    $('#x-reset').focus({ preventScroll: true });
+    $('#x-next').focus({ preventScroll: true });
+  }
+  let ex = 0;
+  function load(example) {
+    current = example; celebrated = false; lastScore = null;
+    titleIn.value = example.title; src.value = example.body.join('\n');
+    const own = example === BLANK;
+    $('#x-ex-name').textContent = own ? 'Your own page' : `Example ${ex + 1} of ${EXAMPLES.length}: ${example.name}`;
+    run();
   }
   $('#x-fixall').addEventListener('click', fixAll);
   src.addEventListener('input', () => run());
-  const reset = () => { src.value = EXAMPLE; peak = 0; run(); };
-  $('#x-reset').addEventListener('click', reset);
-  reset();
+  titleIn.addEventListener('input', () => run());
+  $('#x-next').addEventListener('click', () => { ex = current === BLANK ? ex : (ex + 1) % EXAMPLES.length; load(EXAMPLES[ex]); });
+  $('#x-own').addEventListener('click', () => { load(BLANK); titleIn.focus(); });
+  const reset = () => { ex = 0; load(EXAMPLES[0]); };
+  if (engineReady()) reset(); else window.addEventListener('load', reset, { once: true });
 
   function confetti(anchor) {
     if (still()) return;
@@ -260,7 +436,8 @@
   const lum = (a) => { const f = (c) => { c /= 255; return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(a[0]) + 0.7152 * f(a[1]) + 0.0722 * f(a[2]); };
   const ratio = (a, b) => { const x = lum(hex2rgb(a)); const y = lum(hex2rgb(b)); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
   const PRESETS = [['Light grey on white', '#9aa4b2', '#ffffff'], ['Blue on navy', '#1c5d99', '#0a1424'], ['Red on green', '#d92d20', '#12b76a'], ['White on orange', '#ffffff', '#f79009'], ['Our blue on white', '#1c5d99', '#ffffff']];
-  let fg = '#9aa4b2'; let bg = '#ffffff';
+  let fg = '#1c5d99'; let bg = '#ffffff';
+  let cxT;
   const floor2 = (r) => Math.floor(r * 100) / 100; // never round a 4.49 up to a pass
   function cx(animate = true) {
     const r = ratio(fg, bg);
@@ -268,6 +445,8 @@
     $('#x-fg').value = fg; $('#x-bg').value = bg;
     if (document.activeElement !== $('#x-fg-hex')) $('#x-fg-hex').value = fg;
     if (document.activeElement !== $('#x-bg-hex')) $('#x-bg-hex').value = bg;
+    clearTimeout(cxT);
+    cxT = setTimeout(() => { $('#x-cx-status').textContent = `Contrast ${floor2(r).toFixed(2)} to 1. ${r >= 4.5 ? 'Passes' : 'Fails'} AA for body text.`; }, 600);
     const el = $('#x-cx-ratio');
     if (animate) countTo(el, floor2(r), { dec: 2, dur: 500 }); else { el.textContent = floor2(r).toFixed(2); el.dataset.v = r; }
     $('#x-cx-fill').style.width = `${Math.min(100, (r / 21) * 100)}%`;
@@ -278,7 +457,7 @@
     fix.textContent = r >= 4.5 ? 'Passes AA for body text' : 'Find the nearest passing colour';
     $$('#x-presets .x-chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.fg === fg && c.dataset.bg === bg)));
   }
-  $('#x-presets').innerHTML = PRESETS.map(([n, f, b]) => `<button class="x-chip" aria-pressed="false" data-fg="${f}" data-bg="${b}"><span class="x-sw" style="background:${b};color:${f}" aria-hidden="true">Aa</span>${n}</button>`).join('');
+  $('#x-presets').innerHTML = PRESETS.map(([n, f, b]) => `<button class="x-chip" aria-pressed="false" data-fg="${f}" data-bg="${b}"><span class="x-sw" style="background:linear-gradient(135deg, ${f} 50%, ${b} 50%)" aria-hidden="true"></span>${n}</button>`).join('');
   $('#x-presets').addEventListener('click', (e) => { const c = e.target.closest('.x-chip'); if (!c) return; fg = c.dataset.fg; bg = c.dataset.bg; cx(); });
   $('#x-fg').addEventListener('input', (e) => { fg = e.target.value; cx(false); });
   $('#x-bg').addEventListener('input', (e) => { bg = e.target.value; cx(false); });
@@ -331,7 +510,6 @@
   let mode = 'typ'; let fixedOn = false; let srTimer;
   const stage = $('#x-stage'); const mock = $('#x-mock');
   function paintMock() {
-    $('#x-m-upd').style.color = fixedOn ? '#505f79' : '#a5adba';
     [['#x-loz1', 'ON TRACK'], ['#x-loz2', 'BLOCKED']].forEach(([s, t]) => { const l = $(s); l.textContent = fixedOn ? t : ''; l.style.padding = fixedOn ? '0 7px' : '0'; });
     const l1 = $('#x-m-l1');
     l1.innerHTML = fixedOn ? 'Candidate name <span class="x-req">*</span>' : 'Candidate name';
@@ -344,6 +522,8 @@
   function setMode(m) {
     mode = m;
     mock.style.filter = { typ: 'none', deut: 'url(#x-f-deut)', blur: 'blur(2.6px)', mono: 'url(#x-f-mono)', sr: 'none' }[m];
+    // The failing grey is shown only in the low-vision demo, so the page itself passes on load.
+    $('#x-m-upd').style.color = m === 'blur' && !fixedOn ? '#a5adba' : '#505f79';
     stage.classList.toggle('sr', m === 'sr');
     const [t, p, r] = EXPL[m];
     const after = fixedOn && m !== 'typ' ? ' <strong>After the fixes,</strong> the meaning no longer depends on colour, contrast or sight alone.' : '';
@@ -412,10 +592,13 @@
   /* ---------- estimator ---------- */
   const S = DATA.study;
   const bars = $('#x-est-bars');
-  bars.innerHTML = `<h3>Most common problems to expect</h3>${S.top.map(([t]) => `<div class="x-bar"><div class="x-lb"><span>${esc(t)}</span><span>0 pages</span></div><div class="x-trk"><i></i></div></div>`).join('')}<p class="x-small" style="margin:0">Expected pages affected, from the share of study pages with each problem. A page can have several. Advisory items are left out.</p>`;
+  bars.innerHTML = `<h3>Most common problems to expect</h3>${S.top.map(([t, , id]) => `<div class="x-bar"><div class="x-lb"><span>${esc(t)}${RULE[id] && kindOf(RULE[id]) === 'review' ? ' <span class="x-revtag">review</span>' : ''}</span><span>0 pages</span></div><div class="x-trk"><i></i></div></div>`).join('')}<p class="x-small" style="margin:0">Expected pages affected, from the share of study pages with each problem. A page can have several. Items marked review need a person to confirm them; advisory items are left out.</p>`;
+  let estT;
   function est() {
     const n = Math.max(1, Math.min(200000, +$('#x-pages-n').value || 1));
     countTo($('#x-est-total'), (n * S.failing) / S.pages, { dur: 600 });
+    clearTimeout(estT);
+    estT = setTimeout(() => { $('#x-est-status').textContent = `About ${fmt((n * S.failing) / S.pages)} of ${fmt(n)} pages likely to have a level A or AA failure.`; }, 700);
     $$('.x-bar', bars).forEach((b, i) => {
       const v = (n * S.top[i][1]) / S.pages;
       b.querySelector('.x-lb span:last-child').textContent = `about ${fmt(v)} pages`;
@@ -468,12 +651,15 @@
 
   /* ---------- search palette ---------- */
   const pal = $('#x-pal'); const q = $('#x-pal-q'); const pl = $('#x-pal-list');
-  const go = (sel) => () => $(sel).scrollIntoView({ behavior: still() ? 'auto' : 'smooth' });
+  const go = (sel) => () => {
+    const sec = $(sel); sec.scrollIntoView({ behavior: still() ? 'auto' : 'smooth' });
+    const h = $('h2[tabindex]', sec); if (h) h.focus({ preventScroll: true });
+  };
   const ITEMS = [
-    ...[['Live lab', '#x-lab'], ['Contrast lab', '#contrast'], ['Simulator', '#simulator'], ['Coverage map', '#coverage'], ['Space estimate', '#estimate'], ['How it works', '#how']].map(([t, h]) => ({ t, hint: 'section', go: go(h) })),
+    ...[['Live lab', '#lab'], ['Contrast lab', '#contrast'], ['Simulator', '#simulator'], ['Coverage map', '#coverage'], ['Space estimate', '#estimate'], ['How it works', '#how']].map(([t, h]) => ({ t, hint: 'section', go: go(h) })),
     ...critKeys.map((c) => ({ t: `${c} ${CRIT[c][0]}`, hint: `WCAG ${CRIT[c][1]}`, go: () => { filterLvl('all'); openCrit(c, true); } })),
     ...DATA.rules.map((r) => ({ t: r.title, hint: r.wcag.map((w) => w[0]).join(', '), go: () => { filterLvl('all'); openCrit(r.wcag[0][0], true); } })),
-    { t: 'Run “Fix everything” in the live lab', hint: 'demo', go: () => { go('#x-lab')(); reset(); setTimeout(fixAll, still() ? 0 : 600); } },
+    { t: 'Run “Fix everything” in the live lab', hint: 'demo', go: () => { go('#lab')(); reset(); setTimeout(fixAll, still() ? 0 : 600); } },
     { t: 'Free checker for one page', hint: 'page', go: () => { location.href = '/checker.html'; } },
   ];
   let shown = []; let act = 0;
@@ -493,6 +679,7 @@
     q.value = ''; act = 0; draw(); pal.showModal(); q.focus();
   }
   function choose(i) { const it = shown[i]; if (!it) return; opener = null; pal.close(); it.go(); }
+  if (/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) $('#x-kbd').textContent = '⌘K';
   $('#x-open-pal').addEventListener('click', openPal);
   q.addEventListener('input', () => { act = 0; draw(); });
   q.addEventListener('keydown', (e) => {
@@ -504,8 +691,6 @@
   pal.addEventListener('click', (e) => { if (e.target === pal) pal.close(); });
   pal.addEventListener('close', () => { if (opener && opener.focus) opener.focus({ preventScroll: true }); });
   document.addEventListener('keydown', (e) => {
-    const a = document.activeElement;
-    const typing = a && (/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) || a.isContentEditable);
-    if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey)) { e.preventDefault(); openPal(); }
+    if (e.key.toLowerCase() === 'k' && (e.metaKey || e.ctrlKey) && !e.altKey) { e.preventDefault(); openPal(); }
   });
 })();
