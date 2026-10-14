@@ -154,11 +154,6 @@
         "criterion": "4.1.2",
         "name": "Name, Role, Value",
         "level": "A"
-      },
-      {
-        "criterion": "2.4.1",
-        "name": "Bypass Blocks",
-        "level": "A"
       }
     ],
     "severity": "moderate",
@@ -339,13 +334,7 @@
     "title": "Long run of capital letters",
     "why": "Some screen readers spell out all-caps words letter by letter, and blocks of capitals are slower for everyone to read.",
     "howToFix": "Use sentence case and apply bold or a heading if you need the text to stand out.",
-    "wcag": [
-      {
-        "criterion": "3.1.5",
-        "name": "Reading Level",
-        "level": "AAA"
-      }
-    ],
+    "wcag": [],
     "severity": "advisory",
     "confidence": "review"
   },

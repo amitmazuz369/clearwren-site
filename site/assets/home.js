@@ -339,7 +339,7 @@
     const title = titleIn.value.trim();
     const { result } = window.Clearwren.check(html, title);
     shownIssues = result.issues.map((issue) => {
-      const r = RULE[issue.ruleId] ?? { title: issue.ruleId, wcag: [['', '', '']] };
+      const r = RULE[issue.ruleId] ?? { title: issue.ruleId, wcag: [] };
       const line = lineOf(issue, blocks);
       const kind = issue.confidence === 'certain' && issue.severity !== 'advisory' && r.wcag.some((w) => w[2] !== 'AAA') ? 'fail' : 'review';
       return { issue, r, line, kind, fix: fixFor(issue, line) };
@@ -353,12 +353,12 @@
     pv.innerHTML = preview(src.value, byLine, glowLine, title, titleFlag);
     pv.setAttribute('aria-label', `Preview of your page, ${shownIssues.length} item${shownIssues.length === 1 ? '' : 's'} flagged`);
     list.innerHTML = shownIssues.map((f, k) => {
-      const [c, , lv] = f.r.wcag[0];
+      const [c, , lv] = f.r.wcag[0] ?? [];
       const where = f.issue.ruleId.startsWith('page-title') ? 'title' : f.line >= 0 ? `line ${f.line + 1}` : esc(f.issue.location ?? '');
       const action = f.fix
         ? `<button class="x-fixbtn" data-k="${k}" aria-label="Fix ${esc(f.r.title)}, ${where}">Fix</button>`
         : `<button class="x-fixbtn x-howbtn" data-how="${k}" aria-expanded="false" aria-controls="x-how-${k}">How</button>`;
-      return `<li class="x-finding${f.kind === 'review' ? ' rv' : ''}" style="--i:${k}"><span class="x-n" aria-hidden="true">${k + 1}</span><div><span class="x-t">${esc(f.r.title)}</span><span class="x-meta"><span class="x-kind">${f.kind === 'fail' ? 'Fail' : 'Review'}</span> · ${where}${c ? ` · WCAG ${c} (${lv})` : ''}</span><span class="x-howtext" id="x-how-${k}" hidden>${esc(f.r.howToFix ?? '')}</span></div>${action}</li>`;
+      return `<li class="x-finding${f.kind === 'review' ? ' rv' : ''}" style="--i:${k}"><span class="x-n" aria-hidden="true">${k + 1}</span><div><span class="x-t">${esc(f.r.title)}</span><span class="x-meta"><span class="x-kind">${f.kind === 'fail' ? 'Fail' : 'Review'}</span> · ${where}${c ? ` · WCAG ${c} (${lv})` : ' · best practice'}</span><span class="x-howtext" id="x-how-${k}" hidden>${esc(f.r.howToFix ?? '')}</span></div>${action}</li>`;
     }).join('');
     const fails = shownIssues.filter((f) => f.kind === 'fail').length;
     const n = shownIssues.length; const score = result.score;
@@ -658,7 +658,7 @@
   const ITEMS = [
     ...[['Live lab', '#lab'], ['Contrast lab', '#contrast'], ['Simulator', '#simulator'], ['Coverage map', '#coverage'], ['Space estimate', '#estimate'], ['How it works', '#how']].map(([t, h]) => ({ t, hint: 'section', go: go(h) })),
     ...critKeys.map((c) => ({ t: `${c} ${CRIT[c][0]}`, hint: `WCAG ${CRIT[c][1]}`, go: () => { filterLvl('all'); openCrit(c, true); } })),
-    ...DATA.rules.map((r) => ({ t: r.title, hint: r.wcag.map((w) => w[0]).join(', '), go: () => { filterLvl('all'); openCrit(r.wcag[0][0], true); } })),
+    ...DATA.rules.filter((r) => r.wcag.length).map((r) => ({ t: r.title, hint: r.wcag.map((w) => w[0]).join(', '), go: () => { filterLvl('all'); openCrit(r.wcag[0][0], true); } })),
     { t: 'Run “Fix everything” in the live lab', hint: 'demo', go: () => { go('#lab')(); reset(); setTimeout(fixAll, still() ? 0 : 600); } },
     { t: 'Free checker for one page', hint: 'page', go: () => { location.href = '/checker.html'; } },
   ];

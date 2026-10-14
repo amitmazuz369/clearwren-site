@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WCAG 2.4.1 Bypass Blocks in Confluence — level A</title>
-<meta name="description" content="There has to be a way to skip past blocks of content that repeat across pages. What it means for Confluence pages, and how to fix it.">
+<meta name="description" content="There has to be a way to skip past blocks of content that repeat across pages. Why that is Atlassian's part in Confluence, and why Clearwren does not test it.">
 <meta property="og:title" content="WCAG 2.4.1 Bypass Blocks in Confluence — level A">
-<meta property="og:description" content="There has to be a way to skip past blocks of content that repeat across pages. What it means for Confluence pages, and how to fix it.">
+<meta property="og:description" content="There has to be a way to skip past blocks of content that repeat across pages. Why that is Atlassian's part in Confluence, and why Clearwren does not test it.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" href="/assets/clearwren-wren.svg" type="image/svg+xml">
@@ -49,16 +49,16 @@
 
 <div class="prose">
   <h2>How it shows up in Confluence</h2>
-  <p>Confluence provides the page furniture, so most of this criterion is Atlassian's responsibility. What lands on the author is embedded content: an unlabelled frame is a block a keyboard user has to enter to find out what it is.</p>
+  <p>The blocks this criterion is about are the ones repeated on every page: the navigation, the
+  header, the sidebar. In Confluence those are Atlassian's interface, not the content your team
+  writes, so meeting 2.4.1 is Atlassian's part of the job.</p>
 
-  <h2>What to do about it</h2>
-  <p>Give embeds a title, or introduce them with a line of text saying what they contain.</p>
-
-  <h2>What Clearwren checks for this criterion</h2>
-  <ul class="checks">
-    <li><strong>Embedded content has no accessible name</strong> — Embedded frames are announced by their title; without one, a screen-reader user hears only "frame".</li>
-  </ul>
-  <p><a class="btn btn-primary" href="/checker.html">Check a page against these</a></p>
+  <h2>What Clearwren checks</h2>
+  <p>Nothing under this criterion. An embed without a title inside one page is not a repeated
+  block, so Clearwren reports it under
+  <a href="/wcag-4-1-2.html">4.1.2 Name, Role, Value</a> instead. Until 14 October 2026 that check
+  was also listed under 2.4.1; it was removed to stay within the wording of the standard.</p>
+  <p><a class="btn btn-primary" href="/wcag.html">See the criteria Clearwren does check</a></p>
 </div>
 
   </div>
