@@ -9,6 +9,8 @@
 <meta property="og:description" content="Check every Confluence page against WCAG 2.2 A and AA, fix issues in place, and publish the conformance report your auditor asks for. Runs entirely inside Atlassian.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/home.css">
+<script src="/assets/home.js" defer></script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='none' stroke='%231c5d99' stroke-width='2'/><path d='M7.4 12.3l3.1 3.1 6.1-6.6' fill='none' stroke='%231c5d99' stroke-width='2'/></svg>">
 </head>
 <body>
@@ -31,104 +33,253 @@
     </nav>
   </div>
 </header>
-<main>
+<main class="full">
+<div class="x-home x-js-off" id="x-home">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="x-f-deut"><feColorMatrix type="matrix" values="0.367322 0.860646 -0.227968 0 0  0.280085 0.672501 0.047413 0 0  -0.011820 0.042940 0.968881 0 0  0 0 0 1 0"/></filter>
+  <filter id="x-f-mono"><feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"/></filter>
+</svg>
+
+<section class="x-hero" aria-labelledby="x-hero-h">
   <div class="wrap">
-<section class="hero">
-  <h1>Your Confluence content, checked against WCAG 2.2</h1>
-  <p class="lede">
-    Clearwren checks every page in Confluence Cloud for the accessibility problems people
-    actually create — images without alt text, headings that skip levels, tables without
-    headers, low-contrast text, links that say “click here” — then shows the author how to
-    fix each one without leaving the page.
-  </p>
-  <div class="cta">
-    <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/2203523728/wcag-ada-accessibility-checker-for-confluence?utm_source=clearwren.com&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=home-hero">Get it on the Marketplace</a>
-    <a class="btn btn-ghost" href="/pricing.html">See pricing</a>
-    <a class="btn btn-ghost" href="/checks.html">What it checks</a>
+    <div class="x-toprow">
+      <p class="x-eyebrow"><span class="x-dot" aria-hidden="true"></span>Accessibility checks for Confluence Cloud</p>
+      <div class="x-tools x-js-only" hidden>
+        <button class="x-tool" id="x-open-pal" aria-haspopup="dialog">Search WCAG <span class="x-kbd" aria-hidden="true">/</span></button>
+        <button class="x-tool" id="x-motion" aria-pressed="false">Pause animations</button>
+      </div>
+    </div>
+    <h1 id="x-hero-h">Every page your team writes, checked against WCAG 2.2 <span class="x-rot" id="x-rot">as you write.</span></h1>
+    <p class="x-lede">32 checks across 15 WCAG success criteria, inside Confluence Cloud. Try the editor below: it is live. Break something and watch it get caught.</p>
+    <div class="x-ctas">
+      <a class="x-btn x-btn-light" href="https://marketplace.atlassian.com/apps/2203523728/wcag-ada-accessibility-checker-for-confluence?utm_source=clearwren.com&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=home-hero">Get it on the Marketplace</a>
+      <a class="x-btn x-btn-glass" href="/checker.html">Check one page free</a>
+    </div>
+
+    <div class="x-lab x-js-only" id="x-lab" role="region" aria-label="Live lab: a working mini checker" hidden>
+      <div class="x-col">
+        <div class="x-colh"><label for="x-src">Write, with Markdown shortcuts</label><button class="x-linkbtn" id="x-reset">Reset example</button></div>
+        <textarea id="x-src" spellcheck="false" aria-describedby="x-src-hint"></textarea>
+        <div class="x-hint" id="x-src-hint">Try a heading that skips a level, an image with empty brackets or a link that says “click here”. Findings update as you type.</div>
+      </div>
+      <div class="x-col">
+        <div class="x-colh"><span>Page preview</span><span class="x-mono" id="x-pv-count" aria-hidden="true"></span></div>
+        <div class="x-pv" id="x-pv" role="img" aria-label="Preview of your page"></div>
+      </div>
+      <div class="x-col">
+        <div class="x-colh"><span>Clearwren</span><span class="x-mono">WCAG 2.2 AA</span></div>
+        <div class="x-score">
+          <div class="x-ring" id="x-ring" aria-hidden="true"><span id="x-ring-n">0</span></div>
+          <div><span class="x-score-t" id="x-score-t">Checking</span><span class="x-score-s" id="x-score-s"></span></div>
+        </div>
+        <div class="sr-only" id="x-lab-status" aria-live="polite"></div>
+        <ul class="x-findings" id="x-findings"></ul>
+        <div class="x-clear" id="x-clear">
+          <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" fill="none" stroke="currentColor" stroke-width="2.5" opacity=".25"/><path d="M17 29l7 7 15-16" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="x-t">All clear</span>
+          <span class="x-s">Nothing flagged on this page. In the app, the check runs while you write.</span>
+        </div>
+        <div class="x-actions"><button class="x-sbtn solid" id="x-fixall">Fix everything</button></div>
+        <div class="x-hint">Here we fill in example descriptions. In the app, your team writes them.</div>
+      </div>
+    </div>
+    <noscript><p class="x-lede" style="margin-top:28px">The live demo needs JavaScript. The <a href="/checker.html" style="color:#8cc2f5">free checker</a> works on any page you paste in.</p></noscript>
+
+    <div class="x-stats" id="x-stats">
+      <div class="x-stat"><span class="x-big" data-count="32">32</span><span>checks in every scan</span></div>
+      <div class="x-stat"><span class="x-big" data-count="15">15</span><span>WCAG criteria, 12 of them at A and AA</span></div>
+      <div class="x-stat"><span class="x-big" data-count="1182">1,182</span><span>public pages in our study</span></div>
+      <div class="x-stat"><span class="x-big" data-count="30">30</span><span>day free trial on any site</span></div>
+    </div>
   </div>
-  <p class="muted">Free for sites of 10 users or fewer. Billed by Atlassian on your existing invoice.</p>
 </section>
 
-<h2>The deadline is real, and it applies to your documentation</h2>
-<div class="prose">
-  <p>
-    Accessibility law has stopped being about public websites only. Under
-    <strong>ADA Title II</strong>, US state and local government content must meet WCAG 2.1
-    level AA by 26 April 2027 for populations of 50,000 or more, and by 26 April 2028 below
-    that. The <strong>European Accessibility Act</strong> has been in force since 28 June
-    2025. <strong>Section 508</strong> binds US federal agencies and the contractors who
-    supply them.
-  </p>
-  <p>
-    Public Confluence spaces, Jira Service Management help centres and Confluence-published
-    documentation can all fall inside that scope. And the content that fails is rarely the
-    template — it is the thousands of pages your teams wrote by hand.
-  </p>
-</div>
+<section class="x-block" id="contrast" aria-labelledby="x-cx-h">
+  <div class="wrap">
+    <div class="x-head">
+      <span class="x-tag">Contrast lab</span>
+      <h2 id="x-cx-h">Would your colours pass?</h2>
+      <p>Pick any two colours. The ratio is calculated the way WCAG defines it, and the lab can find the nearest text colour that passes.</p>
+    </div>
+    <div class="x-cx x-js-only" hidden>
+      <div class="x-cx-prev" id="x-cx-prev">
+        <div class="x-lbl">Large text, 24 px</div>
+        <div class="x-lg">Quarterly results are published in the finance space.</div>
+        <div class="x-lbl">Body text, 16 px</div>
+        <div class="x-nm">Submit expense reports by the 5th of each month. Late reports are processed in the next cycle.</div>
+      </div>
+      <div class="x-card x-cx-panel">
+        <div class="x-ratio" aria-live="polite" aria-atomic="true"><span class="x-r" id="x-cx-ratio">4.5</span><span class="x-u">: 1</span><span class="sr-only">contrast ratio</span></div>
+        <div class="x-meter" aria-hidden="true"><div class="x-fill" id="x-cx-fill"></div><div class="x-tick" style="left:14.3%"><small>3</small></div><div class="x-tick" style="left:21.4%"><small>4.5</small></div><div class="x-tick" style="left:33.3%"><small>7</small></div></div>
+        <div class="x-badges" id="x-cx-badges"></div>
+        <div class="x-pickers">
+          <div class="x-picker"><label for="x-fg-hex">Text colour</label><div class="x-row"><input type="color" id="x-fg" aria-label="Text colour picker"><input type="text" id="x-fg-hex" maxlength="7" autocomplete="off"></div></div>
+          <div class="x-picker"><label for="x-bg-hex">Background</label><div class="x-row"><input type="color" id="x-bg" aria-label="Background colour picker"><input type="text" id="x-bg-hex" maxlength="7" autocomplete="off"></div></div>
+        </div>
+        <div class="x-presets" id="x-presets" role="group" aria-label="Examples"></div>
+        <div class="x-actions"><button class="x-sbtn solid" id="x-cx-fix">Find the nearest passing colour</button></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>How it works</h2>
-<div class="grid">
-  <div class="card">
-    <h3>Check a page as you write it</h3>
-    <p>An accessibility score sits in the page byline. Open it to see every issue, why it
-    matters to a real reader, and how to fix it. Missing alt text can be written straight
-    into the page from the panel.</p>
+<section class="x-block" id="simulator" aria-labelledby="x-sim-h">
+  <div class="wrap">
+    <div class="x-head">
+      <span class="x-tag">Simulator</span>
+      <h2 id="x-sim-h">See the same page the way your readers do.</h2>
+      <p>One Confluence page, five ways of reading it. Then switch on the fixes and see what changes.</p>
+    </div>
+    <div class="x-js-only" hidden>
+      <div class="x-tabs" role="tablist" aria-label="Ways of reading the page" id="x-sim-tabs">
+        <button class="x-tab" role="tab" aria-selected="true" aria-controls="x-sim-panel" id="x-t-typ" data-mode="typ">Typical vision</button>
+        <button class="x-tab" role="tab" aria-selected="false" aria-controls="x-sim-panel" id="x-t-deut" data-mode="deut" tabindex="-1">Red–green</button>
+        <button class="x-tab" role="tab" aria-selected="false" aria-controls="x-sim-panel" id="x-t-blur" data-mode="blur" tabindex="-1">Low vision</button>
+        <button class="x-tab" role="tab" aria-selected="false" aria-controls="x-sim-panel" id="x-t-mono" data-mode="mono" tabindex="-1">No colour</button>
+        <button class="x-tab" role="tab" aria-selected="false" aria-controls="x-sim-panel" id="x-t-sr" data-mode="sr" tabindex="-1">Screen reader</button>
+      </div>
+      <div class="x-sim" id="x-sim-panel" role="tabpanel" aria-labelledby="x-t-typ" tabindex="0">
+        <div class="x-stage" id="x-stage">
+          <div class="x-mock" id="x-mock" aria-hidden="true"></div>
+          <div class="x-sro"><div class="x-srbox"><div class="x-hd"><span class="x-dot" aria-hidden="true"></span>Screen reader output</div><ol id="x-sr-lines"></ol></div></div>
+        </div>
+        <div class="x-card x-side">
+          <button class="x-switch" role="switch" aria-checked="false" id="x-fixsw"><span class="x-track" aria-hidden="true"></span><span><span class="x-t">Show after fixes</span><span class="x-s">Apply the changes Clearwren asks for</span></span></button>
+          <div class="x-explain" id="x-explain" aria-live="polite"></div>
+          <div class="x-small">The colour views use a published colour-vision model and are approximations. The screen-reader text is illustrative; real output varies by reader and browser.</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="card">
-    <h3>Scan a whole space</h3>
-    <p>One click walks every current page in the space, ranks the worst offenders, and shows
-    which problems are the most common so you fix the pattern, not the page.</p>
-  </div>
-  <div class="card">
-    <h3>Report across the site</h3>
-    <p>Roll every scanned space into one view: pages checked, pages with no A or AA failure,
-    and where the remaining risk sits.</p>
-  </div>
-  <div class="card">
-    <h3>Publish the evidence</h3>
-    <p>Generate a conformance report as a Confluence page, dated and mapped to WCAG success
-    criteria — the artefact an auditor or procurement questionnaire asks for.</p>
-  </div>
-  <div class="card">
-    <h3>Keep it from drifting back</h3>
-    <p>Scanned spaces are re-checked automatically every week, so a clean space stays clean
-    and regressions surface on their own.</p>
-  </div>
-  <div class="card">
-    <h3>Tune it to your policy</h3>
-    <p>Target level A, AA or AAA. Switch off checks that do not fit your house style. Mark
-    genuinely decorative images so they stop being reported.</p>
-  </div>
-</div>
+</section>
 
-<h2>Nothing leaves your Atlassian site</h2>
-<div class="note">
-  <p style="margin:0">
-    Every check runs inside Atlassian's own Forge platform. Page content is read, evaluated
-    in memory and discarded; only scores, issue locations and a short quoted fragment of each
-    finding are stored, and they are stored in Forge storage inside your tenant. Clearwren operates no servers, and page content is
-    never sent anywhere — including to us.
-  </p>
-</div>
+<section class="x-block" id="coverage" aria-labelledby="x-cov-h">
+  <div class="wrap">
+    <div class="x-head">
+      <span class="x-tag">Coverage map</span>
+      <h2 id="x-cov-h">Exactly what gets checked.</h2>
+      <p>Every success criterion in a scan, grouped by WCAG principle. Select one to see its checks, or see the <a href="/checks.html">full list of checks</a>.</p>
+    </div>
+    <div class="x-js-only" hidden>
+      <div class="x-covbar">
+        <div class="x-seg" role="group" aria-label="Filter by level" id="x-lvl">
+          <button aria-pressed="true" data-l="all">All levels</button><button aria-pressed="false" data-l="A">A</button><button aria-pressed="false" data-l="AA">AA</button><button aria-pressed="false" data-l="AAA">AAA</button>
+        </div>
+        <span class="x-covcount" id="x-cov-count" aria-live="polite"></span>
+      </div>
+      <div class="x-cov">
+        <div id="x-principles"></div>
+        <div class="x-card x-detail" id="x-detail" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>What it does not claim</h2>
-<div class="prose">
-  <p>
-    No automated tool can certify accessibility. Clearwren tests 12 of the 55 level A and AA
-    success criteria in WCAG 2.2: the ones written page content can break and a rule can check.
-    Most of the rest concern the Confluence interface itself, which is Atlassian's to meet;
-    others need a person to judge meaning, reading order or whether a media alternative is
-    adequate. Clearwren decides what can be decided from the content, marks the rest for
-    review, and says plainly which is which — in the app and in the report.
-  </p>
-</div>
+<section class="x-block" id="estimate" aria-labelledby="x-est-h">
+  <div class="wrap">
+    <div class="x-head">
+      <span class="x-tag">Space estimate</span>
+      <h2 id="x-est-h">What would a scan of your space find?</h2>
+      <p>An estimate from our <a href="/study-confluence-accessibility.html">study of 1,182 pages across 13 public Confluence sites</a>. Your space will differ; a scan tells you exactly.</p>
+    </div>
+    <div class="x-est x-js-only" hidden>
+      <div class="x-card x-estin">
+        <label for="x-pages">Pages in your space</label>
+        <input type="range" id="x-pages" min="50" max="20000" step="50" value="2000" aria-valuetext="2,000 pages">
+        <div class="x-estnum"><input type="number" id="x-pages-n" min="1" max="200000" value="2000" aria-label="Pages in your space, exact number"><span class="x-small">pages</span></div>
+        <div class="x-estbig"><span class="x-r" id="x-est-total">0</span><p>pages likely to have at least one level A or AA failure (about 36% in our study).</p></div>
+      </div>
+      <div class="x-card x-estout" id="x-est-bars" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
 
+<section class="x-block" id="how" aria-labelledby="x-how-h">
+  <div class="wrap">
+    <div class="x-head">
+      <span class="x-tag">How it works</span>
+      <h2 id="x-how-h">From the first page to the audit, in four steps.</h2>
+    </div>
+    <div class="x-story">
+      <div>
+        <div class="x-step on" data-scene="0"><span class="x-k" aria-hidden="true">1</span><h3>Check a page as you write it</h3><p>An accessibility score sits in the page byline. Open it to see every issue, why it matters to a real reader, and how to fix it. Missing alt text can be written straight into the page from the panel.</p></div>
+        <div class="x-step" data-scene="1"><span class="x-k" aria-hidden="true">2</span><h3>Scan a whole space</h3><p>One click walks every current page in the space and ranks the worst offenders.</p></div>
+        <div class="x-step" data-scene="2"><span class="x-k" aria-hidden="true">3</span><h3>Fix the pattern, not the page</h3><p>The scan shows which problems are the most common, so hundreds of missing descriptions become one job.</p></div>
+        <div class="x-step" data-scene="3"><span class="x-k" aria-hidden="true">4</span><h3>Publish the evidence</h3><p>Generate a conformance report as a Confluence page, dated and mapped to WCAG success criteria: the artefact an auditor or procurement questionnaire asks for.</p></div>
+      </div>
+      <div class="x-card x-device x-js-only" id="x-device" aria-hidden="true" hidden></div>
+    </div>
+
+    <div class="x-more">
+      <h3>Also included</h3>
+      <div class="grid">
+        <div class="card"><h4>Report across the site</h4><p>Roll every scanned space into one view: pages checked, pages with no A or AA failure, and where the remaining risk sits.</p></div>
+        <div class="card"><h4>Keep it from drifting back</h4><p>Scanned spaces are re-checked automatically every week, so a clean space stays clean and regressions surface on their own.</p></div>
+        <div class="card"><h4>Tune it to your policy</h4><p>Target level A, AA or AAA. Switch off checks that do not fit your house style. Mark genuinely decorative images so they stop being reported.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="x-prose-block" aria-labelledby="x-law-h">
+  <div class="wrap">
+    <h2 id="x-law-h">The deadline is real, and it applies to your documentation</h2>
+    <div class="prose">
+      <p>
+        Accessibility law has stopped being about public websites only. Under
+        <strong>ADA Title II</strong>, US state and local government content must meet WCAG 2.1
+        level AA by 26 April 2027 for populations of 50,000 or more, and by 26 April 2028 below
+        that. The <strong>European Accessibility Act</strong> has been in force since 28 June
+        2025. <strong>Section 508</strong> binds US federal agencies and the contractors who
+        supply them.
+      </p>
+      <p>
+        Public Confluence spaces, Jira Service Management help centres and Confluence-published
+        documentation can all fall inside that scope. And the content that fails is rarely the
+        template — it is the thousands of pages your teams wrote by hand.
+      </p>
+    </div>
+
+    <h2>Nothing leaves your Atlassian site</h2>
+    <div class="note">
+      <p style="margin:0">
+        Every check runs inside Atlassian's own Forge platform. Page content is read, evaluated
+        in memory and discarded; only scores, issue locations and a short quoted fragment of each
+        finding are stored, and they are stored in Forge storage inside your tenant. Clearwren operates no servers, and page content is
+        never sent anywhere — including to us.
+      </p>
+    </div>
+
+    <h2>What it does not claim</h2>
+    <div class="prose">
+      <p>
+        No automated tool can certify accessibility. Clearwren tests 12 of the 55 level A and AA
+        success criteria in WCAG 2.2: the ones written page content can break and a rule can check.
+        Most of the rest concern the Confluence interface itself, which is Atlassian's to meet;
+        others need a person to judge meaning, reading order or whether a media alternative is
+        adequate. Clearwren decides what can be decided from the content, marks the rest for
+        review, and says plainly which is which — in the app and in the report.
+      </p>
+    </div>
+  </div>
+</section>
+
+<dialog class="x-pal" id="x-pal" aria-label="Search WCAG criteria, checks and sections">
+  <div class="x-palin">
+    <input id="x-pal-q" role="combobox" aria-expanded="true" aria-controls="x-pal-list" aria-autocomplete="list" aria-label="Search" placeholder="Search criteria, checks or sections" autocomplete="off">
+    <span class="x-kbd" aria-hidden="true">esc</span>
+  </div>
+  <ul class="x-pallist" id="x-pal-list" role="listbox" aria-label="Results"></ul>
+  <div class="x-palfoot" aria-hidden="true"><span>Arrows to move</span><span>Enter to open</span><span>Esc to close</span></div>
+</dialog>
+<script type="application/json" id="x-data">{"rules":[{"id":"contrast-minimum","title":"Text contrast is below the WCAG AA minimum","confidence":"certain","severity":"critical","wcag":[["1.4.3","Contrast (Minimum)","AA"]]},{"id":"img-alt-missing","title":"Image has no alternative text","confidence":"certain","severity":"critical","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"link-empty","title":"Link has no readable text","confidence":"certain","severity":"critical","wcag":[["2.4.4","Link Purpose (In Context)","A"],["4.1.2","Name, Role, Value","A"]]},{"id":"fake-heading","title":"Bold text used instead of a heading","confidence":"review","severity":"serious","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"img-alt-meaningless","title":"Alternative text does not describe the image","confidence":"certain","severity":"serious","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"link-nondescriptive","title":"Link text does not say where it goes","confidence":"review","severity":"serious","wcag":[["2.4.4","Link Purpose (In Context)","A"]]},{"id":"status-colour-only","title":"Status lozenge has no readable text","confidence":"certain","severity":"serious","wcag":[["1.4.1","Use of Color","A"],["1.1.1","Non-text Content","A"]]},{"id":"table-no-header","title":"Table has no header row","confidence":"certain","severity":"serious","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"colour-only-meaning","title":"Instructions rely on colour alone","confidence":"review","severity":"moderate","wcag":[["1.4.1","Use of Color","A"]]},{"id":"embed-no-label","title":"Embedded content has no accessible name","confidence":"review","severity":"moderate","wcag":[["4.1.2","Name, Role, Value","A"],["2.4.1","Bypass Blocks","A"]]},{"id":"expand-no-title","title":"Collapsible section has no label","confidence":"review","severity":"moderate","wcag":[["2.4.6","Headings and Labels","AA"],["4.1.2","Name, Role, Value","A"]]},{"id":"fake-list","title":"Dashes or numbers used instead of a list","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"heading-empty","title":"Heading has no text","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"],["2.4.6","Headings and Labels","AA"]]},{"id":"heading-skipped-level","title":"Heading level is skipped","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"link-ambiguous-duplicate","title":"Same link text points to different pages","confidence":"review","severity":"moderate","wcag":[["2.4.4","Link Purpose (In Context)","A"],["2.4.9","Link Purpose (Link Only)","AAA"]]},{"id":"media-av-no-alternative","title":"Video or audio may need captions or a transcript","confidence":"review","severity":"moderate","wcag":[["1.2.1","Audio-only and Video-only (Prerecorded)","A"],["1.2.2","Captions (Prerecorded)","A"]]},{"id":"mixed-language","title":"Passage in a different script","confidence":"review","severity":"moderate","wcag":[["3.1.2","Language of Parts","AA"]]},{"id":"page-title-nondescriptive","title":"Page title does not describe the page","confidence":"review","severity":"moderate","wcag":[["2.4.2","Page Titled","A"]]},{"id":"table-empty-header","title":"Header cell is empty","confidence":"certain","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"table-merged-cells","title":"Table uses merged cells","confidence":"review","severity":"moderate","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"all-caps-run","title":"Long run of capital letters","confidence":"review","severity":"advisory","wcag":[["3.1.5","Reading Level","AAA"]]},{"id":"heading-duplicate-text","title":"Two headings have the same text","confidence":"certain","severity":"advisory","wcag":[["2.4.6","Headings and Labels","AA"]]},{"id":"heading-h1-in-body","title":"H1 used inside the page body","confidence":"review","severity":"advisory","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"heading-too-long","title":"Heading reads as a paragraph","confidence":"certain","severity":"advisory","wcag":[["2.4.6","Headings and Labels","AA"]]},{"id":"img-alt-redundant","title":"Alternative text starts with \"image of\"","confidence":"certain","severity":"advisory","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"img-alt-too-long","title":"Alternative text is very long","confidence":"certain","severity":"advisory","wcag":[["1.1.1","Non-text Content","A"]]},{"id":"justified-text","title":"Text is justified","confidence":"certain","severity":"advisory","wcag":[["1.4.8","Visual Presentation","AAA"]]},{"id":"link-raw-url","title":"Bare URL used as link text","confidence":"review","severity":"advisory","wcag":[["2.4.4","Link Purpose (In Context)","A"]]},{"id":"long-paragraph","title":"Very long paragraph","confidence":"review","severity":"advisory","wcag":[["3.1.5","Reading Level","AAA"]]},{"id":"page-title-duplicate","title":"Another page in this space has the same title","confidence":"certain","severity":"advisory","wcag":[["2.4.2","Page Titled","A"]]},{"id":"spacing-hard-breaks","title":"Blank lines used for spacing","confidence":"review","severity":"advisory","wcag":[["1.3.1","Info and Relationships","A"]]},{"id":"table-layout","title":"Table appears to be used for layout","confidence":"review","severity":"advisory","wcag":[["1.3.1","Info and Relationships","A"]]}],"study":{"pages":1182,"sites":13,"failing":420,"top":[["Image has no alternative text",285],["Bold text used instead of a heading",146],["Text contrast is below the WCAG AA minimum",114],["Heading level is skipped",76],["Alternative text does not describe the image",55]]}}</script>
+</div>
+<div class="wrap">
 <aside class="signup">
   <h2>Try it on your own space</h2>
   <p>Clearwren is on the Atlassian Marketplace. Free for sites of 10 users or fewer.</p>
   <p><a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/2203523728/wcag-ada-accessibility-checker-for-confluence?utm_source=clearwren.com&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=index">Get it on the Atlassian Marketplace</a></p>
-</aside>
-  </div>
+</aside></div>
 </main>
 <footer class="site">
   <div class="wrap">
