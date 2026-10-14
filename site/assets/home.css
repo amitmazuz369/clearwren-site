@@ -95,7 +95,7 @@ main.full { padding: 0; }
 .x-col + .x-col { border-top: 1px solid var(--border); }
 @media (min-width: 1100px) { .x-col + .x-col { border-top: 0; border-left: 1px solid var(--border); } }
 .x-colh { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 14px; font-size: 12.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-soft); font-weight: 600; }
-.x-lab textarea { width: 100%; min-height: 320px; font-size: 16px; resize: vertical; border: 1px solid var(--border); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 14px; font: 14px/1.75 var(--mono); }
+.x-lab textarea { width: 100%; min-height: 320px; resize: vertical; border: 1px solid var(--border); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 14px; font: 16px/1.75 var(--mono); }
 .x-hint { font-size: 13px; color: var(--ink-soft); margin: 8px 0 0; }
 .x-linkbtn { background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; font-size: 13px; text-transform: none; letter-spacing: 0; }
 .x-pv { border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 22px; min-height: 300px; background: var(--bg); font-size: 15px; }
@@ -161,6 +161,8 @@ main.full { padding: 0; }
 /* Narrow screens: the result sits right under the editor, the preview comes last. */
 @media (max-width: 1099px) { .x-lab .x-col:nth-child(3) { order: 2; } .x-lab .x-col:nth-child(2) { order: 3; } }
 @media (min-width: 700px) { .x-lab textarea { font-size: 14px; } }
+/* Without JavaScript these two sections have nothing under their heading, so they stay out of the way. */
+.x-js-off #contrast, .x-js-off #simulator { display: none; }
 .x-revtag { font: 600 11px var(--mono); color: var(--x-review); border: 1px solid currentColor; border-radius: 6px; padding: 0 5px; margin-left: 4px; vertical-align: 1px; }
 h2[tabindex="-1"]:focus { outline: none; }
 h2[tabindex="-1"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
