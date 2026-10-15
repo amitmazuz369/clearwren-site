@@ -357,7 +357,7 @@
       const where = f.issue.ruleId.startsWith('page-title') ? 'title' : f.line >= 0 ? `line ${f.line + 1}` : esc(f.issue.location ?? '');
       const action = f.fix
         ? `<button class="x-fixbtn" data-k="${k}" aria-label="Fix ${esc(f.r.title)}, ${where}">Fix</button>`
-        : `<button class="x-fixbtn x-howbtn" data-how="${k}" aria-expanded="false" aria-controls="x-how-${k}">How</button>`;
+        : `<button class="x-fixbtn x-howbtn" data-how="${k}" aria-label="How to fix ${esc(f.r.title)}, ${where}" aria-expanded="false" aria-controls="x-how-${k}">How</button>`;
       return `<li class="x-finding${f.kind === 'review' ? ' rv' : ''}" style="--i:${k}"><span class="x-n" aria-hidden="true">${k + 1}</span><div><span class="x-t">${esc(f.r.title)}</span><span class="x-meta"><span class="x-kind">${f.kind === 'fail' ? 'Fail' : 'Review'}</span> · ${where}${c ? ` · WCAG ${c} (${lv})` : ' · best practice'}</span><span class="x-howtext" id="x-how-${k}" hidden>${esc(f.r.howToFix ?? '')}</span></div>${action}</li>`;
     }).join('');
     const fails = shownIssues.filter((f) => f.kind === 'fail').length;
@@ -595,10 +595,12 @@
   bars.innerHTML = `<h3>Most common problems to expect</h3>${S.top.map(([t, , id]) => `<div class="x-bar"><div class="x-lb"><span>${esc(t)}${RULE[id] && kindOf(RULE[id]) === 'review' ? ' <span class="x-revtag">review</span>' : ''}</span><span>0 pages</span></div><div class="x-trk"><i></i></div></div>`).join('')}<p class="x-small" style="margin:0">Expected pages affected, from the share of study pages with each problem. A page can have several. Items marked review need a person to confirm them; advisory items are left out.</p>`;
   let estT;
   function est() {
-    const n = Math.max(1, Math.min(200000, +$('#x-pages-n').value || 1));
-    countTo($('#x-est-total'), (n * S.failing) / S.pages, { dur: 600 });
+    const raw = +$('#x-pages-n').value;
     clearTimeout(estT);
-    estT = setTimeout(() => { $('#x-est-status').textContent = `About ${fmt((n * S.failing) / S.pages)} of ${fmt(n)} pages likely to have a level A or AA failure.`; }, 700);
+    if (!(raw >= 1)) { $('#x-est-status').textContent = 'Enter how many pages your space has.'; return; }
+    const n = Math.min(200000, raw);
+    countTo($('#x-est-total'), (n * S.failing) / S.pages, { dur: 600 });
+    estT = setTimeout(() => { $('#x-est-status').textContent = `About ${fmt((n * S.failing) / S.pages)} of ${fmt(n)} ${n === 1 ? 'page' : 'pages'} likely to have a level A or AA failure.`; }, 700);
     $$('.x-bar', bars).forEach((b, i) => {
       const v = (n * S.top[i][1]) / S.pages;
       b.querySelector('.x-lb > span:last-child').textContent = `about ${fmt(v)} pages`;
