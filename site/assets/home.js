@@ -601,7 +601,7 @@
     estT = setTimeout(() => { $('#x-est-status').textContent = `About ${fmt((n * S.failing) / S.pages)} of ${fmt(n)} pages likely to have a level A or AA failure.`; }, 700);
     $$('.x-bar', bars).forEach((b, i) => {
       const v = (n * S.top[i][1]) / S.pages;
-      b.querySelector('.x-lb span:last-child').textContent = `about ${fmt(v)} pages`;
+      b.querySelector('.x-lb > span:last-child').textContent = `about ${fmt(v)} pages`;
       b.querySelector('.x-trk i').style.width = `${(S.top[i][1] / S.top[0][1]) * 100}%`;
     });
   }
