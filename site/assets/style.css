@@ -164,3 +164,4 @@ aside.signup h2 { margin: 0 0 .5rem; font-size: 1.15rem; }
 aside.signup p { margin: 0 0 .75rem; }
 aside.signup p:last-child { margin-bottom: 0; }
 main:focus { outline: none; }
+ul.checks li { overflow-wrap: anywhere; }
