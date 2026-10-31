@@ -1,0 +1,359 @@
+<title>Clearwren Showreel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: full-bleed WebGL stage, floating minimal controls that can be hidden for screen recording */
+:root{--bg:#0b1118;--fg:#e8eef5;--chip:rgba(14,22,32,.72);--line:rgba(255,255,255,.18)}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,"Segoe UI",Helvetica,Arial,sans-serif;overflow:hidden;margin:0}
+#stage{position:fixed;inset:0;width:100%;height:100%;display:block}
+#vig{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55) 100%)}
+#ui{position:fixed;left:0;right:0;bottom:0;padding:16px max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#cap{background:var(--chip);border:1px solid var(--line);border-radius:6px;padding:8px 14px;font-size:14px;min-width:0}
+#btns{display:flex;gap:8px}
+button{background:var(--chip);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
+button:focus-visible{outline:2px solid #6aa9e0;outline-offset:2px}
+body.clean #cap,body.clean .hide{opacity:0;pointer-events:none}
+body.clean #toggle{opacity:.25}
+#bar{position:fixed;left:0;top:0;height:3px;background:#f2b544;width:0}
+body.clean #bar{opacity:0}
+#err{position:fixed;inset:0;display:none;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:16px}
+</style>
+<body>
+<canvas id="stage" aria-label="Animated 3D laptop on a desk, showing Clearwren features on its screen"></canvas>
+<div id="vig"></div>
+<div id="bar"></div>
+<div id="err">WebGL is not available in this browser.</div>
+<div id="ui">
+  <div id="cap" aria-live="polite"></div>
+  <div id="btns">
+    <button class="hide" id="pp">Pause</button>
+    <button class="hide" id="rs">Restart</button>
+    <button id="toggle" aria-pressed="false">Clean view</button>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+if(!window.THREE){document.getElementById('err').style.display='flex';document.getElementById('err').textContent='Could not load the 3D library.';return}
+const T3=THREE, cv=document.getElementById('stage');
+let renderer;
+try{renderer=new T3.WebGLRenderer({canvas:cv,antialias:true,powerPreference:'high-performance'})}catch(e){document.getElementById('err').style.display='flex';return}
+renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+renderer.outputEncoding=T3.sRGBEncoding;
+renderer.toneMapping=T3.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
+renderer.shadowMap.enabled=true;renderer.shadowMap.type=T3.PCFSoftShadowMap;
+
+const scene=new T3.Scene();scene.background=new T3.Color(0x0b1118);scene.fog=new T3.Fog(0x0b1118,12,26);
+const camera=new T3.PerspectiveCamera(35,1,0.1,60);
+
+/* ---------- environment for metal reflections ---------- */
+(function(){
+  const pm=new T3.PMREMGenerator(renderer), es=new T3.Scene();
+  es.add(new T3.Mesh(new T3.BoxGeometry(24,12,24),new T3.MeshBasicMaterial({color:0x2b3441,side:T3.BackSide})));
+  function box(x,y,z,w,h,d,v,c){const m=new T3.MeshBasicMaterial();m.color.setRGB(v*c[0],v*c[1],v*c[2]);const b=new T3.Mesh(new T3.BoxGeometry(w,h,d),m);b.position.set(x,y,z);es.add(b)}
+  box(0,5.6,2,8,.2,5,7,[1,.96,.9]);
+  box(-8,2,-1,.2,4,6,3,[.7,.85,1]);
+  box(7,3,4,.2,3,5,2,[1,.9,.8]);
+  box(0,3,-10,10,3,.2,1.2,[.8,.9,1]);
+  scene.environment=pm.fromScene(es,0.03).texture;
+})();
+
+/* ---------- lights ---------- */
+scene.add(new T3.HemisphereLight(0x9bb0c8,0x2a1e14,0.22));
+const key=new T3.DirectionalLight(0xfff0dc,1.6);key.position.set(4,7,5);key.castShadow=true;
+key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-8,right:8,top:6,bottom:-6,near:1,far:24});key.shadow.bias=-0.0006;key.shadow.radius=4;
+scene.add(key);
+const rim=new T3.DirectionalLight(0x7fb0ff,1.1);rim.position.set(-6,3,-4);scene.add(rim);
+const glow=new T3.PointLight(0xdfeaff,0.9,5,2);glow.position.set(0,1.1,0.3);scene.add(glow);
+const lamp=new T3.PointLight(0xffb36b,1.2,12,2);lamp.position.set(-4.5,3,-1);scene.add(lamp);
+
+/* ---------- helpers ---------- */
+function cnv(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;return c}
+function tex(c,srgb=true){const t=new T3.CanvasTexture(c);if(srgb)t.encoding=T3.sRGBEncoding;t.anisotropy=renderer.capabilities.getMaxAnisotropy();return t}
+function rbox(w,h,d,r,bev){
+  const s=new T3.Shape(),x=-w/2+bev,y=-d/2+bev,ww=w-2*bev,dd=d-2*bev;
+  s.moveTo(x+r,y);s.lineTo(x+ww-r,y);s.quadraticCurveTo(x+ww,y,x+ww,y+r);s.lineTo(x+ww,y+dd-r);s.quadraticCurveTo(x+ww,y+dd,x+ww-r,y+dd);
+  s.lineTo(x+r,y+dd);s.quadraticCurveTo(x,y+dd,x,y+dd-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);
+  const g=new T3.ExtrudeGeometry(s,{depth:h-2*bev,bevelEnabled:true,bevelThickness:bev,bevelSize:bev,bevelSegments:4,curveSegments:14});
+  g.rotateX(-Math.PI/2);g.computeBoundingBox();g.translate(0,-g.boundingBox.min.y,0);return g;
+}
+function at(m,x,y,z){m.position.set(x,y,z);return m}
+function shadowed(m){m.castShadow=true;m.receiveShadow=true;return m}
+
+/* ---------- desk & room ---------- */
+(function(){
+  const c=cnv(1024,512),g=c.getContext('2d');g.fillStyle='#6d4a31';g.fillRect(0,0,1024,512);
+  let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  for(let i=0;i<260;i++){const y=rnd()*512,a=.05+rnd()*.12;g.fillStyle=rnd()>.5?`rgba(30,15,5,${a})`:`rgba(255,220,170,${a*.7})`;g.fillRect(0,y,1024,1+rnd()*3)}
+  for(let i=0;i<14;i++){const y=rnd()*512;g.strokeStyle='rgba(20,10,0,.25)';g.lineWidth=1.5;g.beginPath();g.moveTo(0,y);g.bezierCurveTo(300,y+rnd()*14-7,700,y+rnd()*14-7,1024,y);g.stroke()}
+  const t=tex(c);t.wrapS=t.wrapT=T3.RepeatWrapping;t.repeat.set(2,1);
+  const desk=new T3.Mesh(new T3.BoxGeometry(18,0.3,9),new T3.MeshStandardMaterial({map:t,roughness:.55,metalness:0,envMapIntensity:.5}));
+  desk.position.set(0,-0.15,0);desk.receiveShadow=true;scene.add(desk);
+  const wall=new T3.Mesh(new T3.PlaneGeometry(50,24),new T3.MeshStandardMaterial({color:0x0d1219,roughness:.95}));
+  wall.position.set(0,6,-6);wall.receiveShadow=true;scene.add(wall);
+})();
+
+/* ---------- laptop (generic, no branding) ---------- */
+const AL=new T3.MeshStandardMaterial({color:0xc4c7cc,metalness:.95,roughness:.32,envMapIntensity:1.1});
+const laptop=new T3.Group();scene.add(laptop);
+const BW=3.1,BD=2.1,BH=0.1,LH=0.07;
+const baseGeo=rbox(BW,BH,BD,0.12,0.018);
+const base=shadowed(new T3.Mesh(baseGeo,AL));laptop.add(base);
+/* keyboard deck texture */
+(function(){
+  const c=cnv(1550,1050),g=c.getContext('2d');
+  g.fillStyle='#c3c6cb';g.fillRect(0,0,1550,1050);
+  g.fillStyle='#0d0f12';g.beginPath();g.roundRect?g.roundRect(70,70,1410,610,18):g.rect(70,70,1410,610);g.fill();
+  function key(x,y,w,h,lab){g.fillStyle='#1b1e23';g.beginPath();g.roundRect?g.roundRect(x,y,w,h,9):g.rect(x,y,w,h);g.fill();
+    g.fillStyle='rgba(255,255,255,.07)';g.fillRect(x+4,y+3,w-8,3);
+    if(lab){g.fillStyle='#aab3be';g.font='500 30px Helvetica,Arial,sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText(lab,x+w/2,y+h/2+2)}}
+  const u=92,gap=10,x0=95;let y=95;
+  for(let i=0;i<14;i++)key(x0+i*(u+gap-2.6)+0,y,u-6,50,'');
+  y+=66;
+  [['1234567890-=',0],['QWERTYUIOP[]',40],['ASDFGHJKL;\'',58],['ZXCVBNM,./',96]].forEach(([row,off])=>{
+    let x=x0+off;for(const ch of row){key(x,y,u,u,ch);x+=u+gap}y+=u+gap});
+  key(x0+250,y,640,u,'');
+  /* trackpad */
+  g.fillStyle='#b9bcc2';g.beginPath();g.roundRect?g.roundRect(540,740,470,280,16):g.rect(540,740,470,280);g.fill();
+  g.strokeStyle='rgba(0,0,0,.18)';g.lineWidth=3;g.stroke();
+  const m=new T3.MeshStandardMaterial({map:tex(c),metalness:.7,roughness:.45,envMapIntensity:.9,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-1});
+  const p=new T3.Mesh(new T3.PlaneGeometry(BW-0.07,BD-0.07),m);p.rotation.x=-Math.PI/2;p.position.y=BH+0.0006;p.receiveShadow=true;laptop.add(p);
+})();
+base.position.set(0,0,0);
+/* hinge + lid */
+laptop.add(at(new T3.Mesh(new T3.CylinderGeometry(0.05,0.05,2.4,24).rotateZ(Math.PI/2),new T3.MeshStandardMaterial({color:0x1b1d21,metalness:.8,roughness:.4})),0,BH+0.02,-BD/2+0.03));
+const hinge=new T3.Group();hinge.position.set(0,BH,-BD/2);hinge.rotation.x=-105*Math.PI/180;laptop.add(hinge);
+const lidGeo=rbox(BW,LH,BD,0.12,0.018);lidGeo.translate(0,0,BD/2);
+hinge.add(shadowed(new T3.Mesh(lidGeo,AL)));
+/* screen bezel + screen */
+const bez=new T3.Mesh(new T3.PlaneGeometry(BW-0.08,BD-0.08),new T3.MeshStandardMaterial({color:0x050607,roughness:.4,metalness:.2}));
+bez.rotation.x=Math.PI/2;bez.position.set(0,-0.0012,BD/2);hinge.add(bez);
+const SW=2.88,SH=1.8;
+const scrC=cnv(1600,1000),sg=scrC.getContext('2d');
+const scrT=tex(scrC);scrT.minFilter=T3.LinearFilter;
+const scrM=new T3.MeshBasicMaterial({map:scrT,toneMapped:false});
+const scr=new T3.Mesh(new T3.PlaneGeometry(SW,SH),scrM);scr.rotation.x=Math.PI/2;scr.position.set(0,-0.0024,BD/2+0.02);hinge.add(scr);
+/* camera dot */
+const dot=new T3.Mesh(new T3.CircleGeometry(0.018,16),new T3.MeshBasicMaterial({color:0x14181d}));dot.rotation.x=Math.PI/2;dot.position.set(0,-0.0026,BD/2+0.02+SH/2+0.07);hinge.add(dot);
+
+/* ---------- props ---------- */
+(function(){
+  const cer=new T3.MeshStandardMaterial({color:0xe9e3d8,roughness:.35,metalness:0});
+  const mug=new T3.Group();
+  mug.add(shadowed(new T3.Mesh(new T3.CylinderGeometry(.3,.26,.56,48),cer)));
+  const cof=new T3.Mesh(new T3.CircleGeometry(.27,48),new T3.MeshStandardMaterial({color:0x2a1608,roughness:.2}));cof.rotation.x=-Math.PI/2;cof.position.y=.25;mug.add(cof);
+  const h=shadowed(new T3.Mesh(new T3.TorusGeometry(.17,.04,14,28,Math.PI),cer));h.rotation.z=-Math.PI/2;h.position.set(.3,0,0);mug.add(h);
+  mug.position.set(2.7,.28,-.1);scene.add(mug);
+  const nb=new T3.Group();
+  nb.add(shadowed(at(new T3.Mesh(new T3.BoxGeometry(1.5,.08,2),new T3.MeshStandardMaterial({color:0x2f4b6e,roughness:.7})),0,.04,0)));
+  nb.add(at(new T3.Mesh(new T3.BoxGeometry(1.42,.05,1.94),new T3.MeshStandardMaterial({color:0xf0ead8,roughness:.9})),.03,.1,0));
+  nb.position.set(-2.9,0,.9);nb.rotation.y=.4;scene.add(nb);
+  const pen=shadowed(new T3.Mesh(new T3.CylinderGeometry(.03,.03,1.1,16),new T3.MeshStandardMaterial({color:0xf2b544,roughness:.4,metalness:.3})));
+  pen.rotation.z=Math.PI/2;pen.rotation.y=.9;pen.position.set(-2.4,.17,1.2);scene.add(pen);
+})();
+
+/* ---------- screen content ---------- */
+const W=1600,H=1000,F='"Helvetica Neue",Helvetica,Arial,sans-serif',M='Menlo,Consolas,"Courier New",monospace';
+const C={bg:'#f4f7fa',ink:'#14202e',mut:'#566577',line:'#d6dee7',blue:'#1c5d99',amb:'#f2b544',red:'#c0392b',grn:'#1f7a4d',navy:'#0f2a44'};
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), ez=x=>{x=cl(x);return x*x*(3-2*x)}, lerp=(a,b,t)=>a+(b-a)*t;
+function rr(x,y,w,h,r){const g=sg;g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
+function tx(s,x,y,size,color,o={}){const g=sg;g.font=`${o.w||400} ${size}px ${o.f||F}`;g.fillStyle=color;g.textAlign=o.a||'left';g.textBaseline=o.b||'alphabetic';g.fillText(s,x,y)}
+function card(x,y,w,h,fill='#fff'){rr(x,y,w,h,14);sg.fillStyle=fill;sg.fill();sg.strokeStyle=C.line;sg.lineWidth=2;sg.stroke()}
+function pill(s,x,y,bg,fg,size=20){sg.font=`700 ${size}px ${F}`;const w=sg.measureText(s).width+28;rr(x,y,w,size+16,(size+16)/2);sg.fillStyle=bg;sg.fill();tx(s,x+14,y+size+2,size,fg,{w:700});return w}
+function btn(s,x,y,w,h,bg,fg,size=26){rr(x,y,w,h,10);sg.fillStyle=bg;sg.fill();tx(s,x+w/2,y+h/2+size*.35,size,fg,{w:700,a:'center'})}
+function hex(c){return '#'+c.map(v=>Math.round(v).toString(16).padStart(2,'0')).join('')}
+function lum(c){const f=v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)};return .2126*f(c[0])+.7152*f(c[1])+.0722*f(c[2])}
+function ratio(a,b){const A=lum(a),B=lum(b);return (Math.max(A,B)+.05)/(Math.min(A,B)+.05)}
+function ring(cx,cy,r,v,col){const g=sg;g.lineWidth=18;g.lineCap='round';g.strokeStyle='#e2e8ef';g.beginPath();g.arc(cx,cy,r,0,7);g.stroke();g.strokeStyle=col;g.beginPath();g.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.PI*2*cl(v/100));g.stroke()}
+
+function chrome(){
+  sg.fillStyle='#e6ebf1';sg.fillRect(0,0,W,64);
+  rr(300,13,1000,38,19);sg.fillStyle='#fff';sg.fill();tx('clearwren.com',800,40,20,C.mut,{a:'center'});
+  sg.fillStyle='#fff';sg.fillRect(0,64,W,70);sg.fillStyle=C.line;sg.fillRect(0,133,W,2);
+  rr(40,78,42,42,10);sg.fillStyle=C.blue;sg.fill();tx('C',61,110,28,'#fff',{w:700,a:'center'});
+  tx('Clearwren',96,108,30,C.ink,{w:700});
+  ['Product','Free checker','What it checks','Pricing','Guides','Docs'].forEach((s,i)=>tx(s,640+i*148,106,20,i==0?C.blue:C.mut,{w:i==0?700:400}));
+}
+
+const SC=[{n:'hero',d:6,cap:'Clarable: בדיקת נגישות ל-Confluence'},{n:'lab',d:9,cap:'Live lab: כותבים עמוד, מקבלים ציון ותיקונים'},{n:'contrast',d:6,cap:'Contrast lab: מציאת צבע שעובר'},{n:'study',d:6,cap:'מחקר על 1,182 עמודים ציבוריים'},{n:'report',d:6,cap:'דוח התאמה לביקורת'},{n:'cta',d:5,cap:'התקנה מה-Marketplace'}];
+const TOT=SC.reduce((a,s)=>a+s.d,0);
+const starts=[];SC.reduce((a,s)=>(starts.push(a),a+s.d),0);
+
+function hero(t){
+  sg.fillStyle=C.navy;sg.fillRect(0,135,W,865);
+  tx('CLARABLE · ACCESSIBILITY CHECKS FOR CONFLUENCE CLOUD',90,225,20,C.amb,{w:700});
+  tx('Every page your team writes,',90,330,70,'#fff',{w:700});
+  tx('checked against WCAG 2.2',90,418,70,'#fff',{w:700});
+  const w='as you write.',n=Math.floor(cl((t-.6)/1.6)*w.length);
+  tx(w.slice(0,n)+((t*2|0)%2&&n<w.length+1?'|':''),90,506,70,'#8fc2f0',{w:700});
+  tx('32 checks across 14 WCAG success criteria, inside Confluence Cloud.',90,575,28,'#c9d8e8');
+  btn('Get it on the Marketplace',90,625,420,76,'#fff',C.navy);
+  rr(540,625,300,76,10);sg.strokeStyle='rgba(255,255,255,.5)';sg.lineWidth=2;sg.stroke();tx('Try it on a page',690,672,26,'#fff',{w:700,a:'center'});
+  const st=[[32,'checks in every scan'],[14,'WCAG criteria'],[1182,'public pages in our study'],[30,'day free trial']];
+  st.forEach(([v,l],i)=>{const x=90+i*360,k=ez((t-1.2-i*.25)/1.4);rr(x,770,330,150,12);sg.fillStyle='rgba(255,255,255,.08)';sg.fill();
+    tx(Math.round(v*k).toLocaleString('en-US'),x+24,850,64,'#fff',{w:700,f:M});tx(l,x+24,893,20,'#a9c0d6')});
+}
+
+const LAB=[['## Travel policy',0],['![](team-photo.png)',1],['**Reimbursement rules**',2],['Submit receipts within 30 days.',3],['[click here](/policy) for details',4]];
+const cum=[];LAB.reduce((a,l)=>(cum.push(a+l[0].length),a+l[0].length),0);
+const TOTC=cum[cum.length-1];
+let shownScore=100;
+function lab(t){
+  sg.fillStyle=C.bg;sg.fillRect(0,135,W,865);
+  tx('Write a page, get a score.',50,200,46,C.ink,{w:700});
+  const X=[50,570,1090],Wd=460;
+  X.forEach(x=>card(x,240,Wd,700));
+  tx('YOUR PAGE',X[0]+24,284,18,C.mut,{w:700});tx('PREVIEW',X[1]+24,284,18,C.mut,{w:700});tx('RESULT · WCAG 2.2 AA',X[2]+24,284,18,C.mut,{w:700});
+  const n=Math.floor(cl((t-.4)/4.2)*TOTC);
+  let start=0;
+  LAB.forEach((l,i)=>{const s=l[0],k=Math.max(0,Math.min(s.length,n-start)),y=350+i*66;
+    const col=i==0?C.blue:i==2?'#7a4b00':i==4?C.blue:C.ink;
+    tx(s.slice(0,k),X[0]+24,y,24,col,{f:M,w:i==0?700:400});
+    if(n>start&&n<=start+s.length&&(t*2.2|0)%2){const wd=(sg.font=`400 24px ${M}`,sg.measureText(s.slice(0,k)).width);sg.fillStyle=C.ink;sg.fillRect(X[0]+24+wd+2,y-22,3,30)}
+    start+=s.length});
+  const f=[ez((t-6.0)/.5),ez((t-6.7)/.5),ez((t-7.4)/.5)], vis=[n>=cum[1]?ez((t-2.5)/.4):0,n>=cum[2]?ez((t-3.5)/.4):0,n>=cum[4]?ez((t-4.9)/.4):0];
+  const px=X[1]+30;
+  if(n>=cum[0]){tx('Travel policy',px,350,40,C.ink,{w:700})}
+  if(n>=cum[1]){rr(px,380,400,150,10);sg.fillStyle='#dfe7ef';sg.fill();sg.fillStyle='#b7c6d6';sg.beginPath();sg.moveTo(px+80,500);sg.lineTo(px+160,420);sg.lineTo(px+230,490);sg.lineTo(px+280,450);sg.lineTo(px+340,500);sg.fill();
+    if(f[0]>0)tx('Team at the Lisbon office',px+200,550,18,C.grn,{a:'center'})}
+  if(n>=cum[2]){f[1]>.5?tx('Reimbursement rules',px,600,30,C.ink,{w:700}):tx('Reimbursement rules',px,600,26,C.ink,{w:700});if(f[1]>.5)tx('H3',px+330,600,16,C.grn,{w:700,f:M})}
+  if(n>=cum[3])tx('Submit receipts within 30 days.',px,660,24,C.ink);
+  if(n>=cum[4]){const s=f[2]>.5?'travel policy for details':'click here for details';tx(s,px,712,24,C.blue);}
+  /* findings */
+  const items=[['Image has no alternative text','critical',C.red,'1.1.1'],['Bold text used instead of a heading','serious','#b86e00','1.3.1'],['Link text does not say where it goes','serious','#b86e00','2.4.4']];
+  let deduct=0;
+  items.forEach((it,i)=>{const v=vis[i];if(v<=0)return;const y=480+i*118+(1-v)*16;sg.globalAlpha=v;
+    rr(X[2]+20,y,Wd-40,100,10);sg.fillStyle=f[i]>.5?'#e7f5ee':'#fff';sg.fill();sg.strokeStyle=f[i]>.5?'#9bd3b5':C.line;sg.lineWidth=2;sg.stroke();
+    tx(it[0],X[2]+38,y+38,21,C.ink,{w:700});
+    if(f[i]>.5){pill('Fixed',X[2]+38,y+54,C.grn,'#fff',16)}else{pill(it[1],X[2]+38,y+54,it[2],'#fff',16)}
+    tx('WCAG '+it[3],X[2]+Wd-60,y+82,16,C.mut,{a:'right',f:M});sg.globalAlpha=1;
+    deduct+=[20,12,10][i]*(v-f[i]*v)});
+  const target=100-deduct;shownScore+= (target-shownScore)*.12;
+  const sv=Math.round(shownScore),col=sv<60?C.red:sv<90?'#d68a00':C.grn;
+  ring(X[2]+130,390,66,shownScore,col);tx(String(sv),X[2]+130,408,52,C.ink,{w:700,a:'center',f:M});
+  tx(sv>=100?'All clear':'Needs work',X[2]+240,380,34,col,{w:700});
+  tx(sv>=100?'Nothing flagged on this page.':'3 issues on this page',X[2]+240,418,20,C.mut);
+}
+
+function contrast(t){
+  sg.fillStyle=C.bg;sg.fillRect(0,135,W,865);
+  tx('Would your colours pass?',50,200,46,C.ink,{w:700});
+  const bgc=[241,244,248],a=[169,180,191],b=[44,58,78],k=ez((t-1.7)/2.6);
+  const fg=a.map((v,i)=>lerp(v,b[i],k)),r=ratio(fg,bgc);
+  card(50,240,830,700,hex(bgc));
+  tx('Large text, 24 px',90,300,18,hex(fg.map(v=>v)),{w:700});
+  tx('Quarterly results are published',90,370,38,hex(fg),{w:700});tx('in the finance space.',90,420,38,hex(fg),{w:700});
+  tx('Body text, 16 px',90,520,18,hex(fg),{w:700});
+  tx('Submit expense reports by the 5th of each month.',90,575,26,hex(fg));tx('Late reports are processed in the next cycle.',90,615,26,hex(fg));
+  tx('Q3 headcount review moves to the first week',90,700,26,hex(fg));tx('of November. See the planning page.',90,740,26,hex(fg));
+  card(920,240,630,700);
+  tx(r.toFixed(1),960,390,130,r>=4.5?C.grn:C.red,{w:700,f:M});tx(': 1',960+sg.measureText(r.toFixed(1)).width+8,390,50,C.mut,{f:M});
+  const mx=960,my=440,mw=550;rr(mx,my,mw,18,9);sg.fillStyle='#e2e8ef';sg.fill();
+  rr(mx,my,Math.max(18,mw*r/21),18,9);sg.fillStyle=r>=4.5?C.grn:C.red;sg.fill();
+  [3,4.5,7].forEach(v=>{const x=mx+mw*v/21;sg.fillStyle=C.ink;sg.fillRect(x-1,my-8,3,34);tx(String(v),x,my+58,18,C.mut,{a:'center',f:M})});
+  [['AA · normal text',4.5],['AA · large text',3],['AAA · normal text',7],['AAA · large text',4.5]].forEach(([s,th],i)=>{
+    const ok=r>=th,x=960+(i%2)*270,y=560+Math.floor(i/2)*70;rr(x,y,250,52,26);sg.fillStyle=ok?'#e0f3e8':'#fbe4e1';sg.fill();
+    tx((ok?'✓ ':'✕ ')+s,x+125,y+34,19,ok?C.grn:C.red,{w:700,a:'center'})});
+  tx('Text',960,730,18,C.mut,{w:700});rr(960,742,56,56,10);sg.fillStyle=hex(fg);sg.fill();tx(hex(fg),1032,778,26,C.ink,{f:M});
+  tx('Background',1260,730,18,C.mut,{w:700});rr(1260,742,56,56,10);sg.fillStyle=hex(bgc);sg.fill();sg.strokeStyle=C.line;sg.stroke();tx(hex(bgc),1332,778,26,C.ink,{f:M});
+  const press=t>1.2&&t<1.8;btn('Find the nearest passing colour',960,840,560,66,press?'#154a7a':C.blue,'#fff',24);
+}
+
+function study(t){
+  sg.fillStyle=C.bg;sg.fillRect(0,135,W,865);
+  tx('What a scan usually finds.',50,200,46,C.ink,{w:700});
+  card(50,240,640,700);
+  tx(Math.round(36*ez(t/1.6))+'%',90,470,190,C.blue,{w:700,f:M});
+  tx('of 1,182 public pages had at least',90,540,28,C.ink);tx('one level A or AA failure.',90,580,28,C.ink);
+  tx('420 pages · 13 public Confluence sites',90,650,22,C.mut);
+  card(730,240,820,700);tx('MOST COMMON PROBLEMS (PAGES AFFECTED)',770,296,18,C.mut,{w:700});
+  [['Image has no alternative text',285],['Bold text used instead of a heading',146],['Text contrast below AA',114],['Heading level is skipped',76],['Alt text does not describe the image',55]].forEach(([s,v],i)=>{
+    const y=350+i*115,k=ez((t-.6-i*.3)/1.4);tx(s,770,y+8,24,C.ink);rr(770,y+28,620,26,5);sg.fillStyle='#e2e8ef';sg.fill();
+    if(k>0){rr(770,y+28,Math.max(8,620*v/285*k),26,5);sg.fillStyle=i==0?C.amb:C.blue;sg.fill()}
+    tx(String(Math.round(v*k)),1520,y+52,28,C.ink,{a:'right',w:700,f:M})});
+}
+
+function report(t){
+  sg.fillStyle=C.bg;sg.fillRect(0,135,W,865);
+  card(120,170,1360,770);
+  tx('Accessibility conformance report',170,250,44,C.ink,{w:700});
+  tx('Space: Employee Handbook  ·  WCAG 2.2 AA  ·  Generated 24 Oct 2026',170,292,22,C.mut);
+  pill('Sample report · illustrative data',1130,214,'#fff3d6','#7a4b00',16);
+  tx('Criterion',170,360,18,C.mut,{w:700});tx('Status',900,360,18,C.mut,{w:700});tx('Pages affected',1300,360,18,C.mut,{w:700,a:'right'});
+  sg.fillStyle=C.line;sg.fillRect(170,372,1260,2);
+  const rows=[['1.1.1','Non-text Content','Fail',C.red,'41'],['1.3.1','Info and Relationships','Fail',C.red,'27'],['1.4.3','Contrast (Minimum)','Fail',C.red,'9'],['2.4.2','Page Titled','Pass',C.grn,'0'],['2.4.4','Link Purpose (In Context)','Review','#b86e00','18'],['3.1.2','Language of Parts','Pass',C.grn,'0']];
+  rows.forEach((r,i)=>{const k=ez((t-.5-i*.45)/.5);if(k<=0)return;const y=420+i*74;sg.globalAlpha=k;
+    tx(r[0],170,y,26,C.blue,{f:M,w:700});tx(r[1],270,y,26,C.ink);pill(r[2],900,y-32,r[3],'#fff',20);tx(r[4],1430,y,26,C.ink,{a:'right',f:M});
+    sg.fillStyle=C.line;sg.fillRect(170,y+22,1260,1);sg.globalAlpha=1});
+  const tk=ez((t-3.7)/.5);if(tk>0){sg.globalAlpha=tk;rr(980,860-tk*10,460,66,12);sg.fillStyle=C.navy;sg.fill();tx('✓  Published as a Confluence page',1210,903-tk*10,22,'#fff',{a:'center',w:700});sg.globalAlpha=1}
+}
+
+function cta(t){
+  sg.fillStyle=C.navy;sg.fillRect(0,135,W,865);
+  tx('Free for sites of 10 users or fewer.',800,420,66,'#fff',{w:700,a:'center'});
+  tx('30-day free trial on any site. Your pages never leave Atlassian.',800,490,30,'#c9d8e8',{a:'center'});
+  const p=1+Math.sin(t*3)*.012;sg.save();sg.translate(800,620);sg.scale(p,p);btn('Get it on the Marketplace',-230,-45,460,90,C.amb,C.navy,30);sg.restore();
+  tx('clearwren.com',800,760,24,'#8fa9c4',{a:'center',f:M});
+}
+const FN={hero,lab,contrast,study,report,cta};
+
+function drawScreen(time){
+  const tt=time%TOT;let i=0;while(i<SC.length-1&&tt>=starts[i]+SC[i].d)i++;
+  const lt=tt-starts[i],d=SC[i].d;
+  sg.fillStyle=C.bg;sg.fillRect(0,0,W,H);chrome();
+  sg.save();sg.beginPath();sg.rect(0,135,W,865);sg.clip();FN[SC[i].n](lt);sg.restore();
+  const env=Math.min(ez(lt/.45),ez((d-lt)/.45));
+  if(env<1){sg.fillStyle=`rgba(8,14,22,${1-env})`;sg.fillRect(0,135,W,865)}
+  const gr=sg.createLinearGradient(0,0,W,H);gr.addColorStop(0,'rgba(255,255,255,.04)');gr.addColorStop(.4,'rgba(255,255,255,0)');gr.addColorStop(1,'rgba(255,255,255,.03)');
+  sg.fillStyle=gr;sg.fillRect(0,0,W,H);
+  scrT.needsUpdate=true;
+  glow.intensity=.6+(i==0||i==5?.0:.5);
+  return i;
+}
+
+/* ---------- camera path ---------- */
+const CEN=new T3.Vector3(0,1.12,-1.32), NRM=new T3.Vector3(0,.259,.966);
+const front=(d,x=0,y=0)=>new T3.Vector3(x,0,0).add(CEN).addScaledVector(NRM,d).add(new T3.Vector3(0,y,0));
+const WIDE=[new T3.Vector3(5.2,2.5,5.8),new T3.Vector3(0,.95,-.7)];
+const KEYS=[
+ [0,  WIDE[0],WIDE[1]],
+ [3.2,new T3.Vector3(3.0,2.2,4.4),new T3.Vector3(0,1.0,-1.0)],
+ [6,  front(3.5,0,0),CEN],
+ [15, front(3.4,-.5,.05),CEN.clone().add(new T3.Vector3(-.2,0,0))],
+ [21, front(3.2,.5,0),CEN],
+ [27, front(3.6,0,.2),CEN],
+ [33, new T3.Vector3(-3.8,2.1,4.0),new T3.Vector3(0,.95,-.9)],
+ [38, WIDE[0],WIDE[1]]
+];
+const tp=new T3.Vector3(),tl=new T3.Vector3();
+function cam(time,t){
+  const tt=time%TOT;let a=0;while(a<KEYS.length-2&&tt>=KEYS[a+1][0])a++;
+  const A=KEYS[a],B=KEYS[a+1],k=ez((tt-A[0])/(B[0]-A[0]));
+  tp.lerpVectors(A[1],B[1],k);tl.lerpVectors(A[2],B[2],k);
+  tp.x+=Math.sin(t*.45)*.035;tp.y+=Math.sin(t*.33)*.02;
+  camera.position.copy(tp);camera.lookAt(tl);
+}
+
+/* ---------- loop ---------- */
+const hq=/t=(\d+)/.exec(location.hash);let time=hq?+hq[1]:0,playing=true,last=performance.now();
+const capEl=document.getElementById('cap'),barEl=document.getElementById('bar');let lastCap=-1;
+function size(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;
+  const base=35*Math.PI/180,asp=w/h;camera.fov=(asp<1.6?2*Math.atan(Math.tan(base/2)*1.6/asp):base)*180/Math.PI;camera.updateProjectionMatrix()}
+addEventListener('resize',size);size();
+function frame(now){
+  const dt=Math.min(.05,(now-last)/1000);last=now;if(playing)time+=dt;
+  const i=drawScreen(time);cam(time,now/1000);
+  if(i!==lastCap){capEl.textContent=SC[i].cap;lastCap=i}
+  barEl.style.width=((time%TOT)/TOT*100)+'%';
+  renderer.render(scene,camera);requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+const pp=document.getElementById('pp');
+pp.onclick=()=>{playing=!playing;pp.textContent=playing?'Pause':'Play'};
+document.getElementById('rs').onclick=()=>{time=0;shownScore=100};
+const tg=document.getElementById('toggle');
+tg.onclick=()=>{const c=document.body.classList.toggle('clean');tg.setAttribute('aria-pressed',c);tg.textContent=c?'Show controls':'Clean view'};
+addEventListener('keydown',e=>{if(e.key==='h'||e.key==='H')tg.click();if(e.key===' '){e.preventDefault();pp.click()}});
+})();
+</script>
+</body>
