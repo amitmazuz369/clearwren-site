@@ -42,7 +42,7 @@ if(!window.THREE){document.getElementById('err').style.display='flex';document.g
 const T3=THREE, cv=document.getElementById('stage');
 let renderer;
 try{renderer=new T3.WebGLRenderer({canvas:cv,antialias:true,powerPreference:'high-performance'})}catch(e){document.getElementById('err').style.display='flex';return}
-renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+renderer.setPixelRatio(Math.min((devicePixelRatio||1)*1.5,2.5));
 renderer.outputEncoding=T3.sRGBEncoding;
 renderer.toneMapping=T3.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
 renderer.shadowMap.enabled=true;renderer.shadowMap.type=T3.PCFSoftShadowMap;
@@ -65,11 +65,11 @@ const camera=new T3.PerspectiveCamera(35,1,0.1,60);
 /* ---------- lights ---------- */
 scene.add(new T3.HemisphereLight(0x9bb0c8,0x2a1e14,0.22));
 const key=new T3.DirectionalLight(0xfff0dc,1.6);key.position.set(4,7,5);key.castShadow=true;
-key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-8,right:8,top:6,bottom:-6,near:1,far:24});key.shadow.bias=-0.0006;key.shadow.radius=4;
+key.shadow.mapSize.set(3072,3072);Object.assign(key.shadow.camera,{left:-8,right:8,top:6,bottom:-6,near:1,far:24});key.shadow.bias=-0.0006;key.shadow.radius=6;
 scene.add(key);
 const rim=new T3.DirectionalLight(0x7fb0ff,1.1);rim.position.set(-6,3,-4);scene.add(rim);
 const glow=new T3.PointLight(0xdfeaff,0.9,5,2);glow.position.set(0,1.1,0.3);scene.add(glow);
-const lamp=new T3.PointLight(0xffb36b,1.2,12,2);lamp.position.set(-4.5,3,-1);scene.add(lamp);
+const lamp=new T3.PointLight(0xffb36b,.7,14,2);lamp.position.set(-6,4.5,-2);scene.add(lamp);
 
 /* ---------- helpers ---------- */
 function cnv(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;return c}
@@ -86,19 +86,39 @@ function shadowed(m){m.castShadow=true;m.receiveShadow=true;return m}
 
 /* ---------- desk & room ---------- */
 (function(){
-  const c=cnv(1024,512),g=c.getContext('2d');g.fillStyle='#6d4a31';g.fillRect(0,0,1024,512);
   let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
-  for(let i=0;i<260;i++){const y=rnd()*512,a=.05+rnd()*.12;g.fillStyle=rnd()>.5?`rgba(30,15,5,${a})`:`rgba(255,220,170,${a*.7})`;g.fillRect(0,y,1024,1+rnd()*3)}
-  for(let i=0;i<14;i++){const y=rnd()*512;g.strokeStyle='rgba(20,10,0,.25)';g.lineWidth=1.5;g.beginPath();g.moveTo(0,y);g.bezierCurveTo(300,y+rnd()*14-7,700,y+rnd()*14-7,1024,y);g.stroke()}
-  const t=tex(c);t.wrapS=t.wrapT=T3.RepeatWrapping;t.repeat.set(2,1);
-  const desk=new T3.Mesh(new T3.BoxGeometry(18,0.3,9),new T3.MeshStandardMaterial({map:t,roughness:.55,metalness:0,envMapIntensity:.5}));
+  const CW=3072,CH=1536,PL=14;
+  const c=cnv(CW,CH),g=c.getContext('2d'),b=cnv(CW,CH),bg=b.getContext('2d');
+  g.fillStyle='#704c32';g.fillRect(0,0,CW,CH);bg.fillStyle='#a6a6a6';bg.fillRect(0,0,CW,CH);
+  for(let p=0;p<PL;p++){
+    const y0=p*CH/PL,h=CH/PL,warm=rnd()>.5;
+    g.fillStyle=warm?`rgba(255,205,145,${.01+rnd()*.025})`:`rgba(35,18,6,${.02+rnd()*.04})`;g.fillRect(0,y0,CW,h);
+    for(let i=0;i<420;i++){
+      const y=y0+4+rnd()*(h-8),len=250+rnd()*1800,x=rnd()*CW,a=.03+rnd()*.08,w=.6+rnd()*1.8,dark=rnd()>.55;
+      g.strokeStyle=dark?`rgba(28,13,3,${a})`:`rgba(255,228,185,${a*.6})`;g.lineWidth=w;
+      g.beginPath();g.moveTo(x,y);g.bezierCurveTo(x+len*.3,y+(rnd()-.5)*5,x+len*.6,y+(rnd()-.5)*5,x+len,y+(rnd()-.5)*3);g.stroke();
+      bg.strokeStyle=dark?`rgba(0,0,0,${a*1.6})`:`rgba(255,255,255,${a*.8})`;bg.lineWidth=w;
+      bg.beginPath();bg.moveTo(x,y);bg.bezierCurveTo(x+len*.3,y+(rnd()-.5)*5,x+len*.6,y+(rnd()-.5)*5,x+len,y+(rnd()-.5)*3);bg.stroke();
+    }
+    if(rnd()>.45){const kx=rnd()*CW,ky=y0+h*(.3+rnd()*.4);for(let r=4;r>0;r--){g.strokeStyle=`rgba(30,14,4,${.12+r*.04})`;g.lineWidth=2;g.beginPath();g.ellipse(kx,ky,r*14,r*5,0,0,7);g.stroke()}}
+    g.fillStyle='rgba(15,7,1,.4)';g.fillRect(0,y0,CW,3);bg.fillStyle='rgba(0,0,0,.9)';bg.fillRect(0,y0,CW,4);
+    for(let s=0;s<2;s++){const sx=rnd()*CW;g.fillStyle='rgba(15,7,1,.35)';g.fillRect(sx,y0,3,h);bg.fillStyle='rgba(0,0,0,.8)';bg.fillRect(sx,y0,4,h)}
+  }
+  const t=tex(c),tb=tex(b,false);[t,tb].forEach(x=>{x.wrapS=x.wrapT=T3.RepeatWrapping;x.repeat.set(1.5,1)});
+  const desk=new T3.Mesh(new T3.BoxGeometry(18,0.3,9),new T3.MeshPhysicalMaterial({map:t,bumpMap:tb,bumpScale:.5,roughnessMap:tb,roughness:1,metalness:0,clearcoat:.3,clearcoatRoughness:.55,envMapIntensity:.55}));
   desk.position.set(0,-0.15,0);desk.receiveShadow=true;scene.add(desk);
-  const wall=new T3.Mesh(new T3.PlaneGeometry(50,24),new T3.MeshStandardMaterial({color:0x0d1219,roughness:.95}));
+  const wc=cnv(1024,512),wg=wc.getContext('2d');wg.fillStyle='#1b232e';wg.fillRect(0,0,1024,512);
+  for(let i=0;i<9000;i++){wg.fillStyle=`rgba(${rnd()>.5?'255,255,255':'0,0,0'},${rnd()*.035})`;wg.fillRect(rnd()*1024,rnd()*512,1+rnd()*2,1+rnd()*2)}
+  const rg=wg.createRadialGradient(150,260,10,150,260,560);rg.addColorStop(0,'rgba(255,170,100,.30)');rg.addColorStop(1,'rgba(255,170,100,0)');wg.fillStyle=rg;wg.fillRect(0,0,1024,512);
+  const wall=new T3.Mesh(new T3.PlaneGeometry(50,24),new T3.MeshStandardMaterial({map:tex(wc),color:0x8a929c,roughness:.95}));
   wall.position.set(0,6,-6);wall.receiveShadow=true;scene.add(wall);
 })();
 
 /* ---------- laptop (generic, no branding) ---------- */
-const AL=new T3.MeshStandardMaterial({color:0xc4c7cc,metalness:.95,roughness:.32,envMapIntensity:1.1});
+const AL=(function(){const c=cnv(512,512),g=c.getContext('2d');g.fillStyle='#9c9c9c';g.fillRect(0,0,512,512);
+  for(let i=0;i<1400;i++){const y=Math.random()*512,l=60+Math.random()*400,x=Math.random()*512;g.strokeStyle=`rgba(${Math.random()>.5?'255,255,255':'0,0,0'},${Math.random()*.06})`;g.lineWidth=1;g.beginPath();g.moveTo(x,y);g.lineTo(x+l,y);g.stroke()}
+  const t=tex(c,false);t.wrapS=t.wrapT=T3.RepeatWrapping;t.repeat.set(2,2);
+  return new T3.MeshStandardMaterial({color:0xc4c7cc,metalness:.95,roughness:.62,roughnessMap:t,envMapIntensity:1.1})})();
 const laptop=new T3.Group();scene.add(laptop);
 const BW=3.1,BD=2.1,BH=0.1,LH=0.07;
 const baseGeo=rbox(BW,BH,BD,0.12,0.018);
