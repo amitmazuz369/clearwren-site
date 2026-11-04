@@ -29,3 +29,6 @@
 .r-faq dt { font-weight: 600; margin-top: 18px; }
 .r-faq dd { margin: 4px 0 0; color: var(--ink-soft); max-width: var(--measure); }
 .r-docs { margin-top: 64px; padding-top: 8px; border-top: 1px solid var(--border); }
+.r-video { margin: 0 0 40px; max-width: 880px; }
+.r-video video { display: block; width: 100%; height: auto; border-radius: var(--radius); background: #0f2742; }
+.r-video figcaption { margin-top: 10px; font-size: 14px; color: var(--ink-soft); }
