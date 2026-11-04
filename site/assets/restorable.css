@@ -1,0 +1,31 @@
+/* Restorable product page. Uses the site tokens from style.css; one bold element only:
+ * the real "Restored as" screen in the hero. */
+.r-hero { display: grid; gap: 40px; align-items: center; margin-bottom: 56px; }
+.r-hero > div { max-width: 760px; }
+.r-hero h1 { margin-top: 12px; }
+.r-app { display: flex; align-items: center; gap: 12px; margin: 0; font-weight: 500; color: var(--ink-soft); }
+.r-app img { width: 40px; height: 40px; border-radius: 9px; }
+.r-status { display: inline-block; margin: 4px 0 20px; padding: 4px 12px; border: 1px solid var(--border);
+  border-radius: 999px; font-size: 14px; color: var(--ink-soft); background: var(--surface); }
+.r-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.r-shot { margin: 0; }
+.r-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: var(--radius);
+  background: #f3f4f6; }
+.r-shot figcaption { margin-top: 10px; font-size: 14px; color: var(--ink-soft); }
+.r-steps { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 28px; counter-reset: r; }
+@media (min-width: 900px) { .r-steps { grid-template-columns: repeat(3, 1fr); } }
+.r-steps li { counter-increment: r; padding-top: 14px; border-top: 3px solid var(--accent); }
+.r-steps li::before { content: counter(r); display: block; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+.r-steps h3 { margin: 0 0 6px; font-size: 18px; }
+.r-steps p { margin: 0; color: var(--ink-soft); }
+.r-pair { display: grid; gap: 32px; }
+@media (min-width: 900px) { .r-pair { grid-template-columns: 1fr 1fr; } }
+.r-pair h3 { margin: 0 0 8px; font-size: 18px; }
+.r-pair ul { margin: 0; padding-left: 20px; }
+.r-pair li { margin-bottom: 6px; }
+.r-gallery { display: grid; gap: 28px; margin-top: 40px; }
+@media (min-width: 900px) { .r-gallery { grid-template-columns: 1fr 1fr; } }
+.r-price { font-size: 19px; }
+.r-faq dt { font-weight: 600; margin-top: 18px; }
+.r-faq dd { margin: 4px 0 0; color: var(--ink-soft); max-width: var(--measure); }
+.r-docs { margin-top: 64px; padding-top: 8px; border-top: 1px solid var(--border); }
