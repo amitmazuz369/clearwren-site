@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restorable for Jira: documentation — Clearwren</title>
+<meta name="description" content="How Restorable keeps copies of Jira work items, lists deleted ones and restores them, and what a restore cannot bring back.">
+<meta property="og:title" content="Restorable for Jira: documentation — Clearwren">
+<meta property="og:description" content="How Restorable keeps copies of Jira work items, lists deleted ones and restores them, and what a restore cannot bring back.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="/assets/clearwren-wren.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/clearwren-wren-144.png">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="26" height="26" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+  <rect width="512" height="512" rx="112" fill="#1c5d99"/>
+  <g transform="translate(-13 -25)">
+    <path d="M222 340 V420.8 M258 340 V400" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+    <path d="M150 374 L206 430 L386 326" fill="none" stroke="#f2b544" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M178 234 L128 138" stroke="#ffffff" stroke-width="44" stroke-linecap="round"/>
+    <ellipse cx="238" cy="272" rx="100" ry="80" fill="#ffffff"/>
+    <circle cx="330" cy="204" r="54" fill="#ffffff"/>
+    <path d="M378 189 L430 204 L378 219 Z" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="342" cy="194" r="10" fill="#1c5d99"/>
+  </g>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Product</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main id="content" tabindex="-1">
+  <div class="wrap">
+<h1>Restorable: Restore Deleted Work Items for Jira</h1>
+<p class="muted">Documentation · Last updated: 4 November 2026</p>
+
+<div class="prose">
+  <p>
+    Jira Cloud has no recycle bin for single work items: once an item is deleted, it and its
+    comments are gone. Restorable keeps a copy of each work item inside your Jira site, lists the
+    items that were deleted, and recreates one with a click.
+  </p>
+
+  <h2>Install and first steps</h2>
+  <ol>
+    <li>Install Restorable from the Atlassian Marketplace. A Jira administrator installs it once for the whole site.</li>
+    <li>Nothing to configure. From then on, the app copies each work item when it is created or changed.</li>
+    <li>Items that existed before the install are copied the first time someone changes them.
+      An item that was never copied cannot be restored.</li>
+  </ol>
+
+  <h2>Where to find it</h2>
+  <p>
+    Jira settings (the gear icon) &gt; Apps &gt; <strong>Deleted work items</strong> in the left menu.
+    Only Jira administrators can open this page.
+  </p>
+
+  <h2>The deleted work items page</h2>
+  <p>
+    The page lists every deleted item the app holds a copy of, with its key, summary, space and the
+    date it was deleted. You see only items from spaces you can browse. Items that had a security
+    level show "(restricted by a security level)" instead of their summary.
+  </p>
+  <p>
+    The app notices most deletions as they happen. A nightly check also compares the copies with the
+    items still in Jira, to catch deletions it missed, for example sub-tasks deleted together with
+    their parent. <strong>Check now</strong> runs that check immediately.
+  </p>
+
+  <h2>Restoring an item</h2>
+  <p>
+    Press <strong>Restore</strong>. The app creates a new work item in the same space and brings back:
+  </p>
+  <ul>
+    <li>summary, description, work type, priority, labels, components, fix versions, due date, assignee and reporter;</li>
+    <li>status (the app moves the new item through the workflow to the original status when a transition allows it);</li>
+    <li>links to other work items, in the same direction;</li>
+    <li>the old comments, quoted, each with its author and time;</li>
+    <li>the parent: a sub-task comes back under its parent, or under the restored parent if the parent was deleted and restored first.</li>
+  </ul>
+  <p>
+    A comment from the app on the new item records the old key and anything
+    that could not be carried over. If Jira refuses a field (for example a version that no longer exists),
+    the app restores the item without it and says so in that comment.
+  </p>
+
+  <h2>What a restore cannot bring back</h2>
+  <ul>
+    <li><strong>Attached files.</strong> Jira deletes them with the item. The restored item lists each one
+      (name, size, who added it and when), so you know whom to ask for a copy.</li>
+    <li><strong>The old key.</strong> The new item gets a new key; the app's comment records the old one.</li>
+    <li><strong>Work logs and history</strong>, and the original authors and times of comments (they are quoted, not re-created).</li>
+    <li><strong>Items deleted before the app was installed</strong>, or never changed since.</li>
+  </ul>
+
+  <h2>Retention</h2>
+  <p>
+    Copies of deleted items are kept for 90 days and then removed. A copy is removed as soon as its item is
+    restored, and the restored item is protected again from then on. Uninstalling the app deletes all copies.
+  </p>
+
+  <h2>Licence</h2>
+  <p>
+    Without an active licence the page still lists deleted items and the app keeps copying, but
+    <strong>Restore</strong> is turned off until the licence is active again.
+  </p>
+
+  <h2>Privacy and security</h2>
+  <p>
+    Restorable runs on Atlassian's platform. The copies stay in your Jira site's own app storage; the app
+    calls no outside server and sends no analytics. Details: <a href="/restore-privacy.html">privacy policy</a>
+    and <a href="/terms.html">terms</a>.
+  </p>
+
+  <h2>Support</h2>
+  <p>
+    Email <a href="mailto:support@clearwren.com">support@clearwren.com</a>. We reply within one working day.
+  </p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>
