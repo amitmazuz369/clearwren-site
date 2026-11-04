@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to recover a deleted work item in Jira Cloud (and what actually works)</title>
+<meta name="description" content="Jira Cloud has no recycle bin for a single deleted issue. What you can still recover, where to look, why a backup will not help, and how to stop it happening again.">
+<meta property="og:title" content="How to recover a deleted work item in Jira Cloud (and what actually works)">
+<meta property="og:description" content="Jira Cloud has no recycle bin for a single deleted issue. What you can still recover, where to look, why a backup will not help, and how to stop it happening again.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://clearwren.com/assets/og/restorable.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="/assets/clearwren-wren.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/clearwren-wren-144.png">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><svg width="26" height="26" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+  <rect width="512" height="512" rx="112" fill="#1c5d99"/>
+  <g transform="translate(-13 -25)">
+    <path d="M222 340 V420.8 M258 340 V400" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+    <path d="M150 374 L206 430 L386 326" fill="none" stroke="#f2b544" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M178 234 L128 138" stroke="#ffffff" stroke-width="44" stroke-linecap="round"/>
+    <ellipse cx="238" cy="272" rx="100" ry="80" fill="#ffffff"/>
+    <circle cx="330" cy="204" r="54" fill="#ffffff"/>
+    <path d="M378 189 L430 204 L378 219 Z" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="342" cy="194" r="10" fill="#1c5d99"/>
+  </g>
+</svg> Clearwren</a>
+    <nav class="site">
+        <a href="/">Clarable</a>
+        <a href="/restorable.html">Restorable</a>
+        <a href="/checker.html">Free checker</a>
+        <a href="/checks.html">What it checks</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/guides.html">Guides</a>
+        <a href="/wcag.html">WCAG reference</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/security.html">Security</a>
+        <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main id="content" tabindex="-1">
+  <div class="wrap">
+<h1>How to recover a deleted work item in Jira Cloud</h1>
+<p class="lede">
+  Someone deleted a work item (an issue, in older Jira) and you need it back. The short answer: Jira Cloud cannot undo
+  it. The longer answer: most of what was in it still exists somewhere, and you can stop it happening again in five minutes.
+</p>
+<p class="muted">Last checked: 4 November 2026</p>
+
+<div class="prose">
+  <h2>First: is it really deleted?</h2>
+  <p>
+    Before anything else, rule out the two things that look like a deletion but are not.
+  </p>
+  <ul>
+    <li><strong>It was moved.</strong> Search for the old key, for example <code>key = ABC-123</code>, or paste the
+      old link. A moved work item redirects to its new key in another space.</li>
+    <li><strong>It was archived.</strong> On Premium and Enterprise plans, archived work items disappear from boards
+      and searches. A Jira admin can find them in the archived work items list and restore them.</li>
+  </ul>
+  <p>If the search for the key returns nothing at all, the item was deleted.</p>
+
+  <h2>Why Jira cannot bring it back</h2>
+  <p>
+    Deleting a single work item in Jira Cloud is permanent. There is no trash or recycle bin for it, and no undo.
+    Whole spaces (projects) go to a trash for 60 days, but single items do not. Atlassian's own feature request for
+    a recycle bin, <a href="https://jira.atlassian.com/browse/JRACLOUD-36415">JRACLOUD-36415</a>, has been open since 2014.
+  </p>
+  <p>
+    A backup does not solve it either. Restoring a Jira Cloud backup replaces the whole site, so everything that
+    changed since the backup would be lost to recover one item. Atlassian Support cannot pull one work item out of
+    a backup for you.
+  </p>
+
+  <h2>Where the content usually still exists</h2>
+  <ol>
+    <li><strong>Email notifications.</strong> The reporter, the assignee and every watcher got an email for the
+      creation and for each comment. Search your mailbox for the key: you often get back the description and most of
+      the comments, word for word.</li>
+    <li><strong>Links from elsewhere.</strong> Confluence pages, other work items, pull requests and chat messages
+      that mentioned the key often quote the important parts.</li>
+    <li><strong>Exports and reports.</strong> A CSV export, a dashboard screenshot or a sprint report from before
+      the deletion can give you the fields.</li>
+    <li><strong>A backup file, read by hand.</strong> If your admin keeps backup exports, the data is inside. You
+      cannot import one item from it, but you can copy the text out.</li>
+  </ol>
+  <p>
+    Whatever you recover, you will be creating a new work item with a new key. Add a comment with the old key, so
+    anyone who searches for it, or follows an old link, can find the new one.
+  </p>
+
+  <h2>Who deleted it?</h2>
+  <p>
+    Depending on your plan, a Jira admin may find the deletion in the audit log (Jira settings, then System, then
+    Audit log), or an organization admin in the organization's audit log. If not, the short list is whoever holds
+    the <strong>Delete work items</strong> permission in that space: check the space's permission scheme.
+  </p>
+
+  <h2>Stop it happening again</h2>
+  <p>
+    The reliable fix is permissions. In the space settings, open the permission scheme and remove
+    <strong>Delete work items</strong> from roles such as Member, so only administrators can delete. A permission
+    scheme is often shared by many spaces, so copy it first if only one space should change.
+  </p>
+  <p>
+    Then give people a way to close an item without deleting it: a resolution such as "Won't do" or "Duplicate", or
+    archiving on Premium. Most deletions are someone tidying up, not someone wanting the history gone.
+  </p>
+
+  <h2>If you want an undo anyway</h2>
+  <p>
+    Permissions prevent most accidents, but not all of them: admins still delete, and bulk changes go wrong. For
+    that, an app has to keep a copy of each item <em>before</em> it is deleted. No tool can recover an item it never
+    saw, so this only helps from the day it is installed.
+  </p>
+  <p>
+    We make one: <a href="/restorable.html">Restorable</a> keeps a copy of each work item inside your own Jira site,
+    lists what was deleted, and recreates an item in one click with its fields, status, links and quoted comments.
+    Attached files cannot be restored (Jira deletes them), but the restored item lists each one. There are other
+    apps that do something similar on the Atlassian Marketplace; whichever you choose, check what it restores and
+    where it keeps your data.
+  </p>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Clearwren</span>
+    <a href="/">Clarable</a>
+    <a href="/restorable.html">Restorable</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/support.html">Support</a>
+    <span class="spacer"></span>
+    <a href="mailto:support@clearwren.com">support@clearwren.com</a>
+  </div>
+</footer>
+</body>
+</html>

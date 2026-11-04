@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Security — Clarable</title>
-<meta name="description" content="How Clarable handles your data: no egress, no external servers, everything inside Atlassian Forge.">
-<meta property="og:title" content="Security — Clarable">
-<meta property="og:description" content="How Clarable handles your data: no egress, no external servers, everything inside Atlassian Forge.">
+<title>Security — Clarable and Restorable</title>
+<meta name="description" content="How Clearwren's apps handle your data: no egress, no external servers, everything inside Atlassian Forge.">
+<meta property="og:title" content="Security — Clarable and Restorable">
+<meta property="og:description" content="How Clearwren's apps handle your data: no egress, no external servers, everything inside Atlassian Forge.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://clearwren.com/assets/og/clearwren.png">
 <meta property="og:image:width" content="1200">
@@ -94,6 +94,26 @@
     the app removes its stored data with it. There is no separate export to request and no
     separate account to close.
   </p>
+</div>
+
+<h2>Restorable, for Jira</h2>
+<div class="prose">
+  <p>
+    The sections above describe Clarable. Restorable follows the same model: it runs on Atlassian Forge, makes no
+    outbound network calls and has no Clearwren server behind it.
+  </p>
+  <ul>
+    <li><strong>Stored:</strong> a copy of each work item (fields, comments, link targets, names and sizes of attached
+      files, not the files) in Forge storage inside your Jira site. Copies of deleted items are removed after 90 days,
+      and all copies on uninstall.</li>
+    <li><strong>Permissions:</strong> <code>read:jira-work</code> to copy items and detect deletions;
+      <code>write:jira-work</code> to recreate an item when an admin presses Restore; <code>read:jira-user</code> for
+      the names of comment authors and uploaders; <code>storage:app</code> for the copies;
+      <code>report:personal-data</code> to report stored account IDs to Atlassian, so closed accounts are anonymised.</li>
+    <li><strong>Access:</strong> only Jira administrators can open the page, it lists only items from spaces they can
+      browse, and a restore keeps the item's security level.</li>
+  </ul>
+  <p>Details: <a href="/restore-privacy.html">Restorable privacy policy</a>.</p>
 </div>
 
 <h2>Reporting a vulnerability</h2>
