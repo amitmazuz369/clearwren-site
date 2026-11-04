@@ -1,0 +1,101 @@
+<!doctype html><meta charset="utf-8"><title>restorable</title>
+<body style="margin:0;background:#000"><canvas id="c"></canvas>
+<script>
+const q=new URLSearchParams(location.search);const V=q.get('o')==='v';
+const W=V?1080:1920,H=V?1920:1080;const cv=document.getElementById('c');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+const F='Inter,"Helvetica Neue",Arial,sans-serif';
+const C={bg:'#f4f6f8',ink:'#1b2733',mut:'#5b6b7b',blue:'#1c5d99',navy:'#0f2a44',amb:'#f2b544',red:'#b3261e',grn:'#1f7a4d',line:'#d6dee7'};
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),ez=x=>{x=cl(x);return x*x*(3-2*x)},lerp=(a,b,t)=>a+(b-a)*t;
+function rr(x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
+function tx(s,x,y,size,color,o={}){g.font=`${o.w||400} ${size}px ${F}`;g.fillStyle=color;g.textAlign=o.a||'left';g.textBaseline=o.b||'alphabetic';g.fillText(s,x,y)}
+function wrap(s,maxW,size,w){g.font=`${w||400} ${size}px ${F}`;const words=s.split(' ');const L=[];let cur='';for(const x of words){const t=(cur+' '+x).trim();if(g.measureText(t).width>maxW&&cur){L.push(cur);cur=x}else cur=t}L.push(cur);return L}
+const IMG={};['1-deleted-list','2-restored','3-history','restorable-1024'].forEach(n=>{const i=new Image();i.src=n+'.png';IMG[n]=i});
+window.__ready=()=>Object.values(IMG).every(i=>i.complete&&i.naturalWidth>0);
+const VP=V?{x:0,y:430,w:1080,h:760}:{x:100,y:110,w:1720,h:760};
+function view(img,cx,cy,z,alpha){ // crop centre (cx,cy) in image px, zoom z over fit-width scale
+  const s=VP.w/1840*z;g.save();g.globalAlpha=alpha==null?1:alpha;g.beginPath();g.rect(VP.x,VP.y,VP.w,VP.h);g.clip();
+  g.translate(VP.x+VP.w/2-cx*s,VP.y+VP.h/2-cy*s);g.scale(s,s);g.drawImage(img,0,0);g.restore();
+  return (x,y)=>[VP.x+VP.w/2+(x-cx)*s,VP.y+VP.h/2+(y-cy)*s];
+}
+function cursor(x,y,press){g.save();g.translate(x,y);g.scale(press?.92:1,press?.92:1);g.fillStyle='#111';g.strokeStyle='#fff';g.lineWidth=3;g.beginPath();g.moveTo(0,0);g.lineTo(0,36);g.lineTo(9,28);g.lineTo(16,44);g.lineTo(23,41);g.lineTo(16,26);g.lineTo(28,26);g.closePath();g.stroke();g.fill();g.restore()}
+function ring(x,y,k){if(k<=0||k>=1)return;g.save();g.globalAlpha=1-k;g.strokeStyle=C.blue;g.lineWidth=6;g.beginPath();g.arc(x,y,16+k*50,0,7);g.stroke();g.restore()}
+function icon(x,y,s){const i=IMG['restorable-1024'];g.save();g.beginPath();rr(x,y,s,s,s*.22);g.clip();g.drawImage(i,x,y,s,s);g.restore()}
+let CAPDARK=false;
+function caption(txt,a){if(a<=0||!txt)return;const size=V?50:46,mw=V?900:1500;const L=wrap(txt,mw,size,700);const lh=size*1.25;const bw=Math.max(...L.map(l=>(g.font=`700 ${size}px ${F}`,g.measureText(l).width)))+70,bh=L.length*lh+38;
+  const cx=W/2,y=V?1560:H-170;g.save();g.globalAlpha=a;rr(cx-bw/2,y-bh/2+(1-a)*18,bw,bh,22);g.fillStyle=CAPDARK?'rgba(255,255,255,.96)':'rgba(15,42,68,.93)';g.fill();
+  L.forEach((l,i)=>tx(l,cx,y-bh/2+(1-a)*18+19+size*.92+i*lh,size,CAPDARK?C.navy:'#fff',{w:700,a:'center'}));g.restore()}
+const CAPS=[[0.3,2.4,'A work item gets deleted by mistake.'],[2.9,2.9,'Jira Cloud has no recycle bin for a single work item.'],[6.2,2.0,'Once deleted, the item and its comments are gone.'],[8.4,1.7,'Atlassian’s own restore request has been open since 2014.'],
+ [10.4,2.6,'Restorable keeps a copy inside your own Jira site.'],[13.2,2.8,'Deleted items are listed: key, summary, space, date.'],[16.3,2.0,'One click to restore.'],[18.7,1.5,'Restored as KAN-16.'],
+ [20.4,2.7,'Old comments come back quoted, with author and time.'],[23.3,2.6,'A comment records the old key.'],[26.4,3.4,'Attached files are listed, not restored.'],[30.3,2.1,'Runs on Atlassian. Copies stay in your Jira site.']];
+window.__caps=CAPS;
+const END=32.6,TOT=37;
+function scCard(t){ // 0-6
+  g.fillStyle=C.bg;g.fillRect(0,0,W,H);
+  const cw=V?900:1100,ch=V?300:260,cx=W/2-cw/2,cy=V?560:300;
+  const k=ez((t-1.9)/.7);// delete collapse
+  const al=1-k;
+  if(al>0){g.save();g.globalAlpha=al;g.translate(W/2,cy+ch/2);g.scale(1-.12*k,1-.12*k);g.translate(-W/2,-(cy+ch/2));
+    g.shadowColor='rgba(15,42,68,.18)';g.shadowBlur=30;g.shadowOffsetY=10;rr(cx,cy,cw,ch,18);g.fillStyle='#fff';g.fill();g.shadowColor='transparent';
+    tx('KAN-11',cx+40,cy+70,34,C.mut,{w:700});tx(V?'Checkout: show delivery date':'Checkout: show delivery date before payment',cx+40,cy+130,V?44:46,C.ink,{w:700});if(V)tx('before payment',cx+40,cy+184,44,C.ink,{w:700});
+    const bx=cx+cw-230,by=cy+ch-90;const press=t>1.6&&t<1.9;rr(bx,by,190,56,10);g.fillStyle=press?'#8f1d17':C.red;g.fill();tx('Delete',bx+95,by+38,26,'#fff',{w:700,a:'center'});
+    g.restore();
+    const px=lerp(W*.75,bx+95,ez((t-.6)/.9)),py=lerp(cy+ch+260,by+34,ez((t-.6)/.9));cursor(px,py,press);ring(bx+95,by+30,(t-1.65)/.6)}
+  if(t>2.8){const a=ez((t-2.8)/.6);g.globalAlpha=a;tx('Deleted.',W/2,cy+ch/2+16,V?90:100,C.ink,{w:800,a:'center'});g.globalAlpha=1}
+}
+function scFacts(t){ // 6-10 (t local 0..4)
+  g.fillStyle=C.navy;g.fillRect(0,0,W,H);const a=ez(t/.5);g.globalAlpha=a;
+  tx('No recycle bin.',W/2,V?820:480,V?120:150,'#fff',{w:800,a:'center'});
+  const L=wrap('Once a work item is deleted in Jira Cloud, the item and its comments are gone.',V?820:1200,V?46:50,500);L.forEach((l,i)=>tx(l,W/2,(V?930:575)+i*66,V?46:50,'#c9d8e8',{a:'center',w:500}));
+  g.globalAlpha=ez((t-1.6)/.5);rr(W/2-290,V?1180:760,580,84,42);g.strokeStyle=C.amb;g.lineWidth=4;g.stroke();tx('JRACLOUD-36415 · open since 2014',W/2,(V?1180:760)+54,30,C.amb,{w:700,a:'center'});g.globalAlpha=1;
+}
+function scList(t){ // 10-20.4: intro, list, click, restored
+  g.fillStyle=C.bg;g.fillRect(0,0,W,H);
+  const t0=t;const ia=ez(t0/.5);
+  if(t0<2.4){ // title
+    g.globalAlpha=ia*(1-ez((t0-1.9)/.5));icon(W/2-90,V?600:260,180);tx('Restorable',W/2,V?890:560,V?110:120,C.ink,{w:800,a:'center'});tx('Restore Deleted Work Items for Jira',W/2,V?960:630,V?42:44,C.mut,{a:'center'});g.globalAlpha=1}
+  if(t0>=2.0){
+    const a=ez((t0-2.0)/.5);const zz=V?2.2:1.0;const cx=V?lerp(560,1230,ez((t0-5.2)/1.6)):920,cy=V?(t0>8.2?400:500):450;
+    const sw=t0>8.2?ez((t0-8.2)/.4):0; // switch to restored screen at 8.2
+    const map=view(IMG['1-deleted-list'],cx,cy,zz,a*(1-sw));
+    view(IMG['2-restored'],cx,cy,zz,a*sw);
+    if(t0>6.2&&t0<8.6){const [rx,ry]=map(1548,573);const k=ez((t0-6.2)/1.2);const sx=lerp(V?W*.9:W*.8,rx,k),sy=lerp(V?VP.y+VP.h+60:VP.y+VP.h-20,ry,k);
+      cursor(sx,sy,t0>7.5&&t0<7.9);ring(rx,ry,(t0-7.55)/.6);
+      if(t0>6.6&&t0<8.3){const [x1,y1]=map(129,548),[x2,y2]=map(1710,598);g.save();g.globalAlpha=.9*cl((t0-6.6)/.3);g.strokeStyle=C.blue;g.lineWidth=5;rr(x1-8,y1,x2-x1+16,y2-y1,8);g.stroke();g.restore()}}
+    if(t0>8.6){const [bx,by]=map(900,394);const k=ez((t0-8.6)/.4);g.save();g.globalAlpha=k*(0.6+0.4*Math.sin((t0-8.6)*5)**2);g.strokeStyle=C.grn;g.lineWidth=6;const [x1,y1]=map(121,364),[x2,y2]=map(1703,426);rr(x1-6,y1-6,x2-x1+12,y2-y1+12,10);g.stroke();g.restore()}
+  }
+}
+function scHist(t){ // 20.4-26.4 (local 0..6)
+  g.fillStyle=C.bg;g.fillRect(0,0,W,H);const a=ez(t/.5);const zz=V?1.6:1.0;
+  view(IMG['3-history'],V?720:920,V?330:300,zz,a);
+  const [x1,y1]=[0,0];
+}
+function scLimit(t){ // 26.4-30.3 (local 0..3.9)
+  g.fillStyle='#fff';g.fillRect(0,0,W,H);const a=ez(t/.5);g.globalAlpha=a;
+  rr(V?60:260,V?640:290,V?960:1400,V?620:420,28);g.fillStyle='#fff7e0';g.fill();g.strokeStyle=C.amb;g.lineWidth=4;g.stroke();
+  const L=wrap('Attached files are listed, not restored.',V?820:1200,V?84:96,800);L.forEach((l,i)=>tx(l,W/2,(V?800:430)+i*(V?100:112),V?84:96,C.ink,{w:800,a:'center'}));
+  g.globalAlpha=ez((t-.9)/.5);const L2=wrap('The restored item lists each file’s name, size, uploader and date.',V?820:1100,V?38:40,500);L2.forEach((l,i)=>tx(l,W/2,(V?1070:600)+i*52,V?38:40,C.mut,{a:'center',w:500}));g.globalAlpha=1;
+}
+function scPriv(t){ // 30.3-32.6
+  g.fillStyle=C.navy;g.fillRect(0,0,W,H);const a=ez(t/.4);g.globalAlpha=a;
+  const L=wrap('Runs on Atlassian.',V?900:1400,V?110:120,800);L.forEach((l,i)=>tx(l,W/2,(V?820:440)+i*130,V?110:120,'#fff',{w:800,a:'center'}));
+  const base=(V?820:440)+(L.length-1)*130+110;const L2=wrap('Copies stay in your own Jira site. No outside servers, no analytics.',V?860:1300,V?44:48,500);L2.forEach((l,i)=>tx(l,W/2,base+i*62,V?44:48,'#c9d8e8',{a:'center'}));g.globalAlpha=1;
+}
+function scEnd(t,now){ // 32.6-37
+  g.fillStyle=C.navy;g.fillRect(0,0,W,H);
+  const a=ez(t/.5);g.globalAlpha=a;icon(W/2-110,V?560:150,220);
+  tx('Restorable',W/2,V?940:520,V?130:140,'#fff',{w:800,a:'center'});
+  tx('Restore Deleted Work Items for Jira',W/2,V?1010:585,V?42:46,'#c9d8e8',{a:'center'});
+  tx('by Clearwren',W/2,V?1075:645,V?36:38,'#9fb4c9',{a:'center',w:500});
+  g.globalAlpha=ez((t-.7)/.5);const txt=now?'Now on the Atlassian Marketplace':'Coming soon to the Atlassian Marketplace';
+  g.font=`700 ${V?40:44}px ${F}`;const bw=g.measureText(txt).width+90;rr(W/2-bw/2,V?1180:720,bw,92,46);g.fillStyle=C.amb;g.fill();tx(txt,W/2,(V?1180:720)+60,V?40:44,C.navy,{w:700,a:'center'});
+  tx('Jira and Atlassian are trademarks of Atlassian. Not affiliated.',W/2,V?1780:1010,V?24:24,'#8fa9c4',{a:'center'});g.globalAlpha=1;
+}
+window.__draw=function(t,now){
+  if(t<6)scCard(t);else if(t<10)scFacts(t-6);else if(t<20.4)scList(t-10);else if(t<26.4)scHist(t-20.4);else if(t<30.3)scLimit(t-26.4);else if(t<END)scPriv(t-30.3);else scEnd(t-END,now);
+  CAPDARK=(t>=6&&t<10)||(t>=30.3&&t<END);
+  if(t<END){let ca=0,ct='';for(const c of CAPS){const a=ez((t-c[0])/.3)*ez((c[0]+c[1]-t)/.3);if(a>ca){ca=a;ct=c[2]}}caption(ct,ca)}
+  // wordmark in corner
+  if(t>=10&&t<END){g.save();g.globalAlpha=.9;icon(V?40:50,V?60:50,V?64:56);tx('Restorable',V?118:122,V?104:92,V?34:30,C.ink,{w:700});g.restore()}
+  const fade=t>TOT-.4?ez((TOT-t)/.4):1;if(fade<1){g.fillStyle=`rgba(15,42,68,${1-fade})`;g.fillRect(0,0,W,H)}
+};
+</script>

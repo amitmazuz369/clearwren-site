@@ -1,0 +1,40 @@
+WEBVTT
+
+00:00:00.300 --> 00:00:02.700
+A work item gets deleted by mistake.
+
+00:00:02.900 --> 00:00:05.800
+Jira Cloud has no recycle bin for a single work item.
+
+00:00:06.200 --> 00:00:08.200
+Once deleted, the item and its comments are gone.
+
+00:00:08.400 --> 00:00:10.100
+Atlassian's own restore request has been open since 2014.
+
+00:00:10.400 --> 00:00:13.000
+Restorable keeps a copy inside your own Jira site.
+
+00:00:13.200 --> 00:00:16.000
+Deleted items are listed: key, summary, space, date.
+
+00:00:16.300 --> 00:00:18.300
+One click to restore.
+
+00:00:18.700 --> 00:00:20.200
+Restored as KAN-16.
+
+00:00:20.400 --> 00:00:23.100
+Old comments come back quoted, with author and time.
+
+00:00:23.300 --> 00:00:25.900
+A comment records the old key.
+
+00:00:26.400 --> 00:00:29.800
+Attached files are listed, not restored.
+
+00:00:30.300 --> 00:00:32.400
+Runs on Atlassian. Copies stay in your Jira site.
+
+00:00:32.600 --> 00:00:37.000
+Restorable. Restore Deleted Work Items for Jira. By Clearwren. Now on the Atlassian Marketplace.
