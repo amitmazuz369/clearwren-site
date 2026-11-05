@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy policy: Restore Deleted Work Items — Clearwren</title>
-<meta name="description" content="What the Restore Deleted Work Items app for Jira stores, where it stays, and how long it is kept.">
-<meta property="og:title" content="Privacy policy: Restore Deleted Work Items — Clearwren">
-<meta property="og:description" content="What the Restore Deleted Work Items app for Jira stores, where it stays, and how long it is kept.">
+<title>Privacy policy: Restorable for Jira — Clearwren</title>
+<meta name="description" content="What Restorable (Restore Deleted Work Items for Jira) stores, where it stays, how long it is kept and how personal data is handled.">
+<meta property="og:title" content="Privacy policy: Restorable for Jira — Clearwren">
+<meta property="og:description" content="What Restorable (Restore Deleted Work Items for Jira) stores, where it stays, how long it is kept and how personal data is handled.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://clearwren.com/assets/og/clearwren.png">
 <meta property="og:image:width" content="1200">
@@ -46,13 +46,14 @@
 </header>
 <main id="content" tabindex="-1">
   <div class="wrap">
-<h1>Privacy policy: Restore Deleted Work Items for Jira</h1>
+<h1>Privacy policy: Restorable for Jira</h1>
 <p class="muted">Last updated: 5 November 2026</p>
 
 <div class="prose">
   <p>
-    This page covers the Restore Deleted Work Items app for Jira Cloud. Our general
-    <a href="/privacy.html">privacy policy</a> covers this website and our other apps.
+    This page covers Restorable (listed as "Restorable: Restore Deleted Work Items for Jira"), our app
+    for Jira Cloud. Our general <a href="/privacy.html">privacy policy</a> covers this website and our
+    other apps.
   </p>
 
   <h2>Who we are</h2>
@@ -63,18 +64,24 @@
 
   <h2>What the app stores</h2>
   <p>
-    To recreate a work item after it is deleted, the app keeps a copy of each work item when
-    it is created or changed. A copy holds the item's key, space, work type, summary,
-    description, priority, labels, components, versions, due date, assignee and reporter
-    account IDs, status, security level, custom field values, links to other items, the names
-    and sizes of attached files (not the files), and its comments with their authors' names.
-    When an item is deleted, the app also records when, and the account ID of the person who
-    deleted it if Jira reports one.
+    A deleted work item can only be recreated from a copy made before it was deleted. So while the
+    app is installed, it keeps a copy of <strong>every</strong> work item in your site, and updates that copy
+    each time the item is created, changed or commented on. Most copies therefore belong to items
+    that are never deleted.
   </p>
   <p>
-    The copies are written to Forge storage, which sits inside Atlassian's platform under
-    your agreement with Atlassian. We do not operate servers that receive your data, we do
-    not keep copies of your work items, and we cannot read your Forge storage.
+    A copy holds the item's key, space, work type, summary, description, priority, labels,
+    components, versions, due date, status, security level, the assignee and reporter account IDs,
+    the values of all custom fields, links to other items, the names, sizes, upload times and
+    uploaders of attached files (not the files themselves), and its comments with their authors and
+    dates. Text is copied in full, including any people mentioned in it. When an item is deleted,
+    the copy also records when, and the account ID of the person who deleted it, if Jira provides it.
+  </p>
+  <p>
+    The copies are written to Forge storage, which sits inside Atlassian's platform, in your Jira
+    site's app storage, under your agreement with Atlassian. We do not operate servers that receive
+    your data, we have no access to your Forge storage, and the app sends nothing outside
+    Atlassian's platform.
   </p>
 
   <h2>Who can see it</h2>
@@ -87,22 +94,45 @@
 
   <h2>Personal data</h2>
   <p>
-    The copies contain the account IDs and display names that are already in your Jira site
-    (assignee, reporter, comment authors, uploaders, the person who deleted an item), and whatever personal data your work
-    items themselves contain. The app collects nothing beyond what is in Jira.
+    The copies contain the account IDs and display names already in your Jira site (assignees,
+    reporters, comment authors, uploaders, the person who deleted an item, people mentioned in
+    text), and whatever personal data your work items themselves contain, for example in
+    summaries, descriptions, comments or custom fields. The app collects nothing beyond what is
+    in Jira.
+  </p>
+  <p>
+    Your organisation decides what goes into its Jira site and why. We process this data only to
+    provide the app, and only inside Atlassian's platform.
+  </p>
+  <p>
+    About once a week the app reports the account IDs it holds to Atlassian's personal data
+    reporting service, as Atlassian requires of Forge apps. When Atlassian reports that an
+    account was closed, the app replaces that person's name with "Former user" in its copies and
+    removes their account ID from the assignee, reporter, comment author, uploader and mention
+    fields. It does not scan free text or custom fields: a name typed into a summary, description
+    or comment, or a person chosen in a custom field, stays in the copy until the copy is removed.
   </p>
 
   <h2>Analytics and tracking</h2>
   <p>
-    The app sends no telemetry and calls no outside service.
+    The app sends no telemetry and calls nothing outside Atlassian's platform. Its only calls are
+    to your Jira site and to Atlassian's personal data reporting service.
   </p>
 
   <h2>Retention and deletion</h2>
+  <ul>
+    <li>A copy of a work item that still exists is kept while the app is installed, and updated
+      when the item changes.</li>
+    <li>A copy of a deleted item is kept for 90 days, then removed by a nightly job.</li>
+    <li>A copy is removed as soon as its item is restored; the restored item gets a fresh copy.</li>
+    <li>When the app is uninstalled, Atlassian deletes the app's Forge storage under its own data
+      lifecycle for Forge apps: the data is first marked as deleted, can be relinked if the app is
+      reinstalled within 21 days, and is then removed permanently at the end of Atlassian's
+      retention period. See Atlassian's
+      <a href="https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/">data lifecycle for Forge-hosted storage</a>.</li>
+  </ul>
   <p>
-    A copy of a deleted item is kept for 90 days and then removed by a nightly job. A copy is
-    removed as soon as its item is restored. Uninstalling the app deletes its Forge storage
-    along with it. To remove stored copies without uninstalling, contact support and we will
-    provide the steps.
+    To remove stored copies without uninstalling, contact support and we will provide the steps.
   </p>
 
   <h2>Support correspondence</h2>
