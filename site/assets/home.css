@@ -95,7 +95,7 @@ main.full { padding: 0; }
 .x-col + .x-col { border-top: 1px solid var(--border); }
 @media (min-width: 1100px) { .x-col + .x-col { border-top: 0; border-left: 1px solid var(--border); } }
 .x-colh { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 14px; font-size: 12.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-soft); font-weight: 600; }
-.x-lab textarea { width: 100%; min-height: 320px; resize: vertical; border: 1px solid var(--border); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 14px; font: 16px/1.75 var(--mono); }
+.x-lab textarea { width: 100%; min-height: 320px; resize: vertical; border: 1px solid var(--control-border); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 14px; font: 16px/1.75 var(--mono); }
 .x-hint { font-size: 13px; color: var(--ink-soft); margin: 8px 0 0; }
 .x-linkbtn { background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; font-size: 13px; text-transform: none; letter-spacing: 0; }
 .x-pv { border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 22px; min-height: 300px; background: var(--bg); font-size: 15px; }
@@ -302,7 +302,7 @@ h2[tabindex="-1"]:focus-visible { outline: 3px solid var(--accent); outline-offs
 .x-estin label { font-weight: 600; display: block; margin-bottom: 10px; }
 .x-estin input[type=range] { width: 100%; accent-color: var(--accent); height: 28px; }
 .x-estnum { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
-.x-estnum input { width: 130px; height: 40px; border: 1px solid var(--border); border-radius: 10px; padding: 0 12px; font: 600 16px var(--mono); background: var(--surface); color: var(--ink); }
+.x-estnum input { width: 130px; height: 40px; border: 1px solid var(--control-border); border-radius: 10px; padding: 0 12px; font: 600 16px var(--mono); background: var(--surface); color: var(--ink); }
 .x-estbig { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); }
 .x-estbig .x-r { font-size: 54px; font-weight: 600; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: var(--x-fail); }
 .x-estbig p { color: var(--ink-soft); margin: 8px 0 0; }
