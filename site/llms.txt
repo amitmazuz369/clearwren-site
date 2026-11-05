@@ -1,0 +1,32 @@
+# Clearwren
+
+> Clearwren is a one-person software company in Israel that makes two apps for Atlassian Cloud. Both run entirely on Atlassian Forge, with no outside servers and no egress.
+> Clarable checks Confluence Cloud pages against WCAG 2.2 A and AA. It has been on the Atlassian Marketplace since October 2026.
+> Restorable keeps a copy of each Jira Cloud work item inside the customer's own site, so a deleted item can be restored in one click. It was submitted to the Atlassian Marketplace in November 2026 and is awaiting approval.
+> Both are free for sites of up to 10 users and priced per user above that, billed by Atlassian.
+
+## Apps
+- [Clarable](https://clearwren.com/): accessibility checking for Confluence Cloud. Check every page against WCAG 2.2 A and AA, fix issues in place, and publish a dated conformance report.
+- [What Clarable checks](https://clearwren.com/checks.html): every check, mapped to WCAG 2.2 success criteria
+- [Sample conformance report](https://clearwren.com/sample-report.html): a real Clarable report, run on a fictional nine-page space
+- [Free Confluence accessibility checker](https://clearwren.com/checker.html): paste a page and see its WCAG 2.2 problems. It runs in the browser, and nothing is uploaded.
+- [Restorable](https://clearwren.com/restorable.html): restore deleted work items in Jira Cloud, with fields, status, links, sub-tasks and quoted comments. Attached files cannot be restored, and a restored item gets a new key.
+- [Pricing](https://clearwren.com/pricing.html): per-user tiers for both apps
+
+## Research
+- [The accessibility of documentation published in Confluence](https://clearwren.com/study-confluence-accessibility.html): 1,182 pages on 13 public Confluence sites, measured against WCAG 2.2, with method and limits
+
+## Guides
+- [How to recover a deleted work item in Jira Cloud](https://clearwren.com/guide-jira-deleted-work-item.html): what can still be recovered, why a backup will not help, how to prevent it
+- [Confluence and WCAG](https://clearwren.com/guide-confluence-wcag.html): what Atlassian's VPAT covers and what is the customer's responsibility
+- [Alt text in Confluence](https://clearwren.com/guide-alt-text.html): how to add it and write it well
+- [ADA Title II and Confluence](https://clearwren.com/guide-ada-title-ii.html): the April 2027 and 2028 deadlines and scope
+- [Universities and the April 2027 deadline](https://clearwren.com/guide-higher-education.html)
+- [The European Accessibility Act for documentation teams](https://clearwren.com/guide-eaa.html)
+- [Section 508, VPATs and procurement questionnaires](https://clearwren.com/guide-section-508-vpat.html)
+- [All guides](https://clearwren.com/guides.html)
+
+## Company
+- [About](https://clearwren.com/about.html)
+- [Security](https://clearwren.com/security.html): how both apps handle data inside Atlassian Forge
+- [Support](https://clearwren.com/support.html): support@clearwren.com, replies within one working day
