@@ -1,0 +1,16 @@
+{
+  "name": "clearwren-runway-tools",
+  "private": true,
+  "description": "Local scripts that use Runway Dev to make marketing clips. Not part of the deployed site.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.9"
+  },
+  "scripts": {
+    "animate": "node --env-file-if-exists=.env animate.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@runwayml/sdk": "4.24.0"
+  }
+}
