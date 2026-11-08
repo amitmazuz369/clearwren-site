@@ -16,11 +16,28 @@ import RunwayML, { TaskFailedError, TaskTimedOutError } from '@runwayml/sdk';
 
 const RUNWAY_RATIOS = ['1280:720', '720:1280', '1104:832', '960:960', '832:1104', '1584:672'];
 
-// From the image_to_video reference (api.md), checked 2026-11-08.
+// Fields from the image_to_video reference (api.md); creditsPerSecond from
+// https://docs.dev.runwayml.com/guides/pricing.md. Both checked 2026-11-08.
+// The price is only used for the balance check before a run; after the task is
+// created, the API's own estimatedCost is checked again (see animate()).
 export const MODELS = {
-  gen4_turbo: { ratios: RUNWAY_RATIOS, minDuration: 2, maxDuration: 10, promptRequired: false, promptMax: 1000 },
-  'gen4.5': { ratios: RUNWAY_RATIOS, minDuration: 2, maxDuration: 10, promptRequired: true, promptMax: 1000 },
+  gen4_turbo: { ratios: RUNWAY_RATIOS, minDuration: 2, maxDuration: 10, promptRequired: false, promptMax: 1000, creditsPerSecond: 5 },
+  'gen4.5': { ratios: RUNWAY_RATIOS, minDuration: 2, maxDuration: 10, promptRequired: true, promptMax: 1000, creditsPerSecond: 12 },
 };
+
+export function maxCost(model, duration) {
+  return MODELS[model].creditsPerSecond * duration;
+}
+
+// Refuse any run that could take the balance below `keep` credits.
+export function checkBudget({ balance, cost, keep = 0 }) {
+  if (!Number.isFinite(balance)) throw new Error('Could not read the credit balance from Runway. Not running.');
+  if (balance - cost < keep) {
+    const floor = keep > 0 ? ` and keep ${keep} in reserve` : '';
+    throw new Error(`Not enough credits: balance ${balance}, this run can cost up to ${cost}${floor}. Nothing was sent.`);
+  }
+  return balance - cost;
+}
 
 export const DEFAULTS = {
   model: 'gen4_turbo', // cheaper drafts; re-run the keeper with --model gen4.5
@@ -108,13 +125,32 @@ async function download(url, dest) {
 }
 
 export async function animate(client, opts, log = console.log) {
+  const keep = opts.keep ?? 0;
+
+  // 1. Balance check before anything is uploaded or generated.
+  const { creditBalance } = await client.organization.retrieve();
+  const cost = maxCost(opts.model, opts.duration);
+  const left = checkBudget({ balance: creditBalance, cost, keep });
+  log(`Balance ${creditBalance} credits. This run: up to ${cost}. Left after: at least ${left}.`);
+
   const promptImage = await resolveImage(client, opts.image);
   const body = buildRequest({ ...opts, promptImage });
 
   // No await on create(): waitForTaskOutput() lives on the pending promise.
   const pending = client.imageToVideo.create(body);
   const { id, estimatedCost } = await pending;
-  log(`Task ${id} started (${body.model}, ${body.ratio}, ${body.duration}s). Max charge: ${estimatedCost?.credits ?? '?'} credits.`);
+
+  // 2. Second check against Runway's own maximum for this task, in case the
+  // price table above is out of date. Cancel straight away if it does not fit.
+  const charged = estimatedCost?.credits;
+  if (!Number.isFinite(charged) || creditBalance - charged < keep) {
+    await client.tasks.delete(id).catch(() => {});
+    throw new Error(
+      `Runway quoted ${charged ?? 'no'} credits for task ${id}, more than the balance allows. ` +
+        'The task was cancelled. Update creditsPerSecond in MODELS from the pricing page.',
+    );
+  }
+  log(`Task ${id} started (${body.model}, ${body.ratio}, ${body.duration}s). Max charge: ${charged} credits.`);
 
   const task = await pending.waitForTaskOutput({ timeout: 10 * 60 * 1000 });
 
@@ -137,7 +173,22 @@ function usage() {
   --duration <seconds>  2-10 (default ${DEFAULTS.duration})
   --seed <n>            repeat a result you liked
   --out <dir>           where clips are saved (default ${DEFAULTS.out}/)
-  --dry-run             print the request without calling Runway (no credits used)`;
+  --keep <credits>      never let the balance drop below this (default 0, or RUNWAY_KEEP_CREDITS)
+  --dry-run             print the request without calling Runway (no credits used)
+
+       npm run balance  show the credit balance (free, no generation)`;
+}
+
+function needSecret() {
+  if (process.env.RUNWAYML_API_SECRET) return true;
+  console.error('RUNWAYML_API_SECRET is not set. Put it in tools/runway/.env (see .env.example); that file is git-ignored.');
+  return false;
+}
+
+async function showBalance(client) {
+  const org = await client.organization.retrieve();
+  console.log(`Credit balance: ${org.creditBalance} credits ($${(org.creditBalance / 100).toFixed(2)} at $0.01 each)`);
+  console.log(`Tier limit: ${org.tier.maxMonthlyCreditSpend} credits of purchases per 30 days`);
 }
 
 async function main(argv) {
@@ -151,10 +202,18 @@ async function main(argv) {
       duration: { type: 'string', default: String(DEFAULTS.duration) },
       seed: { type: 'string' },
       out: { type: 'string', default: DEFAULTS.out },
+      keep: { type: 'string', default: process.env.RUNWAY_KEEP_CREDITS ?? '0' },
       'dry-run': { type: 'boolean', default: false },
+      balance: { type: 'boolean', default: false },
       help: { type: 'boolean', short: 'h', default: false },
     },
   });
+
+  if (values.balance) {
+    if (!needSecret()) return 1;
+    await showBalance(new RunwayML());
+    return 0;
+  }
 
   if (values.help || positionals.length !== 1) {
     console.log(usage());
@@ -169,21 +228,23 @@ async function main(argv) {
     duration: Number(values.duration),
     seed: values.seed === undefined ? undefined : Number(values.seed),
     out: values.out,
+    keep: Number(values.keep),
   };
+  if (!Number.isInteger(opts.keep) || opts.keep < 0) {
+    console.error('--keep must be a whole number of credits, 0 or more.');
+    return 1;
+  }
 
   if (values['dry-run']) {
     const isUrl = /^https:\/\//i.test(opts.image);
     if (!isUrl) checkLocalImage(opts.image);
     const placeholder = isUrl ? opts.image : `runway://<ephemeral upload of ${opts.image}>`;
     console.log(JSON.stringify(buildRequest({ ...opts, promptImage: placeholder }), null, 2));
-    console.log('\nDry run: nothing was sent to Runway.');
+    console.log(`\nUp to ${maxCost(opts.model, opts.duration)} credits by the price table. Dry run: nothing was sent to Runway.`);
     return 0;
   }
 
-  if (!process.env.RUNWAYML_API_SECRET) {
-    console.error('RUNWAYML_API_SECRET is not set. Put it in tools/runway/.env (see .env.example); that file is git-ignored.');
-    return 1;
-  }
+  if (!needSecret()) return 1;
 
   // Validate before spending an upload.
   buildRequest({ ...opts, promptImage: 'https://example.invalid/check.jpg' });

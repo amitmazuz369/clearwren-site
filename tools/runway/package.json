@@ -8,6 +8,7 @@
   },
   "scripts": {
     "animate": "node --env-file-if-exists=.env animate.mjs",
+    "balance": "node --env-file-if-exists=.env animate.mjs --balance",
     "test": "node --test"
   },
   "dependencies": {

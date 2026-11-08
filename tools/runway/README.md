@@ -37,12 +37,38 @@ Runway's output links expire.
 Input can be a local JPEG/PNG/WebP (sent as a 24-hour ephemeral upload) or an HTTPS
 URL already live on clearwren.com.
 
-## Cost
+## Credits and spending
 
-From [Runway's pricing page](https://docs.dev.runwayml.com/guides/pricing.md) on 2026-11-08,
-at $0.01 per credit: `gen4_turbo` 5 credits/second, `gen4.5` 12 credits/second. A 5 s draft
-is 25 credits on turbo, 60 on Gen-4.5. The script prints the API's own maximum charge when a
-task starts. Failed and moderated runs are billed too, and the script never retries on its own.
+Check the balance any time. It is a free read and generates nothing:
+
+```bash
+npm run balance
+```
+
+Every live run is guarded twice:
+
+1. **Before anything is uploaded**, the script reads the balance and works out the worst
+   case for the run from the prices in `MODELS` (from
+   [Runway's pricing page](https://docs.dev.runwayml.com/guides/pricing.md), 2026-11-08:
+   `gen4_turbo` 5 credits/second, `gen4.5` 12 credits/second, $0.01 per credit). If the
+   balance would drop below the floor, it stops and sends nothing.
+2. **After the task is created**, it compares Runway's own maximum for that task
+   (`estimatedCost`) with the balance. If that does not fit, it cancels the task at once
+   and tells you to update the price table.
+
+The floor is 0 by default. To always keep some credits in reserve, pass `--keep 200` or set
+`RUNWAY_KEEP_CREDITS=200` in `.env`.
+
+A 5 s draft costs 25 credits on turbo and 60 on Gen-4.5. Failed and moderated runs are billed
+too, and the script never retries on its own.
+
+What the script cannot control:
+
+- **Autobilling.** Runway Dev is prepaid. If autobilling is turned on in the portal's Billing
+  tab, Runway charges your card (at least 1,000 credits, $10) whenever the balance drops below
+  your threshold. Leave it off if you want spending capped at what you bought.
+- **Parallel runs or other keys.** The check is a snapshot. Run one generation at a time, and
+  remember that other keys in the same project spend from the same balance.
 
 ## Known limits
 

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import * as fs from 'node:fs';
 import * as os from 'node:os';
 import * as path from 'node:path';
-import { buildRequest, resolveImage, outputName, animate, MODELS } from './animate.mjs';
+import { buildRequest, resolveImage, outputName, animate, maxCost, checkBudget, MODELS } from './animate.mjs';
 
 const img = 'https://clearwren.com/assets/social/ig-launch-1.jpg';
 
@@ -65,6 +65,8 @@ test('animate submits once, waits on the pending task, and saves the output', as
   let createCalls = 0;
   let sentBody;
   const client = {
+    organization: { retrieve: async () => ({ creditBalance: 100 }) },
+    tasks: { delete: () => assert.fail('should not cancel') },
     uploads: { createEphemeral: () => assert.fail('URL input should not upload') },
     imageToVideo: {
       create(body) {
@@ -87,7 +89,57 @@ test('animate submits once, waits on the pending task, and saves the output', as
 
   assert.equal(createCalls, 1);
   assert.equal(sentBody.promptText, 'slow push in');
-  assert.match(logs[0], /25 credits/);
+  assert.match(logs[0], /Balance 100 credits\. This run: up to 25\. Left after: at least 75/);
+  assert.match(logs[1], /25 credits/);
   assert.deepEqual(result.saved, [path.join(out, 'ig-launch-1-aaaaaaaa.mp4')]);
   assert.equal(fs.readFileSync(result.saved[0], 'utf8'), 'fake-mp4');
+});
+
+test('price table gives the worst case per run', () => {
+  assert.equal(maxCost('gen4_turbo', 5), 25);
+  assert.equal(maxCost('gen4.5', 10), 120);
+});
+
+test('budget check never lets the balance go below the floor', () => {
+  assert.equal(checkBudget({ balance: 25, cost: 25 }), 0);
+  assert.throws(() => checkBudget({ balance: 24, cost: 25 }), /Not enough credits/);
+  assert.throws(() => checkBudget({ balance: 100, cost: 25, keep: 80 }), /keep 80 in reserve/);
+  assert.throws(() => checkBudget({ balance: undefined, cost: 25 }), /Could not read/);
+});
+
+const opts = { image: img, model: 'gen4_turbo', ratio: '832:1104', duration: 5, out: os.tmpdir() };
+
+test('a low balance stops the run before any upload or generation', async () => {
+  const client = {
+    organization: { retrieve: async () => ({ creditBalance: 20 }) },
+    uploads: { createEphemeral: () => assert.fail('should not upload') },
+    imageToVideo: { create: () => assert.fail('should not generate') },
+  };
+  await assert.rejects(animate(client, opts, () => {}), /balance 20, this run can cost up to 25/);
+});
+
+test('the reserve floor is respected', async () => {
+  const client = {
+    organization: { retrieve: async () => ({ creditBalance: 100 }) },
+    imageToVideo: { create: () => assert.fail('should not generate') },
+  };
+  await assert.rejects(animate(client, { ...opts, keep: 80 }, () => {}), /Not enough credits/);
+});
+
+test('a task quoted above the balance is cancelled at once', async () => {
+  const id = 'bbbbbbbb-0000-4000-8000-000000000000';
+  let cancelled;
+  const client = {
+    organization: { retrieve: async () => ({ creditBalance: 30 }) },
+    tasks: { delete: async (taskId) => { cancelled = taskId; } },
+    imageToVideo: {
+      create() {
+        const pending = Promise.resolve({ id, estimatedCost: { credits: 40 } });
+        pending.waitForTaskOutput = () => assert.fail('should not wait on a cancelled task');
+        return pending;
+      },
+    },
+  };
+  await assert.rejects(animate(client, opts, () => {}), /quoted 40 credits.*cancelled/);
+  assert.equal(cancelled, id);
 });
