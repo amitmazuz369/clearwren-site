@@ -53,7 +53,7 @@
   Someone deleted a work item (an issue, in older Jira) and you need it back. The short answer: Jira Cloud cannot undo
   it. The longer answer: most of what was in it still exists somewhere, and you can stop it happening again in five minutes.
 </p>
-<p class="muted">Last checked: 10 November 2026</p>
+<p class="muted">Last checked: 11 November 2026</p>
 
 <div class="prose">
   <h2>First: is it really deleted?</h2>
@@ -99,14 +99,15 @@
 
   <h2>If many items went at once</h2>
   <p>
-    A bulk change can delete dozens or hundreds of work items with one confirmation, sub-tasks included. Nothing
+    A bulk change can delete up to 1,000 work items in one operation, sub-tasks included, after a single confirmation. Nothing
     brings them back as a batch either. Start by exporting what is left: a filter on the space, saved as CSV, tells you
     exactly which keys are missing. Then work through the sources above, most important items first: the email
     notifications usually hold the description and the comments of each one.
   </p>
   <p>
-    Bulk delete uses the same <strong>Delete work items</strong> permission as a single delete, so the fix below also
-    takes the bulk option away from everyone you remove it from.
+    Atlassian's documentation says a bulk delete needs the <strong>Delete work items</strong> permission in each space,
+    and the Service Management documentation also names the global <strong>Make bulk changes</strong> permission. Check
+    what your own site grants for both: the fix below covers the first.
   </p>
 
   <h2>Who deleted it?</h2>
